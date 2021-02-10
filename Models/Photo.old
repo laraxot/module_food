@@ -1,0 +1,8 @@
+<?php
+
+namespace Modules\Food\Models;
+
+use Modules\Blog\Models\Photo as BasePhoto;
+
+class Photo extends BasePhoto {
+}

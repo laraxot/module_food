@@ -1,0 +1,131 @@
+<?php
+
+namespace Modules\Food\Tests\Unit;
+
+/*
+* https://blog.pusher.com/tests-laravel-applications/
+**/
+
+use Illuminate\Foundation\Testing\WithFaker;
+use Modules\Food\Models\Restaurant;
+use Tests\TestCase;
+
+class RestaurantTest extends TestCase {
+    use WithFaker;
+
+    public function testStoreProfile() {
+        $data = factory(\Modules\Food\Models\Profile::class)->raw();
+        $lang = \App::getLocale();
+        $type = 'profile';
+        $act = 'store';
+        $url = route('container0.'.$act,
+            [
+                'lang' => $lang,
+                'container0' => $type,
+            ]
+        );
+        $url = str_replace(url(''), '', $url);
+        $user = \Modules\LU\Models\User::get()->random();
+        //$response = $this->actingAs($user)->post($url, $data);
+        $response = $this->post($url, $data);
+        dd($response->getContent());
+    }
+
+    public function testStoreRestaurantGuest() {
+        $this->withoutExceptionHandling();
+        $data = factory(Restaurant::class)->raw();
+        $lang = \App::getLocale();
+        $type = 'restaurant';
+        $url = route('container0.store',
+            [
+                'lang' => $lang,
+                'container0' => $type,
+            ]
+        );
+        $response = $this->post($url, $data);
+        $referer = $lang.'/'.$type;
+        $response->assertStatus(302);
+        $response->assertRedirect(route('login.notice', ['lang' => $lang, 'referer' => $referer]));
+    }
+
+    //end testStoreRestaurantGuest
+
+    public function testStoreRestaurantAuth() {
+        //$this->withExceptionHandling();
+        $data = factory(Restaurant::class)->raw();
+        $lang = \App::getLocale();
+        $type = 'restaurant';
+        $url = route('container0.store',
+            [
+                'lang' => $lang,
+                'container0' => $type,
+            ]
+        );
+        if ($create = 0) {
+            $user = factory(\Modules\LU\Models\User::class)->create();
+        } else {
+            $user = \Modules\LU\Models\User::get()->random();
+        }
+
+        $response = $this->actingAs($user)
+            ->post($url, $data);
+        $response->assertStatus(200);
+        $response->assertViewIs('theme::layouts.default.store');
+
+        $this->assertDatabaseHas('posts', $data['post']);
+    }
+
+    public function testGettingAllRestaurants() {
+        $response = $this->json('GET', '/it/restaurants');
+        $response->assertStatus(200);
+
+        $response->assertJsonStructure(
+            [
+                [
+                    'id',
+                    'name',
+                    'description',
+                    'units',
+                    'price',
+                    'image',
+                    'created_at',
+                    'updated_at',
+                ],
+            ]
+        );
+    }
+
+    //testGettingAllRestaurants
+
+    public function testUpdateRestaurant() {
+        $response = $this->json('GET', '/api/products');
+        $response->assertStatus(200);
+
+        $product = $response->getData()[0];
+
+        $user = factory(\App\User::class)->create();
+        $update = $this->actingAs($user, 'api')->json('PATCH', '/api/products/'.$product->id, ['name' => 'Changed for test']);
+        $update->assertStatus(200);
+        $update->assertJson(['message' => 'Product Updated!']);
+    }
+
+    public function testUploadImage() {
+        $response = $this->json('POST', '/api/upload-file', [
+            'image' => UploadedFile::fake()->image('image.jpg'),
+        ]);
+        $response->assertStatus(201);
+        $this->assertNotNull($response->getData());
+    }
+
+    public function testDeleteProduct() {
+        $response = $this->json('GET', '/api/products');
+        $response->assertStatus(200);
+
+        $product = $response->getData()[0];
+
+        $user = factory(\App\User::class)->create();
+        $delete = $this->actingAs($user, 'api')->json('DELETE', '/api/products/'.$product->id);
+        $delete->assertStatus(200);
+        $delete->assertJson(['message' => 'Product Deleted!']);
+    }
+}//end class

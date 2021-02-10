@@ -1,0 +1,8 @@
+<?php
+
+namespace Modules\Food\Models;
+
+use Modules\Blog\Models\Event as BaseEvent;
+
+class Event extends BaseEvent {
+}//end model

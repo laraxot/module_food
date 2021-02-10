@@ -1,0 +1,15 @@
+@extends('pub_theme::layouts.app')
+@section('content')
+
+{!! Form::model($row,['url'=>Request::fullUrl() ]) !!} 
+@method('put')
+
+{{ Form::hidden('post[title]') }}
+{{ Form::bsImage('post[image_src]') }}
+
+<div class="modal-footer justify-content-end">
+    <button type="submit" class="btn btn-primary">Save changes</button>
+    <button type="button" data-dismiss="modal" class="btn btn-outline-muted">Close</button>
+</div>
+{{ Form::close() }}
+@endsection

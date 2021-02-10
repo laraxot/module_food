@@ -1,0 +1,37 @@
+<div>
+    @include('food::livewire.add_item_cart_modal')
+    @if (session()->has('message'))
+        <div class="alert alert-success" style="margin-top:30px;">x
+            {{ session('message') }}
+        </div>
+    @endif
+    {{--<div class="row">
+        <div class="col-lg-8">--}}
+
+            <div id="accordion" role="tablist">
+                @foreach ($cuisines as $cuisine)
+                    @component('theme::components.accordition_item')
+                        @slot('title'){{ $cuisine->title }}@endslot
+                        @slot('subtitle'){{ $cuisine->subtitle }}@endslot
+                        @slot('id'){{ $cuisine->id }}@endslot
+                        @slot('content')
+                            @foreach ($cuisine->recipes as $recipe)
+                                @component('theme::components.card_price')
+                                    @slot('id'){{ $recipe->id }}@endslot
+                                    @slot('title'){{ $recipe->title }} @endslot
+                                    @slot('subtitle'){{ $recipe->subtitle }}@endslot
+                                    @slot('price')@money($recipe->pivot->price * 100)@endslot
+                                    @slot('btn')
+                                        <button data-toggle="modal" data-target="#addCartItemModal"
+                                            wire:click="addItemCart({{ $recipe->id }},{{ $cuisine->id }})" class="btn btn-primary"><i
+                                                class="fas fa-plus"></i></button>
+                                    @endslot
+                                @endcomponent
+                            @endforeach
+                        @endslot
+                    @endcomponent
+                @endforeach
+            </div>
+            {{--</div>
+    </div>--}}
+</div>

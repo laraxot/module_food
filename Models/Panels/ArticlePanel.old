@@ -1,0 +1,17 @@
+<?php
+
+namespace Modules\Food\Models\Panels;
+
+//--- Services --
+
+//--------- bases ----------
+use Modules\Blog\Models\Panels\ArticlePanel as BlogArticlePanel;
+
+class ArticlePanel extends BlogArticlePanel {
+    /**
+     * The model the resource corresponds to.
+     *
+     * @var string
+     */
+    public static string $model = 'Modules\Blog\Models\Article';
+}

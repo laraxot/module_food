@@ -1,0 +1,68 @@
+<?php
+
+namespace Modules\Food\Tests\Unit;
+
+use Modules\Food\Models\BellBoy;
+use Modules\Food\Models\Restaurant;
+use Modules\LU\Models\User;
+use Tests\TestCase;
+
+class BellBoyActionsTest extends TestCase {
+    public function createBellBoy() {
+        $user = factory(User::class)->create();
+
+        $profile = $user->profile;
+
+        $bell_boy_data = factory(BellBoy::class)->raw();
+        $bell_boy = $profile->bellBoy()->create($bell_boy_data);
+
+        return $bell_boy;
+    }
+
+    public function test_hasSatus() {
+        $bell_boy = $this->createBellBoy();
+        $restaurant = factory(Restaurant::class)->create();
+
+        $restaurant->approveBellboy($bell_boy);
+        $this->assertTrue($bell_boy->hasStatus(Approved));
+    }
+
+    public function test_isBellBoy() {
+        $user = factory(User::class)->create();
+
+        $profile = $user->profile;
+
+        $bell_boy_data = factory(BellBoy::class)->raw();
+        $profile->bellBoy()->create($bell_boy_data);
+
+        //dddx($bellboy);
+
+        $this->assertTrue($user->profile->isBellBoy());
+    }
+
+    public function test_hasNoRole() {
+        $user = factory(User::class)->create();
+        $this->assertFalse($user->profile->isBellBoy());
+    }
+
+    public function test_hasState() {
+    }
+
+    public function test_hasFreeState() {
+    }
+
+    public function test_promote() {
+    }
+
+    public function test_demote() {
+    }
+
+    public function test_assignCruise() {
+    }
+
+    public function test_acceptCruise() {
+    }
+
+    public function test_refuseCruise() {
+    }
+}

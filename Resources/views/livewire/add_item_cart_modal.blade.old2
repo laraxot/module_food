@@ -1,0 +1,79 @@
+@component('theme::components.modal.simple',['class'=>'modal-lg','guid'=>'addCartItemModal','title'=>$recipe_title])
+@slot('content')
+<form>
+    {{-- 
+        <input type="hidden" id="restaurantId" name="restaurantId" value="{{ $restaurant_id }}">
+        <input type="hidden" id="recipeId" name="recipeId" value="{{ $recipe_id }}">
+    --}}
+    <div class="col-lg-4">
+        <label class="form-label">Quantità</label>
+        <div class="d-flex align-items-center">
+            <div class="btn btn-items btn-items-decrease" wire:click.prevent="decrementRecipe()">-</div>
+                <input type="integer" wire:model="recipe_qty" name="qty" id="qty" class="form-control input-items input-items-greaterthan">
+            <div class="btn btn-items btn-items-increase" wire:click.prevent="incrementRecipe()">+</div>
+        </div>
+    </div>
+
+    <div class="col-lg-12">
+        <label class="form-label">Note</label>
+        <textarea wire:model="note" name="note" id="note" class="form-control"></textarea>
+    </div>
+
+    @foreach($ingredient_cats as $ingredient_cat)
+        @component('theme::components.accordition_item')
+            @slot('title'){{ $ingredient_cat->title }}@endslot
+            @slot('subtitle'){{ $ingredient_cat->subtitle }}@endslot
+            @slot('id'){{ $ingredient_cat->id }}@endslot
+            @slot('content')
+                @foreach($ingredient_cat->ingredients as $ingredient)
+                    @component('theme::components.card_price')
+                        @slot('id'){{ $ingredient->id }}@endslot
+                        @slot('title'){{ $ingredient->title }} @endslot
+                        @slot('subtitle'){{ $ingredient->subtitle }}@endslot
+                        @slot('price'){{ $ingredient->pivot->price }}@endslot
+                        @slot('btn')
+                            <div class="btn-group btn-group-toggle">
+                                    <label class="btn btn-danger">
+                                        <input type="radio" wire:model="changes.{{ $ingredient_cat->id }}.{{ $ingredient->id }}" 
+                                                name="changes[{{ $ingredient_cat->id }}][{{ $ingredient->id }}]"  autocomplete="off" value="-1">
+                                                @if (isset($changes[$ingredient_cat->id][$ingredient->id]) && $changes[$ingredient_cat->id][$ingredient->id] == -1)
+                                                    [-]
+                                                @else
+                                                    -
+                                                @endif
+                                    </label>
+                                    <label class="btn btn-default" >
+                                        <input type="radio" wire:model="changes.{{ $ingredient_cat->id }}.{{ $ingredient->id }}" 
+                                                name="changes[{{ $ingredient_cat->id }}][{{ $ingredient->id }}]"  autocomplete="off"  checked value="0">
+                                                @if (isset($changes[$ingredient_cat->id][$ingredient->id]) && $changes[$ingredient_cat->id][$ingredient->id] == 0)
+                                                    [&nbsp;]
+                                                @else
+                                                    &nbsp;
+                                                @endif
+                                    </label>
+                                    <label class="btn btn-success">
+                                        <input type="radio" wire:model="changes.{{ $ingredient_cat->id }}.{{ $ingredient->id }}" 
+                                                name="changes[{{ $ingredient_cat->id }}][{{ $ingredient->id }}]" autocomplete="off" value="1">
+                                                @if (isset($changes[$ingredient_cat->id][$ingredient->id]) && $changes[$ingredient_cat->id][$ingredient->id] == 1)
+                                                    [+]
+                                                @else
+                                                    +
+                                                @endif
+                                    </label>
+                                </div>
+
+                        @endslot
+                    @endcomponent
+                @endforeach
+            @endslot
+        @endcomponent
+    @endforeach
+</form>
+@endslot
+@slot('btns')
+    <button type="button" wire:click.prevent="cancel()" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+    <button type="button" wire:click.prevent="store()" class="btn btn-primary" data-dismiss="modal">Aggiungi al carrello</button>
+@endslot
+@endcomponent
+
+

@@ -1,0 +1,29 @@
+<div>
+    @if($updateMode)
+    @include('food::livewire.restaurant_owner.update')
+    @endif
+    @foreach($bell_boys as $bell_boy)
+
+
+        @component('theme::components.card')
+            @slot('title')
+                {{ $bell_boy->full_name }}
+            @endslot
+            @slot('subtitle')
+                {{ $bell_boy }}
+                {{--  
+               {!! $bell_boy->pivot->status !!}
+               --}}
+            @endslot
+            @slot('content')
+                <button data-toggle="modal" data-target="#updateModal" wire:click="edit({{ $bell_boy->id }})" class="btn btn-primary btn-sm">Edit</button>
+            @endslot
+        @endcomponent
+
+
+
+
+        
+
+    @endforeach
+</div>

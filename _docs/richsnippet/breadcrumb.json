@@ -1,0 +1,29 @@
+{
+	"@context":"http://schema.org",
+	"@type":"BreadcrumbList",
+	"itemListElement":
+	[
+		{
+			"@type":"ListItem",
+			"position":"1",
+			"item":
+			{
+			"@id":"/Tourism-g4-Europe-Vacations.html",
+			"name":"Europa"
+			}
+		},
+		{
+			"@type":"ListItem",
+			"position":"2",
+			"item":
+			{
+			"@id":"/Tourism-g187768-Italy-Vacations.html",
+			"name":"Italia"
+			}
+		},
+		{"@type":"ListItem","position":"3","item":{"@id":"/Tourism-g187789-Lazio-Vacations.html","name":"Lazio"}},
+		{"@type":"ListItem","position":"4","item":{"@id":"/Tourism-g2624070-Province_of_Rome_Lazio-Vacations.html","name":"Provincia di Roma"}},
+		{"@type":"ListItem","position":"5","item":{"@id":"/Tourism-g799531-Lido_di_Ostia_Province_of_Rome_Lazio-Vacations.html","name":"Lido di Ostia"}},
+		{"@type":"ListItem","position":"6","item":{"@id":"/Restaurants-g799531-Lido_di_Ostia_Province_of_Rome_Lazio.html","name":"Ristoranti: Lido di Ostia"}}
+	]
+}

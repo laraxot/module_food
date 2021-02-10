@@ -1,0 +1,93 @@
+https://blog.pusher.com/tests-laravel-applications/
+https://kevinpimentel.com/blog/11/laravel-blog-using-tdd-part-2-view-and-create-blog-posts
+https://jasonmccreary.me/articles/start-testing-laravel/
+https://tighten.co/blog/tidying-up-your-phpunit-tests-with-data-providers/
+https://github.com/dwightwatson/laravel-auth-tests
+https://laravel-news.com/your-first-laravel-application
+
+https://jasonmccreary.me/articles/test-validation-laravel-form-request-assertion/
+
+
+$response->assertSee($post->title);
+
+$response->assertViewIs('articles.index');
+$response->assertViewHas('articles');
+$response->assertRedirect('login');
+
+$response->assertSuccessful();
+
+
+        //$response->assertJson(['status' => true]);
+        //$response->assertJson(['message' => 'Product Created!']);
+        //$response->assertJson(['data' => $data]);
+        //->assertSee($attributes['title']);
+$this->assertEquals(
+
+
+this->visit('/login')
+        ->type($user->email, 'email')
+        ->type('password', 'password')
+        ->press('submit')
+        ->seePageIs('/');
+
+ $response->assertRedirect(route('home'));
+    $this->assertAuthenticatedAs($user);
+
+$this->assertDatabaseHas('users', [
+    'name' => 'JMac',
+    'email' => 'jmac@example.com'
+]);
+
+$this->assertNotNull($user);
+
+    $this->assertAuthenticatedAs($user);
+
+    $response->assertStatus(200);
+
+/**
+     * An invalid user is not registered.
+     *
+     * @return void
+     */
+    public function testDoesNotRegisterAnInvalidUser()
+    {
+        $user = factory(User::class)->make();
+
+        $response = $this->post('register', [
+            'name' => $user->name,
+            'email' => $user->email,
+            'password' => 'secret',
+            'password_confirmation' => 'invalid'
+        ]);
+
+        $response->assertSessionHasErrors();
+
+        $this->dontSeeIsAuthenticated();
+    }
+
+
+$response
+        ->assertStatus(201)
+        ->assertExactJson([
+            'message' => "Successfully created user!",
+        ]);
+
+         $response = $this->json('POST', "api/v1/{$this->endpoint}/", $activity);
+        ($this->model)::destroy($activity['id']);
+        $response
+            ->assertStatus(201)
+            ->assertJson([
+                'data' => true
+            ]);
+
+/** @test */
+function link_is_not_created_if_validation_fails()
+{
+    $response = $this->post('/submit');
+
+    $response->assertSessionHasErrors(['title', 'url', 'description']);
+}
+
+
+$this->fail('Max length should trigger a ValidationException');
+

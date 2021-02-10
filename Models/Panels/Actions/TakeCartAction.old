@@ -1,0 +1,36 @@
+<?php
+
+namespace Modules\Food\Models\Panels\Actions;
+
+//-------- services --------
+use Modules\Theme\Services\ThemeService;
+use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
+
+//-------- bases -----------
+class TakeCartAction extends XotBasePanelAction
+{
+    //public $onContainer = false;
+    public $onItem = true; //onlyContainer
+    //mettere freccette su e giù
+    public $icon = '<i class="far fa-handshake"></i>';
+
+    //-- Perform the action on the given models.
+    public function handle()
+    {
+        $view = 'pub_theme::cart.modal.'.$this->getName();
+
+        return $view;
+
+        return ThemeService::view($view)
+            ->with('row', $this->row);
+        //ddd($this->row);
+    }
+
+    public function postHandle()
+    {
+        $up = $this->updateRow();
+        $this->setRow($up->row);
+
+        return $this->handle();
+    }
+}

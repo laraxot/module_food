@@ -1,0 +1,86 @@
+<?php
+
+namespace Modules\Food\Tests\Feature;
+
+/*
+* https://vegibit.com/how-to-create-a-feature-test-in-laravel/
+* https://www.neontsunami.com/posts/scaffolding-laravel-tests !!
+*
+**/
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+//--- MODELS ---
+use Modules\Blog\Models\Post;
+use Modules\Food\Models\Profile as MyModel;
+use Modules\Food\Models\Restaurant;
+use Modules\LU\Models\User;
+//---- Services --
+use Modules\Xot\Services\PanelService as Panel;
+use Tests\TestCase;
+
+class RestaurantOwnerTest extends TestCase {
+    /**
+     * use DatabaseMigrations;  con questo non funziona nulla.
+     *
+     **/
+    //use DatabaseMigrations;
+
+    private $init = false;
+    private $row;
+    private $post_type;
+    private $langs;
+
+    public function init() {
+        $this->init = true;
+        $this->row = Profile::inRandomOrder()->first(); //factory(MyModel::class)->create();
+        if (null == $this->row) {
+            $user = factory(User::class)->create();
+            $profile = $user->profile()->save(factory(Profile::class)->make());
+            $post = $profile->post()->save(factory(Post::class)->make());
+            $this->row = $profile;
+        }
+
+        $this->panel = Panel::get($this->row);
+        $this->post_type = collect(config('xra.model'))->search(MyModel::class);
+        $this->langs = array_keys(config('laravellocalization.supportedLocales'));
+        $this->table = with(new MyModel())->getTable();
+        $this->user = $this->row->user; //factory(User::class)->make();
+        //$response = $this->myTestUrl('/', __FUNCTION__);
+        $response = $this->get('/');
+    }
+
+    //end init
+
+    public function myTestUrl($url, $label = '', $user = null) {
+        if (null == $user) {
+            $response = $this->get($url);
+        } else {
+            $response = $this->actingAs($user)->get($url);
+        }
+        echo PHP_EOL.'['.$label.'] url: '.$url.'  status: '.$response->status();
+        //$response->assertStatus(200);
+        return $response;
+    }
+
+    public function test_restaurant_claims() {
+        $user = User::where('email', 'runner4@gmail.com')->first();
+
+        $restaurant = Restaurant::inRandomOrder()->first(); //prendo un ristorante di partenza
+        $restaurant_panel = Panel::get($restaurant);
+
+        $url = route('container0.show', ['lang' => 'it', 'container0' => 'restaurant', 'item0' => $restaurant->guid]);
+        //dddx($url);
+        $response = $this->actingAs($user)->get($url);
+
+        $value = 'Reclama ristorante';
+
+        if ($restaurant->is_reclaimed) {
+            $response->assertDontSeeText($value);
+        } else {
+            $response->assertSeeText($value);
+        }
+
+        //$response->assertOk();
+    }
+
+    //end myTestUrl
+}//end class

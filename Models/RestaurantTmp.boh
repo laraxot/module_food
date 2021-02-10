@@ -1,0 +1,50 @@
+<?php
+
+namespace Modules\Food\Models;
+
+use Modules\Blog\Models\Traits\RatingTrait;
+use Modules\Geo\Models\Traits\GeoTrait;
+
+class RestaurantTmp extends BaseModelLang {
+    use RatingTrait;
+    use GeoTrait;
+    use Traits\RestaurantMutatorsTrait;
+    use Traits\RestaurantRelationshipsTrait;
+    protected $table = 'restaurants';
+    protected $fillable = [
+        'post_id',
+        'min_order', 'price_currency',
+        'address',
+        'street_number', 'street_number_short', 'route', 'route_short',
+        'locality', 'locality_short',
+        'administrative_area_level_3', 'administrative_area_level_3_short',
+        'administrative_area_level_2', 'administrative_area_level_2_short',
+        'administrative_area_level_1', 'administrative_area_level_1_short',
+        'country', 'country_short',
+        'postal_code', 'postal_code_short',
+        'latitude', 'longitude',
+        'route_short', 'locality_short',
+        'administrative_area_level_3_short', 'administrative_area_level_2_short',
+        'administrative_area_level_1_short', 'country_short', 'postal_code_short',
+        'formatted_address',
+        'city', 'zip_code', 'country', 'state', 'phone', 'email', 'website',
+        'display_phone', 'price', 'is_closed', 'review_count',
+        //'yelp_url', 'foodora_url', 'foodracers_url', 'justeat_url',  // spostati in restaurant provider
+        //'rating',
+        'delivery_cost', 'delivery_options', 'order_action',
+        //'my_rating',
+    ];
+    protected $casts = [
+        //'my_rating' => 'array'
+    ];
+    protected $appends = [
+        //'my_rating'
+    ];
+    protected $dates = ['created_at', 'updated_at', 'deleted_at'];
+
+    //-------- relationship -----------
+
+    //---------------------------------------------------------------------------------------
+
+    //--------------Scope ----------------
+}

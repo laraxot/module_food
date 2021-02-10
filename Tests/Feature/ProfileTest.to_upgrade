@@ -1,0 +1,31 @@
+<?php
+
+namespace Modules\Food\Tests\Feature;
+
+use Tests\TestCase;
+
+class ProfileTest extends TestCase {
+    public function testVisualizzaPaginaRegister() {
+        //$this->withoutExceptionHandling();
+
+        $url = Route('container0.create', ['lang' => \App::getLocale(), 'container0' => 'profile']);
+        //dd($url);
+        $response = $this->get($url);
+
+        $response->assertStatus(200);
+    }
+
+    public function testCreaProfilo() {
+        //$this->withoutExceptionHandling();
+
+        $data = factory(\Modules\Food\Models\Profile::class)->raw();
+        var_dump($data);
+        $url = Route('container0.store', ['lang' => \App::getLocale(), 'container0' => 'profile']);
+        //dd($url);
+        $response = $this->post($url, $data);
+        // dd($response->getContent());
+
+        $response->assertStatus(302);
+        $response->assertRedirect('/');
+    }
+}

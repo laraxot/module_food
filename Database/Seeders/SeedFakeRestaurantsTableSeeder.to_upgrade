@@ -1,0 +1,58 @@
+<?php
+
+namespace Modules\Food\Database\Seeders;
+
+/*
+* https://laravelacademy.org/post/9153.html?page=1
+*
+**/
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
+//---- Models ----
+use Modules\Blog\Models\Post;
+use Modules\Food\Models\Restaurant;
+
+class SeedFakeRestaurantsTableSeeder extends Seeder {
+    /**
+     * Run the database seeds.
+     */
+    public function run() {
+        Model::unguard();
+        factory(Restaurant::class, 10)->create()->each(function ($restaurant) {
+            $lang = app()->getLocale();
+            // Seed the relation with one address
+            //$address = factory(App\CustomerAddress::class)->make();
+            //$customer->address()->save($address);
+            // Seed the relation with 5 purchases
+            //$purchases = factory(App\CustomerPurchase::class, 5)->make();
+            //$customer->purchases()->saveMany($purchases);
+            $post = factory(Post::class)->make(['lang' => $lang]);
+            $restaurant->post()->save($post);
+        });
+        // $this->call("OthersTableSeeder");
+    }
+
+    //end run
+}//end class
+
+/* guardare questa libreria
+$lipsum = new joshtronic\LoremIpsum();
+        DB::table('comments')->insert([
+            'post_id'=>3,
+            'username' => 'Anthony Bordane',
+            'comment' => $lipsum->sentences(3),
+            'created_at'=>Carbon::now(),
+            'updated_at'=>Carbon::now(),
+        ]);
+        */
+
+/*
+
+public function run()
+{
+    factory(App\User::class, 50)->create()->each(function ($u) {
+        $u->posts()->save(factory(App\Post::class)->make());
+    });
+}
+*/

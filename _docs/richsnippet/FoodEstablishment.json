@@ -1,0 +1,57 @@
+{
+  "@context": "http://www.schema.org",
+  "@type": "FoodEstablishment",
+  "name": "Drakes Duck-In",
+  "url": "http://www.drakesduckin.com/",
+  "logo": "https://static.wixstatic.com/media/5841dd_4b19875613b44f64a7662fca222b01d3~mv2.png/v1/fill/w_417,h_245,al_c,usm_0.66_1.00_0.01/5841dd_4b19875613b44f64a7662fca222b01d3~mv2.png",
+  "image": "https://static.wixstatic.com/media/5841dd_a4f9645c66e943668a514ce525492b1f~mv2_d_2048_1579_s_2.jpg/v1/fill/w_1010,h_779,al_c,q_90,usm_0.66_1.00_0.01/5841dd_a4f9645c66e943668a514ce525492b1f~mv2_d_2048_1579_s_2.webp",
+  "description": "We are still local, still family-owned, and still feeding generations of Columbians with an experience that can't be replicated anywhere else. ",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1544 Main St",
+    "addressLocality": "Columbia",
+    "addressRegion": "South Carolina",
+    "postalCode": "29201",
+    "addressCountry": "United States"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "34.006116",
+    "longitude": "-81.035707"
+  },
+  "hasMap": "https://www.google.com/maps/place/Drake's+Duck-In/@34.006289,-81.0375657,17z/data=!3m1!4b1!4m5!3m4!1s0x88f8a4d48c8f680d:0x8f853559d380a590!8m2!3d34.006289!4d-81.035377",
+  "openingHours": "Mo, Tu, We, Th, Fr 08:00-05:30 Sa 08:00-19:30",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "803-799-9290",
+    "contactType": "general"
+  }
+}
+
+//--- tripadvisor 
+{
+  "@context":"http://schema.org",
+  "@type":"FoodEstablishment",
+  "name":"I Carusi",
+  "url":"/Restaurant_Review-g799531-d9853742-Reviews-I_Carusi-Lido_di_Ostia_Province_of_Rome_Lazio.html",
+  "image":"https://media-cdn.tripadvisor.com/media/photo-s/10/ba/e2/4c/i-carusi.jpg",
+  "aggregateRating":
+  {
+    "@type":"AggregateRating",
+    "ratingValue":"3.5",
+    "reviewCount":"21"
+  },
+  "address":
+  {
+    "@type":"PostalAddress",
+    "streetAddress":"Piazza Vega 33/35",
+    "addressLocality":"Lido di Ostia",
+    "addressRegion":"Lazio",
+    "postalCode":"00122",
+    "addressCountry":
+    {
+      "@type":"Country",
+      "name":"Italia"
+    }
+  }
+}

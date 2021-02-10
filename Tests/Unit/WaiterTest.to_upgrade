@@ -1,0 +1,31 @@
+<?php
+
+namespace Modules\Food\Tests\Unit;
+
+use Tests\TestCase;
+
+class WaiterTest extends TestCase {
+    public function test_is_waiter() {
+    }
+
+    public function test_is_waiter_for_restaurant() {
+    }
+
+    public function test_create() {
+    }
+
+    public function test_destroy() {
+    }
+
+    //prende l'ordine dal cliente
+    public function test_take_order() {
+    }
+
+    //aggiorna modifiche dell'ordine del cliente
+    public function test_update_order() {
+    }
+
+    //comunica l'ordine alla cucina (cioè al ristorante)
+    public function test_send_order() {
+    }
+}

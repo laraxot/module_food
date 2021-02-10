@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Site Title</title>
+
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage">
+
+    <header class="site-header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="wrap">
+        <hgroup class="title-area">
+          <h1 class="site-title" itemprop="name">Site Title</h1>
+          <h2 class="site-description" itemprop="description">Site Description</h2>
+        </hgroup>
+      </div>
+    </header><!-- /.site-header -->
+
+    <nav class="site-navbar" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div class="wrap">
+        <ul class="site-navbar-nav">
+          <li><a itemprop="url" href="http://mysite.com/"><span itemprop="name">Home</span></a></li>
+          <li><a itemprop="url" href="http://mysite.com/about/"><span itemprop="name">About</span></a></li>
+        </ul>
+      </div>
+    </nav><!--/.site-navigation -->
+
+    <main class="site-content" role="main" itemscope itemprop="mainContentOfPage">
+
+      <article class="post" itemscope itemtype="http://schema.org/Article">
+        <header class="post-header">
+          <h1 class="post-title" itemprop="name headline"><a href="http://mysite.com/post">Post Title</a></h1>
+          <p class="post-meta"><time class="post-time" itemprop="datePublished" datetime="2015-01-07T07:07:21+00:00">January 7, 2015</time> by
+            <span class="post-author" itemprop="author" itemscope itemptype="http://schema.org/Person">
+              <a itemprop="url" href="http://mysite.com/author" class="post-author-link">
+                <span class="post-author-name" itemprop="name">Author Name</span>
+              </a>
+            </span>
+          </p>
+        </header>
+
+        <div class="post-content" itemprop="articleBody">
+          <p>This is a article body.</p>
+        </div>
+
+        <footer class="post-footer">
+          <p class="post-meta">
+            <span class="post-categories">Filed Under: <a href="/category/category1/" title="View all posts in Category">Category 1</a></span>
+            <span class="post-tags">Tagged With: <a href="/tag/tag1/">tag 1</a>, <a href="http://mysite.com/tag/tag2/">tag 2</a></span>
+          </p>
+        </footer>
+
+        <section class="post-comments" id="comments">
+          <h3>Comments</h3>
+          <ol class="comment-list">
+            <li class="comment even thread-even depth-1" id="comment-123">
+              <article itemprop="comment" itemscope itemtype="http://schema.org/UserComments">
+                <header class="comment-header">
+                  <p class="comment-author" itemprop="creator" itemscope itemtype="http://schema.org/Person">
+                    <span itemprop="name"><a href="http://authorswebsite.com" rel="external nofollow" itemprop="url">Comment Author</a></span>
+                  </p>
+                  <p class="comment-meta">
+                    <time itemprop="commentTime" datetime="2014-09-15T13:22:51+00:00">September 15th, 2014 at 13:22</time>
+                  </p>
+                </header>
+                <div class="comment-content" itemprop="commentText">
+                  <p>some comment text etc etc...</p>
+                </div>
+              </article>
+            </li>
+          </ol>
+        </section><!-- /.post-coments -->
+      </article><!-- /.post -->
+
+      <nav>
+        <ul class="pagination" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+          <li><a itemprop="url" href="/page1/"><span itemprop="name">Newer Posts</span></a></li>
+          <li><a itemprop="url" href="/page2/"><span itemprop="name">Older Posts</span></a></li>
+        </ul>
+      </nav>
+
+    </main><!-- /.site-content -->
+
+    <aside class="site-sidebar" role="complementary" itemscope itemtype="http://schema.org/WPSideBar">
+      <section class="widget-wrap">
+        <h4 class="widget-title" itemprop="name">Site Sidebar Widget 1</h4>
+        <div class="widget-text">
+         <p>This is the Site Sidebar Widget 1</p>
+        </div>
+      </section>
+      <section class="widget-wrap">
+        <h4 class="widget-title" itemprop="name">Site Sidebar Widget 2</h4>
+        <div class="widget-text">
+         <p>This is the Site Sidebar Widget 2</p>
+        </div>
+      </section>
+    </aside><!-- /.site-sidebar -->
+
+    <footer class="site-footer" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
+      <div class="wrap">
+        <p class="back-to-top"><a title="Back to top" href="#wrap">Back to top</a></p>
+        <p class="copyright">&copy; <span itemprop="copyrightYear">2015</span> <span itemprop="copyrightHolder" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Site Holder Name</span></span>.</p>
+      </div>
+    </footer><!-- /.site-footer -->
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/assets/js/scripts.min.js"></script>
+
+  </body>
+</html>

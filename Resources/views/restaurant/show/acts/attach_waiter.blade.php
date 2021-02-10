@@ -1,0 +1,20 @@
+@extends('pub_theme::layouts.app')
+@section('content')
+@php
+  //  dddx(get_defined_vars());
+@endphp
+
+{!! Form::model($row,['url'=>Request::fullUrl() ]) !!}
+@method('put')
+
+<p>Inserisci la mail del cameriere</p>
+
+
+{{ Form::bsEmail('email', '') }}
+
+<div class="modal-footer justify-content-end">
+    <button type="submit" class="btn btn-primary">Save changes</button>
+    <button type="button" data-dismiss="modal" class="btn btn-outline-muted">Close</button>
+</div>
+
+@endsection

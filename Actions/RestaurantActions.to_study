@@ -1,0 +1,18 @@
+<?php
+
+namespace Modules\Food\Actions;
+
+use Modules\Food\Models\BellBoy;
+use Modules\Food\Repositories\RestaurantRepository;
+
+class RestaurantActions {
+    private $repository;
+
+    public function __constructor(RestaurantRepository $repository) {
+        $this->repositrory = $repository;
+    }
+
+    public function approveBellboy(BellBoy $bell_boy) {
+        dddx('qui');
+    }
+}

@@ -1,0 +1,203 @@
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "name": "Your Restaurant's Name",
+  "url": "http://your-restaurant.com/",
+  "publisher": {
+	"@type": "Restaurant",
+	 "name": "Your Restaurant's Name",
+	 "hasMenu": "http://your-restaurant.com/menu",
+	 "hasMap": "http://your-restaurant.com/map",
+	 "image": [
+		"https://example.com/photos/1x1/photo.jpg",
+		"https://example.com/photos/4x3/photo.jpg",
+		"https://example.com/photos/16x9/photo.jpg"
+	  ],
+	  "address": {
+	"@type": "PostalAddress",
+	"streetAddress": "148 W 51st St",
+	"addressLocality": "New York",
+	"addressRegion": "NY",
+	"postalCode": "10019",
+	"addressCountry": "US"
+  },
+  "geo": {
+	"@type": "GeoCoordinates",
+	"latitude": 40.761293,
+	"longitude": -73.982294
+  },
+  "sameAs" : [ "http://www.facebook.com/your-profile",
+    "http://www.twitter.com/your-profile",
+    "http://plus.google.com/your-profile"],
+  "telephone": "+12122459600",
+   "openingHoursSpecification": [
+	{
+	  "@type": "OpeningHoursSpecification",
+	  "dayOfWeek": [
+		"Monday",
+		"Tuesday"
+	  ],
+	  "opens": "11:30",
+	  "closes": "22:00"
+	},
+	{
+	  "@type": "OpeningHoursSpecification",
+	  "dayOfWeek": [
+		"Wednesday",
+		"Thursday",
+		"Friday"
+	  ],
+	  "opens": "11:30",
+	  "closes": "23:00"
+	},
+	{
+	  "@type": "OpeningHoursSpecification",
+	  "dayOfWeek": "Saturday",
+	  "opens": "16:00",
+	  "closes": "23:00"
+	},
+	{
+	  "@type": "OpeningHoursSpecification",
+	  "dayOfWeek": "Sunday",
+	  "opens": "16:00",
+	  "closes": "22:00"
+	}
+  ]
+  }
+}
+</script>     
+<script type="application/ld+json">
+{
+   "@context":"http://schema.org",
+   "@type":"Menu",
+   "name": "Our Menu",
+   "url": "http://your-restaurant.com/menu/",
+   "mainEntityOfPage": "http://your-restaurant.com/menu/",
+   "inLanguage":"English",
+   "offers": {
+	"@type": "Offer",
+	"availabilityStarts": "T17:00",
+	"availabilityEnds": "T23:00"
+   },
+  "hasMenuSection": [
+   {
+	"@type": "MenuSection",
+	"name": "Appetizers",
+	"hasMenuItem": [
+	{
+	 "@type": "MenuItem",
+	 "name": "Fried Eggplant",
+	 "description": "Served with Italian red gravy.",
+	 "offers": {
+"@type": "Offer",
+				 "price": "7.95",
+				 "priceCurrency": "USD"
+	 }
+	},
+	{
+	 "@type": "MenuItem",
+	 "name": "Fried Calamari",
+	 "description": "Served with Italian red gravy or honey mustard.",
+		"image": "http://your-restaurant.com/images/fried-calamari.jpg",
+	 "suitableForDiet": "http://schema.org/GlutenFreeDiet",
+	 "nutrition": {
+   "@type": "NutritionInformation",
+				"calories": "573 calories",
+				 "fatContent": "25 grams",
+				 "carbohydrateContent": "26 grams",
+				 "proteinContent": "61 grams"
+			   },
+	 "offers": {
+   "@type": "Offer",
+				 "price": "7.95",
+				 "priceCurrency": "USD"
+   }
+	}
+	]
+   },
+   {
+	"@type": "MenuSection",
+	"name": "Soups",
+	"hasMenuItem": [
+	{
+	 "@type": "MenuItem",
+	 "name": "Lobster Bisque",
+	 "offers": [
+	 {
+	  "@type": "Offer",
+	  "price": "6.75",
+	  "priceCurrency": "USD",
+	  "eligibleQuantity": {
+	   "@type": "QuantitativeValue",
+	   "name": "Cup"
+	   }
+	 },
+	 {
+	  "@type": "Offer",
+	  "price": "9.95",
+	  "priceCurrency": "USD",
+	  "eligibleQuantity" : {
+	   "@type": "QuantitativeValue",
+	   "name": "Bowl"
+	   }
+	 }
+	 ]
+	},
+	{
+	 "@type": "MenuItem",
+	 "name": "Creole Seafood Gumbo",
+	 "offers": [
+	 {
+	  "@type": "Offer",
+	  "price": "6.75",
+	  "priceCurrency": "USD",
+	  "eligibleQuantity": {
+	   "@type": "QuantitativeValue",
+	   "name": "Cup"
+	   }
+	 },
+	 {
+	  "@type": "Offer", 
+	  "name": "Bowl",
+	  "price": "9.95",
+	  "priceCurrency": "USD",
+	  "eligibleQuantity" : {
+	   "@type": "QuantitativeValue",
+	   "name": "Bowl"
+	   }
+	 }
+	 ]
+	}
+	]
+   },
+   {
+	"@type": "MenuSection",
+	"name": "Pastas",
+	"description": "Entrées served with dinner salad or a cup of soup of the day.",
+	"hasMenuItem": [
+	{
+	 "@type": "MenuItem",
+	 "name": "Veal Parmigiana",
+	 "description": "Tender cuts of paneed veal crowned with golden fried eggplant, Italian red gravy, mozzarella, and parmesan; served with spaghetti.",
+	 "offers": {
+	  "@type": "Offer",
+	  "price": "17.95",
+	  "priceCurrency": "USD"
+	 }
+	},
+	{
+	 "@type": "MenuItem",
+	 "name": "Eggplant Parmigiana",
+	 "description": "Pan fried eggplant layered and topped with Italian red gravy, mozzarella, and parmesan baked until bubbly; served with spaghetti.",
+	 "offers": {
+	  "@type": "Offer",
+	  "price": "14.95",
+	  "priceCurrency": "USD"
+	 }
+	}
+	]
+   }
+   ]
+}
+</script>

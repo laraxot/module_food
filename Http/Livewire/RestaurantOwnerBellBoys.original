@@ -1,0 +1,97 @@
+<?php
+
+namespace Modules\Food\Http\Livewire;
+
+use Livewire\Component;
+use Modules\Food\Models\Restaurant;
+
+class RestaurantOwnerBellBoys extends Component {
+    public $restaurant_id;
+    public $bell_boys;
+    public $bell_boy;
+    public $updateMode = false;
+
+    public function mount($id) {
+        $this->restaurant_id = $id;
+        $this->bell_boys = Restaurant::find($this->restaurant_id)->bellBoys;
+    }
+
+    public function render() {
+        return view('food::livewire.restaurant_owner.bell_boys');
+    }
+
+    private function resetInputFields() {
+        $this->route = '';
+    }
+
+    public function edit($id) {
+        $this->updateMode = true;
+        $this->bell_boy = Restaurant::find($this->restaurant_id)->bellBoys()->where('bell_boys.id', $id)->first();
+    }
+
+    public function changeStatus($id, $status) {
+        $this->bell_boy = Restaurant::find($this->restaurant_id)->bellBoys()->where('bell_boys.id', $id)->first();
+        $this->bell_boy->pivot->update(['status' => $status]);
+        $this->updateMode = false;
+    }
+
+    public function cancel() {
+        $this->updateMode = false;
+
+        $this->resetInputFields();
+    }
+
+    public function update() {
+        $validatedData = $this->validate([
+            'route' => 'required',
+            'street_number' => 'required',
+            'locality' => 'required',
+            'postal_code' => 'required',
+            'administrative_area_level_2' => 'required',
+            'country' => 'required',
+        ]);
+
+        if ($this->place_id) {
+            $place = Place::find($this->place_id);
+
+            $place->update($validatedData);
+
+            $this->updateMode = false;
+
+            session()->flash('message', 'Place Updated Successfully.');
+
+            $this->resetInputFields();
+
+            $this->emit('editPlaces');
+        }
+    }
+
+    public function delete($id) {
+        if ($id) {
+            Place::where('id', $id)->delete();
+
+            session()->flash('message', 'Users Deleted Successfully.');
+        }
+    }
+
+    public function store() {
+        $validatedData = $this->validate([
+            'route' => 'required',
+            'street_number' => 'required',
+            'locality' => 'required',
+            'postal_code' => 'required',
+            'administrative_area_level_2' => 'required',
+            'country' => 'required',
+        ]);
+
+        $place = Place::create($validatedData);
+
+        \Auth::user()->profile->places()->save($place);
+
+        session()->flash('message', 'Place Created Successfully.');
+
+        $this->resetInputFields();
+
+        $this->emit('addPlacesStore'); // Close model to using to jquery
+    }
+}

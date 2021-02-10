@@ -1,0 +1,62 @@
+<?php
+
+namespace Modules\Food\Models;
+
+//--------- models --------
+use Modules\LU\Models\Traits\HasProfileTrait;
+//--- services
+
+//---------- traits
+use Modules\LU\Models\User;
+
+class Table extends BaseModel {
+    //-----stato prenotazione-----
+    const OrdineInviato = 1;
+    const OrdineAccettato = 2; //dal ristorante
+    const OrdineRifiutato = 3;
+    const OrdineConcluso = 4;
+
+    //-----modalita consegna---
+
+    use HasProfileTrait;
+    public $incrementing = true;
+    protected $fillable = ['id', 'note', 'auth_user_id', 'day', 'at', 'min_capacity', 'max_capacity',
+        'table_name', 'status', 'shop_id', 'shop_type', 'shop_title', ];
+    //-------- relationship ------
+
+    public function user() {
+        return $this->hasOne(User::class, 'auth_user_id', 'auth_user_id');
+    }
+
+    public function profile() { //non e' nel hasProfileTrait o roba del genere ?
+        $profile_class = config('xra.model.profile');
+
+        return $this->hasOne($profile_class, 'auth_user_id', 'auth_user_id');
+    }
+
+    public function shop() { //attività che ha ricevuto l'ordinazione (il carrello)
+        return  $this->morphTo('shop');
+    }
+
+    //-------------- mutators ----------------------
+
+    public function getShopTitleAttribute($value) {
+        if ('' != $value) {
+            return $value;
+        }
+        if(!is_object($this->shop)){
+            return $value;
+        }
+
+        $value = $this->shop->title;
+
+        $this->shop_title = $value;
+        $this->save();
+
+        return $value;
+    }
+
+    public function setDayAttribute($value) {
+        $this->attributes['day'] = \Carbon\Carbon::parse($value)->format('y/m/d');
+    }
+}

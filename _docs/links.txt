@@ -1,0 +1,37 @@
+http://appsoft.ml/create.php
+
+https://codepen.io/jerome281/pen/oxxdLq
+
+//posizione zoom e street view
+https://developers.google.com/maps/documentation/javascript/examples/control-positioning
+
+//infobox
+http://itpscan.info/examples/google_maps/maps_04/
+
+
+//------  realtime messaging, but maybe is better fb ?
+https://www.pubnub.com/developers/demos/robot-pizza-co/
+
+
+//------- bot facebook
+-- codice php
+https://chatbotslife.com/how-to-build-facebook-messenger-chatbot-in-php-with-structured-messages-59fb4e839f3c
+https://dzone.com/articles/facebook-messenger-bot
+https://medium.com/@nadeem.manzoor0/facebook-messenger-platform-web-hook-setup-in-php-893ead06746b
+http://thedebuggers.com/build-facebook-messenger-chat-bot-php/
+-- precotti
+https://botman.io/2.0/installation
+-- sw rad
+manychat
+
+
+
+template da prendere effetti
+http://new.uouapps.com/pizza-mia-html/
+http://lecker.maskandesign.com/html/01_05_burger.html#shop
+
+
+
+https://foodtiger.site/restorant/restoranbonimi
+
+

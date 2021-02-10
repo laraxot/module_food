@@ -1,0 +1,9 @@
+<?php
+
+namespace Modules\Food\Models;
+
+use Modules\Blog\Models\Contact as ContactBase;
+
+class Contact extends ContactBase{
+   
+}

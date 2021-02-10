@@ -1,0 +1,27 @@
+<?php
+
+namespace Modules\Food\Models\Panels\Actions;
+
+use Modules\Theme\Services\ThemeService;
+use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
+
+//-------- bases -----------
+class BellBoyTakeCartAction extends XotBasePanelAction {
+    public $onItem = true; //onlyContainer
+    public $onContainer = false; //onlyContainer
+    //mettere freccette su e giù
+    public $icon = '<i class="fa fa-edit"></i>';
+
+    public function handle() {
+        $view = 'pub_theme::profile.bell_boy.modal.'.$this->getName();
+
+        return ThemeService::view($view)
+            ->with('row', $this->row);
+    }
+
+    //end handle
+
+    public function postHandle() {
+        return 'eccoci';
+    }
+}//end EditBellboyAction

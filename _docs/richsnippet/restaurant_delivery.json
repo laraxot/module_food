@@ -1,0 +1,53 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": "http://davescafe.example.com/",
+  "name": "Dave's Cafe",
+  "image": [
+    "https://example.com/photos/1x1/photo.jpg",
+    "https://example.com/photos/4x3/photo.jpg",
+    "https://example.com/photos/16x9/photo.jpg"
+   ],
+  "address" :{
+    "@type": "PostalAddress",
+    "streetAddress": "123 William St",
+    "addressLocality": "New York",
+    "addressRegion": "NY",
+    "postalCode": "10038",
+    "addressCountry": "US"
+  },
+  "geo":{
+    "@type": "GeoCoordinates",
+    "latitude": 40.709312,
+    "longitude": -74.007136
+  },
+  "telephone": "+19172423826",
+  "potentialAction": {
+    "@type": "OrderAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.example.com/daves-cafe-new-york",
+      "inLanguage": "en-US",
+      "actionPlatform": [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/IOSPlatform",
+        "http://schema.org/AndroidPlatform"
+      ]
+    },
+    "deliveryMethod": [
+      "http://purl.org/goodrelations/v1#DeliveryModePickUp",
+      "http://purl.org/goodrelations/v1#DeliveryModeOwnFleet"
+    ],
+    "priceSpecification": {
+      "@type": "DeliveryChargeSpecification",
+      "appliesToDeliveryMethod": "http://purl.org/goodrelations/v1#DeliveryModeOwnFleet",
+      "priceCurrency": "USD",
+      "price": 0.0,
+      "eligibleTransactionVolume": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "USD",
+        "price": 12.00
+      }
+    }
+  }
+}

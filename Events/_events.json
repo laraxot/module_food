@@ -1,0 +1,1 @@
+[{"event":"Modules\\Food\\Events\\StoreProfileEvent","listener":"Modules\\Food\\Listeners\\StoreProfileListener"},{"event":"Modules\\Food\\Events\\StoreRestaurantOwnerEvent","listener":"Modules\\Food\\Listeners\\StoreRestaurantOwnerListener"},{"event":"Modules\\Food\\Events\\TestEvent","listener":"Modules\\Food\\Listeners\\TestListener"}]

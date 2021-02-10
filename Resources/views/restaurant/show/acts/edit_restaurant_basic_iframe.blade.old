@@ -1,0 +1,23 @@
+@extends('pub_theme::layouts.app_iframe')
+@section('content')
+@include('theme::includes.flash')
+{!! Form::model($row,['url'=>Request::fullUrl() ]) !!}
+@method('put')
+
+{{ Form::bsText('post[title]') }}
+{{ Form::bsTextarea('post[subtitle]') }}
+{{ Form::bsSelectRelationshipMulti('cuisineCats') }}
+{{ Form::bsSelectRelationshipMulti('amenities') }}
+{{ Form::bsAddress('address') }}
+
+
+
+<div class="modal-footer justify-content-end">
+    <button type="submit" class="btn btn-primary">Save changes</button>
+    <button type="button" data-dismiss="modal" class="btn btn-outline-muted btn-close-modal">Close</button>
+</div>
+{{ Form::close() }}
+@endsection
+
+
+

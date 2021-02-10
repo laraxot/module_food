@@ -1,0 +1,95 @@
+<ol itemscope itemtype="http://schema.org/BreadcrumbList">
+    <li itemid="#listElement-1" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <a itemprop="item" href="https://example.com/dresses">
+            <span itemprop="name">Dresses</span>
+        </a>
+        <link itemprop="next" href="#listElement-2">
+    </li>
+    <li itemid="#listElement-2" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <a itemprop="item" href="https://example.com/dresses/real">
+            <span itemprop="name">Real Dresses</span>
+        </a>
+        <link itemprop="previousItem" href="#listElement-1">
+        <link itemprop="nextItem" href="#listElement-3">
+    </li>
+    <li itemid="#listElement-2" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <a itemprop="item" href="https://example.com/dresses/real/mini-skirts">
+            <span itemprop="name">Mini skirts</span>
+        </a>
+        <link itemprop="previousItem" href="#listElement-2">
+    </li>
+</ol>
+
+//--------------------
+
+<div class="breadcrumb">
+    <div class="container">
+        <ul itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="https://www.foodtribu.com/it" itemid='#home'>
+                    <span itemprop="name">Home</span>
+                </a>
+                 <meta itemprop="position" content="1" />
+            </li>
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+
+                <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="https://www.foodtribu.com/it/location"  itemid='#location'>
+                    <span itemprop="name">Locations</span>
+                </a>
+                <meta itemprop="position" content="2" />
+            </li>
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <div itemprop="item" itemscope itemtype="http://schema.org/Place" itemid='#palermo'>
+                    <a itemprop="url" href="https://www.foodtribu.com/it/location/palermo" >
+                        <span itemprop="name">Palermo</span>
+                    </a>
+                    <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                        <meta itemprop="addressLocality" content="Palermo" /> 
+                        <meta itemprop="addressRegion"  content="PA" />
+                    </div>
+            
+                </div>
+                 <meta itemprop="position" content="3" />
+            </li>
+                                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="https://www.foodtribu.com/it/location/palermo/restaurant" itemid='#restaurants'>
+                    <span itemprop="name">Restaurants</span>
+                </a>
+                 <meta itemprop="position" content="4" />
+            </li>
+                        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="https://www.foodtribu.com/it/location/palermo/restaurant/ristorante-asia" itemid='#ristorante-asia'>
+                    <span itemprop="name">Ristorante Asia</span>
+                </a>
+                 <meta itemprop="position" content="5" />
+            </li>
+
+
+            
+        </ul>
+    </div>
+</div>
+
+//------------
+
+<ul class="o-Breadcrumb o-Breadcrumb--Light has-Banner" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                 <meta itemprop="position" content="1" />
+                    <a href="http://www.hgtv.com" itemprop="item">
+                      Home
+                    </a>
+              </li>
+              <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                 <meta itemprop="position" content="2" />
+                    <a href="http://www.hgtv.com/design-blog" itemprop="item">
+                      Design Blog
+                    </a>
+              </li>
+              <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                 <meta itemprop="position" content="3" />           
+                    <a href="http://www.hgtv.com/design-blog/entertaining" itemprop="item">
+                      Entertaining
+                    </a>
+              </li>  
+  </ul>
+

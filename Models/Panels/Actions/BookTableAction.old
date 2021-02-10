@@ -1,0 +1,46 @@
+<?php
+
+namespace Modules\Food\Models\Panels\Actions;
+
+use Modules\Theme\Services\ThemeService;
+use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
+
+//-------- bases -----------
+class BookTableAction extends XotBasePanelAction {
+    public $onItem = true; //onlyContainer
+    public $onContainer = false; //onlyContainer
+    //mettere freccette su e giù
+    public $icon = '<i class="fa fa-plus"></i>';
+
+    public function handle() {
+        $view = 'pub_theme::table.modal.'.$this->getName();
+        //dddx($view);
+
+        return ThemeService::view($view)
+            ->with('row', $this->row);
+    }
+
+    public function postHandle() {
+        $data = request()->all();
+        dddx($data);
+        $data['auth_user_id'] = \Auth::id();
+        $data['status'] = 1;
+
+        [$containers,$items] = params2ContainerItem();
+        $shop = collect($items)->firstWhere('post_type', 'restaurant');
+
+        $tables = $shop->myTablesWithThisRestaurant()
+            ->where('day', \Carbon\Carbon::parse($data['day'])->format('y-m-d'))
+            ->where('at', $data['at'])
+            ->get();
+
+        if ($tables->count() > 0) {
+            $tables->first()->update($data);
+        } else {
+            $table = $shop->tables()->create(['status' => 1]);
+            $table->update($data);
+        }
+
+        return 'fatto, controllare';
+    }
+}

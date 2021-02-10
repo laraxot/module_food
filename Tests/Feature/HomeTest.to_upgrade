@@ -1,0 +1,33 @@
+<?php
+
+namespace Modules\Food\Tests\Feature;
+
+use Tests\TestCase;
+
+class HomeTest extends TestCase {
+    /**
+     * A basic unit test example.
+     *
+     * @return void
+     */
+    public function testExample() {
+        $this->assertTrue(true);
+    }
+
+    public function testVisualizzaHome() {
+        $url = '/'.\App::getLocale();
+        //dd($url);
+
+        $response = $this->get($url);
+
+        $response->assertStatus(200);
+    }
+
+    public function testVisualizzaPaginaLogin() {
+        $url = Route('login');
+        //dd($url);
+        $response = $this->get($url);
+
+        $response->assertStatus(200);
+    }
+}

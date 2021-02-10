@@ -1,0 +1,169 @@
+<?php
+
+namespace Modules\Food\Tests\Feature;
+
+//--- MODELS ---
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Str;
+use Modules\Food\Models\Cuisine;
+use Modules\Food\Models\Ingredient;
+use Modules\Food\Models\IngredientCat;
+use Modules\Food\Models\OpeningHour;
+use Modules\Food\Models\Profile;
+use Modules\Food\Models\Recipe;
+use Modules\Food\Models\Restaurant;
+use Modules\LU\Models\User;
+use Tests\TestCase;
+
+class RestaurantTest extends TestCase {
+    // restaurant = shop
+    // cuisine_cat = shop_category
+    // cuisine = product_category
+    // recipe = product
+    // ingredient_cat = product_variations_category
+    // ingredient = product_variations
+
+    public function test_create_menu() {
+        //se ristorante reclamato, solo ristoratori (puo' essere piu' di uno) puo' fare menu
+
+        //$restaurant = factory(Restaurant::class)->create(['created_by'=>$user->handle]);
+        //se ristorante NON reclamato, solo il suggeritore (creatore created_by o updated_by) puo' fare menu
+
+        $profile0_data = factory(Profile::class)->raw();
+
+        $url = '/it/profile';
+        $response = $this->post($url, $profile0_data);
+
+        $response->assertStatus(200);
+        $response->assertViewIs('theme::layouts.default.store');
+
+        //-------------------------------------------------------
+        $user0 = User::where('email', $profile0_data['user']['email'])->first();
+        $user1 = factory(User::class)->create();
+
+        $restaurant_data = factory(Restaurant::class)->raw();
+
+        $url = '/it/restaurant';
+        $response = $this->actingAs($user0)->post($url, $restaurant_data);
+        $response->assertStatus(200);
+        $guid = Str::slug($restaurant_data['post']['title']);
+        $restaurant = Restaurant::whereHas('post', function (Builder $query) use ($guid) {
+            $query->where('lang', 'it')->where('guid', $guid);
+        })->first();
+        //--- user0 puo' creare menu perche' ha creato la pagina ristorante, user1 per poter creare il menu dovrebbe reclamare
+        $restaurant_url = '/it/restaurant/'.$guid;
+        /*
+        $this->get('/it/restaurant/'.$guid);
+        $this->assertTrue(Gate::forUser($user0)->allows('edit', $restaurant));
+        $this->assertFalse(Gate::forUser($user1)->allows('edit', $restaurant));
+
+        $this->assertTrue(Gate::forUser($user0)->allows('create', new Cuisine()));
+        $this->assertFalse(Gate::forUser($user1)->allows('create', new Cuisine()));
+
+        //-------------------------------------------------------------------------
+
+        $this->assertTrue(Gate::forUser($user0)->allows('create', new Recipe()));
+        $this->assertFalse(Gate::forUser($user1)->allows('create', new Recipe()));
+        //-------------------------------------------------------------------------
+
+        $this->assertTrue(Gate::forUser($user0)->allows('create', new Ingredient()));
+        $this->assertFalse(Gate::forUser($user1)->allows('create', new Ingredient()));
+
+        $this->assertTrue(Gate::forUser($user0)->allows('create', new IngredientCat()));
+        $this->assertFalse(Gate::forUser($user1)->allows('create', new IngredientCat()));
+        */
+        $cuisine_data = factory(Cuisine::class)->raw();
+        $recipe_data = factory(Recipe::class)->raw();
+        $ingredient_cat_data = factory(IngredientCat::class)->raw();
+        $ingredient_data = factory(Ingredient::class)->raw();
+
+        $response = $this->actingAs($user0)->post($restaurant_url.'/cuisine', $cuisine_data);
+        $response->assertStatus(200);
+        //*
+        $response = $this->actingAs($user1)->post($restaurant_url.'/cuisine', $cuisine_data);
+        $response->assertStatus(403);
+        //*/
+        $cuisine = Cuisine::latest()->first();
+        $url1 = $restaurant_url.'/cuisine/'.$cuisine->guid.'/recipe';
+        $response = $this->actingAs($user0)->post($url1, $recipe_data);
+        $response->assertStatus(200);
+        //-------------------------------------------
+        $recipe = Recipe::latest()->first();
+        $url2 = $url1.'/'.$recipe->guid.'/ingredient_cat';
+
+        $response = $this->actingAs($user0)->post($url2, $ingredient_cat_data);
+        //$response->dump();
+        $response->assertStatus(200);
+        $response = $this->actingAs($user1)->post($url2, $ingredient_cat_data);
+        $response->assertStatus(403);
+    }
+
+    /*
+        le variazioni dipendono dalla product_cat
+    */
+    public function test_ingredient_cat_store() {
+        $restaurant = Restaurant::latest()->first();
+        $user = User::where('handle', $restaurant->created_by)->first(); //creatore della pagina
+        $cuisine = Cuisine::latest()->first();
+        $recipe = Recipe::latest()->first();
+        $url = '/it/restaurant/'.$restaurant->guid.'/cuisine/'.$cuisine->guid.'/ingredient_cat';
+        echo $url;
+        $ingredient_cat_data = factory(IngredientCat::class)->raw();
+        //dddx($ingredient_cat_data);
+        $response = $this->actingAs($user)->post($url, $ingredient_cat_data);
+
+        $guid = Str::slug($ingredient_cat_data['post']['title']);
+
+        $tmp = $cuisine
+            ->ingredientCats()
+            ->whereHas(
+                'post',
+                function (Builder $query) use ($guid) {
+                    $query->where('lang', 'it')->where('guid', $guid);
+                }
+            )->first();
+
+        $this->assertTrue(is_object($tmp));
+
+        //$response->dump();
+        $response->assertStatus(200);
+    }
+
+    public function test_ingredient_store() {
+        $restaurant = Restaurant::latest()->first();
+        $user = User::where('handle', $restaurant->created_by)->first(); //creatore della pagina
+        $cuisine = Cuisine::latest()->first();
+        $recipe = Recipe::latest()->first();
+        $ingredient_cat = IngredientCat::latest()->first();
+
+        $url = '/it/restaurant/'.$restaurant->guid.'/cuisine/'.$cuisine->guid.'/ingredient_cat/'.$ingredient_cat->guid.'/ingredient';
+
+        $ingredient_data = factory(Ingredient::class)->raw();
+
+        $response = $this->actingAs($user)->post($url, $ingredient_data);
+
+        $guid = Str::slug($ingredient_data['post']['title']);
+
+        $tmp = $ingredient_cat
+            ->ingredients()
+            ->whereHas(
+                'post',
+                function (Builder $query) use ($guid) {
+                    $query->where('lang', 'it')->where('guid', $guid);
+                }
+            )->first();
+
+        $this->assertTrue(is_object($tmp));
+
+        $response->assertStatus(200);
+    }
+
+    public function test_opening_hours() {
+        $restaurant = Restaurant::latest()->first();
+        $user = User::where('handle', $restaurant->created_by)->first(); //creatore della pagina
+
+        $opening_hours_data = factory(OpeningHour::class)->raw();
+        dddx($opening_hours_data);
+    }
+}

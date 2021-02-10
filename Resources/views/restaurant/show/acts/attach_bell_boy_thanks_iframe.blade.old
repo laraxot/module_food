@@ -1,0 +1,4 @@
+@extends('pub_theme::layouts.app_iframe')
+@section('content')
+<h3>Grazie</h3>
+@endsection

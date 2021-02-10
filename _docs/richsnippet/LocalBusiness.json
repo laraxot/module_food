@@ -1,0 +1,38 @@
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "LocalBusiness",
+        "image": "http://www.homedepot.com/image.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Phoenix",
+        "addressRegion": "AZ",
+        "streetAddress": "16803 N Tatum Blvd"
+      },
+      "description": "This is an example of a LocalBusiness description",
+      "name": "Home Depot",
+      "telephone": "(602) 493-9600",
+		"openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "06:00",
+      "closes": "22:00"
+    },
+    {
+    "@type": "OpeningHoursSpecification",
+      "dayOfWeek":
+        "Sunday",
+      "opens": "07:00",
+      "closes": "20:00"
+      }
+  ]
+}
+</script>

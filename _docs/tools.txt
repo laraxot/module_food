@@ -1,0 +1,29 @@
+rich snippet guidati
+https://www.google.com/webmasters/markup-helper/u/0/
+
+https://search.google.com/structured-data/testing-tool
+
+https://hallanalysis.com/json-ld-generator/
+
+https://www.schemaapp.com/
+
+https://support.google.com/webmasters/answer/2650907
+
+
+
+https://serpstat.com/
+https://www.seedkeywords.com
+
+
+my maps
+https://www.google.com/maps/d/u/0/
+https://www.google.com/mymaps
+
+
+
+
+---- plugin da esportare in laravel  ----
+https://wordpress.org/plugins/all-in-one-schemaorg-rich-snippets/
+http://wprichsnippets.com/
+https://wordpress.org/plugins/schema-app-structured-data-for-schemaorg/
+

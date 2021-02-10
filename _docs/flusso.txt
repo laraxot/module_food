@@ -1,0 +1,15 @@
+- io sono di (nome_città), ci sono ristoranti nella mia città?
+- nella tua città sono presenti tot ristoranti.
+
+- che tipi di ristoranti ci sono nella mia città?
+- nella tua città ci sono ristoranti che offrono questo tipo di cucina (cuisine_cat?)
+
+- voglio vedere il menù di questo ristornate (l'utente lo sceglie in qualche modo), qual'è il suo menù?
+- il ristorante scelto offre il seguente menù (visualizza menù)
+
+- come si ordina?
+- "mini spiegazione su come fare"
+
+- ho scelto questi piatti, ordino
+- l'ordinazione è preparata e spedita?
+

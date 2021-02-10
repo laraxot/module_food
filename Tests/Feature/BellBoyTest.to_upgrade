@@ -1,0 +1,147 @@
+<?php
+
+namespace Modules\Food\Tests\Feature;
+
+use Modules\Food\Models\BellBoy;
+use Modules\Food\Models\Restaurant;
+use Modules\LU\Models\User;
+use Modules\Xot\Services\PanelService as Panel;
+use Tests\TestCase;
+
+class BellBoyTest extends TestCase {
+    public function testBasicTest() {
+        $this->withoutExceptionHandling();
+
+        $response = $this->get('/it');
+
+        $response->assertStatus(200);
+    }
+
+    public function test_user_is_bellboy() {
+        $user = User::where('email', 'runner1@gmail.com')->first();
+
+        $this->assertTrue($user->profile->isBellBoy());
+    }
+
+    public function test_ask_to_work_in_a_restaurant() {
+        //$user = User::where('email', 'runner4@gmail.com')->first();
+        $user = User::inRandomOrder()->first(); //utente a caso
+        //$restaurant = Restaurant::inRandomOrder()->first(); //ristorante a caso
+        $restaurant = Restaurant::where('id', 4)->first();
+
+        $restaurant_panel = Panel::get($restaurant);
+        $route_params = ['lang' => 'it', 'container0' => 'restaurant', 'item0' => $restaurant->guid];
+        $url = route('container0.show', $route_params);
+
+        $response = $this->actingAs($user)
+            ->get($url);
+        //dddx($response);
+        echo chr(13).'Url:['.$url.']'.chr(13);
+        if ($restaurant->hasBellBoy(['auth_user_id' => $user->auth_user_id])) {
+            $value = 'Diventa fattorino per questo ristorante';
+            $response->assertDontSeeText($value);
+        } else {
+            $value = 'Diventa fattorino per questo ristorante';
+            $response->assertSeeText($value);
+            $url_act = $restaurant_panel->itemAction('attach_bell_boy')
+                ->with(['auth_user_id' => $user->auth_user_id])
+                ->url();
+            $data = factory(BellBoy::class)->raw();
+
+            $response = $this->actingAs($user)->put($url_act, $data);
+            $response->assertSeeText('Grazie');
+            $response->assertStatus(200);
+            /*
+            echo chr(13) . 'restaurant id [' . $restaurant->id . ']' . chr(13) . 'auth user id [' . $user->auth_user_id . ']' . chr(13);
+                dddx(['auth_user_id'=>$user->auth_user_id,'bell boys'=>$restaurant->bellBoys()]);
+                */
+            $restaurant->bellBoys = $restaurant->bellBoys();
+            $this->assertTrue($restaurant->hasBellBoy(['auth_user_id' => $user->auth_user_id]));
+        }
+    }
+
+    public function test_user_become_bellboy() {
+    }
+
+    public function test_stops_working_in_a_restaurant() {
+        $user = User::where('email', 'runner4@gmail.com')->first();
+
+        $restaurant = Restaurant::inRandomOrder()->first(); //prendo un ristorante di partenza
+        $restaurant_panel = Panel::get($restaurant);
+
+        $url = route('container0.show', ['lang' => 'it', 'container0' => 'restaurant', 'item0' => $restaurant->guid]);
+
+        $response = $this->actingAs($user)->get($url);
+
+        if ($restaurant->hasBellBoy(['auth_user_id' => $user->auth_user_id])) {
+            $value = 'Non voglio';
+            $response->assertSeeText($value);
+        } else {
+            $value = 'Non voglio';
+            $response->assertSeeText($value);
+            $url_act = $restaurant_panel->itemAction('attach_bell_boy')->url();
+            $response = $this->actingAs($user)->post($url_act, []);
+            $response->assertDontSeeText($value);
+
+            //$response->assertStatus(200);
+        }
+    }
+
+    public function test_stop_being_bellboy() {
+        $bell_boy = BellBoy::inRandomOrder()->first();
+        /*
+        $bell_boy_data = factory(BellBoy::class)->raw();
+        $bell_boy = BellBoy::create($bell_boy_data);
+        //$bell_boy_data = factory(BellBoy::class)->create();
+        //*/
+        /*
+        //$bell_boy_data = factory(BellBoy::class)->make(); //istanzia ma non salva
+        */
+
+        //$bell_boy = new BellBoyRepository()->create($bell_boy_data);
+
+        $restaurants = Restaurant::inRandomOrder()->limit(5)->get();
+        $user = $bell_boy->user;
+
+        foreach ($restaurants as $restaurant) {
+            $restaurant->bellBoys()
+                ->attach($bell_boy->id,
+                [
+                    'auth_user_id' => $user->auth_user_id,
+                ]
+            );
+            //$restaurant->addBoy(['auth_user_id' => $user->auth_user_id]); //->attach($bell_boy->id, ['auth_user_id' => $user->auth_user_id]);
+
+            $this->assertTrue($restaurant->hasBellBoy(['auth_user_id' => $user->auth_user_id]));
+        }
+        //$restaurants = $bell_boy->restaurants;
+
+        $bell_boy_panel = Panel::get($bell_boy);
+        $url = $bell_boy_panel->itemAction('stop_being_bell_boy')->url();
+
+        $response = $this->actingAs($user)->get($url);
+        //dddx($url);
+        $response->assertSeeText('Confermi di non voler essere più un fattorino?');
+        $response = $this->actingAs($user)->delete($url, [
+            'confirmed' => true,
+        ]);
+
+        $response->assertStatus(200);
+        echo chr(13).'[ Auth::id ['.$user->auth_user_id.']]'.chr(13);
+        foreach ($restaurants as $restaurant) {
+            $this->assertFalse($restaurant->hasBellBoy(['auth_user_id' => $user->auth_user_id]));
+        }
+    }
+
+    public function test_view_restaurant_list() {
+    }
+
+    public function test_view_order_list() {
+    }
+
+    public function test_take_an_order() {
+    }
+
+    public function test_deliver_an_order() {
+    }
+}

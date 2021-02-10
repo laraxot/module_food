@@ -1,0 +1,62 @@
+@extends('pub_theme::layouts.app_ajax')
+@section('content')
+
+{!! Form::model($row,['url'=>Request::fullUrl() ]) !!}
+@method('put')
+{{ Form::bsHidden('post[title]') }}
+@php
+    for($i=1;$i<=7;$i++){
+        $row->openingHours()->firstOrCreate(['day_of_week'=>$i]);
+        
+    }
+@endphp
+
+<div class="card-body">
+    <table class="table text-sm mb-0">
+        @for($day=1;$day<=7;$day++)
+        @php 
+            $orari=$row->openingHours->where('day_of_week',$i);
+        @endphp
+        @foreach($orari as $v)
+        <tr>
+            <th class="pl-0 border-0">{{ $v->day_of_week }}</th>
+            <td class="pr-0 text-right border-0"><input type="time" value="{{ $v->open_at }}" > </td>
+            <td class="pr-0 text-right border-0"><input type="time" value="{{ $v->close_at }}" ></td>
+        </tr>
+        @endforeach
+        @endfor
+        {{--  
+            <tr>
+                <th class="pl-0">Monday</th>
+                <td class="pr-0 text-right">8:00 am - 6:00 pm</td>
+            </tr>
+            <tr>
+                <th class="pl-0">Tuesday</th>
+                <td class="pr-0 text-right">8:00 am - 6:00 pm</td>
+            </tr>
+            <tr>
+                <th class="pl-0">Wednesday</th>
+                <td class="pr-0 text-right">8:00 am - 6:00 pm</td>
+            </tr>
+            <tr>
+                <th class="pl-0">Thursday</th>
+                <td class="pr-0 text-right">8:00 am - 6:00 pm</td>
+            </tr>
+            <tr>
+                <th class="pl-0">Friday</th>
+                <td class="pr-0 text-right">8:00 am - 6:00 pm</td>
+            </tr>
+            <tr>
+                <th class="pl-0">Saturday</th>
+                <td class="pr-0 text-right">Closed</td>
+            </tr>
+            --}}
+    </table>
+</div>
+
+<div class="modal-footer justify-content-end">
+    <button type="submit" class="btn btn-primary">Save changes</button>
+    <button type="button" data-dismiss="modal" class="btn btn-outline-muted">Close</button>
+</div>
+{{ Form::close() }}
+@endsection

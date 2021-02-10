@@ -1,0 +1,60 @@
+<?php
+
+namespace Modules\Food\Actions;
+
+use Modules\Food\Models\BellBoy;
+use Modules\Food\Repositories\BellBoyRepository;
+use Modules\LU\Models\User;
+
+class BellBoyActions {
+    private $repository;
+
+    public function __construct(BellBoyRepository $repository) {
+        $this->repository = $repository;
+    }
+
+    public function promote(User $user): void {
+        $bell_boy_data = factory(BellBoy::class)->raw();
+        $bell_boy_data['auth_user_id'] = $user->auth_user_id;
+
+        $bell_boy = $this->repository->promote($bell_boy_data);
+    }
+
+    private function hasRole(User $user): bool {
+        /*
+        if (!$user->role('bellboy') {
+            throw new Exception('Not a bellboy');
+        }
+        */
+        return true;
+    }
+
+    private function hasState(Cruise $cruise, string $state): bool {
+        if ($cruise->state != $state) {
+            throw new Exception('Not in state');
+        }
+
+        return true;
+    }
+
+    public function demote(User $user): void {
+        $this->repository->update($user, ['role' => 'user']);
+    }
+
+    public function assignCruise(User $user, Cruise $cruise): void {
+        $this->hasRole($user);
+        $this->repository->attach($user, cruise);
+    }
+
+    public function acceptCruise(User $user, Cruise $cruise): void {
+        $this->hasRole($user);
+        $this->hasState($cruise, 'new');
+        $this->repository->changeStatew($user, cruise, 'accept');
+    }
+
+    public function refuseCruise(User $user, Cruise $cruise): void {
+        $this->hasRole($user);
+        $this->hasState($cruise, 'new');
+        $this->repository->changeState($user, cruise, 'refuse');
+    }
+}

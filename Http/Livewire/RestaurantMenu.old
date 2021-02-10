@@ -1,0 +1,162 @@
+<?php
+
+namespace Modules\Food\Http\Livewire;
+
+use Livewire\Component;
+use Modules\Food\Models\Cuisine;
+use Modules\Food\Models\Restaurant;
+use Modules\LU\Models\User;
+
+class RestaurantMenu extends Component {
+    public $restaurant_id;
+    public $cuisines;
+    public $email;
+    public $user_id;
+    public $updateMode = false;
+    public $recipe_id;
+    public $recipe_title;
+    public $recipe_qty = '1';
+    public $recipe_price;
+    public $changes = [];
+    public $ingredient_cats = [];
+    public $note;
+    public $cuisine_id;
+
+    public function fix($arr) {
+        return collect($arr)->map(
+            function ($item) {
+                return (object) $item;
+            }
+        ); //->all();
+    }
+
+    public function mount($restaurant_id) {
+        $this->restaurant_id = $restaurant_id;
+        $this->cuisines = Restaurant::find($this->restaurant_id)->cuisines;
+    }
+
+    public function render() {
+        return view('food::livewire.restaurant_menu');
+    }
+
+    private function resetInputFields() {
+        $this->recipe_qty = '1';
+        $this->changes = [];
+    }
+
+    public function addItemCart($id, $id_cat) {
+        $cuisine = Cuisine::find($id_cat);
+        $this->cuisine_id = $cuisine->id;
+        $recipe = $cuisine->recipes()->where('recipes.id', $id)->first();
+
+        $this->recipe_title = $recipe->title;
+        $this->recipe_id = $recipe->id;
+        $this->ingredient_cats = $cuisine->ingredientCats;
+        $this->recipe_price = $recipe->pivot->price;
+    }
+
+    public function decrementRecipe() {
+        if ($this->recipe_qty > 1) {
+            --$this->recipe_qty;
+        }
+    }
+
+    public function incrementRecipe() {
+        ++$this->recipe_qty;
+    }
+
+    public function store() {
+        $changes_eff = collect($this->changes)->map(
+            function ($item, $key) {
+                $tmp = [];
+                $cat = $this->ingredient_cats->firstWhere('id', $key);
+                $variations = $cat->ingredients;
+                $tmp['cat_id'] = $cat->id;
+                $tmp['cat_name'] = $cat->title;
+                foreach ($item as $k => $qty) {
+                    $var = $variations->firstWhere('id', $k);
+                    if (0 != $qty) {
+                        $tmp['subs'][$k]['id'] = $k;
+                        $tmp['subs'][$k]['qty'] = $qty;
+                        $tmp['subs'][$k]['name'] = $var->title;
+                        $tmp['subs'][$k]['price'] = $var->pivot->price;
+                    }
+                }
+                //*/
+                return $tmp;
+            }
+        )->all();
+        //dddx($this->cuisine_id);
+        $this->emit('cart::add',
+            [
+                'id' => $this->recipe_id,
+                'cat_id' => $this->cuisine_id,
+                'title' => $this->recipe_title,
+                'qty' => $this->recipe_qty,
+                'price' => $this->recipe_price,
+                'changes' => $changes_eff,
+                'note' => $this->note,
+            ]
+        );
+        session()->flash('message', 'Store Successfully.');
+        $this->resetInputFields();
+
+        /*
+        $validatedDate = $this->validate([
+            'first_name' => 'required',
+            'email' => 'required|email',
+        ]);
+
+        User::create($validatedDate);
+
+        session()->flash('message', 'Users Created Successfully.');
+
+        $this->resetInputFields();
+
+        $this->emit('userStore'); // Close model to using to jquery
+        */
+    }
+
+    public function edit($id) {
+        $this->updateMode = true;
+        $user = User::where('auth_user_id', $id)->first();
+
+        $this->user_id = $id;
+        $this->first_name = $user->first_name;
+        $this->email = $user->email;
+    }
+
+    public function cancel() {
+        $this->updateMode = false;
+        $this->resetInputFields();
+    }
+
+    public function update() {
+        session()->flash('message', 'Users Updated Successfully.');
+
+        /*
+        $validatedDate = $this->validate([
+            'first_name' => 'required',
+            'email' => 'required|email',
+            ]);
+
+            if ($this->user_id) {
+                $user = User::find($this->user_id);
+                $user->update([
+                    'first_name' => $this->first_name,
+                    'email' => $this->email,
+                    ]);
+                    $this->updateMode = false;
+                    session()->flash('message', 'Users Updated Successfully.');
+                    $this->resetInputFields();
+                }
+                */
+    }
+
+    public function delete($id) {
+        if ($id) {
+            User::where('id', $id)->delete();
+            session()->flash('message', 'Users Deleted Successfully.');
+        }
+    }
+}

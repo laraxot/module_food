@@ -1,0 +1,56 @@
+<?php
+
+namespace Modules\Food\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Str;
+
+use Modules\Xot\Services\ImportService;
+use Modules\Food\Models\Location;
+use Modules\Blog\Models\Post;
+
+class MapController extends Controller {
+
+
+
+    public function index(Request $request){
+        $data=$request->all();
+        /*
+        extract($data);
+        $address=json_decode($address);
+        ImportService
+        */
+
+        if(isset($data['city'])){
+            $data['container0']='location';
+            $data['item0']=Str::slug($data['city']);
+
+
+            $data['container1']='restaurant';
+            $data['lang']=\App::getLocale();
+            $row=Location::whereHas('post',
+                function (Builder $query) use($data) {
+                    $query->where('guid',$data['item0'])
+                        ->where('lang',$data['lang']);
+                }
+            );
+            if(!$row->exists()){
+               //die(back()->with('status','citta non inserita'))
+               $location=Location::create(['locality'=>$data['city']]);
+               $location->post()->create(['title'=>$data['city'],'lang'=>$data['lang'],'guid'=>$data['item0']]);
+            }
+            die(redirect()->route('container0.container1.index', $data));
+        }
+        return back()
+            ->withInput()
+            //->with('status', 'Profile updated!')
+        ;
+    }
+
+    public function show(Request $request){
+        ddd('preso');
+    }
+
+}

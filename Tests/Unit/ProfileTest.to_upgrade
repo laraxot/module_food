@@ -1,0 +1,31 @@
+<?php
+
+namespace Modules\Food\Tests\Unit;
+
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
+
+class ProfileTest extends TestCase {
+    use WithFaker;
+
+    /**
+     * A basic unit test example.
+     */
+    public function testCreateProfileCommand() {
+        //echo PHP_EOL.' '.$this->faker->firstName();
+        $faker = $this->faker;
+        $data = [];
+        $data['handle'] = $faker->unique()->userName;
+        $data['first_name'] = $faker->firstName();
+        $data['last_name'] = $faker->lastName();
+        $data['email'] = $faker->unique()->safeEmail;
+        $data['passwd'] = '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm';
+        //-------------- --------------
+        $command = new \Modules\Food\Console\CreateProfileCommand($data);
+        \Illuminate\Support\Facades\Bus::dispatch($command);
+        //-----------------------------
+        $this->assertTrue(true);
+    }
+
+    //end testProfileCommand
+}

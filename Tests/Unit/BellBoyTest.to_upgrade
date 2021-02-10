@@ -1,0 +1,37 @@
+<?php
+
+namespace Modules\Food\Tests\Unit;
+
+use Modules\LU\Models\User;
+use Tests\TestCase;
+
+class BellBoyTest extends TestCase {
+    public function test_is_bellboy() {
+        $user = User::where('email', 'runner1@gmail.com')->first();
+
+        $this->assertTrue($user->profile->isBellBoy());
+    }
+
+    /* funzioni suggerite da alessandro (eppak)
+    private function hasRole(User $user): bool {
+    }
+
+    private function hasState(Cruise $cruise, string $state): bool {
+    }
+
+    public function promote(User $user): void {
+    }
+
+    public function demote(User $user): void {
+    }
+
+    public function assignCruise(User $user, Cruise $cruise): void {
+    }
+
+    public function acceptCruise(User $user, Cruise $cruise): void {
+    }
+
+    public function refuseCruise(User $user, Cruise $cruise): void {
+    }
+     */
+}

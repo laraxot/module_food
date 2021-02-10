@@ -1,0 +1,90 @@
+<?php
+
+namespace Modules\Food\Console;
+
+use App\Bus\Bus;
+use Illuminate\Console\Command;
+use Modules\Food\Bus\CreateProfile;
+//------ MODELS -------
+use Modules\LU\Models\User;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputOption;
+
+class CreateProfileCommand extends Command {
+    /**
+     * The console command name.
+     *
+     * @var string
+     */
+    protected $name = 'food:create-profile';
+    private $data = [];
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Create a food user profile.';
+
+    /**
+     * Create a new command instance.
+     */
+    public function __construct($data = []) {
+        parent::__construct(); /* va per primo o per ultimo ?? */
+        $this->data = $data;
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle() {
+        $data = $this->data;
+        if (count($data) < 2) {
+            //if (\App::runningInConsole()) {
+            $data['handle'] = $this->ask('What is your nickname [without space and special characters]?');
+            $data['first_name'] = $this->ask('What is your first name ?');
+            $data['last_name'] = $this->ask('What is your last name ?');
+            $data['email'] = $this->ask('Email Address');
+            $data['passwd'] = $this->secret('What is the password?');
+        }
+        if (! isset($data['lang'])) {
+            $data['lang'] = app()->getLocale();
+        }
+
+        $bus = new Bus();
+        $bus->dispatch(CreateProfile::fromArray($data));
+
+        /*$user = User::create($data);
+        $profile = $user->profile()->create($data);
+        $data['title'] = 'profile of '.$data['handle'];
+        $post = $profile->post()->create($data);
+        if (defined('PHPUNIT_YOURAPPLICATION_TESTSUITE') && PHPUNIT_YOURAPPLICATION_TESTSUITE) {
+        } else {
+            $this->info('Success ! Food User Profile Created !');
+        }*/
+    }
+
+    /**
+     * Get the console command arguments.
+     *
+     * @return array
+     */
+    protected function getArguments() {
+        return [
+            //['example', InputArgument::REQUIRED, 'An example argument.'],
+        ];
+    }
+
+    /**
+     * Get the console command options.
+     *
+     * @return array
+     */
+    protected function getOptions() {
+        return [
+            ['example', null, InputOption::VALUE_OPTIONAL, 'An example option.', null],
+        ];
+    }
+}
