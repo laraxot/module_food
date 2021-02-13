@@ -127,7 +127,8 @@ class WidgetFoodTableSeeder extends Seeder {
         ];
 
         foreach ($widgets as $widget) {
-            DB::table('widgets')->insert($widget);
+            //DB::table('widgets')->insert($widget);
+            Widget::firstOrCreate($widget);
         }
     }
 }
