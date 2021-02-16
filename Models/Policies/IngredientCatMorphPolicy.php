@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 namespace Modules\Food\Models\Policies;
@@ -10,3 +11,17 @@ use Modules\Xot\Models\Policies\XotBasePolicy;
  */
 class IngredientCatMorphPolicy extends XotBasePolicy {
 }
+=======
+<?php
+
+namespace Modules\Food\Models\Policies;
+
+use Modules\Xot\Models\Policies\XotBasePolicy;
+
+/**
+ * Class IngredientCatMorphPolicy
+ * @package Modules\Food\Models\Policies
+ */
+class IngredientCatMorphPolicy extends XotBasePolicy {
+}
+>>>>>>> a6dde0f (first)

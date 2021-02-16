@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 namespace Modules\Food\Repositories;
@@ -15,3 +16,22 @@ class LocationRepository extends XotBaseRepository {
      */
     protected $model = Location::class;
 }
+=======
+<?php
+
+namespace Modules\Food\Repositories;
+
+//models
+use Modules\Food\Models\Location;
+//---base
+use Modules\Xot\Repositories\XotBaseRepository;
+
+class LocationRepository extends XotBaseRepository {
+    /**
+     * Specify Model class name.
+     *
+     * @return string
+     */
+    protected $model = Location::class;
+}
+>>>>>>> a6dde0f (first)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 namespace Modules\Food\Repositories;
@@ -13,3 +14,20 @@ class CuisineCatRepository extends XotBaseRepository {
      */
     protected $model = 'Modules\Food\Models\CuisineCat';
 }
+=======
+<?php
+
+namespace Modules\Food\Repositories;
+
+//---base
+use Modules\Xot\Repositories\XotBaseRepository;
+
+class CuisineCatRepository extends XotBaseRepository {
+    /**
+     * Specify Model class name.
+     *
+     * @return string
+     */
+    protected $model = 'Modules\Food\Models\CuisineCat';
+}
+>>>>>>> a6dde0f (first)

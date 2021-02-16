@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 namespace Modules\Food\Repositories;
@@ -13,3 +14,20 @@ class CartStatusRepository extends XotBaseRepository {
      */
     protected $model = 'Modules\Cart\Models\CartStatus';
 }
+=======
+<?php
+
+namespace Modules\Food\Repositories;
+
+//---base
+use Modules\Xot\Repositories\XotBaseRepository;
+
+class CartStatusRepository extends XotBaseRepository {
+    /**
+     * Specify Model class name.
+     *
+     * @return string
+     */
+    protected $model = 'Modules\Cart\Models\CartStatus';
+}
+>>>>>>> a6dde0f (first)
