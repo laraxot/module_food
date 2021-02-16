@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -22,28 +21,3 @@ class PostResource extends JsonResource {
         return parent::toArray($request);
     }
 }
-=======
-<?php
-
-declare(strict_types=1);
-
-namespace Modules\Food\Transformers;
-
-use Illuminate\Http\Resources\Json\JsonResource;
-
-/**
- * Class PostResource.
- */
-class PostResource extends JsonResource {
-    /**
-     * Transform the resource into an array.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return array
-     */
-    public function toArray($request) {
-        return parent::toArray($request);
-    }
-}
->>>>>>> a6dde0f (first)

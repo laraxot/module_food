@@ -1,14 +1,6 @@
-<<<<<<< HEAD
 <div>
     <div class="collapse" id="personalDetails">
 
     personal_info blade
     </div>
-=======
-<div>
-    <div class="collapse" id="personalDetails">
-
-    personal_info blade
-    </div>
->>>>>>> a6dde0f (first)
 </div>

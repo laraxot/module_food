@@ -1,23 +1,11 @@
-<<<<<<< HEAD
 <?php
+
+declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels\Policies;
 
 /**
- * Class IngredientPanelPolicy
- * @package Modules\Food\Models\Panels\Policies
+ * Class IngredientPanelPolicy.
  */
 class IngredientPanelPolicy extends BaseRestaurantPanelPolicy {
 }
-=======
-<?php
-
-namespace Modules\Food\Models\Panels\Policies;
-
-/**
- * Class IngredientPanelPolicy
- * @package Modules\Food\Models\Panels\Policies
- */
-class IngredientPanelPolicy extends BaseRestaurantPanelPolicy {
-}
->>>>>>> a6dde0f (first)

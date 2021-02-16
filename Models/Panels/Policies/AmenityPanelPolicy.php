@@ -1,5 +1,6 @@
-<<<<<<< HEAD
 <?php
+
+declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels\Policies;
 
@@ -9,25 +10,7 @@ namespace Modules\Food\Models\Panels\Policies;
 use Modules\Xot\Models\Panels\Policies\XotBasePanelPolicy;
 
 /**
- * Class AmenityPanelPolicy
- * @package Modules\Food\Models\Panels\Policies
+ * Class AmenityPanelPolicy.
  */
 class AmenityPanelPolicy extends XotBasePanelPolicy {
 }
-=======
-<?php
-
-namespace Modules\Food\Models\Panels\Policies;
-
-//use Modules\LU\Models\User as User;
-//use Modules\Food\Models\BellBoy as Post;
-
-use Modules\Xot\Models\Panels\Policies\XotBasePanelPolicy;
-
-/**
- * Class AmenityPanelPolicy
- * @package Modules\Food\Models\Panels\Policies
- */
-class AmenityPanelPolicy extends XotBasePanelPolicy {
-}
->>>>>>> a6dde0f (first)

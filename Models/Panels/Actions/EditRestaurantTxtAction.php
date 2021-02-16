@@ -1,27 +1,13 @@
-<<<<<<< HEAD
 <?php
+
+declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels\Actions;
 
 //-------- bases -----------
 
 /**
- * Class EditRestaurantTxtAction
- * @package Modules\Food\Models\Panels\Actions
+ * Class EditRestaurantTxtAction.
  */
 class EditRestaurantTxtAction extends BaseEditRestaurantAction {
 }
-=======
-<?php
-
-namespace Modules\Food\Models\Panels\Actions;
-
-//-------- bases -----------
-
-/**
- * Class EditRestaurantTxtAction
- * @package Modules\Food\Models\Panels\Actions
- */
-class EditRestaurantTxtAction extends BaseEditRestaurantAction {
-}
->>>>>>> a6dde0f (first)

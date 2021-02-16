@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 
 namespace Modules\Food\Tests\Feature;
@@ -25,31 +24,3 @@ class WaiterTest extends TestCase {
     public function test_communicate_to_the_kitchen() {
     }
 }
-=======
-<?php
-
-namespace Modules\Food\Tests\Feature;
-
-use Tests\TestCase;
-
-/**
- * Class WaiterTest
- * @package Modules\Food\Tests\Feature
- */
-class WaiterTest extends TestCase {
-    public function test_view_waiter_panel() {
-    }
-
-    //prende l'ordine dal cliente
-    public function test_take_order() {
-    }
-
-    //aggiorna modifiche dell'ordine del cliente
-    public function test_update_order() {
-    }
-
-    //comunica l'ordine alla cucina
-    public function test_communicate_to_the_kitchen() {
-    }
-}
->>>>>>> a6dde0f (first)

@@ -1,27 +1,13 @@
-<<<<<<< HEAD
 <?php
+
+declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels\Actions;
 
 //-------- bases -----------
 
 /**
- * Class AddRecipeAction
- * @package Modules\Food\Models\Panels\Actions
+ * Class AddRecipeAction.
  */
 class AddRecipeAction extends BaseEditRestaurantAction {
 }
-=======
-<?php
-
-namespace Modules\Food\Models\Panels\Actions;
-
-//-------- bases -----------
-
-/**
- * Class AddRecipeAction
- * @package Modules\Food\Models\Panels\Actions
- */
-class AddRecipeAction extends BaseEditRestaurantAction {
-}
->>>>>>> a6dde0f (first)

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 
 namespace Modules\Food\Repositories;
@@ -22,28 +21,3 @@ class RestaurantRepository extends XotBaseRepository {
         ],
     ];
 }
-=======
-<?php
-
-namespace Modules\Food\Repositories;
-
-//---base
-use Modules\Xot\Repositories\XotBaseRepository;
-
-class RestaurantRepository extends XotBaseRepository {
-    /**
-     * Specify Model class name.
-     *
-     * @return string
-     */
-    protected $model = 'Modules\Food\Models\Restaurant';
-
-    protected $searchable = [
-        //'author' => 'users:name,id,user_id',
-        //'post_title'=>'post:title,post_id,post_id',
-        'query' => [
-            'post_title',
-        ],
-    ];
-}
->>>>>>> a6dde0f (first)

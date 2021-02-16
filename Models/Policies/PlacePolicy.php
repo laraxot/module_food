@@ -1,33 +1,13 @@
-<<<<<<< HEAD
 <?php
-namespace Modules\Food\Models\Policies;
 
-use Illuminate\Auth\Access\HandlesAuthorization;
-use Modules\LU\Models\User as User;
-use Modules\Food\Models\Place as Post;
+declare(strict_types=1);
+
+namespace Modules\Food\Models\Policies;
 
 use Modules\Xot\Models\Policies\XotBasePolicy;
 
 /**
- * Class PlacePolicy
- * @package Modules\Food\Models\Policies
+ * Class PlacePolicy.
  */
 class PlacePolicy extends XotBasePolicy {
 }
-=======
-<?php
-namespace Modules\Food\Models\Policies;
-
-use Illuminate\Auth\Access\HandlesAuthorization;
-use Modules\LU\Models\User as User;
-use Modules\Food\Models\Place as Post;
-
-use Modules\Xot\Models\Policies\XotBasePolicy;
-
-/**
- * Class PlacePolicy
- * @package Modules\Food\Models\Policies
- */
-class PlacePolicy extends XotBasePolicy {
-}
->>>>>>> a6dde0f (first)

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 
 namespace Modules\Food\Repositories;
@@ -14,20 +13,3 @@ class MapRepository extends XotBaseRepository {
      */
     protected $model = 'Modules\Food\Models\Map';
 }
-=======
-<?php
-
-namespace Modules\Food\Repositories;
-
-//---base
-use Modules\Xot\Repositories\XotBaseRepository;
-
-class MapRepository extends XotBaseRepository {
-    /**
-     * Specify Model class name.
-     *
-     * @return string
-     */
-    protected $model = 'Modules\Food\Models\Map';
-}
->>>>>>> a6dde0f (first)

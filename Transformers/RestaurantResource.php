@@ -1,5 +1,6 @@
-<<<<<<< HEAD
 <?php
+
+declare(strict_types=1);
 
 namespace Modules\Food\Transformers;
 
@@ -12,14 +13,14 @@ namespace Modules\Food\Transformers;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
- * Class RestaurantResource
- * @package Modules\Food\Transformers
+ * Class RestaurantResource.
  */
 class RestaurantResource extends JsonResource {
     /**
      * Transform the resource into an array.
      *
      * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     public function toArray($request) {
@@ -37,43 +38,3 @@ class RestaurantResource extends JsonResource {
         return $attributes;
     }
 }
-=======
-<?php
-
-namespace Modules\Food\Transformers;
-
-/*
-* https://medium.com/@dinotedesco/using-laravel-5-5-resources-to-create-your-own-json-api-formatted-api-2c6af5e4d0e8
-* https://jsonapi.org/
-**/
-
-//use Illuminate\Http\Resources\Json\Resource;
-use Illuminate\Http\Resources\Json\JsonResource;
-
-/**
- * Class RestaurantResource
- * @package Modules\Food\Transformers
- */
-class RestaurantResource extends JsonResource {
-    /**
-     * Transform the resource into an array.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return array
-     */
-    public function toArray($request) {
-        $attributes = parent::toArray($request);
-        /*
-        return [
-            'type'          => $this->post_type,
-            'id'            => (string)$this->id,
-            'attributes'    => $attributes,
-            'links'         => [
-                //'self' => route('articles.show', ['article' => $this->id]),
-            ],
-        ];
-        */
-        return $attributes;
-    }
-}
->>>>>>> a6dde0f (first)

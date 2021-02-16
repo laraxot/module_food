@@ -1,27 +1,13 @@
-<<<<<<< HEAD
 <?php
+
+declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels\Actions;
 
 //-------- bases -----------
 
 /**
- * Class EditRestaurantOpeningHoursAction
- * @package Modules\Food\Models\Panels\Actions
+ * Class EditRestaurantOpeningHoursAction.
  */
 class EditRestaurantOpeningHoursAction extends BaseEditRestaurantAction {
 }
-=======
-<?php
-
-namespace Modules\Food\Models\Panels\Actions;
-
-//-------- bases -----------
-
-/**
- * Class EditRestaurantOpeningHoursAction
- * @package Modules\Food\Models\Panels\Actions
- */
-class EditRestaurantOpeningHoursAction extends BaseEditRestaurantAction {
-}
->>>>>>> a6dde0f (first)

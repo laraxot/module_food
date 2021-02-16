@@ -1,27 +1,13 @@
-<<<<<<< HEAD
 <?php
+
+declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels\Policies;
 
 use Modules\Xot\Models\Panels\Policies\XotBasePanelPolicy;
 
 /**
- * Class IngredientCatMorphPanelPolicy
- * @package Modules\Food\Models\Panels\Policies
+ * Class IngredientCatMorphPanelPolicy.
  */
 class IngredientCatMorphPanelPolicy extends XotBasePanelPolicy {
 }
-=======
-<?php
-
-namespace Modules\Food\Models\Panels\Policies;
-
-use Modules\Xot\Models\Panels\Policies\XotBasePanelPolicy;
-
-/**
- * Class IngredientCatMorphPanelPolicy
- * @package Modules\Food\Models\Panels\Policies
- */
-class IngredientCatMorphPanelPolicy extends XotBasePanelPolicy {
-}
->>>>>>> a6dde0f (first)
