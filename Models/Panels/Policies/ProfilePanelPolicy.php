@@ -57,6 +57,13 @@ class ProfilePanelPolicy extends XotBasePanelPolicy {
     }
 
     public function userSecurity(UserContract $user, PanelContract $panel): bool {
-        return true;
+        //return true;
+        //volevo riutilizzare edit invece di copiare tutto lo snippet
+        $post = $panel->row;
+        if ($post->created_by == $user->handle || $post->updated_by == $user->handle || $post->auth_user_id == $user->auth_user_id) {
+            return true;
+        }
+
+        return false;
     }
 }
