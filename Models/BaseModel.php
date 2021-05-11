@@ -2,8 +2,8 @@
 
 namespace Modules\Food\Models;
 
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
 /*
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
@@ -11,6 +11,7 @@ use Spatie\Image\Manipulations as ImageManipulations;
 use Spatie\MediaLibrary\File;
 */
 //---------- traits
+use Laravel\Scout\Searchable;
 use Modules\Xot\Traits\Updater;
 
 /**
@@ -19,6 +20,7 @@ use Modules\Xot\Traits\Updater;
 abstract class BaseModel extends Model /*implements HasMedia*/
 {
     use Updater;
+    //use Cachable;
     use Searchable;
     /*
     use HasMediaTrait; //spatie

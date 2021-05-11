@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models;
 
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
 /*
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
@@ -13,6 +13,7 @@ use Spatie\Image\Manipulations as ImageManipulations;
 use Spatie\MediaLibrary\File;
 */
 //---------- traits
+use Laravel\Scout\Searchable;
 use Modules\Blog\Models\Traits\LinkedTrait;
 use Modules\Xot\Contracts\ModelContract;
 use Modules\Xot\Models\Traits\HasPriceTrait;
@@ -32,6 +33,7 @@ abstract class BaseModelLang extends Model implements ModelContract /*implements
     use Searchable;
     use LinkedTrait;
     use HasPriceTrait;
+    //use Cachable;
     /*
     use HasMediaTrait; //spatie
     //use ImageManipulations; //spatie per usare sepia ed altri
