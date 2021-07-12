@@ -19,6 +19,7 @@ return [
         ],
     ],
     'tab' => [
+        'info' => 'Info',
         'cuisine_cat' => 'Cucine del Luogo',
         'restaurant' => 'Ristoranti del Luogo',
         'cuisine_cats' => 'Cucine del Luogo',
