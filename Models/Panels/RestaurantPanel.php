@@ -201,10 +201,10 @@ class RestaurantPanel extends XotBasePanel {
      */
     public function tabs() {
         if (in_admin()) {
-            $tabs_name = ['cuisine', 'cuisine_cat', 'location', 'opening_hour', 'article', 'photo', 'event',
-                'profile', 'rating', 'my_rating', 'booking', 'booking_items', ];
+            $tabs_name = ['cuisines', 'cuisine_cats', 'locations', 'opening_hours', 'articles', 'photos', 'events',
+                'profiles', 'ratings', 'my_ratings', 'bookings', 'booking_items', ];
         } else {
-            $tabs_name = ['cuisine', 'article'];
+            $tabs_name = ['cuisines', 'articles'];
         }
 
         return $tabs_name;

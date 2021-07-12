@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'restaurant' => [
         'index' => [
@@ -19,6 +21,8 @@ return [
     'tab' => [
         'cuisine_cat' => 'Cucine del Luogo',
         'restaurant' => 'Ristoranti del Luogo',
+        'cuisine_cats' => 'Cucine del Luogo',
+        'restaurants' => 'Ristoranti del Luogo',
     ],
     'tabs' => [
         'info' => 'Info',

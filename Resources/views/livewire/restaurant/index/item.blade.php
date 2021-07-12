@@ -27,7 +27,7 @@
             <div class="text-center">
                 @foreach ($row_panel->getRowTabs() as $tab)
                     <a href="{{ $tab->url }}" class="btn btn-secondary mb-2">
-                        {{ __('food::location.item.' . $tab->title) }}
+                        {{ $tab->title }}
                     </a>
                 @endforeach
             </div>

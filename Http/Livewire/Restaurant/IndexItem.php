@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Food\Http\Livewire\Restaurant;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -12,14 +14,10 @@ use Modules\Xot\Services\PanelService;
  * @property \Modules\Xot\Models\Panels\XotBasePanel $panel
  */
 class IndexItem extends Component {
-    /**
-     * @var array
-     */
     public array $route_params = [];
-    /**
-     * @var array
-     */
+
     public array $data = [];
+
     //public $row_panel;
 
     public $row;
@@ -54,7 +52,7 @@ class IndexItem extends Component {
         $view = 'food::livewire.restaurant.index.item';
         $view_params = [
             'view' => $view,
-            'row_panel' => PanelService::get($this->row)->setParent($this->panel->getParent()),
+            'row_panel' => PanelService::get($this->row)->setBrother($this->panel),
             //'rows' => $this->query()->paginate(20),
             //'_panel' => $this->panel,
         ];

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Food\Models\Panels;
 
 use Illuminate\Http\Request;
@@ -89,7 +91,7 @@ class CuisinePanel extends XotBasePanel {
      * @return array
      */
     public function tabs() {
-        $tabs_name = ['recipe', 'ingredient_cat'];
+        $tabs_name = ['recipes', 'ingredient_cats'];
 
         return $tabs_name;
     }

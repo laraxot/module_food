@@ -1,29 +1,33 @@
-<?php return array (
-  'tabs' => 
-  array (
-    'info' => 'Info',
-    'recipe' => 'Ricette',
-    'ingredient_cat' => 'Tipologia ingredienti',
-  ),
-  'field' => 
-  array (
-    'id_help' => '',
-    'post' => 
-    array (
-      'title_label' => 'Categoria piatto',
-      'title_placeholder' => 'Scrivi qui...',
-      'title_help' => 'es: primi, secondi, antipasti, dessert...',
-      'subtitle_label' => 'Descrizione categoria piatto',
-      'subtitle_placeholder' => 'Opzionale',
-      'subtitle_help' => 'eventuale descrizione della categoria piatto',
-    ),
-  ),
-  'btn' => 
-  array (
-    'edit_cuisine' => 'Modifica categoria piatto',
-  ),
-  'act' => 
-  array (
-    'create' => 'Aggiungi Voce Menu',
-  ),
-);
+<?php
+
+declare(strict_types=1);
+
+return [
+    'tabs' => [
+        'info' => 'Info',
+        'recipe' => 'Menu',
+        'ingredient_cat' => 'Tipologia Variazioni',
+    ],
+    'tab' => [
+        'info' => 'Info',
+        'recipes' => 'Menu',
+        'ingredient_cats' => 'Tipologia Variazioni',
+    ],
+    'field' => [
+        'id_help' => '',
+        'post' => [
+            'title_label' => 'Categoria piatto',
+            'title_placeholder' => 'Scrivi qui...',
+            'title_help' => 'es: primi, secondi, antipasti, dessert...',
+            'subtitle_label' => 'Descrizione categoria piatto',
+            'subtitle_placeholder' => 'Opzionale',
+            'subtitle_help' => 'eventuale descrizione della categoria piatto',
+        ],
+    ],
+    'btn' => [
+        'edit_cuisine' => 'Modifica categoria piatto',
+    ],
+    'act' => [
+        'create' => 'Aggiungi Voce Menu',
+    ],
+];
