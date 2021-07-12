@@ -263,10 +263,6 @@ class Restaurant extends BaseModelLang implements RestaurantContract {
 
     //-------- relationship -----------
 
-    public function cuisine() {
-        return $this->morphRelated(Cuisine::class);
-    }
-
     //-------- mutators -----------
     /*
     public function getPostAttribute($value) { //4 livewire
