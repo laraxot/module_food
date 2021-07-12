@@ -8,11 +8,11 @@ namespace Modules\Food\Models;
 //------- blog models
 //------ food models
 //-------- services
-use Modules\Geo\Models\Traits\GeoTrait;
+use Modules\Blog\Models\Traits\AmenityTrait;
 use Modules\Blog\Models\Traits\RatingTrait;
 //---------- traits
-use Modules\Blog\Models\Traits\AmenityTrait;
 use Modules\Food\Contracts\RestaurantContract;
+use Modules\Geo\Models\Traits\GeoTrait;
 
 /**
  * Modules\Food\Models\Restaurant.
@@ -119,6 +119,7 @@ use Modules\Food\Contracts\RestaurantContract;
  * @property int|null                                                                           $restaurant_providers_count
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Tip[]                $tips
  * @property int|null                                                                           $tips_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)
@@ -178,36 +179,37 @@ use Modules\Food\Contracts\RestaurantContract;
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant withRating()
  * @mixin \Eloquent
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Amenity[] $amenities
- * @property-read int|null $amenities_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Article[] $articles
- * @property-read int|null $articles_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\BellBoy[] $bellBoys
- * @property-read int|null $bell_boys_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Cart\Models\Cart[] $cartsByRestaurantOwner
- * @property-read int|null $carts_by_restaurant_owner_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Cart\Models\Cart[] $cartsInProgress
- * @property-read int|null $carts_in_progress_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\CuisineCat[] $cuisineCats
- * @property-read int|null $cuisine_cats_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Cuisine[] $cuisines
- * @property-read int|null $cuisines_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Event[] $events
- * @property-read int|null $events_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\IngredientCat[] $ingredientCats
- * @property-read int|null $ingredient_cats_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Photo[] $photos
- * @property-read int|null $photos_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Cuisine[] $productCats
- * @property-read int|null $product_cats_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Profile[] $profiles
- * @property-read int|null $profiles_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\RestaurantOwner[] $restaurantOwners
- * @property-read int|null $restaurant_owners_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Waiter[] $waiters
- * @property-read int|null $waiters_count
+ *
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Amenity[]         $amenities
+ * @property int|null                                                                        $amenities_count
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Article[]         $articles
+ * @property int|null                                                                        $articles_count
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\BellBoy[]         $bellBoys
+ * @property int|null                                                                        $bell_boys_count
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Cart\Models\Cart[]            $cartsByRestaurantOwner
+ * @property int|null                                                                        $carts_by_restaurant_owner_count
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Cart\Models\Cart[]            $cartsInProgress
+ * @property int|null                                                                        $carts_in_progress_count
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\CuisineCat[]      $cuisineCats
+ * @property int|null                                                                        $cuisine_cats_count
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Cuisine[]         $cuisines
+ * @property int|null                                                                        $cuisines_count
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Event[]           $events
+ * @property int|null                                                                        $events_count
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\IngredientCat[]   $ingredientCats
+ * @property int|null                                                                        $ingredient_cats_count
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Photo[]           $photos
+ * @property int|null                                                                        $photos_count
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Cuisine[]         $productCats
+ * @property int|null                                                                        $product_cats_count
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Profile[]         $profiles
+ * @property int|null                                                                        $profiles_count
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\RestaurantOwner[] $restaurantOwners
+ * @property int|null                                                                        $restaurant_owners_count
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Waiter[]          $waiters
+ * @property int|null                                                                        $waiters_count
  */
-class Restaurant extends BaseModelLang implements RestaurantContract{
+class Restaurant extends BaseModelLang implements RestaurantContract {
     use RatingTrait;
     use AmenityTrait;
     use GeoTrait;
@@ -260,6 +262,10 @@ class Restaurant extends BaseModelLang implements RestaurantContract{
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
     //-------- relationship -----------
+
+    public function cuisine() {
+        return $this->morphRelated(Cuisine::class);
+    }
 
     //-------- mutators -----------
     /*
