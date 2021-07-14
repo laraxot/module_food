@@ -17,7 +17,6 @@ namespace Modules\Food\Models;
  * @property string|null                     $checkbox_value
  * @property int|null                        $checkbox_label_id
  * @property string|null                     $checkbox_label
- *
  * @method static \Illuminate\Database\Eloquent\Builder|ProfilePrivacyChrono newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ProfilePrivacyChrono newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ProfilePrivacyChrono query()

@@ -65,7 +65,6 @@ use Modules\Blog\Models\Post;
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\RestaurantProvider[] $restaurantProviders
  * @property int|null                                                                           $restaurant_providers_count
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Restaurant[]         $restaurants
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Location newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Location newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)

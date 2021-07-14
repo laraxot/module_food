@@ -39,7 +39,6 @@ use Modules\Xot\Models\Traits\WidgetTrait;
  * @property int|null                                                                   $restaurants_count
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Xot\Models\Widget[]      $widgets
  * @property int|null                                                                   $widgets_count
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Home newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Home newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)
@@ -53,7 +52,6 @@ use Modules\Xot\Models\Traits\WidgetTrait;
  * @method static \Illuminate\Database\Eloquent\Builder|Home whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
  * @mixin \Eloquent
- *
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Location[]   $citiesPopular
  * @property int|null                                                                   $cities_popular_count
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Restaurant[] $restaurantsPopular

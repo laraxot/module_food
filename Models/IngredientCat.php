@@ -36,7 +36,6 @@ namespace Modules\Food\Models;
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Favorite[] $myFavorites
  * @property int|null                                                                 $my_favorites_count
  * @property \Modules\Blog\Models\Post|null                                           $post
- *
  * @method static \Illuminate\Database\Eloquent\Builder|IngredientCat newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|IngredientCat newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)
@@ -54,7 +53,6 @@ namespace Modules\Food\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|IngredientCat whereUpdatedIp($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
  * @mixin \Eloquent
- *
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Ingredient[] $changes
  * @property int|null                                                                   $changes_count
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Ingredient[] $ingredients

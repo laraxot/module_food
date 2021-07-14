@@ -125,7 +125,6 @@ use Modules\Food\Contracts\ShopContract;
  * @property \Modules\Food\Models\Waiter|null                                            $waiter
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Xot\Models\Widget[]       $widgets
  * @property int|null                                                                    $widgets_count
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Profile newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Profile newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)
@@ -187,6 +186,14 @@ use Modules\Food\Contracts\ShopContract;
  * @method static \Illuminate\Database\Eloquent\Builder|Profile withDistance($lat, $lng)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
  * @mixin \Eloquent
+ * @property string|null $deleted_ip
+ * @property string|null $created_ip
+ * @property string|null $updated_ip
+ * @property string|null $deleted_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Profile whereCreatedIp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Profile whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Profile whereDeletedIp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Profile whereUpdatedIp($value)
  */
 class Profile extends BaseProfile {
     /**

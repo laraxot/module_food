@@ -119,7 +119,6 @@ use Modules\Geo\Models\Traits\GeoTrait;
  * @property int|null                                                                           $restaurant_providers_count
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Tip[]                $tips
  * @property int|null                                                                           $tips_count
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)
@@ -179,7 +178,6 @@ use Modules\Geo\Models\Traits\GeoTrait;
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant withRating()
  * @mixin \Eloquent
- *
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Amenity[]         $amenities
  * @property int|null                                                                        $amenities_count
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Article[]         $articles
@@ -208,6 +206,42 @@ use Modules\Geo\Models\Traits\GeoTrait;
  * @property int|null                                                                        $restaurant_owners_count
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Waiter[]          $waiters
  * @property int|null                                                                        $waiters_count
+ * @property string|null $address1
+ * @property string|null $address2
+ * @property string|null $address3
+ * @property string|null $city
+ * @property string|null $zip_code
+ * @property string|null $state
+ * @property string|null $display_phone
+ * @property string|null $price
+ * @property string|null $review_count
+ * @property string|null $is_closed
+ * @property string|null $rating
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property string|null $deleted_by
+ * @property string|null $deleted_ip
+ * @property string|null $created_ip
+ * @property string|null $updated_ip
+ * @property string|null $street_number_long
+ * @property int $table_enable
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereAddress1($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereAddress2($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereAddress3($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereCity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereCreatedIp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereDeletedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereDeletedIp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereDisplayPhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereIsClosed($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant wherePrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereRating($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereReviewCount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereState($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereStreetNumberLong($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereTableEnable($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereUpdatedIp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereZipCode($value)
  */
 class Restaurant extends BaseModelLang implements RestaurantContract {
     use RatingTrait;

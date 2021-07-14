@@ -67,7 +67,6 @@ use Modules\LU\Models\User;
  * @property Label|null                                                               $statusLabel
  * @property User|null                                                                $user
  * @property Label|null                                                               $vehicleTypeLabel
- *
  * @method static \Illuminate\Database\Eloquent\Builder|BellBoy newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BellBoy newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)
@@ -90,7 +89,6 @@ use Modules\LU\Models\User;
  * @method static \Illuminate\Database\Eloquent\Builder|BellBoy withDistance($lat, $lng)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
  * @mixin \Eloquent
- *
  * @property Collection|Restaurant[] $restaurants
  * @property int|null                $restaurants_count
  */

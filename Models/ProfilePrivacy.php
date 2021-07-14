@@ -16,7 +16,6 @@ namespace Modules\Food\Models;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string                          $field_description
- *
  * @method static \Illuminate\Database\Eloquent\Builder|ProfilePrivacy newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ProfilePrivacy newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ProfilePrivacy query()

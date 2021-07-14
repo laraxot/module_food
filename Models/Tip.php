@@ -20,7 +20,6 @@ use Modules\Xot\Models\XotBaseModel;
  * @property mixed                           $full_name
  * @property \Modules\Blog\Models\Profile    $profile
  * @property User                            $user
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Tip newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Tip newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Tip query()

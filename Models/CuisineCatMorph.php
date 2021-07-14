@@ -23,7 +23,6 @@ use Modules\Xot\Traits\Updater;
  * @property string|null                     $deleted_by
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- *
  * @method static \Illuminate\Database\Eloquent\Builder|CuisineCatMorph newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|CuisineCatMorph newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|CuisineCatMorph query()

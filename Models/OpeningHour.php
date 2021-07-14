@@ -31,7 +31,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property string|null                     $post_type
  * @property Model|\Eloquent                 $parent
- *
  * @method static \Illuminate\Database\Eloquent\Builder|OpeningHour newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|OpeningHour newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|OpeningHour query()
