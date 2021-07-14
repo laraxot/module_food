@@ -13,7 +13,7 @@ use Spatie\Image\Manipulations as ImageManipulations;
 use Spatie\MediaLibrary\File;
 */
 //---------- traits
-use Laravel\Scout\Searchable;
+//use Laravel\Scout\Searchable;
 use Modules\Blog\Models\Traits\LinkedTrait;
 use Modules\Xot\Contracts\ModelContract;
 use Modules\Xot\Models\Traits\HasPriceTrait;
@@ -30,7 +30,7 @@ use Modules\Xot\Traits\Updater;
 abstract class BaseModelLang extends Model implements ModelContract /*implements HasMedia*/
 {
     use Updater;
-    use Searchable;
+    //use Searchable;
     use LinkedTrait;
     use HasPriceTrait;
     //use Cachable;
