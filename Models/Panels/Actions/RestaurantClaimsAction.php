@@ -50,7 +50,7 @@ class RestaurantClaimsAction extends XotBasePanelAction {
         $restaurantOwner->restaurants()->save($this->panel->row, ['auth_user_id' => \Auth::id(), 'is_reclamed' => 1]);
 
         \Session::flash('status', 'Ristorante reclamato');
-        $url = $this->panel->showUrl();
+        $url = $this->panel->url(['act'=>'show']);
 
         return redirect($url);
     }

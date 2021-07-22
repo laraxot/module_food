@@ -68,7 +68,7 @@ class ProfileTest extends TestCase {
         if (! $this->init) {
             $this->init();
         }
-        $url = Panel::get($this->row)->indexUrl();
+        $url = Panel::get($this->row)->url(['act'=>'index']);
         $response = $this->myTestUrl($url, __FUNCTION__);
         $response->assertStatus(200);
         //$response->assertSee($row->title);
@@ -79,13 +79,13 @@ class ProfileTest extends TestCase {
             $this->init();
         }
         $panel = Panel::get($this->row);
-        $url = $panel->createUrl();
+        $url = $panel->url(['act'=>'create']);
         $response = $this->myTestUrl($url, __FUNCTION__); // restaurant/create?  status: 302
         $response->assertStatus(200);
         /*
         $row1 = factory(RestaurantOwner::class)->make();
         $panel1 = Panel::get($row1);
-        $url1 = $panel1->createUrl();
+        $url1 = $panel1->url(['act'=>'create']);
         $response1 = $this->myTestUrl($url1, __FUNCTION__);
         $response->assertRedirect($url1);
         $response1->assertStatus(200);
@@ -98,7 +98,7 @@ class ProfileTest extends TestCase {
             $this->init();
         }
         $panel = Panel::get($this->row);
-        $url = $panel->createUrl();
+        $url = $panel->url(['act'=>'create']);
 
         $response = $this->myTestUrl($url, __FUNCTION__, $this->user); // restaurant/create?  status: 302
         $response->assertStatus(200);
@@ -136,7 +136,7 @@ class ProfileTest extends TestCase {
         if (! $this->init) {
             $this->init();
         }
-        $url = Panel::get($this->row)->showUrl();
+        $url = Panel::get($this->row)->url(['act'=>'show']);
         $response = $this->myTestUrl($url, __FUNCTION__);
         $response->assertStatus(200);
         //$response->assertSee($row->title);
@@ -146,7 +146,7 @@ class ProfileTest extends TestCase {
         if (! $this->init) {
             $this->init();
         }
-        $url = Panel::get($this->row)->editUrl();
+        $url = Panel::get($this->row)->url(['act'=>'edit']);
         $response = $this->myTestUrl($url, __FUNCTION__);
         $response->assertStatus(200);
         //$response->assertSee($row->title);
@@ -156,7 +156,7 @@ class ProfileTest extends TestCase {
         if (! $this->init) {
             $this->init();
         }
-        $url = Panel::get($this->row)->editUrl();
+        $url = Panel::get($this->row)->url(['act'=>'edit']);
         $response = $this->myTestUrl($url, __FUNCTION__, $this->user);
         $response->assertStatus(200);
         //$response->assertSee($row->title);
@@ -185,7 +185,7 @@ class ProfileTest extends TestCase {
         if (! $this->init) {
             $this->init();
         }
-        $url = $this->panel->showUrl();
+        $url = $this->panel->url(['act'=>'show']);
         $response = $this->get($url);
         echo PHP_EOL.' url: '.$url.' status: '.$response->status().'  str: '.$this->row->title;
         $response->assertSee($this->row->title)
