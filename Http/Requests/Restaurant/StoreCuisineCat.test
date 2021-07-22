@@ -1,0 +1,87 @@
+<?php
+
+
+
+namespace Modules\Food\Http\Requests\Restaurant;
+
+use Illuminate\Foundation\Http\FormRequest;
+use Modules\Extend\Traits\FormRequestTrait;
+
+/*
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Contracts\Validation\Validator;
+*/
+//https://stackoverflow.com/questions/47074035/laravel-5-5-formrequest-validation-with-ajax
+
+class StoreCuisineCat extends FormRequest
+{
+    use FormRequestTrait;
+
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+        ];
+    }
+
+    /*
+    public function failedValidation(Validator $validator){
+        $errors = (new ValidationException($validator))->errors();
+        throw new HttpResponseException(response()->json(
+            [
+                'success' => false,
+                'errors' => $errors,
+            ],
+            JsonResponse::HTTP_UNPROCESSABLE_ENTITY)
+        );
+    }//end function failedValidation
+    */
+}
+/*
+
+switch($this->method())
+    {
+        case 'GET':
+        case 'DELETE':
+        {
+            return [];
+        }
+        case 'POST':
+        {
+            return [
+                'user.name.first' => 'required',
+                'user.name.last'  => 'required',
+                'user.email'      => 'required|email|unique:users,email',
+                'user.password'   => 'required|confirmed',
+            ];
+        }
+        case 'PUT':
+        case 'PATCH':
+        {
+            return [
+                'user.name.first' => 'required',
+                'user.name.last'  => 'required',
+                'user.email'      => 'required|email|unique:users,email,'.$user->id,
+                'user.password'   => 'required|confirmed',
+            ];
+        }
+        default:break;
+    }
+
+    */

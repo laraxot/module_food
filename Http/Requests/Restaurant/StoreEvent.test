@@ -1,0 +1,110 @@
+<?php
+namespace Modules\Food\Http\Requests\Restaurant;
+
+use Illuminate\Foundation\Http\FormRequest;
+use Modules\Extend\Traits\FormRequestTrait;
+
+class StoreEvent extends FormRequest
+{
+    use FormRequestTrait;
+
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+
+     // protected function prepareForValidation()
+     // {
+     //     // if ($this->has('first_name'))
+     //     //     $this->merge(['first_name'=>'Mr '.$this->first_name]);
+     //
+     //     if ($this->has('date_start')){
+     //        $this->replace('date_start', Carbon::createFromFormat('d-M-Y H:i:s'));
+     //        \Log::info('sono passato da qui');
+     //        ddd($this->has('date_start'));
+     //     }
+     //
+     //     if ($this->has('date_end')){
+     //        $this->replace('date_end', Carbon::createFromFormat('d-M-Y H:i:s'));
+     //     }
+     //
+     //
+     //
+     //
+     // }
+
+
+     //dovrei inserire il parametro 'Request $request'
+    public function rules()
+    {
+
+      // if ($request->has('date_start')){
+      //     $request->replace('date_start', Carbon::createFromFormat('d-M-Y H:i:s'));
+      // }
+      //
+      // if ($request->has('date_end')){
+      //     $request->replace('date_end' , Carbon::createFromFormat('d-M-Y H:i:s'));
+      // }
+
+      //se questo codice va bene(?) da errore
+      // Too few arguments to function XRA\Food\Http\Requests\Restaurant\StoreEvent::rules(), 0 passed in E:\daConservare\webProgramming\php_workspace\food_tribu_project\food\laravel\packages\XRA\Blog\src\Traits\ContainerTrait.php on line 78 and exactly 1 expected
+      // che per risolverlo dovrei inserire il parametro in XRA\Blog\src\Traits\ContainerTrait, riga 78, in rules
+
+
+
+
+      //qui le regole che ho inserito, vanno bene?
+        return [
+           'title' => 'required|max:25|min:5',
+           'subtitle' => 'required|max:60|min:5',
+           'date_start' => 'required|date_format:d/m/Y|after:yesterday',
+           'date_end' => 'required|date_format:d/m/Y|after:date_start',
+           'address.formatted_address' => 'required',
+           'txt' =>  'required|string|max:255',
+           'image_src' => 'required',
+        ];
+    }
+}
+/*
+
+switch($this->method())
+    {
+        case 'GET':
+        case 'DELETE':
+        {
+            return [];
+        }
+        case 'POST':
+        {
+            return [
+                'user.name.first' => 'required',
+                'user.name.last'  => 'required',
+                'user.email'      => 'required|email|unique:users,email',
+                'user.password'   => 'required|confirmed',
+            ];
+        }
+        case 'PUT':
+        case 'PATCH':
+        {
+            return [
+                'user.name.first' => 'required',
+                'user.name.last'  => 'required',
+                'user.email'      => 'required|email|unique:users,email,'.$user->id,
+                'user.password'   => 'required|confirmed',
+            ];
+        }
+        default:break;
+    }
+
+    */

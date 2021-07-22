@@ -1,0 +1,231 @@
+<?php
+namespace Modules\Food\Models\Panels;
+
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+
+//--- Services --
+use Modules\Extend\Services\StubService;
+use Modules\Extend\Services\RouteService;
+
+use Modules\Extend\Traits\CrudContainerItemNoPostTrait as CrudTrait;
+use Modules\Xot\Http\Requests\XotRequest;
+
+/**
+*	tutto cio' che inizia con XotBase e' un abstract Class 
+*    XotBasePanel e' un abstract
+*	 XotPanel elemento riflesso
+**/
+use Modules\Xot\Models\Panels\XotBasePanel; 
+
+
+
+class ProfilePanel extends XotBasePanel{
+	/**
+	 * The model the resource corresponds to.
+	 *
+	 * @var string
+	 */
+	public static $model = 'Modules\Food\Models\Profile';
+
+	/**
+	 * The single value that should be used to represent the resource when being displayed.
+	 *
+	 * @var string
+	 */
+	public static $title = "title"; 
+
+	/**
+	 * The columns that should be searched.
+	 *
+	 * @var array
+	 */
+	public static $search = array (
+) ;
+	/**
+	* The relationships that should be eager loaded on index queries.
+	*
+	* @var array
+	*/
+	public static function with()
+	{
+	  return [];
+	}
+
+	/**
+	 * Get the fields displayed by the resource.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return array
+	 */
+	public static function fields()
+	{
+		return [
+			(object)[
+        		'type'=>'Id',
+        		'name'=>'post_id',
+        	],
+        	(object)[
+        		'type'=>'Text',
+        		'name'=>'firstname',
+        		'col_bs_size' => 6,
+        		'sortable' => 1,
+        		'rules' => 'required',
+        		'rules_messages' => ['it'=>['required'=>'Nome Obbligatorio']],
+        	],
+        	(object)[
+        		'type'=>'Text',
+        		'name'=>'surname',
+        		'col_bs_size' => 6,
+        	],
+        	(object)[
+        		'type'=>'Text',
+        		'name'=>'email',
+        		'col_bs_size' => 6,
+        	],
+        	(object)[
+        		'type'=>'Text',
+        		'name'=>'phone',
+        		'col_bs_size' => 6,
+        	],
+        	(object)[
+        		'type'=>'Text',
+        		'name'=>'handle',
+        		'col_bs_size' => 12,
+        	],
+        	(object)[
+        		'type'=>'Password',
+        		'name'=>'passwd',
+        		'col_bs_size' => 6,
+        	],
+        	(object)[
+        		'type'=>'Password',
+        		'name'=>'passwd_confirmation',
+        		'col_bs_size' => 6,
+        	],
+        	(object)[
+        		'type'=>'Textarea',
+        		'name'=>'bio',
+        		'col_bs_size' => 12,
+        		'except'=>['index'],
+        	],
+        	(object)[
+        		'type'=>'PivotFields', //-- da aggiornare
+        		'name'=>Str::plural('privacy'),
+        		'col_bs_size' => 12,
+        		'rules' => 'pivot_rules',
+        		'except'=>['index'],
+        	],
+        ];
+	}
+	 
+	/**
+	 * Get the tabs available 
+	 *
+	 * @return array  
+	 */
+	public function tabs(){
+		$tabs_name = ['restaurant'];
+		return RouteService::tabs([
+			'tabs_name'=>$tabs_name,
+			'model'=>self::$model
+		]);
+		
+	}
+	/**
+	 * Get the cards available for the request.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return array
+	 */
+	public function cards(Request $request)
+	{
+		return [];
+	}
+
+	/**
+	 * Get the filters available for the resource.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return array
+	 */
+	public function filters(Request $request=null)
+	{
+		return [];
+	}
+
+	/**
+	 * Get the lenses available for the resource.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return array
+	 */
+	public function lenses(Request $request)
+	{
+		return [];
+	}
+
+	/**
+	 * Get the actions available for the resource.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return array
+	 */
+	public function actions(Request $request)
+	{
+		return [];
+	}
+
+
+	//----- creazione anche se non "loggato"
+	public function createSpecialCase(){
+		$params = \Route::current()->parameters();
+		list($containers,$items)=params2ContainerItem($params);
+		$request=\Request::capture();
+        return CrudTrait::create($request,last($containers),last($items));
+	}
+
+	public function storeSpecialCase(){
+		$params = \Route::current()->parameters();
+		list($containers,$items)=params2ContainerItem($params);
+		$request=Request::capture();
+		$rules=$this->rules();
+		
+		$request->validate($rules, $this->rulesMessages());
+		
+		//$request=\Request::capture();
+        return CrudTrait::store($request,last($containers),last($items));
+	}
+
+
+	public static function elaborateRequest(Request $request,$query){
+        if(($request->ajax() && $request->has('query')) || $request->has('debug')) {
+            $lang=\App::getLocale();
+            $q=$request->input('query');
+            /*
+            $rows=$query->select('area_id as id','area_define_name as label')
+                    ->where('area_define_name','like','%'.$q.'%')
+                    ->limit(10)
+                        ->get()
+                        ->toJson();
+            */
+            //*
+            $rows=\Modules\Blog\Models\Post::select('post_id as id','title as label')
+                        ->where('title','like','%'.$q.'%')
+                        ->where('post_type','profile')
+                        ->where('lang',$lang)
+                        ->limit(10)
+                        ->get()
+                        ->toJson();
+            //*/
+            
+            die($rows);
+        }
+    }
+
+    public static function indexQuery(Request $request,$query){
+        //self::elaborateRequest($request,$query); //diventato applyfilter 
+        return $query;
+    }
+
+}

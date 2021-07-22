@@ -1,0 +1,90 @@
+<?php
+
+
+
+namespace Modules\Food\Http\Requests\Admin;
+
+
+use Illuminate\Foundation\Http\FormRequest;
+use Modules\Extend\Traits\FormRequestTrait;
+
+class UpdateProfile extends FormRequest
+{
+    use FormRequestTrait;
+
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        //return [];
+        //aggiungiamo la variabile
+        //$this->request->add(['_action' => 'row']);
+        /*  $this->request->add(['title' => $this->handle]);
+          return [
+              'handle' => 'required|unique:liveuser_general.liveuser_users|min:3|max:50',
+              'email' => 'email|required|unique:liveuser_general.liveuser_users|max:255',
+              'password' => 'required|min:8|confirmed|min:8',
+              'firstname' => 'required|min:5|max:15',
+              'surname' => 'required|min:5|max:15',
+              'phone' => ['required',
+                  'regex:/^[0-9\/+ ]{10,15}/'
+              ],
+              'consCheckbox_0' => 'required',
+          ];
+          */
+
+        $data = $this->request->all();
+        $def = [];
+        $n_flag = 4;
+        for ($i = 0; $i < $n_flag; ++$i) {
+            $name = 'cons_checkbox_'.$i;
+            $def[$name] = 0;
+        }
+        $data['linked'] = \array_merge($def, $data['linked']);
+        $this->request->add(['linked' => $data['linked']]);
+        //ddd($_POST);
+        //ddd($this->request->all());
+        $rules = [
+            //'handle' => 'required|unique:liveuser_general.liveuser_users|min:3|max:50',
+            //'email' => 'email|required|unique:liveuser_general.liveuser_users|max:255',
+            //'passwd' => 'required|min:8|confirmed|min:8',
+            //'firstname' => 'required|min:5|max:15',
+            //'surname' => 'required|min:5|max:15',
+            'linked.cons_checkbox_0' => 'accepted', //'required',  //nomi dei campi in snake_case
+            'linked.cons_checkbox_1' => '',
+            'linked.cons_checkbox_2' => '',
+            'linked.cons_checkbox_3' => '',
+            /* Anche così non vanno
+              'linked.consCheckbox_1',
+            'linked.consCheckbox_2',
+            'linked.consCheckbox_3',*/
+        ];
+        if ($this->request->has('firstname')) {
+            $rules = \array_merge($rules, ['firstname' => 'required|min:3|max:15']);  //ada, alba, aldo
+        }
+        if ($this->request->has('surname')) {
+            $rules = \array_merge($rules, ['surname' => 'required|min:3|max:15']);
+        }
+        if ($this->request->has('email')) {
+            $rules = \array_merge($rules, ['email' => 'email|required|unique:liveuser_general.liveuser_users|max:255']);
+        }
+        if ($this->request->has('passwd')) {
+            $rules = \array_merge($rules, ['passwd' => 'required|min:8|confirmed|min:8']);
+        }
+
+        return $rules;
+    }
+}

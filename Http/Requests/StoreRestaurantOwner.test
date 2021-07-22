@@ -1,0 +1,135 @@
+<?php
+
+namespace Modules\Food\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+use Modules\Extend\Traits\FormRequestTrait;
+//--- Rules ---
+use Modules\Food\Rules\Slugify as SlugifyRule;
+
+
+class StoreRestaurantOwner extends FormRequest
+{
+    use FormRequestTrait;
+
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        /*
+        //aggiungiamo la variabile
+        $this->request->add(['_action' => 'row']);
+        $this->request->add(['title' => $this->handle]);
+        return [
+            'handle' => 'required|unique:liveuser_general.liveuser_users|min:3|max:50',
+            'email' => 'email|required|unique:liveuser_general.liveuser_users|max:255',
+            'passwd' => 'required|min:8|confirmed|min:8',
+            'firstname' => 'required|min:5|max:15',
+            'surname' => 'required|min:5|max:15',
+            'phone' => ['required',
+                'regex:/^[0-9\/+ ]{10,15}/'
+            ],
+            'linked.consCheckbox_0' => 'required',
+        ];
+        */
+
+        $data = $this->request->all();
+        $def = [];
+        $n_flag = 4;
+        for ($i = 0; $i < $n_flag; ++$i) {
+            $name = 'cons_checkbox_' . $i;
+            $def[$name] = 0;
+        }
+        $data['linked'] = \array_merge($def, $data['linked']);
+        $this->request->add(['linked' => $data['linked']]);
+        $rules = [
+            'handle' => ['required', 'unique:liveuser_general.liveuser_users', 'min:3', 'max:50'],  //,new SlugifyRule //sarebbe giusto ma meglio fare lo slug in automatico
+            'passwd' => 'required|confirmed|min:6',
+            'linked.cons_checkbox_0' => 'accepted',  //nomi dei campi in snake_case
+            'linked.cons_checkbox_1' => '',
+            'linked.cons_checkbox_2' => '',
+            'linked.cons_checkbox_3' => '',
+        ];
+        if ($this->request->has('firstname')) {
+            $rules = \array_merge($rules, ['firstname' => 'required|min:3|max:15']);  //ada, alba, aldo
+        }
+        if ($this->request->has('surname')) {
+            $rules = \array_merge($rules, ['surname' => 'required|min:3|max:15']);
+        }
+
+        return $rules;
+    }
+}
+/*
+
+    //
+// Modify the input values
+//
+// @return void
+ //
+protected function prepareForValidation() {
+    ddd('prepareForValidation');
+    // get the input
+    $input = array_map('trim', $this->all());
+
+    // check newsletter
+    if (!isset($input['newsletter'])) {
+        $input['newsletter'] = false;
+    }
+
+    // replace old input with new input
+    $this->replace($input);
+}
+
+
+public function all($keys){
+        ddd('all');
+        $data = parent::all();
+        $data['_action'] = 'row';
+        return $data;
+    }
+
+
+switch($this->method())
+    {
+        case 'GET':
+        case 'DELETE':
+        {
+            return [];
+        }
+        case 'POST':
+        {
+            return [
+                'user.name.first' => 'required',
+                'user.name.last'  => 'required',
+                'user.email'      => 'required|email|unique:users,email',
+                'user.password'   => 'required|confirmed',
+            ];
+        }
+        case 'PUT':
+        case 'PATCH':
+        {
+            return [
+                'user.name.first' => 'required',
+                'user.name.last'  => 'required',
+                'user.email'      => 'required|email|unique:users,email,'.$user->id,
+                'user.password'   => 'required|confirmed',
+            ];
+        }
+        default:break;
+    }
+
+    */

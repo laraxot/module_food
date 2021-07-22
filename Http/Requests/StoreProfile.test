@@ -1,0 +1,89 @@
+<?php
+namespace Modules\Food\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+use Modules\Food\Models\Profile;
+use Modules\Extend\Traits\FormRequestTrait;
+//--- Rules ---
+use Modules\Food\Rules\Slugify as SlugifyRule;
+
+class StoreProfile extends FormRequest
+{
+    use FormRequestTrait;
+
+    //public function __construct(){
+    //$this->setContainer(factory(Profile::class));
+    //$this->setContainer(app());
+    //}
+
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        //$this->request->add(['_action' => 'row']); //meglio metterlo come hidden dentro il form
+        $this->request->add(['title' => $this->handle]);
+        $data = $this->request->all();
+        $def = [];
+        $n_flag = 4;
+        for ($i = 0; $i < $n_flag; ++$i) {
+            $name = 'cons_checkbox_'.$i;
+            $def[$name] = 0;
+        }
+        $data['linked'] = \array_merge($def, $data['linked']);
+        $this->request->add(['linked' => $data['linked']]);
+        //ddd($_POST);
+        //ddd($this->request->all());
+        $rules = [
+            //'handle' => 'required|unique:liveuser_general.liveuser_users|min:3|max:50',
+            'handle' => ['required','unique:liveuser_general.liveuser_users','min:3','max:50'],  //,new SlugifyRule //sarebbe giusto ma meglio fare lo slug
+            'email' => 'email|required|unique:liveuser_general.liveuser_users|max:255',  //dopo i test rimettere il controllo
+            'passwd' => 'required|confirmed|min:6',
+            //'firstname' => 'required|min:5|max:15',
+            //'surname' => 'required|min:5|max:15',
+            'linked.cons_checkbox_0' => 'accepted',  //nomi dei campi in snake_case
+            'linked.cons_checkbox_1' => '',
+            'linked.cons_checkbox_2' => '',
+            'linked.cons_checkbox_3' => '',
+            /* Anche così non vanno
+              'linked.consCheckbox_1',
+            'linked.consCheckbox_2',
+            'linked.consCheckbox_3',*/
+        ];
+        if ($this->request->has('firstname')) {
+            $rules = \array_merge($rules, ['firstname' => 'required|min:3|max:15']);  //ada, alba, aldo
+        }
+        if ($this->request->has('surname')) {
+            $rules = \array_merge($rules, ['surname' => 'required|min:3|max:15']);
+        }
+
+        return $rules;
+    }
+
+    /*
+     * Get the validated data from the request.
+     *
+     * @return array
+     */
+    /*
+    public function validated()
+    {
+        $rules = $this->container->call([$this, 'rules']);
+        return $this->only(collect($rules)->keys()->map(function ($rule) {
+            return explode('.', $rule)[0];
+        })->unique()->toArray());
+    }
+    */
+}
