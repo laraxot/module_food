@@ -8,7 +8,7 @@ use Modules\Blog\Models\Event;
 use Modules\Blog\Models\Photo;
 use Modules\Blog\Models\Place;
 use Modules\Blog\Models\Profile as BaseProfile;
-use Modules\Blog\Models\Rating;
+use Modules\Rating\Models\Rating;
 use Modules\Cart\Models\Cart;
 use Modules\Food\Contracts\ShopContract;
 

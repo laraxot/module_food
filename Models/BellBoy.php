@@ -13,7 +13,7 @@ use Modules\LU\Models\Traits\HasProfileTrait;
 use Modules\LU\Models\User;
 
 //----- traits ----
-//use Modules\Blog\Models\Traits\RatingTrait;
+//use Modules\Rating\Models\Traits\RatingTrait;
 
 /**
  * Modules\Food\Models\BellBoy.

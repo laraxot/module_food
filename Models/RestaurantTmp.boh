@@ -2,7 +2,7 @@
 
 namespace Modules\Food\Models;
 
-use Modules\Blog\Models\Traits\RatingTrait;
+use Modules\Rating\Models\Traits\RatingTrait;
 use Modules\Geo\Models\Traits\GeoTrait;
 
 class RestaurantTmp extends BaseModelLang {

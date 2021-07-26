@@ -9,7 +9,7 @@ namespace Modules\Food\Models;
 //------ food models
 //-------- services
 use Modules\Blog\Models\Traits\AmenityTrait;
-use Modules\Blog\Models\Traits\RatingTrait;
+use Modules\Rating\Models\Traits\RatingTrait;
 //---------- traits
 use Modules\Food\Contracts\RestaurantContract;
 use Modules\Geo\Models\Traits\GeoTrait;
@@ -107,14 +107,14 @@ use Modules\Geo\Models\Traits\GeoTrait;
  * @property \Modules\Cart\Models\Cart|null                                                     $myCartWithThisRestaurant
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Favorite[]           $myFavorites
  * @property int|null                                                                           $my_favorites_count
- * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Rating[]             $myRatings
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Rating\Models\Rating[]             $myRatings
  * @property int|null                                                                           $my_ratings_count
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\OpeningHour[]        $openingHours
  * @property int|null                                                                           $opening_hours_count
  * @property \Modules\Blog\Models\Post|null                                                     $post
- * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Rating[]             $ratingObjectives
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Rating\Models\Rating[]             $ratingObjectives
  * @property int|null                                                                           $rating_objectives_count
- * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Rating[]             $ratings
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Rating\Models\Rating[]             $ratings
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\RestaurantProvider[] $restaurantProviders
  * @property int|null                                                                           $restaurant_providers_count
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Tip[]                $tips
