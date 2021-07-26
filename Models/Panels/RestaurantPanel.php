@@ -224,7 +224,7 @@ class RestaurantPanel extends XotBasePanel {
      */
     public function actions() {
         return [
-            new \Modules\Blog\Models\Panels\Actions\RateItAction(),
+            new \Modules\Rating\Models\Panels\Actions\RateItAction(),
             new \Modules\Geo\Models\Panels\Actions\MakeGeoJsonFileAction(),
             new Actions\EditRestaurantBasicAction(),
             new Actions\EditRestaurantTxtAction(),

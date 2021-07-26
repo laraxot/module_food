@@ -106,7 +106,7 @@ class BellBoyPanel extends XotBasePanel {
      */
     public function actions() {
         return [
-            new \Modules\Blog\Models\Panels\Actions\RateItAction(),
+            new \Modules\Rating\Models\Panels\Actions\RateItAction(),
             new \Modules\Food\Models\Panels\Actions\EditBellBoyAction(),
             new \Modules\Food\Models\Panels\Actions\WhereIAmAction(),
             new \Modules\Food\Models\Panels\Actions\StopBeingBellBoyAction(),
