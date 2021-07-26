@@ -29,7 +29,7 @@ class CreateLocationsTable extends Migration
     {
         if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
-                $table->increments('post_id'); //->primary();
+                $table->increments('id'); //->primary();
                 $table->string('term')->nullable();
                 //$table->string('location')->nullable(); // location sostituito da locality per copia da google api
                 $address_components = MyModel::$address_components;

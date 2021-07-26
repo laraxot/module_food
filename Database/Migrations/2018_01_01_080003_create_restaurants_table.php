@@ -29,7 +29,7 @@ class CreateRestaurantsTable extends Migration
     {
         if (!Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
-                $table->increments('post_id');//->primary();
+                $table->increments('id');//->primary();
                 $table->string('status', 40)->nullable();
                 $table->decimal('min_order', 10, 2)->nullable();
                 $table->decimal('latitude', 16, 13)->index()->nullable();

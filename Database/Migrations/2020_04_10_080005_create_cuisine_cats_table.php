@@ -27,7 +27,7 @@ class CreateCuisineCatsTable extends Migration
     {
         if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
-                $table->increments('post_id'); //->primary();
+                $table->increments('id'); //->primary();
                 $table->string('day_name');
                 $table->integer('day_of_week');
                 $table->time('open_at'); //time or timeTz ??

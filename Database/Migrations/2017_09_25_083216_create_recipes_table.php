@@ -15,7 +15,7 @@ class CreateRecipesTable extends Migration{
 	{
 		if (!Schema::hasTable($this->getTable())) {
 			Schema::create($this->getTable(), function (Blueprint $table) {
-				$table->increments('post_id');//->primary();
+				$table->increments('id');//->primary();
 
 				$table->string('created_by')->nullable();
 				$table->string('updated_by')->nullable();
