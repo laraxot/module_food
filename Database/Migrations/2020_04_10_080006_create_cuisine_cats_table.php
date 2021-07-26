@@ -39,7 +39,7 @@ class CreateCuisineCatsTable extends XotBaseMigration {
             $this->getTable(),
             function (Blueprint $table): void {
                 if (! $this->hasColumn('post_id')) {
-                    $this->renameColumn('post_id', 'id');
+                    $table->renameColumn('post_id', 'id');
                 }
             }
         );
