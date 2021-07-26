@@ -1,25 +1,24 @@
 <?php
+
+declare(strict_types=1);
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-
 //--- models --
 use Modules\Food\Models\IngredientCat as MyModel;
 
-class CreateIngredientCatsTable extends Migration
-{
+class CreateIngredientCatsTable extends Migration {
     //protected $table = 'blog_post_ingredient_cats'; // potrebbe essere un ristorante, un ufficio etc etc
-    public function getTable()
-    {
+    public function getTable() {
         return with(new MyModel())->getTable();
     }
+
     /**
      * Run the migrations.
      */
-    public function up()
-    {
-        if (!Schema::hasTable($this->getTable())) {
-            Schema::create($this->getTable(), function (Blueprint $table) {
-                $table->increments('post_id');//->primary();
+    public function up(): void {
+        if (! Schema::hasTable($this->getTable())) {
+            Schema::create($this->getTable(), function (Blueprint $table): void {
+                $table->increments('id'); //->primary();
                 $table->string('created_by')->nullable();
                 $table->string('updated_by')->nullable();
                 $table->string('deleted_by')->nullable();
@@ -31,13 +30,11 @@ class CreateIngredientCatsTable extends Migration
             });
         }
 
-        Schema::table($this->getTable(), function (Blueprint $table) {
-
-
-            if (!Schema::hasColumn($this->getTable(), 'created_by')) {
+        Schema::table($this->getTable(), function (Blueprint $table): void {
+            if (! Schema::hasColumn($this->getTable(), 'created_by')) {
                 $table->string('created_by')->nullable();
             }
-            if (!Schema::hasColumn($this->getTable(), 'updated_by')) {
+            if (! Schema::hasColumn($this->getTable(), 'updated_by')) {
                 $table->string('updated_by')->nullable();
             }
             if (Schema::hasColumn($this->getTable(), 'created_by')) {
@@ -59,6 +56,7 @@ class CreateIngredientCatsTable extends Migration
                 $table->string('deleted_ip')->nullable()->change();
             }
             //-------- CHANGE ----------------
+            /* --- usare nel caso modelservice
             $schema_builder = Schema::getConnection()
                 ->getDoctrineSchemaManager()
                 ->listTableDetails($table->getTable());
@@ -67,21 +65,18 @@ class CreateIngredientCatsTable extends Migration
                 $table->integer('post_id')->index()->unique()->change();
             }
 
-
-
-
             //$table->increments('post_id')->change();
             //->autoIncrement()
             $sql='ALTER TABLE '.$this->getTable().' CHANGE COLUMN post_id post_id INT(16) NOT NULL AUTO_INCREMENT FIRST;';
             \DB::unprepared($sql);
+            */
         });
     }
 
     /**
      * Reverse the migrations.
      */
-    public function down()
-    {
+    public function down(): void {
         if (Schema::hasTable($this->getTable())) {
             Schema::drop($this->getTable());
         }
