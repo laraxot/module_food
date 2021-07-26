@@ -41,6 +41,11 @@ class CreateCuisineCatsTable extends XotBaseMigration {
                 if ($this->hasColumn('post_id')) {
                     $table->renameColumn('post_id', 'id');
                 }
+                try {
+                    $table->increments('id'); //->primary();
+                } catch (\Exception $e) {
+                    echo $e->getMessage();
+                }
             }
         );
 
