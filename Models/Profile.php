@@ -8,9 +8,9 @@ use Modules\Blog\Models\Event;
 use Modules\Blog\Models\Photo;
 use Modules\Blog\Models\Place;
 use Modules\Blog\Models\Profile as BaseProfile;
-use Modules\Rating\Models\Rating;
 use Modules\Cart\Models\Cart;
 use Modules\Food\Contracts\ShopContract;
+use Modules\Rating\Models\Rating;
 
 /**
  * Modules\Food\Models\Profile.
@@ -125,6 +125,7 @@ use Modules\Food\Contracts\ShopContract;
  * @property \Modules\Food\Models\Waiter|null                                            $waiter
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Xot\Models\Widget[]       $widgets
  * @property int|null                                                                    $widgets_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Profile newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Profile newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)
@@ -186,10 +187,12 @@ use Modules\Food\Contracts\ShopContract;
  * @method static \Illuminate\Database\Eloquent\Builder|Profile withDistance($lat, $lng)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
  * @mixin \Eloquent
+ *
  * @property string|null $deleted_ip
  * @property string|null $created_ip
  * @property string|null $updated_ip
  * @property string|null $deleted_at
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereCreatedIp($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereDeletedIp($value)
@@ -207,7 +210,7 @@ class Profile extends BaseProfile {
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
     public function restaurants() {
-        return  $this->morphRelated(Restaurant::class);
+        return $this->morphRelated(Restaurant::class);
         //return $this->hasMany(Restaurant::class, 'created_by', 'created_by')
         //    ->orWhere('updated_by', 'updated_by');
     }
@@ -260,19 +263,11 @@ class Profile extends BaseProfile {
         return $this->hasMany(Photo::class, 'created_by', 'created_by');
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function ratings() {
-        //return  $this->morphRelated(Restaurant::class);
-        return $this->hasMany(Rating::class, 'created_by', 'created_by');
-    }
-
     public function syncRestaurants(): void {
         $handle = $this->user->handle;
         $restaurants = Restaurant::query()
             ->where(
-                function ($query) use ($handle) {
+                function ($query) use ($handle): void {
                     $query->where('created_by', $handle)
                         ->orWhere('updated_by', $handle);
                 }
