@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Food\Models\Panels;
 
 use Illuminate\Http\Request;
@@ -23,7 +25,7 @@ class CuisineCatPanel extends XotBasePanel {
     protected static string $title = 'title';
 
     public function optionLabel(object $row): string {
-        return $row->title;
+        return (string) $row->title;
     }
 
     /**
@@ -39,7 +41,7 @@ class CuisineCatPanel extends XotBasePanel {
         ];
     }
 
-    public static function elaborateRequest(Request $request) {
+    public static function elaborateRequest(Request $request): void {
         if (($request->ajax() && $request->has('query')) || $request->has('debug')) {
             $lang = app()->getLocale();
             $q = $request->input('query');
@@ -52,15 +54,15 @@ class CuisineCatPanel extends XotBasePanel {
             */
             //*
             $rows = \Modules\Blog\Models\Post::select('post_id as id', 'title as label')
-                        ->where('title', 'like', '%'.$q.'%')
-                        ->where('post_type', 'cuisine_cat')
-                        ->where('lang', $lang)
-                        ->limit(10)
-                        ->get()
-                        ->toJson();
+                ->where('title', 'like', '%'.$q.'%')
+                ->where('post_type', 'cuisine_cat')
+                ->where('lang', $lang)
+                ->limit(10)
+                ->get()
+                ->toJson();
             //*/
 
-            die($rows);
+            exit($rows);
         }
     }
 }
