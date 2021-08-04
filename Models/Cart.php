@@ -8,7 +8,7 @@ namespace Modules\Food\Models;
 use Modules\Theme\Services\ThemeService;
 //use Modules\Extend\Traits\Updater;
 //--- TRAITS ---
-//use Modules\Blog\Models\Traits\LinkedTrait;
+//use Modules\Xot\Models\Traits\LinkedTrait;
 //----- models -----
 use Modules\Blog\Models\PostRelated;
 

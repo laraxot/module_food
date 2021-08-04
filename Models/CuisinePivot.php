@@ -9,7 +9,7 @@ use Modules\Blog\Models\Post;
 use Modules\Theme\Services\ThemeService;
 //--------- models --------
 //use Modules\Extend\Traits\Updater;
-//use Modules\Blog\Models\Traits\LinkedTrait;
+//use Modules\Xot\Models\Traits\LinkedTrait;
 
 class CuisinePivot extends BaseModel{
     /*

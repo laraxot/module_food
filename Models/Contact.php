@@ -11,7 +11,7 @@ use Laravel\Scout\Searchable;
 //use Modules\Extend\Traits\CrudSimpleTrait as CrudTrait;
 
 use Modules\Extend\Traits\Updater;
-use Modules\Blog\Models\Traits\LinkedTrait;
+use Modules\Xot\Models\Traits\LinkedTrait;
 */
 class Contact extends BaseModel
 {
