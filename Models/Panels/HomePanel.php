@@ -47,6 +47,7 @@ class HomePanel extends XotBasePanel {
                 'name' => 'id',
                 'comment' => null,
             ],
+            /*
             (object) [
                 'type' => 'Text',
                 'name' => 'article_type',
@@ -57,6 +58,7 @@ class HomePanel extends XotBasePanel {
                 'name' => 'icon_src',
                 'comment' => null,
             ],
+            */
         ];
     }
 
@@ -66,7 +68,7 @@ class HomePanel extends XotBasePanel {
      * @return array
      */
     public function tabs() {
-        $tabs_name = ['widget'];
+        $tabs_name = ['widgets'];
 
         return $tabs_name;
     }
@@ -77,8 +79,10 @@ class HomePanel extends XotBasePanel {
      * @return array
      */
     public function actions(Request $request = null) {
+        $cmd = (string) request()->input('cmd');
+
         return [
-            new \Modules\Xot\Models\Panels\Actions\ArtisanAction(request()->input('cmd')),
+            new \Modules\Xot\Models\Panels\Actions\ArtisanAction($cmd),
         ];
     }
 }

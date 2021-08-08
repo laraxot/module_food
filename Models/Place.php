@@ -2,7 +2,7 @@
 
 namespace Modules\Food\Models;
 
-use Modules\Blog\Models\Place as BasePlaceModel;
+use Modules\Geo\Models\Place as BasePlaceModel;
 
 /**
  * Modules\Food\Models\Place
