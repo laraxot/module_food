@@ -10,4 +10,7 @@ use Modules\Xot\Models\Panels\Policies\XotBasePanelPolicy;
  * Class HomePanelPolicy.
  */
 class HomePanelPolicy extends XotBasePanelPolicy {
+    public function uploadimagetest($user) {
+        return true;
+    }
 }

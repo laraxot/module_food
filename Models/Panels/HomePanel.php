@@ -83,6 +83,7 @@ class HomePanel extends XotBasePanel {
 
         return [
             new \Modules\Xot\Models\Panels\Actions\ArtisanAction($cmd),
+            new \Modules\Xot\Models\Panels\Actions\UploadImageTestAction(),
         ];
     }
 }
