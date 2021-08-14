@@ -6,10 +6,10 @@ namespace Modules\Food\Models;
 
 use Modules\Blog\Models\Event;
 use Modules\Blog\Models\Photo;
-use Modules\Blog\Models\Place;
 use Modules\Blog\Models\Profile as BaseProfile;
 use Modules\Cart\Models\Cart;
 use Modules\Food\Contracts\ShopContract;
+use Modules\Geo\Models\Place;
 use Modules\Rating\Models\Rating;
 
 /**
