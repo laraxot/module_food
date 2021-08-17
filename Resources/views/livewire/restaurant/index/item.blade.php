@@ -5,7 +5,11 @@
             <!--img.img-fluid(src="#{imgBasePath}#{val.image}" alt="#{val.name}")-->
             <a href="{{ $row_panel->url(['act' => 'show']) }}" class="tile-link"></a>
             <div class="card-img-overlay-bottom z-index-20">
-                <h4 class="text-white text-shadow">{{ $row->title }}</h4>
+                <h4 class="text-white text-shadow">
+
+                    {{ $row->title }}
+
+                </h4>
                 {{--  --}}
                 @include('pub_theme::layouts.widgets.rating',['avg'=>$row->ratings_avg])
             </div>

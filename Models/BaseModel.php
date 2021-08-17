@@ -13,7 +13,7 @@ use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 */
 //---------- traits
-//use Laravel\Scout\Searchable;
+////use Laravel\Scout\Searchable;
 use Modules\Xot\Traits\Updater;
 use Spatie\Image\Manipulations as ImageManipulations;
 

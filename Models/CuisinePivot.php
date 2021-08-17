@@ -3,7 +3,7 @@ namespace Modules\Food\Models;
 
 //use Illuminate\Database\Eloquent\Model;
 //------ traits ----
-use Laravel\Scout\Searchable;
+//use Laravel\Scout\Searchable;
 use Modules\Blog\Models\Post;
 //--- services
 use Modules\Theme\Services\ThemeService;

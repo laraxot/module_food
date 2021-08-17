@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 //------ traits ----
 //use Modules\Blog\Models\Traits\PostTrait;
-use Laravel\Scout\Searchable;
+//use Laravel\Scout\Searchable;
 //use Modules\Extend\Traits\CrudSimpleTrait as CrudTrait;
 
 use Modules\Extend\Traits\Updater;

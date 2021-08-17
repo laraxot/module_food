@@ -2,7 +2,7 @@
 namespace Modules\Food\Models;
 
 use Carbon\Carbon;
-//use Laravel\Scout\Searchable;
+////use Laravel\Scout\Searchable;
 /*
 use Illuminate\Database\Eloquent\Model;
 //--- traits

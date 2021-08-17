@@ -9,7 +9,7 @@
 
 namespace Modules\Food\Models\Traits;
 
-//use Laravel\Scout\Searchable;
+////use Laravel\Scout\Searchable;
 
 //----- models------
 use Modules\Food\Models\ProfilePrivacyChrono;

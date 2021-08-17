@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Food\Models;
 
 //use Illuminate\Database\Eloquent\Model;
-//use Laravel\Scout\Searchable;
+////use Laravel\Scout\Searchable;
 
 //--- services
 //use Modules\Extend\Traits\Updater;
