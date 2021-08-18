@@ -2,6 +2,8 @@
     <div class="card h-100 border-0 shadow">
         {{-- <img src="{{ $row_panel->imgSrc(['width' => 300, 'height' => 200]) }}" width="300" height="200" />
         <img src="https://xotimagetest.infinityfreeapp.com/photos/Gigi-la-Trottola-1.jpg" width="300" height="200" /> --}}
+        <img src="https://static.tumblr.com/e0fcf4e598c619f7af1dc9161a4f3a56/vzxwfni/bzBnw6lie/tumblr_static_7kfds509nw08okcw4g4c84gow.png"
+            width="300" height="200" />
         <div style="background-image: url({{ $row_panel->imgSrc(['width' => 300, 'height' => 200]) }}); min-height: 200px;"
             class="card-img-top overflow-hidden dark-overlay bg-cover">
             <a href="{{ $row_panel->url(['act' => 'show']) }}" class="tile-link"></a>
