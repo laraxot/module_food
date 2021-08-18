@@ -1,6 +1,7 @@
 <div data-marker-id="{{ $row->id }}" class="col-sm-6 col-xl-4 mb-5 hover-animate">
     <div class="card h-100 border-0 shadow">
         <img src="{{ $row_panel->imgSrc(['width' => 300, 'height' => 200]) }}" width="300" height="200" />
+        <img src="https://xotimagetest.infinityfreeapp.com/photos/Gigi-la-Trottola-1.jpg" width="300" height="200" />
         {{-- <div style="background-image: url({{ $row_panel->imgSrc(['width' => 300, 'height' => 200]) }}); min-height: 200px;"
             class="card-img-top overflow-hidden dark-overlay bg-cover">
             <a href="{{ $row_panel->url(['act' => 'show']) }}" class="tile-link"></a>
