@@ -1,5 +1,6 @@
 <div data-marker-id="{{ $row->id }}" class="col-sm-6 col-xl-4 mb-5 hover-animate">
     <div class="card h-100 border-0 shadow">
+        <img src="{{ $row_panel->imgSrc(['width' => 300, 'height' => 200]) }}" width="300" height="200" />
         <div style="background-image: url({{ $row_panel->imgSrc(['width' => 300, 'height' => 200]) }}); min-height: 200px;"
             class="card-img-top overflow-hidden dark-overlay bg-cover">
             <!--img.img-fluid(src="#{imgBasePath}#{val.image}" alt="#{val.name}")-->
