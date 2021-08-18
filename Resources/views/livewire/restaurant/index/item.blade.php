@@ -1,8 +1,8 @@
 <div data-marker-id="{{ $row->id }}" class="col-sm-6 col-xl-4 mb-5 hover-animate">
     <div class="card h-100 border-0 shadow">
-        <img src="{{ $row_panel->imgSrc(['width' => 300, 'height' => 200]) }}" width="300" height="200" />
-        <img src="https://xotimagetest.infinityfreeapp.com/photos/Gigi-la-Trottola-1.jpg" width="300" height="200" />
-        {{-- <div style="background-image: url({{ $row_panel->imgSrc(['width' => 300, 'height' => 200]) }}); min-height: 200px;"
+        {{-- <img src="{{ $row_panel->imgSrc(['width' => 300, 'height' => 200]) }}" width="300" height="200" />
+        <img src="https://xotimagetest.infinityfreeapp.com/photos/Gigi-la-Trottola-1.jpg" width="300" height="200" /> --}}
+        <div style="background-image: url({{ $row_panel->imgSrc(['width' => 300, 'height' => 200]) }}); min-height: 200px;"
             class="card-img-top overflow-hidden dark-overlay bg-cover">
             <a href="{{ $row_panel->url(['act' => 'show']) }}" class="tile-link"></a>
             <div class="card-img-overlay-bottom z-index-20">
@@ -14,7 +14,7 @@
             <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
                 <livewire:rating::favorite :model=$row />
             </div>
-        </div> --}}
+        </div>
         <div class="card-body">
             <p class="text-sm text-muted mb-3">{{ $row->subtitle }} </p>
             {{-- {{ $panel->btnItemAction('rate') }}
