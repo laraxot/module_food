@@ -73,8 +73,7 @@ class CartPanel extends XotBasePanel
         'rules_messages' => ['it'=>['required'=>'Nome Obbligatorio']],
         'value'=>'..',
      */
-    public function indexNav()
-    {
+    public function indexNav(): ?\Illuminate\Contracts\Support\Renderable {
         return null;
     }
 
