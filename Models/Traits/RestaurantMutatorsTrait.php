@@ -22,8 +22,8 @@ trait RestaurantMutatorsTrait {
         $now = Carbon::now('Europe/Rome'); // da mettere solo dentro config/app.php e hai risolto..
         $day_of_week = $now->dayOfWeek;
         $openingHours = $this->openingHours
-                            ->where('day_of_week', $day_of_week)
-                            ->where('is_closed', false);
+            ->where('day_of_week', $day_of_week)
+            ->where('is_closed', false);
         foreach ($openingHours as $hour) {
             if ($now->between($hour->open_at, $hour->close_at)) {
                 return true;
