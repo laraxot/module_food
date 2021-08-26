@@ -1,20 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Food\Events;
 
 use Illuminate\Queue\SerializesModels;
 
 /**
- * Class StoreRestaurantOwnerEvent
- * @package Modules\Food\Events
+ * Class StoreRestaurantOwnerEvent.
  */
 class StoreRestaurantOwnerEvent {
     use SerializesModels;
 
     //public $msg;
-    /**
-     * @var \Modules\LU\Models\User
-     */
+
     public \Modules\LU\Models\User $user;
 
     /**

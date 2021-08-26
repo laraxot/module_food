@@ -14,9 +14,9 @@ use Spatie\MediaLibrary\File;
 */
 //---------- traits
 ////use Laravel\Scout\Searchable;
-use Modules\Xot\Models\Traits\LinkedTrait;
 use Modules\Xot\Contracts\ModelContract;
 use Modules\Xot\Models\Traits\HasPriceTrait;
+use Modules\Xot\Models\Traits\LinkedTrait;
 use Modules\Xot\Traits\Updater;
 
 /**

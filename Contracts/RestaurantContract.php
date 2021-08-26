@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Food\Contracts;
 
 use Illuminate\Database\Eloquent\Collection;
@@ -7,13 +9,12 @@ use Illuminate\Database\Eloquent\Collection;
 /**
  * Modules\Food\Contracts\RestaurantContract.
  *
- * @property string|null                    $title
- * @property string|null                    $subtitle
- * @property string|null                    $price
- * @property string|null                    $price_currency
- * @property Collection|BellBoyContract[]   $bellBoys
+ * @property string|null                  $title
+ * @property string|null                  $subtitle
+ * @property string|null                  $price
+ * @property string|null                  $price_currency
+ * @property Collection|BellBoyContract[] $bellBoys
  */
-
 interface RestaurantContract {
     /*
     public function title(): string;

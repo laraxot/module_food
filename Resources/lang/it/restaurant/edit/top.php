@@ -1,3 +1,7 @@
-<?php return array (
-  'location' => 'luogo',
-);
+<?php
+
+declare(strict_types=1);
+
+return [
+    'location' => 'luogo',
+];

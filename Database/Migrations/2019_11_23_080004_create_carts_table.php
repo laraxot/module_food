@@ -1,22 +1,22 @@
 <?php
+
+declare(strict_types=1);
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-
 //----- models -----
 use Modules\Food\Models\Cart as MyModel;
 
-class CreateCartsTable extends Migration{
-
-    public function getTable(){
+class CreateCartsTable extends Migration {
+    public function getTable() {
         return with(new MyModel())->getTable();
     }
+
     /**
      * Run the migrations.
      */
-    public function up()
-    {
+    public function up() {
         //--- create ---
-        if (!Schema::hasTable($this->getTable())) {
+        if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
                 $table->increments('id');
                 $table->text('note')->nullable();
@@ -33,27 +33,25 @@ class CreateCartsTable extends Migration{
         }
         //--- up --
         Schema::table($this->getTable(), function (Blueprint $table) {
-            if (!Schema::hasColumn($this->getTable(), 'auth_user_id')) {
+            if (! Schema::hasColumn($this->getTable(), 'auth_user_id')) {
                 $table->integer('auth_user_id')->index()->nullable(); // item collegati all'utente
             }
-            if (!Schema::hasColumn($this->getTable(), 'post_id')) {
+            if (! Schema::hasColumn($this->getTable(), 'post_id')) {
                 $table->integer('post_id')->index()->nullable(); // item collegati all'utente
             }
-            if (!Schema::hasColumn($this->getTable(), 'post_type')) {
+            if (! Schema::hasColumn($this->getTable(), 'post_type')) {
                 $table->string('post_type')->index()->nullable(); // item collegati all'utente
             }
-            if (!Schema::hasColumn($this->getTable(), 'status_id')) {
+            if (! Schema::hasColumn($this->getTable(), 'status_id')) {
                 $table->integer('status_id')->index()->nullable(); // item collegati all'utente
             }
-
         });
     }
 
     /**
      * Reverse the migrations.
      */
-    public function down()
-    {
+    public function down() {
         if (Schema::hasTable($this->getTable())) {
             Schema::drop($this->getTable());
         }

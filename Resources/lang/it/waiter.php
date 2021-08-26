@@ -1,7 +1,10 @@
-<?php return array (
-  'act' => 
-  array (
-    'index_edit_waiter' => 'Gestisci camerieri',
-    'indexEdit' => 'Gestisci camerieri',
-  ),
-);
+<?php
+
+declare(strict_types=1);
+
+return [
+    'act' => [
+        'index_edit_waiter' => 'Gestisci camerieri',
+        'indexEdit' => 'Gestisci camerieri',
+    ],
+];

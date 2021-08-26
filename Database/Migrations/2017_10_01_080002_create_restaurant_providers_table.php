@@ -1,18 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Database\Schema\Blueprint;
 //----- models-------
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 /**
- * Class CreateRestaurantProvidersTable
+ * Class CreateRestaurantProvidersTable.
  */
 class CreateRestaurantProvidersTable extends XotBaseMigration {
-/**
-* db up
-*
-* @return void
-*/
+    /**
+     * db up.
+     *
+     * @return void
+     */
     public function up() {
         //-- CREATE --
         if (! $this->tableExists()) {

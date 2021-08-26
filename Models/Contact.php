@@ -1,7 +1,9 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Modules\Food\Models;
 
-use Illuminate\Database\Eloquent\Model;
 //use Intervention\Image\ImageManagerStatic as Image;
 
 //------ traits ----
@@ -13,8 +15,7 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Extend\Traits\Updater;
 use Modules\Xot\Models\Traits\LinkedTrait;
 */
-class Contact extends BaseModel
-{
+class Contact extends BaseModel {
     //use Updater;
     //use Searchable;
     //use LinkedTrait;

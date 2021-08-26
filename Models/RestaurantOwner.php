@@ -88,6 +88,7 @@ use Modules\LU\Models\Traits\HasProfileTrait;
  * @property \Modules\Blog\Models\Post|null                                           $post
  * @property \Modules\Blog\Models\Profile|null                                        $profile
  * @property \Modules\LU\Models\User|null                                             $user
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantOwner newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantOwner newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)
@@ -147,6 +148,7 @@ use Modules\LU\Models\Traits\HasProfileTrait;
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantOwner withDistance($lat, $lng)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
  * @mixin \Eloquent
+ *
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Privacy[]    $privacies
  * @property int|null                                                                   $privacies_count
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Restaurant[] $restaurants

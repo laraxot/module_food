@@ -1,5 +1,9 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Modules\Food\Models;
+
 /*
 use Illuminate\Database\Eloquent\Model;
 //--------- models --------
@@ -8,8 +12,7 @@ use Modules\Blog\Models\Post;
 use Modules\Extend\Traits\Updater;
 use Modules\Xot\Models\Traits\LinkedTrait;
 */
-class PrivacyLabel extends BaseModel
-{
+class PrivacyLabel extends BaseModel {
     //use Updater;
     protected $fillable = ['checkbox_label'];
 }

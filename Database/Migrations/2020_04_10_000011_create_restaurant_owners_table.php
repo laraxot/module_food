@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
+declare(strict_types=1);
+
 use Illuminate\Database\Schema\Blueprint;
 /*
 * read spatial
@@ -10,19 +11,16 @@ use Illuminate\Database\Schema\Blueprint;
 
 //--- models --
 use Modules\Food\Models\Location;
-
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 /**
- * Class CreateRestaurantOwnersTable
+ * Class CreateRestaurantOwnersTable.
  */
-class CreateRestaurantOwnersTable extends XotBaseMigration
-{
+class CreateRestaurantOwnersTable extends XotBaseMigration {
     /**
      * Run the migrations.
      */
-    public function up()
-    {
+    public function up() {
         if (! Schema::hasTable($this->getTable())) {
             Schema::create(
                 $this->getTable(), function (Blueprint $table) {
@@ -106,11 +104,10 @@ class CreateRestaurantOwnersTable extends XotBaseMigration
                     $table->decimal('longitude', 16, 13)->nullable();
                 }
 
-
                 if (Schema::hasColumn($this->getTable(), 'post_id')) {
                     $table->renameColumn('post_id', 'id');
                 }
-                 if (! Schema::hasColumn($this->getTable(), 'auth_user_id')) {
+                if (! Schema::hasColumn($this->getTable(), 'auth_user_id')) {
                     $table->integer('auth_user_id')->nullable();
                 }
                 if (! Schema::hasColumn($this->getTable(), 'status')) {
@@ -118,7 +115,7 @@ class CreateRestaurantOwnersTable extends XotBaseMigration
                 }
                 if (Schema::hasColumn($this->getTable(), 'related_id')) {
                     $table->renameColumn('related_id', 'restaurant_owners_id');
-                };
+                }
             }
         );
     }
@@ -126,8 +123,7 @@ class CreateRestaurantOwnersTable extends XotBaseMigration
     /**
      * Reverse the migrations.
      */
-    public function down()
-    {
+    public function down() {
         if (Schema::hasTable($this->getTable())) {
             Schema::drop($this->getTable());
         }

@@ -26,7 +26,7 @@ class BaseRestaurantPanelPolicy extends XotBasePanelPolicy {
             return false;
         }
 
-        return  Gate::forUser($user)->allows('edit', $restaurant_panel);
+        return Gate::forUser($user)->allows('edit', $restaurant_panel);
     }
 
     public function create(UserContract $user, PanelContract $panel): bool {

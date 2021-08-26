@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Food\Models;
 
 /**
@@ -38,6 +40,7 @@ namespace Modules\Food\Models;
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Favorite[] $myFavorites
  * @property int|null                                                                 $my_favorites_count
  * @property \Modules\Blog\Models\Post|null                                           $post
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Recipe newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Recipe newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)
@@ -57,6 +60,7 @@ namespace Modules\Food\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|Recipe whereUpdatedIp($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
  * @mixin \Eloquent
+ *
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Cuisine[] $cuisines
  * @property int|null                                                                $cuisines_count
  */

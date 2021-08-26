@@ -43,6 +43,7 @@ use Modules\LU\Models\User;
  * @property \Modules\Blog\Models\Post|null                                           $post
  * @property \Modules\Blog\Models\Profile|null                                        $profile
  * @property User|null                                                                $user
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Waiter newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Waiter newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)
@@ -57,6 +58,7 @@ use Modules\LU\Models\User;
  * @method static \Illuminate\Database\Eloquent\Builder|Waiter whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
  * @mixin \Eloquent
+ *
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Restaurant[] $restaurants
  * @property int|null                                                                   $restaurants_count
  */

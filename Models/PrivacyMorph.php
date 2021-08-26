@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Food\Models;
 
 /**
@@ -18,6 +20,7 @@ namespace Modules\Food\Models;
  * @property string|null                     $deleted_by
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|PrivacyMorph newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PrivacyMorph newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PrivacyMorph query()

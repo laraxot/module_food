@@ -1,5 +1,9 @@
-<?php return array (
-  'cons_checkbox_0_txt' => 'Information on the protection of personal data pursuant to art. 12 and 13 of Regulation (EU) 2016/679 of the European Parliament and Council of 27 April 2016.
+<?php
+
+declare(strict_types=1);
+
+return [
+    'cons_checkbox_0_txt' => 'Information on the protection of personal data pursuant to art. 12 and 13 of Regulation (EU) 2016/679 of the European Parliament and Council of 27 April 2016.
 FoodTribù informs you about the processing of your personal data aimed at allowing you access to the portal services for restaurant owners and customers and users.
 
 Data controller
@@ -25,9 +29,9 @@ In particular, the User has the right to:
 • verify and request correction.
 • obtain treatment limitation.
 • obtain the cancellation or removal of their Personal Data.',
-  'prv_doc_help' => 'you can read the complete information at the bottom of the page under Privacy Policy',
-  'cons_checkbox_1' => 'I accept the Remarketing Activities',
-  'cons_checkbox_1_txt' => 'This type of services allows this Application and its partners to communicate, optimize and serve advertisements based on the past use of this Application by the User, allow you to use the User Data for commercial communication purposes in different forms advertising, such as the banner, also in relation to the User\'s interests. For more information on this, we suggest you check the privacy policies of the respective services. The User can opt for the exclusion from the reception of cookies related to a third party service, by visiting the opt-out page of the Network Advertising Initiative.
+    'prv_doc_help' => 'you can read the complete information at the bottom of the page under Privacy Policy',
+    'cons_checkbox_1' => 'I accept the Remarketing Activities',
+    'cons_checkbox_1_txt' => 'This type of services allows this Application and its partners to communicate, optimize and serve advertisements based on the past use of this Application by the User, allow you to use the User Data for commercial communication purposes in different forms advertising, such as the banner, also in relation to the User\'s interests. For more information on this, we suggest you check the privacy policies of the respective services. The User can opt for the exclusion from the reception of cookies related to a third party service, by visiting the opt-out page of the Network Advertising Initiative.
 
 Facebook Audience Network (Facebook, Inc.)
 Facebook Audience Network is an advertising service provided by Facebook, Inc. For an understanding of the use of data by Facebook, please refer to the legislation on Facebook data.
@@ -50,9 +54,9 @@ Zanox is an advertising service provided by ZANOX.de AG.
 
 Contact the user
 By registering with the mailing list or the newsletter, the User\'s email address is automatically added to a list of contacts to which email messages containing information, including commercial and promotional information, relating to this Application may be transmitted. ',
-  'cons_checkbox_1_help' => '',
-  'cons_checkbox_2' => 'I accept the Site Statistical Activities',
-  'cons_checkbox_2_txt' => 'The services contained in this section allow the Data Controller to monitor and analyze traffic data and are used to keep track of User behavior.
+    'cons_checkbox_1_help' => '',
+    'cons_checkbox_2' => 'I accept the Site Statistical Activities',
+    'cons_checkbox_2_txt' => 'The services contained in this section allow the Data Controller to monitor and analyze traffic data and are used to keep track of User behavior.
 
 Google Analytics (Google Inc.)
 Google Analytics is a web analytics service provided by Google Inc. ("Google"). Google uses the Personal Data collected for the purpose of tracking and examining the use of this Application, compiling reports and sharing them with other services developed by Google. Google may use the Personal Data to contextualise and personalize the advertisements of its advertising network.
@@ -65,9 +69,9 @@ Hotjar is a statistical service provided by Hotjar Ltd, respecting the generic h
 
 Yandex Metrica (YANDEX, LLC)
 Yandex Metrica is a statistical and heat mapping service provided by YANDEX, LLC. Yandex Metrica can be used to identify which areas of a page are being crossed by the cursor or by clicking the mouse so as to detect which of them attract the most interest. ',
-  'cons_checkbox_2_help' => '',
-  'cons_checkbox_3' => 'I accept the Social Network Activities',
-  'cons_checkbox_3_txt' => 'This type of services allows you to make interactions with social networks, or other external platforms, directly from the pages of this application. The interactions and information acquired by this Application are in any case subject to the User\'s privacy settings related to each social network. If an interaction service with social networks is installed, it is possible that, even if the Users do not use the service, the same collect traffic data relating to the pages in which it is installed.
+    'cons_checkbox_2_help' => '',
+    'cons_checkbox_3' => 'I accept the Social Network Activities',
+    'cons_checkbox_3_txt' => 'This type of services allows you to make interactions with social networks, or other external platforms, directly from the pages of this application. The interactions and information acquired by this Application are in any case subject to the User\'s privacy settings related to each social network. If an interaction service with social networks is installed, it is possible that, even if the Users do not use the service, the same collect traffic data relating to the pages in which it is installed.
 
 Comment on the contents
 The comment services allow Users to formulate and make public their comments regarding the content of this Application. In the case of Personal Data issued by the User there is an email, this could be used to send notifications of comments regarding the same content. Users are responsible for the content of their comments. In the event that a comment service provided by third parties is installed, it is possible that, even if the Users do not use the comment service, the same collect traffic data relating to the pages in which the comment service is installed. .
@@ -88,14 +92,14 @@ This service allows this Application to connect with the User\'s account on the 
 
 Access to Twitter account (Twitter, Inc.)
 This service allows this Application to connect with the User\'s account on the Twitter social network, provided by Twitter, Inc.',
-  'cons_checkbox_3_help' => '',
-  'cons_checkbox_0_title' => 'Activity covered by the treatment',
-  'cons_checkbox_1_title' => 'Remarketing activity',
-  'cons_checkbox_2_title' => 'Site statistics activity',
-  'cons_checkbox_3_title' => 'Social Network',
-  'cons_checkbox_0' => 'I accept the activities being processed',
-  'cons_checkbox_0_help' => 'Obligatory',
-  'restaurant_accept_rules_txt' => 'Dear Restaurateur, below you can fill out some forms, in which we will ask you for some data and information about your business, these data will be part of a public page that will be visible to users of the Foodtribù community, among which there may be your usual customers and new, who can take advantage of the innovative portal take-away booking services. The data that we will publish will be processed in accordance with our Terms and Conditions and our Privacy Policy Compliant with Legislative Decree 101/2018 for adaptation to GDPR EU Reg. No. 679/2016 ',
-  'restaurant_accept_rules' => 'I accept the service rules',
-  'restaurant_accept_rules_title' => 'Regulations',
-);
+    'cons_checkbox_3_help' => '',
+    'cons_checkbox_0_title' => 'Activity covered by the treatment',
+    'cons_checkbox_1_title' => 'Remarketing activity',
+    'cons_checkbox_2_title' => 'Site statistics activity',
+    'cons_checkbox_3_title' => 'Social Network',
+    'cons_checkbox_0' => 'I accept the activities being processed',
+    'cons_checkbox_0_help' => 'Obligatory',
+    'restaurant_accept_rules_txt' => 'Dear Restaurateur, below you can fill out some forms, in which we will ask you for some data and information about your business, these data will be part of a public page that will be visible to users of the Foodtribù community, among which there may be your usual customers and new, who can take advantage of the innovative portal take-away booking services. The data that we will publish will be processed in accordance with our Terms and Conditions and our Privacy Policy Compliant with Legislative Decree 101/2018 for adaptation to GDPR EU Reg. No. 679/2016 ',
+    'restaurant_accept_rules' => 'I accept the service rules',
+    'restaurant_accept_rules_title' => 'Regulations',
+];

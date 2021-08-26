@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Food\Models\Policies;
 
 use Modules\Xot\Models\Policies\XotBasePolicy;
 
 /**
- * Class CartStatusPolicy
- * @package Modules\Food\Models\Policies
+ * Class CartStatusPolicy.
  */
 class CartStatusPolicy extends XotBasePolicy {
 }

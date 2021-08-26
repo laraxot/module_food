@@ -1,66 +1,69 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Food\Models;
 
 use Modules\Geo\Models\Place as BasePlaceModel;
 
 /**
- * Modules\Food\Models\Place
+ * Modules\Food\Models\Place.
  *
- * @property int $post_id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string|null $created_by
- * @property string|null $updated_by
- * @property string|null $deleted_by
- * @property string|null $premise
- * @property string|null $premise_short
- * @property string|null $locality
- * @property string|null $locality_short
- * @property string|null $postal_town
- * @property string|null $postal_town_short
- * @property string|null $administrative_area_level_3
- * @property string|null $administrative_area_level_3_short
- * @property string|null $administrative_area_level_2
- * @property string|null $administrative_area_level_2_short
- * @property string|null $administrative_area_level_1
- * @property string|null $administrative_area_level_1_short
- * @property string|null $country
- * @property string|null $country_short
- * @property string|null $street_number
- * @property string|null $street_number_short
- * @property string|null $route
- * @property string|null $route_short
- * @property string|null $postal_code
- * @property string|null $postal_code_short
- * @property string|null $googleplace_url
- * @property string|null $googleplace_url_short
- * @property string|null $point_of_interest
- * @property string|null $point_of_interest_short
- * @property string|null $political
- * @property string|null $political_short
- * @property string|null $campground
- * @property string|null $campground_short
- * @property string|null $formatted_address
- * @property string|null $post_type
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Favorite[] $favorites
- * @property-read int|null $favorites_count
- * @property mixed $guid
- * @property mixed $image_src
- * @property-read mixed $lang
- * @property mixed $routename
- * @property-read mixed $subtitle
- * @property-read mixed $title
- * @property mixed $txt
- * @property mixed $url
- * @property-read mixed $user_handle
- * @property-read mixed $value
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Image[] $images
- * @property-read int|null $images_count
- * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $linked
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Favorite[] $myFavorites
- * @property-read int|null $my_favorites_count
- * @property-read \Modules\Blog\Models\Post|null $post
+ * @property int                                                                      $post_id
+ * @property \Illuminate\Support\Carbon|null                                          $created_at
+ * @property \Illuminate\Support\Carbon|null                                          $updated_at
+ * @property string|null                                                              $created_by
+ * @property string|null                                                              $updated_by
+ * @property string|null                                                              $deleted_by
+ * @property string|null                                                              $premise
+ * @property string|null                                                              $premise_short
+ * @property string|null                                                              $locality
+ * @property string|null                                                              $locality_short
+ * @property string|null                                                              $postal_town
+ * @property string|null                                                              $postal_town_short
+ * @property string|null                                                              $administrative_area_level_3
+ * @property string|null                                                              $administrative_area_level_3_short
+ * @property string|null                                                              $administrative_area_level_2
+ * @property string|null                                                              $administrative_area_level_2_short
+ * @property string|null                                                              $administrative_area_level_1
+ * @property string|null                                                              $administrative_area_level_1_short
+ * @property string|null                                                              $country
+ * @property string|null                                                              $country_short
+ * @property string|null                                                              $street_number
+ * @property string|null                                                              $street_number_short
+ * @property string|null                                                              $route
+ * @property string|null                                                              $route_short
+ * @property string|null                                                              $postal_code
+ * @property string|null                                                              $postal_code_short
+ * @property string|null                                                              $googleplace_url
+ * @property string|null                                                              $googleplace_url_short
+ * @property string|null                                                              $point_of_interest
+ * @property string|null                                                              $point_of_interest_short
+ * @property string|null                                                              $political
+ * @property string|null                                                              $political_short
+ * @property string|null                                                              $campground
+ * @property string|null                                                              $campground_short
+ * @property string|null                                                              $formatted_address
+ * @property string|null                                                              $post_type
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Favorite[] $favorites
+ * @property int|null                                                                 $favorites_count
+ * @property mixed                                                                    $guid
+ * @property mixed                                                                    $image_src
+ * @property mixed                                                                    $lang
+ * @property mixed                                                                    $routename
+ * @property mixed                                                                    $subtitle
+ * @property mixed                                                                    $title
+ * @property mixed                                                                    $txt
+ * @property mixed                                                                    $url
+ * @property mixed                                                                    $user_handle
+ * @property mixed                                                                    $value
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Image[]    $images
+ * @property int|null                                                                 $images_count
+ * @property \Illuminate\Database\Eloquent\Model|\Eloquent                            $linked
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Favorite[] $myFavorites
+ * @property int|null                                                                 $my_favorites_count
+ * @property \Modules\Blog\Models\Post|null                                           $post
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Place newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Place newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)

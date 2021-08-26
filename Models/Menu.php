@@ -1,5 +1,9 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Modules\Food\Models;
+
 /*
 use Illuminate\Database\Eloquent\Model;
 //use Intervention\Image\ImageManagerStatic as Image;
@@ -13,8 +17,7 @@ use Modules\Extend\Traits\Updater;
 use Modules\Xot\Models\Traits\LinkedTrait;
 */
 //menu inteso come listino pietanze/prezzi ovver menu del ristorante
-class Menu extends BaseModel  
-{
+class Menu extends BaseModel {
     //use Updater;
     //use Searchable;
     //use LinkedTrait;

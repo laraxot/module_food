@@ -1,5 +1,9 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Modules\Food\Models;
+
 /*
 use Carbon\Carbon;
 ////use Laravel\Scout\Searchable;
@@ -18,8 +22,7 @@ use Modules\Xot\Models\Traits\LinkedTrait;
  *
  * @mixin \Eloquent
  */
-class Photo extends BaseModel
-{
+class Photo extends BaseModel {
     //use Searchable; //se non si crea prima indice da un sacco di errori
     //use Updater;
     //use LinkedTrait;
@@ -36,7 +39,7 @@ class Photo extends BaseModel
     protected $primaryKey = 'post_id';
     public $incrementing = true;
 
-    /* -- contenuto nel linkedTrait 
+    /* -- contenuto nel linkedTrait
     public function getTypeAttribute($value){
         return 'photo';
     }

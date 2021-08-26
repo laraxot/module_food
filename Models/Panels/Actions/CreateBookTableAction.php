@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Food\Models\Panels\Actions;
 
 use Modules\Theme\Services\ThemeService;

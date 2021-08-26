@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,27 +14,23 @@ https://phppot.com/php/php-star-rating-system-with-javascript/
 https://www.phpzag.com/star-rating-system-with-ajax-php-and-mysql/
 */
 
-use Modules\Xot\Database\Migrations\XotBaseMigration;
-
 /**
- * Class CreateRecipeMorphTable
+ * Class CreateRecipeMorphTable.
  */
-class CreateRecipeMorphTable extends Migration
-{
+class CreateRecipeMorphTable extends Migration {
     /**
      * @return mixed
      */
-    public function getTable()
-    {
+    public function getTable() {
         return with(new MyModel())->getTable();
     }
-/**
-* db up
-*
-* @return void
-*/
-    public function up()
-    {
+
+    /**
+     * db up.
+     *
+     * @return void
+     */
+    public function up() {
         //----- create -----
         if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
@@ -71,12 +69,11 @@ class CreateRecipeMorphTable extends Migration
             */
             if (Schema::hasColumn($this->getTable(), 'related_id')) {
                 $table->renameColumn('related_id', 'recipe_id');
-            };
+            }
         });
     }
 
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists($this->getTable());
     }
 }

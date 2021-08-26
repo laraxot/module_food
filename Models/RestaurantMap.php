@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Food\Models;
 
 /**
@@ -75,6 +77,7 @@ namespace Modules\Food\Models;
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Favorite[] $myFavorites
  * @property int|null                                                                 $my_favorites_count
  * @property \Modules\Blog\Models\Post|null                                           $post
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantMap newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantMap newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)
@@ -132,24 +135,26 @@ namespace Modules\Food\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantMap whereWebsite($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
  * @mixin \Eloquent
- * @property string|null $address1
- * @property string|null $address2
- * @property string|null $address3
- * @property string|null $city
- * @property string|null $zip_code
- * @property string|null $state
- * @property string|null $display_phone
- * @property string|null $price
- * @property string|null $review_count
- * @property string|null $is_closed
- * @property string|null $rating
+ *
+ * @property string|null                     $address1
+ * @property string|null                     $address2
+ * @property string|null                     $address3
+ * @property string|null                     $city
+ * @property string|null                     $zip_code
+ * @property string|null                     $state
+ * @property string|null                     $display_phone
+ * @property string|null                     $price
+ * @property string|null                     $review_count
+ * @property string|null                     $is_closed
+ * @property string|null                     $rating
  * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property string|null $deleted_by
- * @property string|null $deleted_ip
- * @property string|null $created_ip
- * @property string|null $updated_ip
- * @property string|null $street_number_long
- * @property int $table_enable
+ * @property string|null                     $deleted_by
+ * @property string|null                     $deleted_ip
+ * @property string|null                     $created_ip
+ * @property string|null                     $updated_ip
+ * @property string|null                     $street_number_long
+ * @property int                             $table_enable
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantMap whereAddress1($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantMap whereAddress2($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantMap whereAddress3($value)

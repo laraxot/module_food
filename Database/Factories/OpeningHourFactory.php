@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Food\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -7,8 +9,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Food\Models\OpeningHour as Model;
 
 /**
- * Class OpeningHourFactory
- * @package Modules\Food\Database\Factories
+ * Class OpeningHourFactory.
  */
 class OpeningHourFactory extends Factory {
     /**

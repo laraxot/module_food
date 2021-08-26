@@ -1,32 +1,30 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 //----- models-------
 use Modules\Food\Models\Location as MyModel;
 
-use Modules\Xot\Database\Migrations\XotBaseMigration;
-
 /**
- * Class CreateLocationsTable
+ * Class CreateLocationsTable.
  */
-class CreateLocationsTable extends Migration
-{
+class CreateLocationsTable extends Migration {
     /**
      * @return mixed
      */
-    public function getTable()
-    {
+    public function getTable() {
         return with(new MyModel())->getTable();
     }
-/**
-* db up
-*
-* @return void
-*/
-    public function up()
-    {
+
+    /**
+     * db up.
+     *
+     * @return void
+     */
+    public function up() {
         if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
                 $table->increments('id'); //->primary();
@@ -77,8 +75,7 @@ class CreateLocationsTable extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists($this->getTable());
     }
 }//end CreateBlogPostLocationsTable

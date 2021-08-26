@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
+declare(strict_types=1);
+
 use Illuminate\Database\Schema\Blueprint;
 //--- models --
 //use Modules\Food\Models\IngredientCat as MyModel;
@@ -8,10 +9,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 /**
- * Class CreateIngredientCatsTable
+ * Class CreateIngredientCatsTable.
  */
-class CreateIngredientCatsTable extends XotBaseMigration
-{
+class CreateIngredientCatsTable extends XotBaseMigration {
     /*
     public function getTable()
     {
@@ -22,8 +22,7 @@ class CreateIngredientCatsTable extends XotBaseMigration
     /**
      * Run the migrations.
      */
-    public function up()
-    {
+    public function up() {
         if (! Schema::hasTable($this->getTable())) {
             Schema::create(
                 $this->getTable(), function (Blueprint $table) {
@@ -88,8 +87,7 @@ class CreateIngredientCatsTable extends XotBaseMigration
     /**
      * Reverse the migrations.
      */
-    public function down()
-    {
+    public function down() {
         if (Schema::hasTable($this->getTable())) {
             Schema::drop($this->getTable());
         }

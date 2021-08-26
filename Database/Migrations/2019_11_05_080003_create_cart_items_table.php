@@ -1,22 +1,22 @@
 <?php
+
+declare(strict_types=1);
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-
 //----- models -----
 use Modules\Food\Models\CartItem as MyModel;
 
-class CreateCartItemsTable extends Migration{
-
-    public function getTable(){
+class CreateCartItemsTable extends Migration {
+    public function getTable() {
         return with(new MyModel())->getTable();
     }
+
     /**
      * Run the migrations.
      */
-    public function up()
-    {
+    public function up() {
         //--- create ---
-        if (!Schema::hasTable($this->getTable())) {
+        if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
                 $table->increments('id');
                 $table->integer('parent_id')->index()->nullable();
@@ -40,23 +40,22 @@ class CreateCartItemsTable extends Migration{
         }
         //--- up --
         Schema::table($this->getTable(), function (Blueprint $table) {
-            if (!Schema::hasColumn($this->getTable(), 'auth_user_id')) {
+            if (! Schema::hasColumn($this->getTable(), 'auth_user_id')) {
                 $table->integer('auth_user_id')->index()->nullable(); // item collegati all'utente
-                $table->string('sess_id',32)->index()->nullable();    // item collegati alla sessione se utente non loggato
+                $table->string('sess_id', 32)->index()->nullable();    // item collegati alla sessione se utente non loggato
                 $table->integer('cart_id')->index()->nullable();      // carrello
             }
         });
 
         Schema::table($this->getTable(), function (Blueprint $table) {
-            $table->string('sess_id',40)->change();
+            $table->string('sess_id', 40)->change();
         });
     }
 
     /**
      * Reverse the migrations.
      */
-    public function down()
-    {
+    public function down() {
         if (Schema::hasTable($this->getTable())) {
             Schema::drop($this->getTable());
         }

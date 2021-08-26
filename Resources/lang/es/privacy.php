@@ -1,5 +1,9 @@
-<?php return array (
-  'cons_checkbox_0_txt' => 'Información sobre la protección de datos personales conforme al art. 12 y 13 del Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo de 27 de abril de 2016.
+<?php
+
+declare(strict_types=1);
+
+return [
+    'cons_checkbox_0_txt' => 'Información sobre la protección de datos personales conforme al art. 12 y 13 del Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo de 27 de abril de 2016.
 FoodTribù le informa sobre el procesamiento de sus datos personales para permitirle acceder a los servicios del portal para propietarios de restaurantes, clientes y usuarios.
 
 Controlador de datos
@@ -25,9 +29,9 @@ En particular, el Usuario tiene derecho a:
 • Verificar y solicitar corrección.
 • Obtener limitación de tratamiento.
 • Obtener la cancelación o eliminación de sus Datos Personales.',
-  'prv_doc_help' => 'Puede leer la información completa en la parte inferior de la página bajo la Política de privacidad.',
-  'cons_checkbox_1' => 'Acepto las actividades de remarketing',
-  'cons_checkbox_1_txt' => 'Este tipo de servicios permite que esta Aplicación y sus socios se comuniquen, optimicen y sirvan anuncios basados en el uso anterior de esta Aplicación por parte del Usuario, lo que le permite utilizar los Datos del Usuario con fines de comunicación comercial en diferentes formas. Publicidad, como el banner, también en relación con los intereses del usuario. Para obtener más información sobre esto, le sugerimos que revise las políticas de privacidad de los servicios respectivos. El Usuario puede optar por la exclusión de la recepción de cookies relacionadas con un servicio de terceros, visitando la página de exclusión de Network Advertising Initiative.
+    'prv_doc_help' => 'Puede leer la información completa en la parte inferior de la página bajo la Política de privacidad.',
+    'cons_checkbox_1' => 'Acepto las actividades de remarketing',
+    'cons_checkbox_1_txt' => 'Este tipo de servicios permite que esta Aplicación y sus socios se comuniquen, optimicen y sirvan anuncios basados en el uso anterior de esta Aplicación por parte del Usuario, lo que le permite utilizar los Datos del Usuario con fines de comunicación comercial en diferentes formas. Publicidad, como el banner, también en relación con los intereses del usuario. Para obtener más información sobre esto, le sugerimos que revise las políticas de privacidad de los servicios respectivos. El Usuario puede optar por la exclusión de la recepción de cookies relacionadas con un servicio de terceros, visitando la página de exclusión de Network Advertising Initiative.
 
 Red de audiencia de Facebook (Facebook, Inc.)
 Facebook Audience Network es un servicio de publicidad proporcionado por Facebook, Inc. Para comprender el uso de los datos por parte de Facebook, consulte la legislación sobre los datos de Facebook.
@@ -50,9 +54,9 @@ Zanox es un servicio de publicidad proporcionado por ZANOX.de AG.
 
 Contactar al usuario
 Al registrarse en la lista de correo o en el boletín, la dirección de correo electrónico del Usuario se agrega automáticamente a una lista de contactos a los que se pueden transmitir los mensajes de correo electrónico que contienen información, incluida información comercial y promocional, relacionada con esta Aplicación. ',
-  'cons_checkbox_1_help' => '',
-  'cons_checkbox_2' => 'Acepto las actividades estadísticas del sitio',
-  'cons_checkbox_2_txt' => 'Los servicios contenidos en esta sección permiten que el controlador de datos monitoree y analice los datos de tráfico y se utilizan para realizar un seguimiento del comportamiento del usuario.
+    'cons_checkbox_1_help' => '',
+    'cons_checkbox_2' => 'Acepto las actividades estadísticas del sitio',
+    'cons_checkbox_2_txt' => 'Los servicios contenidos en esta sección permiten que el controlador de datos monitoree y analice los datos de tráfico y se utilizan para realizar un seguimiento del comportamiento del usuario.
 
 Google Analytics (Google Inc.)
 Google Analytics es un servicio de análisis web provisto por Google Inc. ("Google"). Google utiliza los Datos personales recopilados con el fin de rastrear y examinar el uso de esta Aplicación, compilar informes y compartirlos con otros servicios desarrollados por Google. Google puede utilizar los Datos personales para contextualizar y personalizar los anuncios de su red de publicidad.
@@ -65,9 +69,9 @@ Hotjar es un servicio estadístico proporcionado por Hotjar Ltd, que respeta los
 
 Yandex Metrica (YANDEX, LLC)
 Yandex Metrica es un servicio estadístico y de mapeo de calor provisto por YANDEX, LLC. Yandex Metrica se puede usar para identificar qué áreas de una página está atravesando el cursor o haciendo clic con el mouse para detectar cuál de ellas atrae el mayor interés. ',
-  'cons_checkbox_2_help' => '',
-  'cons_checkbox_3' => 'Acepto las actividades de Social Network',
-  'cons_checkbox_3_txt' => 'Este tipo de servicios le permite realizar interacciones con redes sociales u otras plataformas externas directamente desde las páginas de esta aplicación. Las interacciones y la información adquirida por esta Aplicación están, en cualquier caso, sujetas a la configuración de privacidad del Usuario relacionada con cada red social. Si se instala un servicio de interacción con redes sociales, es posible que, incluso si los Usuarios no usan el servicio, los mismos recopilen datos de tráfico relacionados con las páginas en las que está instalado.
+    'cons_checkbox_2_help' => '',
+    'cons_checkbox_3' => 'Acepto las actividades de Social Network',
+    'cons_checkbox_3_txt' => 'Este tipo de servicios le permite realizar interacciones con redes sociales u otras plataformas externas directamente desde las páginas de esta aplicación. Las interacciones y la información adquirida por esta Aplicación están, en cualquier caso, sujetas a la configuración de privacidad del Usuario relacionada con cada red social. Si se instala un servicio de interacción con redes sociales, es posible que, incluso si los Usuarios no usan el servicio, los mismos recopilen datos de tráfico relacionados con las páginas en las que está instalado.
 
 Comentar los contenidos.
 Los servicios de comentarios permiten a los usuarios formular y hacer públicos sus comentarios sobre el contenido de esta aplicación. En el caso de Datos Personales emitidos por el Usuario, existe un correo electrónico, que puede ser utilizado para enviar notificaciones de comentarios sobre el mismo contenido. Los usuarios son responsables del contenido de sus comentarios. En el caso de que se instale un servicio de comentarios proporcionado por terceros, es posible que, incluso si los Usuarios no usan el servicio de comentarios, los mismos recopilen datos de tráfico relacionados con las páginas en las que está instalado el servicio de comentarios. .
@@ -88,14 +92,14 @@ Este servicio permite que esta Aplicación se conecte con la cuenta del Usuario 
 
 Acceso a la cuenta de Twitter (Twitter, Inc.)
 Este servicio permite que esta aplicación se conecte con la cuenta del usuario en la red social de Twitter, proporcionada por Twitter, Inc.',
-  'cons_checkbox_3_help' => '',
-  'cons_checkbox_0_title' => 'Actividad cubierta por el tratamiento.',
-  'cons_checkbox_1_title' => 'Actividad de remarketing',
-  'cons_checkbox_2_title' => 'Actividad de estadísticas del sitio',
-  'cons_checkbox_3_title' => 'Social Network',
-  'cons_checkbox_0' => 'Acepto las actividades en proceso',
-  'cons_checkbox_0_help' => 'Obligatorio',
-  'restaurant_accept_rules_txt' => 'Estimado Restaurador, a continuación puede completar algunos formularios, en los que le pediremos algunos datos e información sobre su negocio, estos datos formarán parte de una página pública que será visible para los usuarios de la comunidad de Foodtribù, entre los cuales pueden estar sus clientes habituales. y nuevo, que puede aprovechar el innovador portal de servicios de reserva para llevar. Los datos que publicaremos se procesarán de acuerdo con nuestros Términos y condiciones y nuestra Política de privacidad que cumple con el Decreto Legislativo 101/2018 para la adaptación al GDPR EU Reg. No. 679/2016',
-  'restaurant_accept_rules' => 'Acepto las reglas de servicio',
-  'restaurant_accept_rules_title' => 'Reglamentos',
-);
+    'cons_checkbox_3_help' => '',
+    'cons_checkbox_0_title' => 'Actividad cubierta por el tratamiento.',
+    'cons_checkbox_1_title' => 'Actividad de remarketing',
+    'cons_checkbox_2_title' => 'Actividad de estadísticas del sitio',
+    'cons_checkbox_3_title' => 'Social Network',
+    'cons_checkbox_0' => 'Acepto las actividades en proceso',
+    'cons_checkbox_0_help' => 'Obligatorio',
+    'restaurant_accept_rules_txt' => 'Estimado Restaurador, a continuación puede completar algunos formularios, en los que le pediremos algunos datos e información sobre su negocio, estos datos formarán parte de una página pública que será visible para los usuarios de la comunidad de Foodtribù, entre los cuales pueden estar sus clientes habituales. y nuevo, que puede aprovechar el innovador portal de servicios de reserva para llevar. Los datos que publicaremos se procesarán de acuerdo con nuestros Términos y condiciones y nuestra Política de privacidad que cumple con el Decreto Legislativo 101/2018 para la adaptación al GDPR EU Reg. No. 679/2016',
+    'restaurant_accept_rules' => 'Acepto las reglas de servicio',
+    'restaurant_accept_rules_title' => 'Reglamentos',
+];

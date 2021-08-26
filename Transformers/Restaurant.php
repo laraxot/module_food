@@ -1,24 +1,25 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Food\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Restaurant extends JsonResource
-{
+class Restaurant extends JsonResource {
     /**
      * Transform the resource into an array.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
-    public function toArray($request)
-    {
+    public function toArray($request) {
         //return parent::toArray($request);
-        $item=[];
+        $item = [];
         $item['title'] = $this->title; //.' '.$this->post_id.' '.$this->lang;  //4 debug
         $item['subtitle'] = $this->title;
-        $item['cuisineCat_list']=$this->cuisine_cats_list;
+        $item['cuisineCat_list'] = $this->cuisine_cats_list;
         $item['img_src'] = $this->imageResizeSrc(['width' => 380, 'height' => 210]);
         $item['url'] = $this->url;
         $item['lat'] = $this->latitude;
@@ -32,6 +33,7 @@ class Restaurant extends JsonResource
                                 (<span itemprop="addressRegion">'.$this->administrative_area_level_2_short.'</span>) 
                                 <meta itemprop="addressCountry" content="'.$this->country_short.'" /> 
                             </div>';
+
         return $item;
     }
 }

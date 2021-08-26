@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Food\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -25,7 +27,7 @@ class ProfileFactory extends Factory {
     public function definition() {
         $faker = $this->faker;
 
-        return  [
+        return [
             //'title' => $faker->sentence,
             //'description' => $faker->paragraph,
             //'auth_user_id' => factory(User::class)->create()->auth_user_id,

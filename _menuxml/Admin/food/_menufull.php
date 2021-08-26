@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /*
 nota bene: gli id indicano l'ordine della root (figli e sottofigli)
 */

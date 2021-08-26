@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Food\Models;
 
 //------ traits ----
@@ -43,6 +45,7 @@ namespace Modules\Food\Models;
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Favorite[] $myFavorites
  * @property int|null                                                                 $my_favorites_count
  * @property \Modules\Blog\Models\Post|null                                           $post
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)
@@ -62,12 +65,14 @@ namespace Modules\Food\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat whereUpdatedIp($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
  * @mixin \Eloquent
+ *
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Restaurant[] $restaurants
  * @property int|null                                                                   $restaurants_count
- * @property string $day_name
- * @property int $day_of_week
- * @property string $open_at
- * @property string $close_at
+ * @property string                                                                     $day_name
+ * @property int                                                                        $day_of_week
+ * @property string                                                                     $open_at
+ * @property string                                                                     $close_at
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat whereCloseAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat whereDayName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat whereDayOfWeek($value)
@@ -83,6 +88,6 @@ class CuisineCat extends BaseModelLang {
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
     public function restaurants() {
-        return  $this->morphRelated(Restaurant::class, true);
+        return $this->morphRelated(Restaurant::class, true);
     }
 }

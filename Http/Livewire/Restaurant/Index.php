@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Food\Http\Livewire\Restaurant;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -18,17 +20,10 @@ use Modules\Xot\Services\PanelService;
 class Index extends Component {
     use WithPagination;
 
-    /**
-     * @var string
-     */
     protected string $paginationTheme = 'bootstrap';
-    /**
-     * @var array
-     */
+
     public array $route_params = [];
-    /**
-     * @var array
-     */
+
     public array $data = [];
 
     public $searchTerm;

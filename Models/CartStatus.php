@@ -1,13 +1,13 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Modules\Food\Models;
 
-use Carbon\Carbon;
-
-class CartStatus extends BaseModel{
-	public $fillable = [
+class CartStatus extends BaseModel {
+    public $fillable = [
         'name', 'color',
     ];
 
     //----- relationship -----
-    
 }

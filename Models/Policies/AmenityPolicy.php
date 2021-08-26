@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Food\Models\Policies;
 
 //use Modules\LU\Models\User as User;
@@ -8,8 +10,7 @@ namespace Modules\Food\Models\Policies;
 use Modules\Xot\Models\Policies\XotBasePolicy;
 
 /**
- * Class AmenityPolicy
- * @package Modules\Food\Models\Policies
+ * Class AmenityPolicy.
  */
 class AmenityPolicy extends XotBasePolicy {
 }

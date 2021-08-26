@@ -1,69 +1,58 @@
-<?php return array (
-  'show' => 
-  array (
-    'tab' => 
-    array (
-      'cuisineCat' => 'Tipo de cocina',
-      'restaurant' => 'Restaurantes',
-    ),
-  ),
-  'cuisineCat' => 
-  array (
-    'index' => 
-    array (
-      'tab' => 
-      array (
-        'cuisineCat' => 'Tipo de cocina',
-        'restaurant' => 'Restaurantes',
-      ),
-    ),
-    'show' => 
-    array (
-      'tab' => 
-      array (
-        'restaurant' => 'Restaurantes',
-      ),
-    ),
-  ),
-  'restaurant' => 
-  array (
-    'index' => 
-    array (
-      'tab' => 
-      array (
-        'cuisineCat' => 'Tipo de cocina',
-        'restaurant' => 'Restaurantes',
-      ),
-    ),
-    'cuisine' => 
-    array (
-      'index' => 
-      array (
-        'tab' => 
-        array (
-          'cuisine' => 'Menu',
-          'photo' => 'Foto',
-          'article' => 'Blog',
-          'contact' => 'Contactos',
-          'map' => 'Donde estamos',
-        ),
-      ),
-    ),
-  ),
-  'tab' => 
-  array (
-    'cuisine' => 'Menu',
-    'photo' => 'Foto',
-    'article' => 'Blog',
-    'contact' => 'Contactos',
-    'map' => 'Donde estamos',
-    'content' => 'Info',
-    'cuisineCat' => 'Cocinas del lugar',
-    'restaurant' => 'Restaurantes del lugar',
-  ),
-  'item' => 
-  array (
-    'cuisine_cat' => 'Cocinas del lugar',
-    'restaurant' => 'Restaurantes del lugar',
-  ),
-);
+<?php
+
+declare(strict_types=1);
+
+return [
+    'show' => [
+        'tab' => [
+            'cuisineCat' => 'Tipo de cocina',
+            'restaurant' => 'Restaurantes',
+        ],
+    ],
+    'cuisineCat' => [
+        'index' => [
+            'tab' => [
+                'cuisineCat' => 'Tipo de cocina',
+                'restaurant' => 'Restaurantes',
+            ],
+        ],
+        'show' => [
+            'tab' => [
+                'restaurant' => 'Restaurantes',
+            ],
+        ],
+    ],
+    'restaurant' => [
+        'index' => [
+            'tab' => [
+                'cuisineCat' => 'Tipo de cocina',
+                'restaurant' => 'Restaurantes',
+            ],
+        ],
+        'cuisine' => [
+            'index' => [
+                'tab' => [
+                    'cuisine' => 'Menu',
+                    'photo' => 'Foto',
+                    'article' => 'Blog',
+                    'contact' => 'Contactos',
+                    'map' => 'Donde estamos',
+                ],
+            ],
+        ],
+    ],
+    'tab' => [
+        'cuisine' => 'Menu',
+        'photo' => 'Foto',
+        'article' => 'Blog',
+        'contact' => 'Contactos',
+        'map' => 'Donde estamos',
+        'content' => 'Info',
+        'cuisineCat' => 'Cocinas del lugar',
+        'restaurant' => 'Restaurantes del lugar',
+    ],
+    'item' => [
+        'cuisine_cat' => 'Cocinas del lugar',
+        'restaurant' => 'Restaurantes del lugar',
+    ],
+];

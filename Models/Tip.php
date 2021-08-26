@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Food\Models;
 
 use Modules\LU\Models\User;
@@ -20,6 +22,7 @@ use Modules\Xot\Models\XotBaseModel;
  * @property mixed                           $full_name
  * @property \Modules\Blog\Models\Profile    $profile
  * @property User                            $user
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Tip newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Tip newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Tip query()

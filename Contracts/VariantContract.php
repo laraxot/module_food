@@ -1,12 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Food\Contracts;
 
-use Illuminate\Database\Eloquent\Collection;
-
 /**
- * Interface VariantContract
- * @package Modules\Food\Contracts
+ * Interface VariantContract.
  */
 interface VariantContract {
     /*

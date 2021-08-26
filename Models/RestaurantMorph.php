@@ -28,6 +28,7 @@ use Modules\Blog\Models\Label;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property int|null                        $role_id
  * @property int|null                        $status
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantMorph newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantMorph newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantMorph query()

@@ -1,7 +1,10 @@
-<?php return array (
-  'tab' => 
-  array (
-    'content' => 'info',
-    'restaurant' => 'ristoranti ',
-  ),
-);
+<?php
+
+declare(strict_types=1);
+
+return [
+    'tab' => [
+        'content' => 'info',
+        'restaurant' => 'ristoranti ',
+    ],
+];

@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 ////////////////////////////////////////////////
 //
@@ -17,37 +18,31 @@ use Modules\Install\Helpers\DatabaseManager;
 
 //------ traits ---
 
-trait PrivacyMutatorsTrait
-{
-    public function privacy()
-    {
+trait PrivacyMutatorsTrait {
+    public function privacy() {
         try {
             return $this->hasMany(ProfilePrivacyChrono::class, 'auth_user_id', 'auth_user_id');
         } catch (\Exception $ex) {
             $this->forceMigrations();
         }
-
     }
 
     /**
-     * FUNZIONE TEMPORANEA DA RIMUOVERE
+     * FUNZIONE TEMPORANEA DA RIMUOVERE.
      */
-    private function forceMigrations()
-    {
+    private function forceMigrations() {
         $databaseManager = new DatabaseManager();
         $response = $databaseManager->migrateAndSeed();
-        die("DB AGGIORNATO! RIPETERE OPERAZIONE");
+        exit('DB AGGIORNATO! RIPETERE OPERAZIONE');
     }
 
-    public function user()
-    {
+    public function user() {
         return $this->hasOne(User::class, 'auth_user_id', 'auth_user_id');
     }
 
-    public function getConsCheckboxXRow($k)
-    {
+    public function getConsCheckboxXRow($k) {
         try {
-            $txt = trans('food::privacy.cons_checkbox_' . $k);
+            $txt = trans('food::privacy.cons_checkbox_'.$k);
             $row = ProfilePrivacyChrono::where('checkbox_position', '=', $k)
                 ->where('auth_user_id', $this->auth_user_id)
                 ->where('checkbox_label', $txt)
@@ -60,8 +55,7 @@ trait PrivacyMutatorsTrait
         }
     }
 
-    public function getConsCheckboxX($k)
-    {
+    public function getConsCheckboxX($k) {
         $row = $this->getConsCheckboxXRow($k);
 
         if (null == $row) {
@@ -72,8 +66,7 @@ trait PrivacyMutatorsTrait
         return $ris;
     }
 
-    public function getConsCheckboxXTxt($k)
-    {
+    public function getConsCheckboxXTxt($k) {
         $row = $this->getConsCheckboxXRow($k);
 
         if (null == $row) {
@@ -84,10 +77,9 @@ trait PrivacyMutatorsTrait
         return $ris;
     }
 
-    public function setConsCheckboxX($k, $v)
-    {
+    public function setConsCheckboxX($k, $v) {
         try {
-            $txt = \Request::input('linked.cons_checkbox_' . $k . '_txt');
+            $txt = \Request::input('linked.cons_checkbox_'.$k.'_txt');
             $data = [
                 'auth_user_id' => $this->auth_user_id,
                 'checkbox_position' => $k,
@@ -101,92 +93,74 @@ trait PrivacyMutatorsTrait
         }
     }
 
-    public function setConsCheckboxXTxt($k, $v)
-    {
+    public function setConsCheckboxXTxt($k, $v) {
     }
 
-    public function getConsCheckboxDescrX($k)
-    {
+    public function getConsCheckboxDescrX($k) {
         return $this->desc[$k];
     }
 
-    public function getConsCheckbox0Attribute($value)
-    {
+    public function getConsCheckbox0Attribute($value) {
         return $this->getConsCheckboxX(0);
     }
 
-    public function getConsCheckbox1Attribute($value)
-    {
+    public function getConsCheckbox1Attribute($value) {
         return $this->getConsCheckboxX(1);
     }
 
-    public function getConsCheckbox2Attribute($value)
-    {
+    public function getConsCheckbox2Attribute($value) {
         return $this->getConsCheckboxX(2);
     }
 
-    public function getConsCheckbox3Attribute($value)
-    {
+    public function getConsCheckbox3Attribute($value) {
         return $this->getConsCheckboxX(3);
     }
 
-    public function getConsCheckbox0TxtAttribute($value)
-    {
+    public function getConsCheckbox0TxtAttribute($value) {
         return $this->getConsCheckboxXTxt(0);
     }
 
-    public function getConsCheckbox1TxtAttribute($value)
-    {
+    public function getConsCheckbox1TxtAttribute($value) {
         return $this->getConsCheckboxXTxt(1);
     }
 
-    public function getConsCheckbox2TxtAttribute($value)
-    {
+    public function getConsCheckbox2TxtAttribute($value) {
         return $this->getConsCheckboxXTxt(2);
     }
 
-    public function getConsCheckbox3TxtAttribute($value)
-    {
+    public function getConsCheckbox3TxtAttribute($value) {
         return $this->getConsCheckboxXTxt(3);
     }
 
-    public function setConsCheckbox0Attribute($value)
-    {
+    public function setConsCheckbox0Attribute($value) {
         $this->setConsCheckboxX(0, $value);
     }
 
-    public function setConsCheckbox1Attribute($value)
-    {
+    public function setConsCheckbox1Attribute($value) {
         $this->setConsCheckboxX(1, $value);
     }
 
-    public function setConsCheckbox2Attribute($value)
-    {
+    public function setConsCheckbox2Attribute($value) {
         $this->setConsCheckboxX(2, $value);
     }
 
-    public function setConsCheckbox3Attribute($value)
-    {
+    public function setConsCheckbox3Attribute($value) {
         $this->setConsCheckboxX(3, $value);
     }
 
-    public function setConsCheckbox0TxtAttribute($value)
-    {
+    public function setConsCheckbox0TxtAttribute($value) {
         $this->setConsCheckboxXTxt(0, $value);
     }
 
-    public function setConsCheckbox1TxtAttribute($value)
-    {
+    public function setConsCheckbox1TxtAttribute($value) {
         $this->setConsCheckboxXTxt(1, $value);
     }
 
-    public function setConsCheckbox2TxtAttribute($value)
-    {
+    public function setConsCheckbox2TxtAttribute($value) {
         $this->setConsCheckboxXTxt(2, $value);
     }
 
-    public function setConsCheckbox3TxtAttribute($value)
-    {
+    public function setConsCheckbox3TxtAttribute($value) {
         $this->setConsCheckboxXTxt(3, $value);
     }
 }

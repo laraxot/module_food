@@ -1,28 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 //----- models-------
 use Modules\Food\Models\ProfilePrivacyChrono;
 
-use Modules\Xot\Database\Migrations\XotBaseMigration;
-
 /**
- * Class CreateProfilePrivacyChronosTable
+ * Class CreateProfilePrivacyChronosTable.
  */
 class CreateProfilePrivacyChronosTable extends Migration {
-    /**
-     * @return string
-     */
-    public function getTable():string {
+    public function getTable(): string {
         return with(new ProfilePrivacyChrono())->getTable();
     }
-/**
-* db up
-*
-* @return void
-*/
+
+    /**
+     * db up.
+     *
+     * @return void
+     */
     public function up() {
         if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {

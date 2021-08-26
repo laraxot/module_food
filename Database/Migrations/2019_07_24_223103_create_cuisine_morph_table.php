@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,20 +15,18 @@ https://www.phpzag.com/star-rating-system-with-ajax-php-and-mysql/
 */
 
 /**
- * Class CreateCuisineMorphTable
+ * Class CreateCuisineMorphTable.
  */
 class CreateCuisineMorphTable extends Migration {
-    /**
-     * @return string
-     */
-    public function getTable():string {
+    public function getTable(): string {
         return with(new MyModel())->getTable();
     }
-/**
-* db up
-*
-* @return void
-*/
+
+    /**
+     * db up.
+     *
+     * @return void
+     */
     public function up() {
         //----- create -----
         if (! Schema::hasTable($this->getTable())) {

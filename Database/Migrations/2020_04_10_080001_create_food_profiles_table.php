@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -7,20 +9,18 @@ use Modules\Food\Models\Location;
 use Modules\Food\Models\Profile as MyModel;
 
 /**
- * Class CreateFoodProfilesTable
+ * Class CreateFoodProfilesTable.
  */
 class CreateFoodProfilesTable extends Migration {
-    /**
-     * @return string
-     */
-    public function getTable():string {
+    public function getTable(): string {
         return with(new MyModel())->getTable();
     }
-/**
-* db up
-*
-* @return void
-*/
+
+    /**
+     * db up.
+     *
+     * @return void
+     */
     public function up() {
         if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {

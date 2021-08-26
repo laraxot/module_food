@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Food\Listeners;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;

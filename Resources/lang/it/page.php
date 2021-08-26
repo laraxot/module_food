@@ -1,5 +1,9 @@
-<?php return array (
-  'cookie_policy' => 'I Cookie sono costituiti da porzioni di codice installate all\'interno del browser che assistono il Titolare nell’erogazione del Servizio in base alle finalità descritte. Alcune delle finalità di installazione dei Cookie potrebbero, inoltre, necessitare del consenso dell\'Utente.
+<?php
+
+declare(strict_types=1);
+
+return [
+    'cookie_policy' => 'I Cookie sono costituiti da porzioni di codice installate all\'interno del browser che assistono il Titolare nell’erogazione del Servizio in base alle finalità descritte. Alcune delle finalità di installazione dei Cookie potrebbero, inoltre, necessitare del consenso dell\'Utente.
 
                     Quando l’installazione di Cookies avviene sulla base del consenso, tale consenso può essere revocato liberamente in ogni momento seguendo le istruzioni contenute in questo documento.
 
@@ -412,7 +416,7 @@
                     iubenda ospita questo contenuto e raccoglie solo i Dati Personali strettamente necessari alla sua fornitura.
 
                     ',
-  'pricacy_policy' => 'Questa Applicazione raccoglie alcuni Dati Personali dei propri Utenti.
+    'pricacy_policy' => 'Questa Applicazione raccoglie alcuni Dati Personali dei propri Utenti.
 
                     Dati personali raccolti per le seguenti finalità ed utilizzando i seguenti servizi:
                     Accesso agli account su servizi terzi
@@ -515,4 +519,4 @@
                     Indirizzo email del Titolare: staff@foodtribu.com
 
                     ',
-);
+];

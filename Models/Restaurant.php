@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Food\Models;
 
 //------ traits ----
@@ -9,10 +11,10 @@ namespace Modules\Food\Models;
 //------ food models
 //-------- services
 use Modules\Blog\Models\Traits\AmenityTrait;
-use Modules\Rating\Models\Traits\RatingTrait;
-//---------- traits
 use Modules\Food\Contracts\RestaurantContract;
+//---------- traits
 use Modules\Geo\Models\Traits\GeoTrait;
+use Modules\Rating\Models\Traits\RatingTrait;
 
 /**
  * Modules\Food\Models\Restaurant.
@@ -107,18 +109,19 @@ use Modules\Geo\Models\Traits\GeoTrait;
  * @property \Modules\Cart\Models\Cart|null                                                     $myCartWithThisRestaurant
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Favorite[]           $myFavorites
  * @property int|null                                                                           $my_favorites_count
- * @property \Illuminate\Database\Eloquent\Collection|\Modules\Rating\Models\Rating[]             $myRatings
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Rating\Models\Rating[]           $myRatings
  * @property int|null                                                                           $my_ratings_count
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\OpeningHour[]        $openingHours
  * @property int|null                                                                           $opening_hours_count
  * @property \Modules\Blog\Models\Post|null                                                     $post
- * @property \Illuminate\Database\Eloquent\Collection|\Modules\Rating\Models\Rating[]             $ratingObjectives
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Rating\Models\Rating[]           $ratingObjectives
  * @property int|null                                                                           $rating_objectives_count
- * @property \Illuminate\Database\Eloquent\Collection|\Modules\Rating\Models\Rating[]             $ratings
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Rating\Models\Rating[]           $ratings
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\RestaurantProvider[] $restaurantProviders
  * @property int|null                                                                           $restaurant_providers_count
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Tip[]                $tips
  * @property int|null                                                                           $tips_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)
@@ -178,6 +181,7 @@ use Modules\Geo\Models\Traits\GeoTrait;
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant withRating()
  * @mixin \Eloquent
+ *
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Amenity[]         $amenities
  * @property int|null                                                                        $amenities_count
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Article[]         $articles
@@ -206,24 +210,25 @@ use Modules\Geo\Models\Traits\GeoTrait;
  * @property int|null                                                                        $restaurant_owners_count
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Waiter[]          $waiters
  * @property int|null                                                                        $waiters_count
- * @property string|null $address1
- * @property string|null $address2
- * @property string|null $address3
- * @property string|null $city
- * @property string|null $zip_code
- * @property string|null $state
- * @property string|null $display_phone
- * @property string|null $price
- * @property string|null $review_count
- * @property string|null $is_closed
- * @property string|null $rating
- * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property string|null $deleted_by
- * @property string|null $deleted_ip
- * @property string|null $created_ip
- * @property string|null $updated_ip
- * @property string|null $street_number_long
- * @property int $table_enable
+ * @property string|null                                                                     $address1
+ * @property string|null                                                                     $address2
+ * @property string|null                                                                     $address3
+ * @property string|null                                                                     $city
+ * @property string|null                                                                     $zip_code
+ * @property string|null                                                                     $state
+ * @property string|null                                                                     $display_phone
+ * @property string|null                                                                     $price
+ * @property string|null                                                                     $review_count
+ * @property string|null                                                                     $is_closed
+ * @property string|null                                                                     $rating
+ * @property \Illuminate\Support\Carbon|null                                                 $deleted_at
+ * @property string|null                                                                     $deleted_by
+ * @property string|null                                                                     $deleted_ip
+ * @property string|null                                                                     $created_ip
+ * @property string|null                                                                     $updated_ip
+ * @property string|null                                                                     $street_number_long
+ * @property int                                                                             $table_enable
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereAddress1($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereAddress2($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereAddress3($value)
@@ -247,7 +252,6 @@ class Restaurant extends BaseModelLang implements RestaurantContract {
     use RatingTrait;
     use AmenityTrait;
     use GeoTrait;
-
     use Traits\RestaurantRelationshipsTrait;
     use Traits\RestaurantMutatorsTrait;
 

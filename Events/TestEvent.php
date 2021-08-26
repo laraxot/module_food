@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Food\Events;
 
 use Illuminate\Queue\SerializesModels;
 
 /**
- * Class TestEvent
- * @package Modules\Food\Events
+ * Class TestEvent.
  */
 class TestEvent {
     use SerializesModels;

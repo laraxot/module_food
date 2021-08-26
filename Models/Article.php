@@ -1,7 +1,11 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Modules\Food\Models;
 
 use Carbon\Carbon;
+
 ////use Laravel\Scout\Searchable;
 /*
 use Illuminate\Database\Eloquent\Model;
@@ -18,8 +22,7 @@ use Modules\Xot\Models\Traits\LinkedTrait;
  *
  * @mixin \Eloquent
  */
-class Article extends BaseModel
-{
+class Article extends BaseModel {
     //use Searchable; //se non si crea prima indice da un sacco di errori
     //use Updater;
     //use LinkedTrait;
@@ -38,15 +41,12 @@ class Article extends BaseModel
     protected $primaryKey = 'post_id';
     public $incrementing = true;
 
-    public function filter($params)
-    {
+    public function filter($params) {
         $row = new self();
         \extract($params);
 
         return $row;
     }
-
-    
 
     //end filter
 
@@ -84,8 +84,7 @@ class Article extends BaseModel
         //return $value->formatLocalized('%d/%m/%Y %H:%M');
     }
     //*/
-    public function setPublishedAtAttribute($value)
-    {
+    public function setPublishedAtAttribute($value) {
         //-- with datetimelocal
         if (\is_string($value)) {
             $value = Carbon::parse($value);
@@ -99,16 +98,14 @@ class Article extends BaseModel
     }
     */
 
-    public function setArticleTypeAttribute($value)
-    {
+    public function setArticleTypeAttribute($value) {
         //dd();
         $this->setCategoryIdAttribute(\Request::input('category_id'));
         $this->attributes['article_type'] = $value;
     }
 
     //*
-    public function getCategoryIdAttribute($value)
-    {
+    public function getCategoryIdAttribute($value) {
         if (null == $this->relatedType('category')) {
             return null;
         }
@@ -122,12 +119,9 @@ class Article extends BaseModel
 
     //*/
 
-   
-
     //--------- functions -----------
 
-    public function formFields()
-    {
+    public function formFields() {
         $roots = Post::getRoots();
         $view = 'blog::admin.partials.'.snake_case(class_basename($this));
 
