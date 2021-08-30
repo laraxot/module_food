@@ -88,7 +88,7 @@ class BellBoyPanel extends XotBasePanel {
      *
      * @return array
      */
-    public function tabs() {
+    public function tabs(): array {
         $tabs_name = ['restaurant', 'cart'];
 
         return [];
@@ -106,7 +106,7 @@ class BellBoyPanel extends XotBasePanel {
      *
      * @return array
      */
-    public function actions() {
+    public function actions(): array {
         return [
             new \Modules\Rating\Models\Panels\Actions\RateItAction(),
             new \Modules\Food\Models\Panels\Actions\EditBellBoyAction(),

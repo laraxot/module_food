@@ -199,7 +199,7 @@ class RestaurantPanel extends XotBasePanel {
      *
      * @return array
      */
-    public function tabs() {
+    public function tabs(): array {
         if (in_admin()) {
             $tabs_name = ['cuisines', 'cuisine_cats', 'locations', 'opening_hours', 'articles', 'photos', 'events',
                 'profiles', 'ratings', 'my_ratings', 'bookings', 'booking_items', ];
@@ -222,7 +222,7 @@ class RestaurantPanel extends XotBasePanel {
      *
      * @return array
      */
-    public function actions() {
+    public function actions(): array {
         return [
             new \Modules\Rating\Models\Panels\Actions\RateItAction(),
             new \Modules\Geo\Models\Panels\Actions\MakeGeoJsonFileAction(),

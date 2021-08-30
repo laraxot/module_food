@@ -231,7 +231,7 @@ class RestaurantOwnerPanel extends XotBasePanel {
      *
      * @return array
      */
-    public function tabs() {
+    public function tabs(): array {
         $tabs_name = [];
 
         return $tabs_name;
@@ -269,7 +269,7 @@ class RestaurantOwnerPanel extends XotBasePanel {
      *
      * @return array
      */
-    public function actions() {
+    public function actions(): array {
         return [
             new Actions\ChangeStatusBellBoyAction(),
             new Actions\ChangeStatusCartAction(),

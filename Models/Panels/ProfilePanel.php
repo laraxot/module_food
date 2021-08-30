@@ -148,7 +148,7 @@ class ProfilePanel extends XotBasePanel {
      *
      * @return array
      */
-    public function tabs() {
+    public function tabs(): array {
         $tabs_name = ['restaurant'];
 
         return $tabs_name;
@@ -159,7 +159,7 @@ class ProfilePanel extends XotBasePanel {
      *
      * @return array
      */
-    public function actions() {
+    public function actions(): array {
         return [
             new \Modules\Blog\Models\Panels\Actions\PersonalInfoAction(),
             new \Modules\Blog\Models\Panels\Actions\UserSecurityAction(),

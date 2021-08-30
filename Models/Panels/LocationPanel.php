@@ -87,7 +87,7 @@ class LocationPanel extends XotBasePanel {
      *
      * @return array
      */
-    public function tabs() {
+    public function tabs(): array {
         $tabs_name = ['cuisine_cats', 'restaurants'];
 
         return $tabs_name;
@@ -98,7 +98,7 @@ class LocationPanel extends XotBasePanel {
      *
      * @return array
      */
-    public function actions() {
+    public function actions(): array {
         return [
             new Actions\LocationRecountRestaurantsAction(),
         ];

@@ -48,7 +48,7 @@ class IngredientCatPanel extends XotBasePanel {
      *
      * @return array
      */
-    public function tabs() {
+    public function tabs(): array {
         $tabs_name = ['ingredient'];
 
         return $tabs_name;

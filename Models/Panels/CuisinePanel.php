@@ -90,7 +90,7 @@ class CuisinePanel extends XotBasePanel {
      *
      * @return array
      */
-    public function tabs() {
+    public function tabs(): array {
         $tabs_name = ['recipes', 'ingredient_cats'];
 
         return $tabs_name;
@@ -110,7 +110,7 @@ class CuisinePanel extends XotBasePanel {
      *
      * @return array
      */
-    public function actions() {
+    public function actions(): array {
         return [
             new Actions\AddRecipeAction(),
         ];

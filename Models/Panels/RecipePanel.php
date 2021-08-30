@@ -57,7 +57,7 @@ class RecipePanel extends XotBasePanel {
      *
      * @return array
      */
-    public function actions() {
+    public function actions(): array {
         return [
             new Actions\AddItemCartAction(),
         ];

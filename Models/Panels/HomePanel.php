@@ -69,7 +69,7 @@ class HomePanel extends XotBasePanel {
      *
      * @return array
      */
-    public function tabs() {
+    public function tabs(): array {
         $tabs_name = ['widgets'];
 
         return $tabs_name;
@@ -80,7 +80,7 @@ class HomePanel extends XotBasePanel {
      *
      * @return array
      */
-    public function actions(Request $request = null) {
+    public function actions(Request $request = null): array {
         $cmd = (string) request()->input('cmd');
 
         return [

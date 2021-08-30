@@ -65,7 +65,7 @@ class ContactPanel extends XotBasePanel {
      *
      * @return array
      */
-    public function tabs() {
+    public function tabs(): array {
         $tabs_name = [];
 
         return [];
