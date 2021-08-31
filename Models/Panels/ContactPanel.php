@@ -85,7 +85,7 @@ class ContactPanel extends XotBasePanel {
      *
      * @return array
      */
-    public function filters(Request $request = null) {
+    public function filters(Request $request = null): array {
         return [];
     }
 
