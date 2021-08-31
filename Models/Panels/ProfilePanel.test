@@ -12,11 +12,11 @@ use Modules\Extend\Traits\CrudContainerItemNoPostTrait as CrudTrait;
 use Modules\Xot\Http\Requests\XotRequest;
 
 /**
-*	tutto cio' che inizia con XotBase e' un abstract Class 
+*	tutto cio' che inizia con XotBase e' un abstract Class
 *    XotBasePanel e' un abstract
 *	 XotPanel elemento riflesso
 **/
-use Modules\Xot\Models\Panels\XotBasePanel; 
+use Modules\Xot\Models\Panels\XotBasePanel;
 
 
 
@@ -33,7 +33,7 @@ class ProfilePanel extends XotBasePanel{
 	 *
 	 * @var string
 	 */
-	public static $title = "title"; 
+	public static $title = "title";
 
 	/**
 	 * The columns that should be searched.
@@ -118,11 +118,11 @@ class ProfilePanel extends XotBasePanel{
         	],
         ];
 	}
-	 
+
 	/**
-	 * Get the tabs available 
+	 * Get the tabs available
 	 *
-	 * @return array  
+	 * @return array
 	 */
 	public function tabs(){
 		$tabs_name = ['restaurant'];
@@ -130,7 +130,7 @@ class ProfilePanel extends XotBasePanel{
 			'tabs_name'=>$tabs_name,
 			'model'=>self::$model
 		]);
-		
+
 	}
 	/**
 	 * Get the cards available for the request.
@@ -149,8 +149,7 @@ class ProfilePanel extends XotBasePanel{
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return array
 	 */
-	public function filters(Request $request=null)
-	{
+	public function filters(Request $request=null):array {
 		return [];
 	}
 
@@ -190,9 +189,9 @@ class ProfilePanel extends XotBasePanel{
 		list($containers,$items)=params2ContainerItem($params);
 		$request=Request::capture();
 		$rules=$this->rules();
-		
+
 		$request->validate($rules, $this->rulesMessages());
-		
+
 		//$request=\Request::capture();
         return CrudTrait::store($request,last($containers),last($items));
 	}
@@ -218,13 +217,13 @@ class ProfilePanel extends XotBasePanel{
                         ->get()
                         ->toJson();
             //*/
-            
+
             die($rows);
         }
     }
 
     public static function indexQuery(Request $request,$query){
-        //self::elaborateRequest($request,$query); //diventato applyfilter 
+        //self::elaborateRequest($request,$query); //diventato applyfilter
         return $query;
     }
 
