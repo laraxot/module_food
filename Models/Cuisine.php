@@ -93,4 +93,8 @@ class Cuisine extends BaseModelLang {
     public function changeCats() {
         return $this->ingredientCats();
     }
+
+    /**da fare */
+    public function cuisineCats() {
+    }
 }
