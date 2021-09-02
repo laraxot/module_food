@@ -215,7 +215,7 @@ class RestaurantPanel extends XotBasePanel {
      *
      * @return array
      */
-    public function tabs() {
+    public function tabs():array {
         if (in_admin()) {
             $tabs_name = ['cuisine', 'cuisine_cat', 'location', 'opening_hour', 'article', 'photo', 'event', 'profile', 'rating', 'my_rating'];
         } else {

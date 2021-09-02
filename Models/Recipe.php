@@ -83,7 +83,7 @@ class Recipe extends BaseModelLang {
      */
     public function ingredientCats() {  //categoria variazioni
         /*
-        $params = \Route::current()->parameters();
+        $params = optional(\Route::current())->parameters();
         $cuisine_curr = collect($params)->where('type', 'cuisine')->last();
         return $cuisine_curr->ingredientCats();
         $foreignKeys=[];

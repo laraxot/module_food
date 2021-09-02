@@ -40,7 +40,7 @@ class CartItem extends BaseModel {
     public function getStoreUrlAttribute($value) {
         $routename = \Request::route()->getName();
         $routename = 'container0.container1.container2.container3.store';
-        $params = \Route::current()->parameters();
+        $params = optional(\Route::current())->parameters();
         $params['container3'] = 'cart_item';
         //return '/#'.$routename;
         return route($routename, $params);

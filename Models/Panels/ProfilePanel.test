@@ -178,14 +178,14 @@ class ProfilePanel extends XotBasePanel{
 
 	//----- creazione anche se non "loggato"
 	public function createSpecialCase(){
-		$params = \Route::current()->parameters();
+		$params = optional(\Route::current())->parameters();
 		list($containers,$items)=params2ContainerItem($params);
 		$request=\Request::capture();
         return CrudTrait::create($request,last($containers),last($items));
 	}
 
 	public function storeSpecialCase(){
-		$params = \Route::current()->parameters();
+		$params = optional(\Route::current())->parameters();
 		list($containers,$items)=params2ContainerItem($params);
 		$request=Request::capture();
 		$rules=$this->rules();

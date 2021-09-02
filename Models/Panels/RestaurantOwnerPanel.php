@@ -285,7 +285,7 @@ class RestaurantOwnerPanel extends XotBasePanel {
 
     /*
     public function createSpecialCase(){
-        $params = \Route::current()->parameters();
+        $params = optional(\Route::current())->parameters();
         list($containers,$items)=params2ContainerItem($params);
         $request=\Request::capture();
         return CrudTrait::create($request,last($containers),last($params));
