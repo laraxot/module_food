@@ -40,7 +40,7 @@ Route::domain('{guid}.food.local')->group(function () {
 
         return \Modules\Theme\Services\ThemeService::view($view)
             //->with('view', $view)
-            ->with('row', $panel->row)
+            ->with('row', $panel->getRow())
             ->with('_panel', $panel)
             ->with('lang', $lang);
     });

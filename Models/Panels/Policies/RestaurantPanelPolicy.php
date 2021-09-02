@@ -26,7 +26,7 @@ class RestaurantPanelPolicy extends XotBasePanelPolicy {
     }
 
     public function edit(UserContract $user, PanelContract $panel): bool {
-        $post = $panel->row;
+        $post = $panel->getRow();
         $my = $post->restaurantOwners->where('auth_user_id', $user->auth_user_id);
         if ($my->count() > 0) {
             return true;  //e' un mio ristorante
@@ -83,7 +83,7 @@ class RestaurantPanelPolicy extends XotBasePanelPolicy {
     }
 
     public function restaurantClaims(UserContract $user, PanelContract $panel): bool {
-        $post = $panel->row;
+        $post = $panel->getRow();
         if (! $user->role('restaurant_owner')) {
             return false;
         }
@@ -92,7 +92,7 @@ class RestaurantPanelPolicy extends XotBasePanelPolicy {
     }
 
     public function noClaimsRestaurant(UserContract $user, PanelContract $panel): bool {
-        $post = $panel->row;
+        $post = $panel->getRow();
         $restaurant_owner = collect($post->restaurantOwners)->firstWhere('auth_user_id', $user->auth_user_id);
         if (is_object($restaurant_owner)) {
             return true;
@@ -106,21 +106,21 @@ class RestaurantPanelPolicy extends XotBasePanelPolicy {
         if (! $user->role('bell_boy')) {
             return false;
         }
-        $post = $panel->row;
+        $post = $panel->getRow();
 
         return ! $post->isBellBoyAuthID($user->auth_user_id);
         //return true;
     }
 
     public function detachBellBoy(UserContract $user, PanelContract $panel): bool {
-        $post = $panel->row;
+        $post = $panel->getRow();
 
         return $post->isBellBoyAuthID($user->auth_user_id);
     }
     */
 
     public function toggleCheckout(UserContract $user, PanelContract $panel): bool {
-        $post = $panel->row;
+        $post = $panel->getRow();
 
         if ($post->restaurantOwners->count() > 0) {
             $my = $post->restaurantOwners->where('auth_user_id', $user->auth_user_id);
@@ -141,7 +141,7 @@ class RestaurantPanelPolicy extends XotBasePanelPolicy {
     }
 
     public function cartAddedByRestaurantOwner(?UserContract $user, PanelContract $panel): bool {
-        $post = $panel->row;
+        $post = $panel->getRow();
         if ($post->restaurantOwners->count() > 0) {
             $my = $post->restaurantOwners->where('auth_user_id', $user->auth_user_id);
             if ($my->count() > 0) {
@@ -157,7 +157,7 @@ class RestaurantPanelPolicy extends XotBasePanelPolicy {
     }
 
     public function toggleReservationTable(UserContract $user, PanelContract $panel): bool {
-        $post = $panel->row;
+        $post = $panel->getRow();
         if ($post->restaurantOwners->count() > 0) {
             $my = $post->restaurantOwners->where('auth_user_id', $user->auth_user_id);
             if ($my->count() > 0) {
@@ -169,7 +169,7 @@ class RestaurantPanelPolicy extends XotBasePanelPolicy {
     }
 
     public function createBookTable(?UserContract $user, PanelContract $panel): bool {
-        $post = $panel->row;
+        $post = $panel->getRow();
         if ($post->is_reclamed && $post->table_enable) {
             return true;
         }

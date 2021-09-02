@@ -48,7 +48,7 @@ class ProfilePanelPolicy extends XotBasePanelPolicy {
     public function personalInfo(UserContract $user, PanelContract $panel): bool {
         //volevo riutilizzare edit invece di copiare tutto lo snippet
 
-        $post = $panel->row;
+        $post = $panel->getRow();
         if ($post->created_by == $user->handle || $post->updated_by == $user->handle || $post->auth_user_id == $user->auth_user_id) {
             return true;
         }
@@ -59,7 +59,7 @@ class ProfilePanelPolicy extends XotBasePanelPolicy {
     public function userSecurity(UserContract $user, PanelContract $panel): bool {
         //return true;
         //volevo riutilizzare edit invece di copiare tutto lo snippet
-        $post = $panel->row;
+        $post = $panel->getRow();
         if ($post->created_by == $user->handle || $post->updated_by == $user->handle || $post->auth_user_id == $user->auth_user_id) {
             return true;
         }

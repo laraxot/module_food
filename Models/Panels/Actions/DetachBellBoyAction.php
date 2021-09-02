@@ -56,7 +56,7 @@ class DetachBellBoyAction extends XotBasePanelAction {
      * @return mixed
      */
     public function postHandle() {
-        $restaurant = $this->panel->row;
+        $restaurant = $this->panel->getRow();
         $restaurant->bellBoys()->wherePivot('auth_user_id', $this->auth_user_id)->detach();
 
         //return ' bell boy scollegato';

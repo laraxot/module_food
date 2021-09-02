@@ -20,7 +20,7 @@ class RecipePanelPolicy extends BaseRestaurantPanelPolicy {
         }
 
         //return  Gate::allows('edit', $restaurant_panel)) {
-        $restaurant = $restaurant_panel->row;
+        $restaurant = $restaurant_panel->getRow();
         if ($restaurant->is_reclamed && $restaurant->checkout_enable) {
             return true;
         }

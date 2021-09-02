@@ -3,7 +3,7 @@
 @php
     //dddx(get_defined_vars());
     $recipe_panel=$_panel;
-    $recipe=$_panel->row;
+    $recipe=$_panel->getRow();
     //$recipe_panel=Panel::get($row);
     $ingredientCats=$recipe->ingredientCats;
     //dddx($ingredientCats);

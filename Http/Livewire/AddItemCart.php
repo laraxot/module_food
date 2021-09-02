@@ -30,7 +30,7 @@ class AddItemCart extends Component {
      * @param PanelContract $recipe_panel
      */
     public function mount($recipe_panel) {
-        $this->recipe_id = $recipe_panel->row->id;
+        $this->recipe_id = $recipe_panel->getRow()->id;
     }
 
     /**
