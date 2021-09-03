@@ -145,8 +145,6 @@ class ProfilePanel extends XotBasePanel {
 
     /**
      * Get the tabs available.
-     *
-     * @return array
      */
     public function tabs(): array {
         $tabs_name = ['restaurant'];
@@ -156,8 +154,6 @@ class ProfilePanel extends XotBasePanel {
 
     /**
      * Get the actions available for the resource.
-     *
-     * @return array
      */
     public function actions(): array {
         return [
@@ -224,5 +220,14 @@ class ProfilePanel extends XotBasePanel {
         $default = \urlencode('https://tracker.moodle.org/secure/attachment/30912/f3.png');
 
         return "https://www.gravatar.com/avatar/$email?d=$default&s=$size";
+    }
+
+    public function isSuperAdmin(): bool {
+        $user = $this->row;
+        if (is_object($user->perm) && $user->perm->perm_type >= 4) {  //superadmin
+            return true;
+        }
+
+        return false;
     }
 }
