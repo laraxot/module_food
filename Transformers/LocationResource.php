@@ -10,7 +10,9 @@ namespace Modules\Food\Transformers;
 **/
 
 //use Illuminate\Http\Resources\Json\Resource;
+use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Http\Resources\Json\JsonResource as Resource;
+use JsonSerializable;
 
 /**
  * Class LocationResource.
@@ -21,7 +23,7 @@ class LocationResource extends Resource {
      *
      * @param \Illuminate\Http\Request $request
      *
-     * @return array
+     * @return array|Arrayable|JsonSerializable
      */
     public function toArray($request) {
         $attributes = parent::toArray($request);

@@ -7,11 +7,12 @@ namespace Modules\Food\Models\Policies;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Modules\Food\Models\BellBoy as Post;
 use Modules\LU\Models\User;
-use Modules\Xot\Traits\XotBasePolicyTrait;
+
+//use Modules\Xot\Traits\XotBasePolicyTrait;
 
 class CartPolicy {
     //use HandlesAuthorization;
-    use XotBasePolicyTrait;
+    //use XotBasePolicyTrait;
 
     public function before($user, $ability) {
         if (is_object($user->perm) && $user->perm->perm_type >= 5) {  //superadmin

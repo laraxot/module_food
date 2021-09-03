@@ -103,7 +103,7 @@ class ContactPanel extends XotBasePanel {
      *
      * @return array
      */
-    public function actions(Request $request = null) {
+    public function actions():array {
         return [];
     }
 }

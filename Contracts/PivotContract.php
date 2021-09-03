@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Collection;
  * @property int|null                       $status
  * @property Collection|ProductContract[]   $products
  * @property Collection|ChangeCatContract[] $changeCats
+ * @property int|null                       $customer_id
  */
 interface PivotContract {
 }

@@ -14,14 +14,14 @@ use Modules\LU\Models\PermUser;
 use Modules\LU\Models\User;
 
 class ProfileService {
-    public static function checkGuid($guid) {
+    public static function checkGuid($guid): ?Model {
         $user = User::where('handle', $guid)->first();
         if (null == $user) {
-            return false;
+            return null;
         }
         $lang = \App::getLocale();
         $row = Post::firstOrCreate(['guid' => $user->handle, 'lang' => $lang, 'type' => 'profile'], ['title' => ''.$user->handle]);
-        $linked = $row->linkedOrCreate;
+        $linked = $row->linkedOrCreate()->first();
         $linked->auth_user_id = $user->auth_user_id;
         $linked->save();
 
