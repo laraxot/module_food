@@ -223,7 +223,7 @@ class ProfilePanel extends XotBasePanel {
     }
 
     public function isSuperAdmin(): bool {
-        $user = $this->row;
+        $user = $this->row->user;
         if (is_object($user->perm) && $user->perm->perm_type >= 4) {  //superadmin
             return true;
         }
