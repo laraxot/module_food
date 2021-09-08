@@ -17,7 +17,7 @@ class CreateOpeningHoursTable extends Migration {
     /**
      * Run the migrations.
      */
-    public function up() {
+    public function up(): void {
         if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
                 $table->increments('id');
@@ -83,7 +83,7 @@ class CreateOpeningHoursTable extends Migration {
     /**
      * Reverse the migrations.
      */
-    public function down() {
+    public function down(): void {
         if (Schema::hasTable($this->getTable())) {
             Schema::drop($this->getTable());
         }

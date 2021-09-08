@@ -31,6 +31,6 @@ class CheckOutAction extends XotBasePanelAction {
         return $this->panel->view();
     }
 
-    public function postHandle() {
+    public function postHandle(): void {
     }
 }

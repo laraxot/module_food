@@ -8,7 +8,7 @@ use Modules\Food\Models\Ingredient as MyModel;
 
 class CreateIngredientsTable extends Migration {
     //protected $table = 'blog_post_ingredients'; // potrebbe essere un ristorante, un ufficio etc etc
-    public function getTable() {
+    public function getTable(): string {
         return with(new MyModel())->getTable();
     }
 

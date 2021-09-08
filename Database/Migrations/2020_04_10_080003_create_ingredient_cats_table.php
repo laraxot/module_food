@@ -22,7 +22,7 @@ class CreateIngredientCatsTable extends XotBaseMigration {
     /**
      * Run the migrations.
      */
-    public function up() {
+    public function up(): void {
         if (! Schema::hasTable($this->getTable())) {
             Schema::create(
                 $this->getTable(), function (Blueprint $table) {
@@ -87,7 +87,7 @@ class CreateIngredientCatsTable extends XotBaseMigration {
     /**
      * Reverse the migrations.
      */
-    public function down() {
+    public function down(): void {
         if (Schema::hasTable($this->getTable())) {
             Schema::drop($this->getTable());
         }

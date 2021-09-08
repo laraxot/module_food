@@ -42,7 +42,7 @@ class StopBeingBellBoyAction extends XotBasePanelAction {
     }
 
     //-- Perform the action on the given models.
-    public function postHandle() {
+    public function postHandle(): void {
         echo 'confirmed ['.request()->confirmed.']';
         if (request()->confirmed) {
             BellBoy::query()->where('auth_user_id', Auth::id())->delete();

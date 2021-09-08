@@ -15,7 +15,7 @@ class CreateWaiterTable extends XotBaseMigration {
      *
      * @return void
      */
-    public function up() {
+    public function up(): void {
         //-- CREATE --
         if (! $this->tableExists()) {
             $this->getConn()->create($this->getTable(),

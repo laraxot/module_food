@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Food\Http\Livewire;
 
+use Illuminate\Contracts\Support\Renderable;
 use Modules\Food\Models\Profile;
 use Modules\Xot\Http\Livewire\XotBaseComponent;
 
@@ -17,23 +18,19 @@ class PersonalInfo extends XotBaseComponent {
         $this->profile = $profile;
     }
 
-    /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
-    public function render() {
+    public function render(): Renderable {
         $view = $this->getView();
 
-        return view($view);
+        return view()->make($view);
     }
 
+    /*
     private function resetInputFields() {
         //$this->route = '';
     }
+    */
 
-    /**
-     * @param int $id
-     */
-    public function edit($id) {
+    public function edit(int $id): void {
         /*
 
         $this->updateMode = true;
@@ -51,14 +48,14 @@ class PersonalInfo extends XotBaseComponent {
          */
     }
 
-    public function cancel() {
+    public function cancel(): void {
         /*
         $this->updateMode = false;
         $this->resetInputFields();
          */
     }
 
-    public function update() {
+    public function update(): void {
         /*
         $validatedData = $this->validate([
             'route' => 'required',
@@ -86,11 +83,9 @@ class PersonalInfo extends XotBaseComponent {
     }
 
     /**
-     * @param int $id
-     *
      * @throws \Exception
      */
-    public function delete($id) {
+    public function delete(int $id): void {
         /*
         if ($id) {
             Place::query()->where('id', $id)->delete();
@@ -100,7 +95,7 @@ class PersonalInfo extends XotBaseComponent {
         */
     }
 
-    public function store() {
+    public function store(): void {
         /*
         $validatedData = $this->validate([
             'route' => 'required',

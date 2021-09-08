@@ -66,9 +66,10 @@ class RestaurantMorph extends BaseMorphPivot {
         'status',
     ];
 
-    /**
+    /*
      * @return \Illuminate\Database\Eloquent\HigherOrderBuilderProxy|mixed|string
      */
+    /*
     public function statusLabel() {
         $row = $this->hasOne(Label::class, 'label_id', 'status')
                 ->where('label_type', 'status');
@@ -78,7 +79,7 @@ class RestaurantMorph extends BaseMorphPivot {
 
         return 'sconosciuto ['.$this->status.']';
     }
-
+    */
     public function label(string $str): string {
         $row = Label::query()
                 ->where('label_id', $this->$str)

@@ -19,7 +19,7 @@ class CreateCuisinesTable extends XotBaseMigration {
         return with(new MyModel())->getTable();
     }
     */
-    public function up() {
+    public function up(): void {
         //-- CREATE --
         if (! $this->tableExists()) {
             $this->getConn()->create($this->getTable(), function (Blueprint $table) {
@@ -69,7 +69,7 @@ class CreateCuisinesTable extends XotBaseMigration {
         );
     }
 
-    public function down() {
+    public function down(): void {
         Schema::dropIfExists($this->getTable());
     }
 }

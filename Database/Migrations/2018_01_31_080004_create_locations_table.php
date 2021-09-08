@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Schema;
 use Modules\Food\Models\Location as MyModel;
 
 class CreateLocationsTable extends Migration {
-    public function getTable() {
+    public function getTable(): string {
         return with(new MyModel())->getTable();
     }
 
-    public function up() {
+    public function up(): void {
         if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
                 $table->increments('id'); //->primary();
@@ -52,7 +52,7 @@ class CreateLocationsTable extends Migration {
     /**
      * Reverse the migrations.
      */
-    public function down() {
+    public function down(): void {
         Schema::dropIfExists($this->getTable());
     }
 }//end CreateBlogPostLocationsTable

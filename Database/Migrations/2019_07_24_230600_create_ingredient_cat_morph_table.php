@@ -14,11 +14,11 @@ https://www.phpzag.com/star-rating-system-with-ajax-php-and-mysql/
 */
 
 class CreateIngredientCatMorphTable extends Migration {
-    public function getTable() {
+    public function getTable(): string {
         return with(new MyModel())->getTable();
     }
 
-    public function up() {
+    public function up(): void {
         //----- create -----
         if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
@@ -55,7 +55,7 @@ class CreateIngredientCatMorphTable extends Migration {
         });
     }
 
-    public function down() {
+    public function down(): void {
         Schema::dropIfExists($this->getTable());
     }
 }

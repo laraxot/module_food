@@ -16,7 +16,7 @@ class IndexSidebar extends Component {
     //public $route_params = [];
     //public $data = [];
 
-    public $searchTerm;
+    // public $searchTerm;
     /*
     public function mount() {
         $this->route_params = request()->route()->parameters();

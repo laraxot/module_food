@@ -9,11 +9,11 @@ use Modules\Food\Models\RestaurantProvider as MyModel;
 
 class CreateRestaurantProvidersTable extends Migration {
     //protected $table = 'restaurant_providers'; //blog_post_locations
-    public function getTable() {
+    public function getTable(): string {
         return with(new MyModel())->getTable();
     }
 
-    public function up() {
+    public function up(): void {
         if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
                 $table->increments('id');
@@ -29,7 +29,7 @@ class CreateRestaurantProvidersTable extends Migration {
     /**
      * Reverse the migrations.
      */
-    public function down() {
+    public function down(): void {
         Schema::dropIfExists($this->getTable());
     }
 }//end CreateBlogPostLocationsTable

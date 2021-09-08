@@ -20,7 +20,7 @@ class CreateRecipesTable extends XotBaseMigration {
     }
     */
 
-    public function up() {
+    public function up(): void {
         if (! Schema::hasTable($this->getTable())) {
             Schema::create(
                 $this->getTable(), function (Blueprint $table) {
@@ -95,7 +95,7 @@ class CreateRecipesTable extends XotBaseMigration {
         );
     }
 
-    public function down() {
+    public function down(): void {
         Schema::dropIfExists($this->getTable());
     }
 }

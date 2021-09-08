@@ -14,7 +14,7 @@ use Modules\LU\Models\PermUser;
 use Modules\LU\Models\User;
 
 class ProfileService {
-    public static function checkGuid($guid): ?Model {
+    public static function checkGuid(string $guid): ?object {
         $user = User::where('handle', $guid)->first();
         if (null == $user) {
             return null;
@@ -29,7 +29,7 @@ class ProfileService {
     }
 
     //StoreProfile o Request ?
-    public static function store(Request $request) {
+    public static function store(Request $request): object {
         $data = $request->all();
         $lang = \App::getLocale();
         $linkedPrv = $data['linked'];
@@ -59,9 +59,9 @@ class ProfileService {
         return $row;
     }
 
-    public static function activate(Request $request): string {
+    public static function activate(Request $request): void {
         $data = $request->all();
-        $lang = \App::getLocale();
+        //$lang = \App::getLocale();
 
         $user = User::firstOrFail('token_check', '=', $data['verifyToken']);
 

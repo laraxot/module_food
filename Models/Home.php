@@ -120,6 +120,9 @@ class Home extends BaseHomeModel {
             ->limit(12);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function homes() {
         return $this->hasMany(Home::class, 'id', 'id');
     }

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Schema;
 use Modules\Food\Models\CartStatus as MyModel;
 
 class CartStatusTable extends Migration {
-    public function getTable() {
+    public function getTable(): string {
         return with(new MyModel())->getTable();
     }
 
@@ -18,7 +18,7 @@ class CartStatusTable extends Migration {
      *
      * @return void
      */
-    public function up() {
+    public function up(): void {
         //--- create ---
         if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
@@ -35,7 +35,7 @@ class CartStatusTable extends Migration {
      *
      * @return void
      */
-    public function down() {
+    public function down(): void {
         if (Schema::hasTable($this->getTable())) {
             Schema::drop($this->getTable());
         }

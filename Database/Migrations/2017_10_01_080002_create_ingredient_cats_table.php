@@ -8,7 +8,7 @@ use Modules\Food\Models\IngredientCat as MyModel;
 
 class CreateIngredientCatsTable extends Migration {
     //protected $table = 'blog_post_ingredient_cats'; // potrebbe essere un ristorante, un ufficio etc etc
-    public function getTable() {
+    public function getTable(): string {
         return with(new MyModel())->getTable();
     }
 

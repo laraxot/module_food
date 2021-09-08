@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Schema;
 use Modules\Food\Models\Cuisine as MyModel;
 
 class CreateCuisinesTable extends Migration {
-    public function getTable() {
+    public function getTable(): string {
         return with(new MyModel())->getTable();
     }
 

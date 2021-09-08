@@ -1085,7 +1085,13 @@ return [
         'recipe' => 'piatti',
         'ingredient_cat' => 'variazioni',
         'ingredient' => 'ingredienti variazione',
+        'info' => 'Info',
+        'cuisines' => 'Menu',
+        'articles' => 'Blog',
+        'photos' => 'Gallery',
+        'cuisine_create' => 'Crea nuovo categoria piatto',
     ],
+
     'cart' => [
         'create' => [
             'field' => [
@@ -1348,13 +1354,7 @@ return [
         'photo' => 'Gallery',
         'cuisine_create' => 'Crea nuovo categoria piatto',
     ],
-    'tab' => [
-        'info' => 'Info',
-        'cuisines' => 'Menu',
-        'articles' => 'Blog',
-        'photos' => 'Gallery',
-        'cuisine_create' => 'Crea nuovo categoria piatto',
-    ],
+
     'act' => [
         'create_qrcode' => 'Crea QrCode',
         'qrcode_pdf' => 'Crea QrCode',

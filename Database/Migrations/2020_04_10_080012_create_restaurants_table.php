@@ -20,7 +20,7 @@ class CreateRestaurantsTable extends XotBaseMigration {
     /**
      * Run the migrations.
      */
-    public function up() {
+    public function up(): void {
         //-- CREATE --
         if (! $this->tableExists()) {
             $this->getConn()->create(
@@ -177,7 +177,7 @@ class CreateRestaurantsTable extends XotBaseMigration {
     /**
      * Reverse the migrations.
      */
-    public function down() {
+    public function down(): void {
         if (Schema::hasTable($this->getTable())) {
             Schema::drop($this->getTable());
         }

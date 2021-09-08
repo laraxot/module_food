@@ -43,7 +43,7 @@ class ChangeStatusCartAction extends XotBasePanelAction {
             ->with('row', $cart);
     }
 
-    public function postHandle() {
+    public function postHandle(): void {
         $data = request()->all();
         //dddx($data);
     }

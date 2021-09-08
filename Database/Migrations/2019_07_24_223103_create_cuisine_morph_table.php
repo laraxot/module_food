@@ -27,7 +27,7 @@ class CreateCuisineMorphTable extends Migration {
      *
      * @return void
      */
-    public function up() {
+    public function up(): void {
         //----- create -----
         if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
@@ -70,7 +70,7 @@ class CreateCuisineMorphTable extends Migration {
         });
     }
 
-    public function down() {
+    public function down(): void {
         Schema::dropIfExists($this->getTable());
     }
 }

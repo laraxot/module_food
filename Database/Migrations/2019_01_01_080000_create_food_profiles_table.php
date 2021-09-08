@@ -8,11 +8,11 @@ use Modules\Food\Models\Location;
 use Modules\Food\Models\Profile as MyModel;
 
 class CreateFoodProfilesTable extends Migration {
-    public function getTable() {
+    public function getTable(): string {
         return with(new MyModel())->getTable();
     }
 
-    public function up() {
+    public function up(): void {
         if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
                 $table->increments('id'); //->primary();
@@ -67,7 +67,7 @@ class CreateFoodProfilesTable extends Migration {
         });
     }
 
-    public function down() {
+    public function down(): void {
         Schema::dropIfExists($this->getTable());
     }
 }

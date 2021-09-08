@@ -21,7 +21,7 @@ class CreateProfilePrivaciesTable extends Migration {
      *
      * @return void
      */
-    public function up() {
+    public function up(): void {
         if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
                 $table->increments('id');
@@ -44,7 +44,7 @@ class CreateProfilePrivaciesTable extends Migration {
     /**
      * Reverse the migrations.
      */
-    public function down() {
+    public function down(): void {
         Schema::dropIfExists($this->getTable());
     }
 }//end CreateBlogPostLocationsTable

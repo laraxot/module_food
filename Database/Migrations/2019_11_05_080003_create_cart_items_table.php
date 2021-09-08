@@ -7,14 +7,14 @@ use Illuminate\Database\Schema\Blueprint;
 use Modules\Food\Models\CartItem as MyModel;
 
 class CreateCartItemsTable extends Migration {
-    public function getTable() {
+    public function getTable(): string {
         return with(new MyModel())->getTable();
     }
 
     /**
      * Run the migrations.
      */
-    public function up() {
+    public function up(): void {
         //--- create ---
         if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
@@ -55,7 +55,7 @@ class CreateCartItemsTable extends Migration {
     /**
      * Reverse the migrations.
      */
-    public function down() {
+    public function down(): void {
         if (Schema::hasTable($this->getTable())) {
             Schema::drop($this->getTable());
         }

@@ -22,7 +22,7 @@ class CreateCuisineCatMorphTable extends XotBaseMigration {
      *
      * @return void
      */
-    public function up() {
+    public function up(): void {
         //----- create -----
         if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
@@ -62,7 +62,7 @@ class CreateCuisineCatMorphTable extends XotBaseMigration {
         });
     }
 
-    public function down() {
+    public function down(): void {
         Schema::dropIfExists($this->getTable());
     }
 }

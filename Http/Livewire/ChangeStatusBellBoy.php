@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Food\Http\Livewire;
 
+use Illuminate\Contracts\Support\Renderable;
 use Livewire\Component;
 use Modules\Food\Models\BellBoy;
 
@@ -16,20 +17,16 @@ class ChangeStatusBellBoy extends Component {
 
     public string $message = 'Hello World!';
 
-    /**
-     * @param int $bellboy_id
-     */
-    public function mount($bellboy_id) {
+    public function mount(int $bellboy_id): void {
         //$this->row = $row;
         $this->bellboy_id = $bellboy_id;
         //$this->status = $row->status;
     }
 
-    /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
-    public function render() {
-        return view('food::livewire.change_status_bell_boy');
+    public function render(): Renderable {
+        $view = 'food::livewire.change_status_bell_boy';
+
+        return view()->make($view);
     }
 
     /**

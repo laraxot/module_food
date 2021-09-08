@@ -15,7 +15,7 @@ class CreateLocationsTable extends Migration {
     /**
      * @return mixed
      */
-    public function getTable() {
+    public function getTable(): string {
         return with(new MyModel())->getTable();
     }
 
@@ -24,7 +24,7 @@ class CreateLocationsTable extends Migration {
      *
      * @return void
      */
-    public function up() {
+    public function up(): void {
         if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
                 $table->increments('id'); //->primary();
@@ -75,7 +75,7 @@ class CreateLocationsTable extends Migration {
     /**
      * Reverse the migrations.
      */
-    public function down() {
+    public function down(): void {
         Schema::dropIfExists($this->getTable());
     }
 }//end CreateBlogPostLocationsTable
