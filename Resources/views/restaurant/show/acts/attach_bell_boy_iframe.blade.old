@@ -2,7 +2,7 @@
 @section('content')
 @php
   //  dddx(get_defined_vars());
- //$fields=$_panel->createFields();
+ //$fields=$_panel->getFields(['act'=>'create']);
  $user=\Auth::user();
  $profile=$user->profile;
  $bell_boy=$profile->bellBoy;
@@ -13,8 +13,8 @@
 
 {!! Form::model($row,['url'=>Request::fullUrl() ]) !!}
 @method('put')
-{{--  
-    
+{{--
+
 @foreach($fields as $field)
     {!! Theme::inputHtml(['row' => $row, 'field' => $field]) !!}
 @endforeach
