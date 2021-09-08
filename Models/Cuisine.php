@@ -95,6 +95,6 @@ class Cuisine extends BaseModelLang {
     }
 
     /**da fare */
-    public function cuisineCats() {
-    }
+    //public function cuisineCats() {
+    //}
 }

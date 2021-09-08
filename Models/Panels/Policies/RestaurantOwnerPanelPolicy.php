@@ -30,11 +30,11 @@ class RestaurantOwnerPanelPolicy extends XotBasePanelPolicy {
     }
 
     /*
-    public function create(User $user,ModelContract $post):bool{
+    public function create(User $user,Model $post):bool{
         return true;  //caso particolare che serve per fare la registrazione
     }
 
-    public function store(?User $user,ModelContract $post):bool{
+    public function store(?User $user,Model $post):bool{
         return true;  //caso particolare che serve per fare la registrazione
     }
     */

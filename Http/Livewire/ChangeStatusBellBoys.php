@@ -6,13 +6,12 @@ namespace Modules\Food\Http\Livewire;
 
 use Livewire\Component;
 use Modules\LU\Models\User;
-use Modules\Xot\Contracts\ModelContract;
 
 /**
  * Class ChangeStatusBellBoys.
  */
 class ChangeStatusBellBoys extends Component {
-    public ModelContract $bell_boy;
+    public Model $bell_boy;
 
     public int $status;
 
@@ -27,7 +26,7 @@ class ChangeStatusBellBoys extends Component {
     public bool $updateMode = false;
 
     /**
-     * @param ModelContract $bell_boy
+     * @param Model $bell_boy
      */
     public function mount($bell_boy) {
         $this->bell_boy = $bell_boy;

@@ -14,7 +14,7 @@ use Spatie\MediaLibrary\File;
 */
 //---------- traits
 ////use Laravel\Scout\Searchable;
-use Modules\Xot\Contracts\ModelContract;
+
 use Modules\Xot\Models\Traits\HasPriceTrait;
 use Modules\Xot\Models\Traits\LinkedTrait;
 use Modules\Xot\Traits\Updater;
@@ -27,8 +27,7 @@ use Modules\Xot\Traits\Updater;
  * @property string $price_complete
  * @property int    $qty
  */
-abstract class BaseModelLang extends Model implements ModelContract /*implements HasMedia*/
-{
+abstract class BaseModelLang extends Model {
     use Updater;
     //use Searchable;
     use LinkedTrait;
