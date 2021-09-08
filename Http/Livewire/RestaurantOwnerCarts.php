@@ -6,7 +6,7 @@ namespace Modules\Food\Http\Livewire;
 
 use Auth;
 use Livewire\Component;
-use Modules\Blog\Models\Place;
+use Modules\Geo\Models\Place;
 use Modules\Food\Models\Profile;
 use Modules\Food\Models\Restaurant;
 
