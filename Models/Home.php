@@ -6,6 +6,8 @@ namespace Modules\Food\Models;
 
 use Modules\Blog\Models\Home as BaseHomeModel;
 use Modules\Xot\Models\Traits\WidgetTrait;
+use Modules\Xot\Relations\CustomRelation;
+use Modules\Xot\Traits\HasCustomRelations;
 
 /**
  * Modules\Food\Models\Home.
@@ -63,6 +65,7 @@ use Modules\Xot\Models\Traits\WidgetTrait;
  */
 class Home extends BaseHomeModel {
     use WidgetTrait;
+    //use HasCustomRelations;
 
     /**
      * @var string[]
@@ -77,6 +80,19 @@ class Home extends BaseHomeModel {
     public function cities() {
         return $this->hasMany(Location::class, 'lang', 'lang');
     }
+
+    /*
+    public function locations(): CustomRelation {
+
+        return $this->customRelation(
+            Location::class,
+            // add constraints
+            function ($relation): void {
+                $relation->getQuery();
+            }
+        );
+    }
+    */
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -102,5 +118,9 @@ class Home extends BaseHomeModel {
         return $this->restaurants()
             ->inRandomOrder() // Call to an undefined method Illuminate\Database\Eloquent\Collection<Modules\Food\Models\Location>::inRandomOrder().
             ->limit(12);
+    }
+
+    public function homes() {
+        return $this->hasMany(Home::class, 'id', 'id');
     }
 }//end model
