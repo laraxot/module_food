@@ -38,7 +38,7 @@ class CreateCuisineCatsTable extends XotBaseMigration {
         $this->getConn()->table(
             $this->getTable(),
             function (Blueprint $table): void {
-                if ($this->hasColumn('post_id')) {
+               /* if ($this->hasColumn('post_id')) {
                     $table->renameColumn('post_id', 'id');
                 }
                 try {
@@ -46,6 +46,7 @@ class CreateCuisineCatsTable extends XotBaseMigration {
                 } catch (\Exception $e) {
                     echo $e->getMessage();
                 }
+                */
             }
         );
 

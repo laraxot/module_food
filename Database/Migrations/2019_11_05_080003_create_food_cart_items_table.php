@@ -6,7 +6,7 @@ use Illuminate\Database\Schema\Blueprint;
 //----- models -----
 use Modules\Food\Models\CartItem as MyModel;
 
-class CreateCartItemsTable extends Migration {
+class CreateFoodCartItemsTable extends Migration {
     public function getTable() {
         return with(new MyModel())->getTable();
     }

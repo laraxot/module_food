@@ -6,7 +6,7 @@ use Illuminate\Database\Schema\Blueprint;
 //----- models -----
 use Modules\Food\Models\Cart as MyModel;
 
-class CreateCartsTable extends Migration {
+class CreateFoodCartsTable extends Migration {
     public function getTable() {
         return with(new MyModel())->getTable();
     }
@@ -36,9 +36,9 @@ class CreateCartsTable extends Migration {
             if (! Schema::hasColumn($this->getTable(), 'auth_user_id')) {
                 $table->integer('auth_user_id')->index()->nullable(); // item collegati all'utente
             }
-            if (! Schema::hasColumn($this->getTable(), 'post_id')) {
-                $table->integer('post_id')->index()->nullable(); // item collegati all'utente
-            }
+           // if (! Schema::hasColumn($this->getTable(), 'post_id')) {
+            //    $table->integer('post_id')->index()->nullable(); // item collegati all'utente
+            //}
             if (! Schema::hasColumn($this->getTable(), 'post_type')) {
                 $table->string('post_type')->index()->nullable(); // item collegati all'utente
             }
