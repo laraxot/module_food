@@ -6,8 +6,13 @@ use Illuminate\Database\Schema\Blueprint;
 //----- models -----
 use Modules\Food\Models\CartItem as MyModel;
 
+<<<<<<< HEAD:Database/Migrations/2019_11_05_080003_create_cart_items_table.php
 class CreateCartItemsTable extends Migration {
     public function getTable(): string {
+=======
+class CreateFoodCartItemsTable extends Migration {
+    public function getTable() {
+>>>>>>> 9e221e705177143c3e98495f98338c7ab0d38232:Database/Migrations/2019_11_05_080003_create_food_cart_items_table.php
         return with(new MyModel())->getTable();
     }
 
