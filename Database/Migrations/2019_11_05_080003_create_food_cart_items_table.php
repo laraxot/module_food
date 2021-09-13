@@ -6,13 +6,8 @@ use Illuminate\Database\Schema\Blueprint;
 //----- models -----
 use Modules\Food\Models\CartItem as MyModel;
 
-<<<<<<< HEAD:Database/Migrations/2019_11_05_080003_create_cart_items_table.php
-class CreateCartItemsTable extends Migration {
-    public function getTable(): string {
-=======
 class CreateFoodCartItemsTable extends Migration {
     public function getTable() {
->>>>>>> 9e221e705177143c3e98495f98338c7ab0d38232:Database/Migrations/2019_11_05_080003_create_food_cart_items_table.php
         return with(new MyModel())->getTable();
     }
 
@@ -22,7 +17,7 @@ class CreateFoodCartItemsTable extends Migration {
     public function up(): void {
         //--- create ---
         if (! Schema::hasTable($this->getTable())) {
-            Schema::create($this->getTable(), function (Blueprint $table) {
+            Schema::create($this->getTable(), function (Blueprint $table): void {
                 $table->increments('id');
                 $table->integer('parent_id')->index()->nullable();
                 //--- morph !! --
@@ -44,7 +39,7 @@ class CreateFoodCartItemsTable extends Migration {
             });
         }
         //--- up --
-        Schema::table($this->getTable(), function (Blueprint $table) {
+        Schema::table($this->getTable(), function (Blueprint $table): void {
             if (! Schema::hasColumn($this->getTable(), 'auth_user_id')) {
                 $table->integer('auth_user_id')->index()->nullable(); // item collegati all'utente
                 $table->string('sess_id', 32)->index()->nullable();    // item collegati alla sessione se utente non loggato
@@ -52,7 +47,7 @@ class CreateFoodCartItemsTable extends Migration {
             }
         });
 
-        Schema::table($this->getTable(), function (Blueprint $table) {
+        Schema::table($this->getTable(), function (Blueprint $table): void {
             $table->string('sess_id', 40)->change();
         });
     }
