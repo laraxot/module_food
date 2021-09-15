@@ -45,7 +45,7 @@ class RestaurantTest extends TestCase {
         $response = $this->post($url, $data);
         $referer = $lang.'/'.$type;
         $response->assertStatus(302);
-        $response->assertRedirect(route('login.notice', ['lang' => $lang, 'referer' => $referer]));
+        $response->assertRedirect(route('login', ['lang' => $lang, 'referer' => $referer]));
     }
 
     //end testStoreRestaurantGuest
