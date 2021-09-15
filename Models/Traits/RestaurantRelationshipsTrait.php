@@ -138,7 +138,7 @@ trait RestaurantRelationshipsTrait {
         //                ->where('auth_user_id', \Auth::id()) //nella parte "pubblica" mostro solo quelli dell'utente
         //                ;
         $rows = $this->morphOne(Cart::class, 'shop')
-            ->where('auth_user_id', \Auth::id())
+            ->where('auth_user_id', Auth::id())
             //->where('status',)
         ;
 
@@ -330,7 +330,7 @@ trait RestaurantRelationshipsTrait {
      */
     public function myBookingsWithThisRestaurant() {
         $rows = $this->morphMany(Booking::class, 'shop')
-        ->where('customer_id', \Auth::id())
+        ->where('customer_id', Auth::id())
         //->where('status',)
         ;
 
