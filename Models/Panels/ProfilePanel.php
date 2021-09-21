@@ -216,7 +216,8 @@ class ProfilePanel extends XotBasePanel {
             //dddx($this->row);
             return null;
         }
-        $email = \md5(\mb_strtolower(\trim($user->email)));
+
+        $email = \md5(\mb_strtolower(\trim((string) $user->email)));
         $default = \urlencode('https://tracker.moodle.org/secure/attachment/30912/f3.png');
 
         return "https://www.gravatar.com/avatar/$email?d=$default&s=$size";
