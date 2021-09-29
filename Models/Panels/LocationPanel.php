@@ -41,10 +41,7 @@ class LocationPanel extends XotBasePanel {
         ];
     }
 
-    /**
-     * @return bool
-     */
-    public function hasLang() {
+    public function hasLang(): bool {
         return true;
     }
 
