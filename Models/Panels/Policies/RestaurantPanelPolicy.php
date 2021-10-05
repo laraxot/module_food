@@ -140,6 +140,9 @@ class RestaurantPanelPolicy extends XotBasePanelPolicy {
         return true;
     }
 
+    /**
+     * Function cartAddedByRestaurantOwner.
+     */
     public function cartAddedByRestaurantOwner(?UserContract $user, PanelContract $panel): bool {
         $post = $panel->getRow();
         if ($post->restaurantOwners->count() > 0) {
