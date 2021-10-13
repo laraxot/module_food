@@ -64,7 +64,7 @@ class CreateLocationsTable extends Migration {
             }
 
             if (! Schema::hasColumn($this->getTable(), 'status')) {
-                $table->integer('status')->nullable()->after('post_id');
+                $table->integer('status')->nullable();
             }
             if (Schema::hasColumn($this->getTable(), 'post_id')) {
                 $table->renameColumn('post_id', 'id');
