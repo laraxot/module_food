@@ -314,10 +314,10 @@ class RestaurantOwnerPanel extends XotBasePanel {
         }
 
         $user = User::query()->create($data);
-        $perm = PermUser::query()->firstOrCreate(['auth_user_id' => $user->auth_user_id]);
+        $perm = PermUser::query()->firstOrCreate(['user_id' => $user->user_id]);
         $row->update([
             'post_type' => 'restaurant_owner',
-            'auth_user_id' => $user->auth_user_id,
+            'user_id' => $user->user_id,
         ]);
         $res = event(new StoreRestaurantOwnerEvent($user));
         //$this->generateUUIDVerificationToken($user);

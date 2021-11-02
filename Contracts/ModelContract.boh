@@ -8,7 +8,7 @@ namespace Modules\Food\Contracts;
  * Modules\Food\Contracts\PanelContract.
  *
  * @property int                             $id
- * @property int|null                        $auth_user_id
+ * @property int|null                        $user_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null                     $created_by

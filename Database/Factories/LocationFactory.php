@@ -30,7 +30,7 @@ class LocationFactory extends Factory {
         return [
             //'title' => $faker->sentence,
             //'description' => $faker->paragraph,
-            //'auth_user_id' => factory(User::class)->create()->auth_user_id,
+            //'user_id' => factory(User::class)->create()->user_id,
             'latitude' => $faker->latitude,
             'longitude' => $faker->longitude,
             'route' => $faker->streetName,

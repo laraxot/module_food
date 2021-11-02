@@ -56,8 +56,8 @@ class CreateFoodProfilesTable extends Migration {
             if (! Schema::hasColumn($this->getTable(), 'address')) {
                 $table->string('address')->nullable();
             }
-            if (! Schema::hasColumn($this->getTable(), 'auth_user_id')) {
-                $table->integer('auth_user_id')->nullable()->index();
+            if (! Schema::hasColumn($this->getTable(), 'user_id')) {
+                $table->integer('user_id')->nullable()->index();
             }
 
             $address_components = Location::$address_components;

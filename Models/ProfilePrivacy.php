@@ -8,7 +8,7 @@ namespace Modules\Food\Models;
  * Modules\Food\Models\ProfilePrivacy.
  *
  * @property int                             $id
- * @property int|null                        $auth_user_id
+ * @property int|null                        $user_id
  * @property int|null                        $flag_id
  * @property string|null                     $flag_value
  * @property string|null                     $created_by
@@ -39,5 +39,5 @@ class ProfilePrivacy extends BaseModel {
     /**
      * @var string[]
      */
-    protected $fillable = ['auth_user_id', 'flag_id', 'flag_value', 'field_description'];
+    protected $fillable = ['user_id', 'flag_id', 'flag_value', 'field_description'];
 }

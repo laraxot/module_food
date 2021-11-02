@@ -33,7 +33,7 @@
 			{!! $status !!}
 		@endslot
 		@slot('content')
-			<button data-toggle="modal" data-target="#updateModal" wire:click="edit({{ $bell_boy->auth_user_id }})" class="btn btn-primary btn-sm">Edit</button>
+			<button data-toggle="modal" data-target="#updateModal" wire:click="edit({{ $bell_boy->user_id }})" class="btn btn-primary btn-sm">Edit</button>
 		@endslot
 	@endcomponent
 

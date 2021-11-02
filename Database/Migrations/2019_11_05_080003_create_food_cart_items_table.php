@@ -40,8 +40,8 @@ class CreateFoodCartItemsTable extends Migration {
         }
         //--- up --
         Schema::table($this->getTable(), function (Blueprint $table): void {
-            if (! Schema::hasColumn($this->getTable(), 'auth_user_id')) {
-                $table->integer('auth_user_id')->index()->nullable(); // item collegati all'utente
+            if (! Schema::hasColumn($this->getTable(), 'user_id')) {
+                $table->integer('user_id')->index()->nullable(); // item collegati all'utente
                 $table->string('sess_id', 32)->index()->nullable();    // item collegati alla sessione se utente non loggato
                 $table->integer('cart_id')->index()->nullable();      // carrello
             }

@@ -68,7 +68,7 @@ class AddItemCart extends Component {
     public function addItemCart($id) {
         /*
         $this->updateMode = true;
-        $user = User::where('auth_user_id', $id)->first();
+        $user = User::where('user_id', $id)->first();
 
         $this->user_id = $id;
         $this->first_name = $user->first_name;

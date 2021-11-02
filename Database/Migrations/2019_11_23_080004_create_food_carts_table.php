@@ -33,8 +33,8 @@ class CreateFoodCartsTable extends Migration {
         }
         //--- up --
         Schema::table($this->getTable(), function (Blueprint $table): void {
-            if (! Schema::hasColumn($this->getTable(), 'auth_user_id')) {
-                $table->integer('auth_user_id')->index()->nullable(); // item collegati all'utente
+            if (! Schema::hasColumn($this->getTable(), 'user_id')) {
+                $table->integer('user_id')->index()->nullable(); // item collegati all'utente
             }
             // if (! Schema::hasColumn($this->getTable(), 'post_id')) {
             //    $table->integer('post_id')->index()->nullable(); // item collegati all'utente

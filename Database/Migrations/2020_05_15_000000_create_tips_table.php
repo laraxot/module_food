@@ -20,7 +20,7 @@ class CreateTipsTable extends XotBaseMigration {
         if (! $this->tableExists()) {
             $this->getConn()->create($this->getTable(), function (Blueprint $table) {
                 $table->increments('id');
-                $table->integer('auth_user_id');
+                $table->integer('user_id');
                 $table->nullableMorphs('post');
                 $table->text('note');
                 $table->string('created_by')->nullable();

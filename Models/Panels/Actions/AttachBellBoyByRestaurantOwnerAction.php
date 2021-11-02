@@ -57,15 +57,15 @@ class AttachBellBoyByRestaurantOwnerAction extends XotBasePanelAction {
         /*
         $profile = $user->profile;
         */
-        $profile = Profile::query()->where('auth_user_id', Auth::id())->first();
+        $profile = Profile::query()->where('user_id', Auth::id())->first();
         //dddx($profile);
 
-        $data['auth_user_id'] = $profile->auth_user_id;
+        $data['user_id'] = $profile->user_id;
         $data['phone'] = $profile->phone;
 
         $bellBoy = $profile->bellBoy()->updateOrCreate(
-            ['auth_user_id' => $data['auth_user_id']],
-            ['auth_user_id' => $profile->auth_user_id, 'email' => $user->email, 'phone' => $profile->phone]
+            ['user_id' => $data['user_id']],
+            ['user_id' => $profile->user_id, 'email' => $user->email, 'phone' => $profile->phone]
         );
 
         $restaurant = $this->row;
@@ -76,7 +76,7 @@ class AttachBellBoyByRestaurantOwnerAction extends XotBasePanelAction {
         if (! $restaurant->bellBoy->contains('id', $bellBoy->id)) {
             \Session::flash('status', 'Operazione riuscita');
 
-            $restaurant->bellBoy()->save($bellBoy, ['auth_user_id' => $bellBoy->auth_user_id]);
+            $restaurant->bellBoy()->save($bellBoy, ['user_id' => $bellBoy->user_id]);
         } else {
             \Session::flash('status_error', 'Hai già questo cameriere');
         }

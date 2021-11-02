@@ -38,7 +38,7 @@ class Places extends Component {
      */
     public function render() {
         //\Auth::user()->profile->places;
-        $profile = Profile::query()->where('auth_user_id', Auth::id())->first();
+        $profile = Profile::query()->where('user_id', Auth::id())->first();
         $this->places = $profile->places;
 
         return view('food::livewire.places');
@@ -121,7 +121,7 @@ class Places extends Component {
         ]);
 
         $place = Place::query()->create($validatedData);
-        $profile = Profile::query()->where('auth_user_id', Auth::id())->first();
+        $profile = Profile::query()->where('user_id', Auth::id())->first();
         $profile->places()->save($place);
         //\Auth::user()->profile->places()->save($place);
 

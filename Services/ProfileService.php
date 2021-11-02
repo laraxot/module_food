@@ -22,7 +22,7 @@ class ProfileService {
         $lang = \App::getLocale();
         $row = Post::firstOrCreate(['guid' => $user->handle, 'lang' => $lang, 'type' => 'profile'], ['title' => ''.$user->handle]);
         $linked = $row->linkedOrCreate()->first();
-        $linked->auth_user_id = $user->auth_user_id;
+        $linked->user_id = $user->user_id;
         $linked->save();
 
         return $row;
@@ -38,12 +38,12 @@ class ProfileService {
             $data['guid'] = $data['handle'];
         }
         $user = User::create($data);
-        $perm = PermUser::firstOrCreate(['auth_user_id' => $user->auth_user_id]); //creo permesso, next creare tipologia utente
+        $perm = PermUser::firstOrCreate(['user_id' => $user->user_id]); //creo permesso, next creare tipologia utente
         $data['type'] = 'profile';
         $data['lang'] = $lang;
-        $data['author_id'] = $user->auth_user_id;
-        $data['auth_user_id'] = $user->auth_user_id;
-        $data['post_id'] = $user->auth_user_id;
+        $data['author_id'] = $user->user_id;
+        $data['user_id'] = $user->user_id;
+        $data['post_id'] = $user->user_id;
         $data['guid'] = str_slug($user->handle);
 
         $row = Profile::create($data);
@@ -52,7 +52,7 @@ class ProfileService {
         /*
         $row = Post::create($data);
         $linked = $row->linkedOrCreate;
-        $linked->auth_user_id = $user->auth_user_id;
+        $linked->user_id = $user->user_id;
         $linked->save();
         $linked->update($linkedPrv);
         */

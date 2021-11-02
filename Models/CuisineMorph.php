@@ -16,7 +16,7 @@ use Modules\Xot\Traits\Updater;
  * @property int|null                        $post_id
  * @property string|null                     $related_type
  * @property int|null                        $cuisine_id
- * @property int|null                        $auth_user_id
+ * @property int|null                        $user_id
  * @property string|null                     $note
  * @property string|null                     $created_by
  * @property string|null                     $updated_by

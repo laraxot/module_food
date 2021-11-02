@@ -37,7 +37,7 @@ class CreateIngredientMorphTable extends Migration {
                 $table->increments('id');
                 $table->nullableMorphs('post');
                 $table->nullableMorphs('related');
-                $table->integer('auth_user_id')->nullable()->index();
+                $table->integer('user_id')->nullable()->index();
                 $table->decimal('price', 10, 3)->nullable();
                 $table->string('price_currency')->nullable();
                 $table->string('note')->nullable();

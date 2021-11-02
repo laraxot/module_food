@@ -37,7 +37,7 @@ class CreateIngredientCatMorphTable extends Migration {
                 $table->increments('id');
                 $table->nullableMorphs('post');
                 $table->nullableMorphs('related');
-                $table->integer('auth_user_id')->nullable()->index();
+                $table->integer('user_id')->nullable()->index();
 
                 $table->string('note')->nullable();
 

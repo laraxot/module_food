@@ -20,7 +20,7 @@ class CreateRestaurantOwnerTable extends XotBaseMigration {
         if (! $this->tableExists()) {
             $this->getConn()->create($this->getTable(), function (Blueprint $table) {
                 $table->increments('id');
-                $table->integer('auth_user_id')->nullable();
+                $table->integer('user_id')->nullable();
                 $table->string('email')->nullable();
                 $table->integer('phone')->nullable();
                 $table->string('created_by')->nullable();

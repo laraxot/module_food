@@ -25,7 +25,7 @@ class CreateProfilePrivacyChronosTable extends Migration {
         if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
                 $table->increments('id');
-                $table->integer('auth_user_id')->nullable()->index();
+                $table->integer('user_id')->nullable()->index();
                 $table->string('created_by')->nullable();
                 $table->string('updated_by')->nullable();
                 $table->string('created_ip')->nullable();

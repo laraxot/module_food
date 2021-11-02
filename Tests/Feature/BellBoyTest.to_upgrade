@@ -37,14 +37,14 @@ class BellBoyTest extends TestCase {
             ->get($url);
         //dddx($response);
         echo chr(13).'Url:['.$url.']'.chr(13);
-        if ($restaurant->hasBellBoy(['auth_user_id' => $user->auth_user_id])) {
+        if ($restaurant->hasBellBoy(['user_id' => $user->user_id])) {
             $value = 'Diventa fattorino per questo ristorante';
             $response->assertDontSeeText($value);
         } else {
             $value = 'Diventa fattorino per questo ristorante';
             $response->assertSeeText($value);
             $url_act = $restaurant_panel->itemAction('attach_bell_boy')
-                ->with(['auth_user_id' => $user->auth_user_id])
+                ->with(['user_id' => $user->user_id])
                 ->url();
             $data = factory(BellBoy::class)->raw();
 
@@ -52,11 +52,11 @@ class BellBoyTest extends TestCase {
             $response->assertSeeText('Grazie');
             $response->assertStatus(200);
             /*
-            echo chr(13) . 'restaurant id [' . $restaurant->id . ']' . chr(13) . 'auth user id [' . $user->auth_user_id . ']' . chr(13);
-                dddx(['auth_user_id'=>$user->auth_user_id,'bell boys'=>$restaurant->bellBoys()]);
+            echo chr(13) . 'restaurant id [' . $restaurant->id . ']' . chr(13) . 'auth user id [' . $user->user_id . ']' . chr(13);
+                dddx(['user_id'=>$user->user_id,'bell boys'=>$restaurant->bellBoys()]);
                 */
             $restaurant->bellBoys = $restaurant->bellBoys();
-            $this->assertTrue($restaurant->hasBellBoy(['auth_user_id' => $user->auth_user_id]));
+            $this->assertTrue($restaurant->hasBellBoy(['user_id' => $user->user_id]));
         }
     }
 
@@ -73,7 +73,7 @@ class BellBoyTest extends TestCase {
 
         $response = $this->actingAs($user)->get($url);
 
-        if ($restaurant->hasBellBoy(['auth_user_id' => $user->auth_user_id])) {
+        if ($restaurant->hasBellBoy(['user_id' => $user->user_id])) {
             $value = 'Non voglio';
             $response->assertSeeText($value);
         } else {
@@ -107,12 +107,12 @@ class BellBoyTest extends TestCase {
             $restaurant->bellBoys()
                 ->attach($bell_boy->id,
                 [
-                    'auth_user_id' => $user->auth_user_id,
+                    'user_id' => $user->user_id,
                 ]
             );
-            //$restaurant->addBoy(['auth_user_id' => $user->auth_user_id]); //->attach($bell_boy->id, ['auth_user_id' => $user->auth_user_id]);
+            //$restaurant->addBoy(['user_id' => $user->user_id]); //->attach($bell_boy->id, ['user_id' => $user->user_id]);
 
-            $this->assertTrue($restaurant->hasBellBoy(['auth_user_id' => $user->auth_user_id]));
+            $this->assertTrue($restaurant->hasBellBoy(['user_id' => $user->user_id]));
         }
         //$restaurants = $bell_boy->restaurants;
 
@@ -127,9 +127,9 @@ class BellBoyTest extends TestCase {
         ]);
 
         $response->assertStatus(200);
-        echo chr(13).'[ Auth::id ['.$user->auth_user_id.']]'.chr(13);
+        echo chr(13).'[ Auth::id ['.$user->user_id.']]'.chr(13);
         foreach ($restaurants as $restaurant) {
-            $this->assertFalse($restaurant->hasBellBoy(['auth_user_id' => $user->auth_user_id]));
+            $this->assertFalse($restaurant->hasBellBoy(['user_id' => $user->user_id]));
         }
     }
 

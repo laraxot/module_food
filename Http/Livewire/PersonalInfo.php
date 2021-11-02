@@ -107,7 +107,7 @@ class PersonalInfo extends XotBaseComponent {
         ]);
 
         $place = Place::query()->create($validatedData);
-        $profile = Profile::query()->where('auth_user_id', Auth::id())->first();
+        $profile = Profile::query()->where('user_id', Auth::id())->first();
         $profile->places()->save($place);
         //\Auth::user()->profile->places()->save($place);
 

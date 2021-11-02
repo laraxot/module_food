@@ -28,7 +28,7 @@ use Modules\Rating\Models\Rating;
  * @property string|null                                                                 $email
  * @property string|null                                                                 $phone
  * @property string|null                                                                 $address
- * @property int|null                                                                    $auth_user_id
+ * @property int|null                                                                    $user_id
  * @property string|null                                                                 $locality
  * @property string|null                                                                 $locality_short
  * @property string|null                                                                 $administrative_area_level_3
@@ -292,7 +292,7 @@ class Profile extends BaseProfile {
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function restaurantOwner() {
-        return $this->hasOne(RestaurantOwner::class, 'auth_user_id', 'auth_user_id');
+        return $this->hasOne(RestaurantOwner::class, 'user_id', 'user_id');
     }
 
     /**
@@ -301,21 +301,21 @@ class Profile extends BaseProfile {
     public function bellBoys() //solo perche' obbligato al plurale
     {
         //return $this->morphRelated(Restaurant::class);//->where('pivot.rule','bellboy');
-        return $this->hasMany(BellBoy::class, 'auth_user_id', 'auth_user_id');
+        return $this->hasMany(BellBoy::class, 'user_id', 'user_id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function bellBoy() {
-        return $this->hasOne(BellBoy::class, 'auth_user_id', 'auth_user_id');
+        return $this->hasOne(BellBoy::class, 'user_id', 'user_id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function waiter() {
-        return $this->hasOne(Waiter::class, 'auth_user_id', 'auth_user_id');
+        return $this->hasOne(Waiter::class, 'user_id', 'user_id');
     }
 
     /**
@@ -323,7 +323,7 @@ class Profile extends BaseProfile {
      */
     public function carts() //carrelli del "compratore"
     {
-        return $this->hasMany(Cart::class, 'auth_user_id', 'auth_user_id');
+        return $this->hasMany(Cart::class, 'user_id', 'user_id');
     }
 
     /**
@@ -331,7 +331,7 @@ class Profile extends BaseProfile {
      */
     public function bellBoyCarts() //carrello del "fattorino assegnato"
     {
-        return $this->hasMany(Cart::class, 'bell_boy_id', 'auth_user_id');
+        return $this->hasMany(Cart::class, 'bell_boy_id', 'user_id');
     }
 
     ///--- funzioni tampone

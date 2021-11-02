@@ -11,7 +11,7 @@ use Modules\LU\Models\User;
  * Modules\Food\Models\Waiter.
  *
  * @property int                                                                      $id
- * @property int|null                                                                 $auth_user_id
+ * @property int|null                                                                 $user_id
  * @property string|null                                                              $email
  * @property string|null                                                              $phone
  * @property string|null                                                              $created_by
@@ -63,25 +63,25 @@ use Modules\LU\Models\User;
  * @property int|null                                                                   $restaurants_count
  */
 class Waiter extends BaseModelLang {
-    //protected $primaryKey = 'auth_user_id';
+    //protected $primaryKey = 'user_id';
 
     use HasProfileTrait;
 
     /**
      * @var string[]
      */
-    protected $fillable = ['id', 'phone', 'email', 'auth_user_id'];
+    protected $fillable = ['id', 'phone', 'email', 'user_id'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
     public function restaurants() {
-        return $this->morphRelated(Restaurant::class, false); //, 'auth_user_id');
+        return $this->morphRelated(Restaurant::class, false); //, 'user_id');
     }
 
     /* //inserito dentro HasProfileTrait
     public function user() {
-        return $this->hasOne(User::class, 'auth_user_id', 'auth_user_id');
+        return $this->hasOne(User::class, 'user_id', 'user_id');
     }
     */
 

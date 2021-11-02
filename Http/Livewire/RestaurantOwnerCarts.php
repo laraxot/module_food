@@ -130,7 +130,7 @@ class RestaurantOwnerCarts extends Component {
         $place = Place::query()->create($validatedData);
 
         //\Auth::user()->profile->places()->save($place);
-        $profile = Profile::query()->where('auth_user_id', Auth::id())->first();
+        $profile = Profile::query()->where('user_id', Auth::id())->first();
         $profile->places()->save($place);
 
         session()->flash('message', 'Place Created Successfully.');

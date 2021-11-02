@@ -21,7 +21,7 @@ use Modules\LU\Models\User;
  * Modules\Food\Models\BellBoy.
  *
  * @property int                                                                      $id
- * @property int|null                                                                 $auth_user_id
+ * @property int|null                                                                 $user_id
  * @property string|null                                                              $created_by
  * @property string|null                                                              $updated_by
  * @property \Illuminate\Support\Carbon|null                                          $created_at
@@ -108,19 +108,19 @@ class BellBoy extends BaseModelLang implements BellBoyContract {
 
     public const Busy = 3; //occupato
     //protected $table = 'profiles';
-    //protected $primaryKey = 'auth_user_id';
+    //protected $primaryKey = 'user_id';
 
     /**
      * @var string[]
      */
     protected $fillable = ['id', 'birthday', 'phone', 'email', 'vehicle_type', 'vehicle_model',
-        'auth_user_id', 'has_car', 'has_motorcycle', 'has_bicycle',
+        'user_id', 'has_car', 'has_motorcycle', 'has_bicycle',
     ];
 
     ///--- relations ---
     /* //inserito dentro HasProfileTrait
     public function user() {
-    return $this->hasOne(User::class, 'auth_user_id', 'auth_user_id');
+    return $this->hasOne(User::class, 'user_id', 'user_id');
     }
     */
 
@@ -128,7 +128,7 @@ class BellBoy extends BaseModelLang implements BellBoyContract {
     public function profile() {
         $profile_class = config('xra.model.profile');
 
-        return $this->hasOne($profile_class, 'auth_user_id', 'auth_user_id');
+        return $this->hasOne($profile_class, 'user_id', 'user_id');
     }
     */
 

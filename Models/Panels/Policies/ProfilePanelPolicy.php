@@ -49,7 +49,7 @@ class ProfilePanelPolicy extends XotBasePanelPolicy {
         //volevo riutilizzare edit invece di copiare tutto lo snippet
 
         $post = $panel->getRow();
-        if ($post->created_by == $user->handle || $post->updated_by == $user->handle || $post->auth_user_id == $user->auth_user_id) {
+        if ($post->created_by == $user->handle || $post->updated_by == $user->handle || $post->user_id == $user->user_id) {
             return true;
         }
 
@@ -60,7 +60,7 @@ class ProfilePanelPolicy extends XotBasePanelPolicy {
         //return true;
         //volevo riutilizzare edit invece di copiare tutto lo snippet
         $post = $panel->getRow();
-        if ($post->created_by == $user->handle || $post->updated_by == $user->handle || $post->auth_user_id == $user->auth_user_id) {
+        if ($post->created_by == $user->handle || $post->updated_by == $user->handle || $post->user_id == $user->user_id) {
             return true;
         }
 

@@ -14,7 +14,7 @@ namespace Modules\Food\Models;
  * @property int|null                        $privacy_id
  * @property string|null                     $title
  * @property int|null                        $value
- * @property int|null                        $auth_user_id
+ * @property int|null                        $user_id
  * @property string|null                     $created_by
  * @property string|null                     $updated_by
  * @property string|null                     $deleted_by

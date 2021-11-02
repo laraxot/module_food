@@ -25,7 +25,7 @@ class CreateProfilePrivaciesTable extends Migration {
         if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
                 $table->increments('id');
-                $table->integer('auth_user_id')->nullable()->index();
+                $table->integer('user_id')->nullable()->index();
                 $table->integer('flag_id')->nullable();
                 $table->string('flag_value')->nullable();
                 $table->string('created_by')->nullable();

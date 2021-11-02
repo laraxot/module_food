@@ -107,8 +107,8 @@ class CreateRestaurantOwnersTable extends XotBaseMigration {
                 if (Schema::hasColumn($this->getTable(), 'post_id')) {
                     $table->renameColumn('post_id', 'id');
                 }
-                if (! Schema::hasColumn($this->getTable(), 'auth_user_id')) {
-                    $table->integer('auth_user_id')->nullable();
+                if (! Schema::hasColumn($this->getTable(), 'user_id')) {
+                    $table->integer('user_id')->nullable();
                 }
                 if (! Schema::hasColumn($this->getTable(), 'status')) {
                     $table->integer('status')->nullable();

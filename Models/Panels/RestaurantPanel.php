@@ -73,8 +73,8 @@ class RestaurantPanel extends XotBasePanel {
      * Get the fields displayed by the resource.
      */
     public function fields(): array {
-        //$auth_user_id = \Auth::check() ? \Auth::user()->auth_user_id : '';
-        $auth_user_id = \Auth::id(); //da valutare
+        //$user_id = \Auth::check() ? \Auth::user()->user_id : '';
+        $user_id = \Auth::id(); //da valutare
         $post_table = with(new Post())->getTable();
         $restaurant_table = with(new Restaurant())->getTable();
         //$ignore_id=null;
@@ -147,8 +147,8 @@ class RestaurantPanel extends XotBasePanel {
             ],
             (object) [
                 'type' => 'Hidden',
-                'name' => 'profiles.auth_user_id',
-                'value' => $auth_user_id,
+                'name' => 'profiles.user_id',
+                'value' => $user_id,
                 'except' => ['index', 'index_edit'],
             ],
 
@@ -161,19 +161,19 @@ class RestaurantPanel extends XotBasePanel {
             (object) [
                 'type' => 'PivotRatings',
                 'name' => 'ratings',
-                //'value' => $auth_user_id,
+                //'value' => $user_id,
                 //'except'=>['index'],
             ],
             (object) [
                 'type' => 'PivotRatingsAvg',
                 'name' => 'ratings',
-                //'value' => $auth_user_id,
+                //'value' => $user_id,
                 //'except'=>['index'],
             ],
             (object) [
                 'type' => 'PivotRatings',
                 'name' => 'my_ratings',
-                //'value' => $auth_user_id,
+                //'value' => $user_id,
                 //'except'=>['index'],
             ],
             //*/
@@ -273,9 +273,9 @@ class RestaurantPanel extends XotBasePanel {
         /*
         $profile = Auth::user()->profile;
         */
-        $profile = Profile::query()->where('auth_user_id', Auth::id())->first();
+        $profile = Profile::query()->where('user_id', Auth::id())->first();
 
-        $profile->restaurants()->save($row, ['auth_user_id' => \Auth::id()]);
+        $profile->restaurants()->save($row, ['user_id' => \Auth::id()]);
 
         return $row;
     }

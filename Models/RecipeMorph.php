@@ -15,7 +15,7 @@ namespace Modules\Food\Models;
  * @property int|null                        $post_id
  * @property string|null                     $related_type
  * @property int|null                        $recipe_id
- * @property int|null                        $auth_user_id
+ * @property int|null                        $user_id
  * @property string|null                     $price
  * @property string|null                     $price_currency
  * @property int|null                        $launch_available
@@ -55,7 +55,7 @@ class RecipeMorph extends BaseMorphPivot {
      */
     protected $fillable = [
         'id', 'post_id', 'post_type', 'recipe_id', 'related_type', //-- testare se toglierli
-        'auth_user_id',
+        'user_id',
         'price', 'price_currency', 'launch_available', 'dinner_available', 'note',
     ];
     /*

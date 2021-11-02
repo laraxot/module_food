@@ -21,7 +21,7 @@ class CreateWaiterTable extends XotBaseMigration {
             $this->getConn()->create($this->getTable(),
             function (Blueprint $table) {
                 $table->increments('id');
-                $table->integer('auth_user_id')->nullable();
+                $table->integer('user_id')->nullable();
                 $table->string('email')->nullable();
                 $table->string('phone', 50)->nullable();
                 $table->string('created_by')->nullable();

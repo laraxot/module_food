@@ -19,7 +19,7 @@ use Modules\Install\Helpers\DatabaseManager;
 trait PrivacyMutatorsTrait {
     public function privacy() {
         try {
-            return $this->hasMany(ProfilePrivacyChrono::class, 'auth_user_id', 'auth_user_id');
+            return $this->hasMany(ProfilePrivacyChrono::class, 'user_id', 'user_id');
         } catch (\Exception $ex) {
             $this->forceMigrations();
         }
@@ -35,14 +35,14 @@ trait PrivacyMutatorsTrait {
     }
 
     public function user() {
-        return $this->hasOne(User::class, 'auth_user_id', 'auth_user_id');
+        return $this->hasOne(User::class, 'user_id', 'user_id');
     }
 
     public function getConsCheckboxXRow($k) {
         try {
             $txt = trans('food::privacy.cons_checkbox_'.$k);
             $row = ProfilePrivacyChrono::where('checkbox_position', '=', $k)
-                ->where('auth_user_id', $this->auth_user_id)
+                ->where('user_id', $this->user_id)
                 ->where('checkbox_label', $txt)
                 ->latest()
                 ->first();
@@ -79,7 +79,7 @@ trait PrivacyMutatorsTrait {
         try {
             $txt = \Request::input('linked.cons_checkbox_'.$k.'_txt');
             $data = [
-                'auth_user_id' => $this->auth_user_id,
+                'user_id' => $this->user_id,
                 'checkbox_position' => $k,
                 'checkbox_value' => $v,
                 'checkbox_label' => $txt,
