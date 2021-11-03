@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
 /*
 * read spatial
 * https://github.com/grimzy/laravel-mysql-spatial
@@ -42,86 +41,82 @@ class CreateRestaurantOwnersTable extends XotBaseMigration {
             function (Blueprint $table) {
                 $address_components = Location::$address_components;
                 foreach ($address_components as $el) {
-                    if (! Schema::hasColumn($this->getTable(), $el)) {
+                    if (! $this->hasColumn($el)) {
                         $table->string($el)->nullable();
                     }
-                    if (! Schema::hasColumn($this->getTable(), $el.'_short')) {
+                    if (! $this->hasColumn($el.'_short')) {
                         $table->string($el.'_short')->nullable();
                     }
                 }
 
-                if (! Schema::hasColumn($this->getTable(), 'phone')) {
+                if (! $this->hasColumn('phone')) {
                     $table->string('phone')->nullable();
                 }
 
-                if (! Schema::hasColumn($this->getTable(), 'website')) {
+                if (! $this->hasColumn('website')) {
                     $table->string('website')->nullable();
                 }
-                if (! Schema::hasColumn($this->getTable(), 'email')) {
+                if (! $this->hasColumn('email')) {
                     $table->string('email')->nullable();
                 }
 
-                if (! Schema::hasColumn($this->getTable(), 'formatted_address')) {
+                if (! $this->hasColumn('formatted_address')) {
                     $table->string('formatted_address')->nullable();
                 }
 
-                if (! Schema::hasColumn($this->getTable(), 'min_order')) { //ordine minimo (minimum order  troppo lungo)
+                if (! $this->hasColumn('min_order')) { //ordine minimo (minimum order  troppo lungo)
                     $table->decimal('min_order', 10, 2)->nullable();
                 }
 
-                if (! Schema::hasColumn($this->getTable(), 'delivery_cost')) { //ordine minimo (minimum order  troppo lungo)
+                if (! $this->hasColumn('delivery_cost')) { //ordine minimo (minimum order  troppo lungo)
                     $table->decimal('delivery_cost', 10, 2)->nullable();
                 }
 
-                if (! Schema::hasColumn($this->getTable(), 'delivery_options')) {
+                if (! $this->hasColumn('delivery_options')) {
                     $table->string('delivery_options')->nullable();
                 }
 
-                if (! Schema::hasColumn($this->getTable(), 'order_action')) {
+                if (! $this->hasColumn('order_action')) {
                     $table->boolean('order_action')->nullable();
                 }
 
-                if (! Schema::hasColumn($this->getTable(), 'price_currency')) {
+                if (! $this->hasColumn('price_currency')) {
                     $table->string('price_currency')->nullable();
                 }
 
-                if (! Schema::hasColumn($this->getTable(), 'created_by')) {
+                if (! $this->hasColumn('created_by')) {
                     $table->string('created_by')->nullable();
                 }
-                if (! Schema::hasColumn($this->getTable(), 'updated_by')) {
+                if (! $this->hasColumn('updated_by')) {
                     $table->string('updated_by')->nullable();
                 }
-                if (! Schema::hasColumn($this->getTable(), 'price_range')) {
+                if (! $this->hasColumn('price_range')) {
                     $table->string('price_range')->nullable();
                 }
 
-                if (! Schema::hasColumn($this->getTable(), 'updated_at') && ! Schema::hasColumn($this->getTable(), 'created_at')) {
+                if (! $this->hasColumn('updated_at') && ! $this->hasColumn('created_at')) {
                     $table->timestamps();
                 }
 
-                if (! Schema::hasColumn($this->getTable(), 'latitude')) {
+                if (! $this->hasColumn('latitude')) {
                     $table->decimal('latitude', 16, 13)->nullable();
                 }
-                if (! Schema::hasColumn($this->getTable(), 'longitude')) {
+                if (! $this->hasColumn('longitude')) {
                     $table->decimal('longitude', 16, 13)->nullable();
                 }
 
-                if (Schema::hasColumn($this->getTable(), 'post_id')) {
+                if ($this->hasColumn('post_id')) {
                     $table->renameColumn('post_id', 'id');
                 }
-                if (! Schema::hasColumn($this->getTable(), 'user_id')) {
-                    $table->integer('user_id')->nullable();
-                }
 
-                if (Schema::hasColumn($this->getTable(), 'auth_user_id')) {
-                    $table->dropColumn('user_id');
+                if ($this->hasColumn('auth_user_id') && ! $this->hasColumn('user_id')) {
                     $table->renameColumn('auth_user_id', 'user_id');
                 }
 
-                if (! Schema::hasColumn($this->getTable(), 'status')) {
+                if (! $this->hasColumn('status')) {
                     $table->integer('status')->nullable();
                 }
-                if (Schema::hasColumn($this->getTable(), 'related_id')) {
+                if ($this->hasColumn('related_id')) {
                     $table->renameColumn('related_id', 'restaurant_owners_id');
                 }
             }
