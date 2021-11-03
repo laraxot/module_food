@@ -48,6 +48,9 @@ class CreateProfilePrivacyChronosTable extends Migration {
             if (! Schema::hasColumn($this->getTable(), 'checkbox_label')) {
                 $table->text('checkbox_label')->nullable();
             }
+            if (Schema::hasColumn($this->getTable(), 'auth_user_id')) {
+                $table->renameColumn('auth_user_id', 'user_id');
+            }
         });
     }
 

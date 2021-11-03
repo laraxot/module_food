@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 //----- models -----
-use Modules\Food\Models\IngredientCatMorph as MyModel;
+use Modules\Food\Models\RecipeMorph as MyModel;
 
 //--
 /* 2019_11_23_080004_
@@ -15,9 +15,9 @@ https://www.phpzag.com/star-rating-system-with-ajax-php-and-mysql/
 */
 
 /**
- * Class CreateIngredientCatMorphTable.
+ * Class CreateRecipeMorphTable.
  */
-class CreateIngredientCatMorphTable extends Migration {
+class CreateRecipeMorphTable extends Migration {
     /**
      * @return mixed
      */
@@ -38,7 +38,10 @@ class CreateIngredientCatMorphTable extends Migration {
                 $table->nullableMorphs('post');
                 $table->nullableMorphs('related');
                 $table->integer('user_id')->nullable()->index();
-
+                $table->decimal('price', 10, 3)->nullable();
+                $table->string('price_currency')->nullable();
+                $table->boolean('launch_available')->nullable();
+                $table->boolean('dinner_available')->nullable();
                 $table->string('note')->nullable();
 
                 $table->string('created_by')->nullable();
@@ -65,7 +68,10 @@ class CreateIngredientCatMorphTable extends Migration {
             };
             */
             if (Schema::hasColumn($this->getTable(), 'related_id')) {
-                $table->renameColumn('related_id', 'ingredient_cat_id');
+                $table->renameColumn('related_id', 'recipe_id');
+            }
+            if (Schema::hasColumn($this->getTable(), 'auth_user_id')) {
+                $table->renameColumn('auth_user_id', 'user_id');
             }
         });
     }

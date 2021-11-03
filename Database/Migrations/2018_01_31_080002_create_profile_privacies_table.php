@@ -38,6 +38,9 @@ class CreateProfilePrivaciesTable extends Migration {
             });
         }
         Schema::table($this->getTable(), function (Blueprint $table) {
+            if (Schema::hasColumn($this->getTable(), 'auth_user_id')) {
+                $table->renameColumn('auth_user_id', 'user_id');
+            }
         });
     }
 

@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 //----- models -----
-use Modules\Food\Models\CuisineMorph as MyModel;
+use Modules\Food\Models\RestaurantMorph as MyModel;
 
 //--
 /* 2019_11_23_080004_
@@ -15,9 +15,12 @@ https://www.phpzag.com/star-rating-system-with-ajax-php-and-mysql/
 */
 
 /**
- * Class CreateCuisineMorphTable.
+ * Class CreateRestaurantMorphTable.
  */
-class CreateCuisineMorphTable extends Migration {
+class CreateRestaurantMorphTable extends Migration {
+    /**
+     * @return mixed
+     */
     public function getTable(): string {
         return with(new MyModel())->getTable();
     }
@@ -46,27 +49,27 @@ class CreateCuisineMorphTable extends Migration {
         }
         //----- update -----
         Schema::table($this->getTable(), function (Blueprint $table) {
-            /*
-            if (!Schema::hasColumn($this->getTable(), 'post_id')) {
-                $table->morphs('post');
-            };
-            if (!Schema::hasColumn($this->getTable(), 'date_start')) {
-                $table->dateTime('date_start')->nullable();
-                $table->dateTime('date_end')->nullable();
-            };
+            if (! Schema::hasColumn($this->getTable(), 'role_id')) {
+                $table->integer('role_id')->nullable();
+            }
 
+            if (! Schema::hasColumn($this->getTable(), 'status')) {
+                $table->integer('status')->nullable();
+            }
+            if (Schema::hasColumn($this->getTable(), 'related_id')) {
+                $table->renameColumn('related_id', 'restaurant_id');
+            }
+            if (Schema::hasColumn($this->getTable(), 'auth_user_id')) {
+                $table->renameColumn('auth_user_id', 'user_id');
+            }
+
+            /*
             if (!Schema::hasColumn($this->getTable(), 'created_by')) {
                 $table->string('created_by')->nullable();
                 $table->string('updated_by')->nullable();
                 $table->string('deleted_by')->nullable();
             };
             */
-            if (Schema::hasColumn($this->getTable(), 'related_id')) {
-                $table->renameColumn('related_id', 'cuisine_id');
-            }
-            if (! Schema::hasColumn($this->getTable(), 'pos')) {
-                $table->integer('pos')->nullable();
-            }
         });
     }
 

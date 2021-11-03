@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 /*
 * read spatial
 * https://github.com/grimzy/laravel-mysql-spatial
@@ -110,6 +111,12 @@ class CreateRestaurantOwnersTable extends XotBaseMigration {
                 if (! Schema::hasColumn($this->getTable(), 'user_id')) {
                     $table->integer('user_id')->nullable();
                 }
+
+                if (Schema::hasColumn($this->getTable(), 'auth_user_id')) {
+                    $table->dropColumn('user_id');
+                    $table->renameColumn('auth_user_id', 'user_id');
+                }
+
                 if (! Schema::hasColumn($this->getTable(), 'status')) {
                     $table->integer('status')->nullable();
                 }

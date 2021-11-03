@@ -39,6 +39,9 @@ class CreateTipsTable extends XotBaseMigration {
                 $table->string('vehicle_model')->nullable();
             }
             */
+            if ($this->hasColumn('auth_user_id')) {
+                $table->renameColumn('auth_user_id', 'user_id');
+            }
         });
     }
 
