@@ -17,8 +17,9 @@ class CreateTipsTable extends XotBaseMigration {
      */
     public function up(): void {
         //-- CREATE --
-        if (! $this->tableExists()) {
-            $this->getConn()->create($this->getTable(), function (Blueprint $table) {
+        //-- CREATE --
+        $this->tableCreate(
+            function (Blueprint $table) {
                 $table->increments('id');
                 $table->integer('user_id');
                 $table->nullableMorphs('post');
@@ -27,9 +28,10 @@ class CreateTipsTable extends XotBaseMigration {
                 $table->string('updated_by')->nullable();
                 $table->timestamps();
             });
-        }
-        //-- UPDATE --
-        $this->getConn()->table($this->getTable(), function (Blueprint $table) {
+
+         //-- UPDATE --
+         $this->tableUpdate(
+            function (Blueprint $table) {
             /*
             if (! $this->hasColumn('birthday')) {
                 $table->date('birthday')->nullable();

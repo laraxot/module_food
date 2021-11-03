@@ -11,13 +11,8 @@ use Modules\Food\Models\Location as MyModel;
 /**
  * Class CreateLocationsTable.
  */
-class CreateLocationsTable extends Migration {
-    /**
-     * @return mixed
-     */
-    public function getTable(): string {
-        return with(new MyModel())->getTable();
-    }
+class CreateLocationsTable extends XotBaseMigration {
+
 
     /**
      * db up.
@@ -25,8 +20,9 @@ class CreateLocationsTable extends Migration {
      * @return void
      */
     public function up(): void {
-        if (! Schema::hasTable($this->getTable())) {
-            Schema::create($this->getTable(), function (Blueprint $table) {
+       //-- CREATE --
+       $this->tableCreate(
+        function (Blueprint $table) {
                 $table->increments('id'); //->primary();
                 $table->string('term')->nullable();
                 //$table->string('location')->nullable(); // location sostituito da locality per copia da google api
@@ -44,8 +40,9 @@ class CreateLocationsTable extends Migration {
                 $table->timestamps();
             });
         }
-        //--- up --
-        Schema::table($this->getTable(), function (Blueprint $table) {
+        //-- UPDATE --
+        $this->tableUpdate(
+            function (Blueprint $table) {
             //$table->increments('post_id')->change();
             //->autoIncrement()
             if (! Schema::hasColumn($this->getTable(), 'created_by')) {
@@ -72,10 +69,5 @@ class CreateLocationsTable extends Migration {
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void {
-        Schema::dropIfExists($this->getTable());
-    }
+
 }//end CreateBlogPostLocationsTable

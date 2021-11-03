@@ -22,23 +22,24 @@ class CreateRestaurantOwnersTable extends XotBaseMigration {
      * Run the migrations.
      */
     public function up(): void {
-        if (! Schema::hasTable($this->getTable())) {
-            Schema::create(
-                $this->getTable(), function (Blueprint $table) {
-                    $table->increments('id');
-                    $table->string('created_by')->nullable();
-                    $table->string('updated_by')->nullable();
-                    $table->string('deleted_by')->nullable();
-                    $table->string('deleted_ip')->nullable();
-                    $table->string('created_ip')->nullable();
-                    $table->string('updated_ip')->nullable();
-                    $table->timestamps();
-                    $table->softDeletes();
-                }
-            );
+        //-- CREATE --
+        $this->tableCreate(
+        function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
+            $table->string('deleted_by')->nullable();
+            $table->string('deleted_ip')->nullable();
+            $table->string('created_ip')->nullable();
+            $table->string('updated_ip')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         }
-        Schema::table(
-            $this->getTable(), function (Blueprint $table) {
+            );
+
+        //-- UPDATE --
+        $this->tableUpdate(
+            function (Blueprint $table) {
                 $address_components = Location::$address_components;
                 foreach ($address_components as $el) {
                     if (! Schema::hasColumn($this->getTable(), $el)) {
@@ -125,14 +126,5 @@ class CreateRestaurantOwnersTable extends XotBaseMigration {
                 }
             }
         );
-    }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void {
-        if (Schema::hasTable($this->getTable())) {
-            Schema::drop($this->getTable());
-        }
     }
 }

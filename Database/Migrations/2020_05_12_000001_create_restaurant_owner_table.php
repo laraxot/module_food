@@ -16,9 +16,9 @@ class CreateRestaurantOwnerTable extends XotBaseMigration {
      * @return void
      */
     public function up(): void {
-        //-- CREATE --
-        if (! $this->tableExists()) {
-            $this->getConn()->create($this->getTable(), function (Blueprint $table) {
+       //-- CREATE --
+       $this->tableCreate(
+        function (Blueprint $table) {
                 $table->increments('id');
                 $table->integer('user_id')->nullable();
                 $table->string('email')->nullable();
@@ -27,9 +27,10 @@ class CreateRestaurantOwnerTable extends XotBaseMigration {
                 $table->string('updated_by')->nullable();
                 $table->timestamps();
             });
-        }
+
         //-- UPDATE --
-        $this->getConn()->table($this->getTable(), function (Blueprint $table) {
+        $this->tableUpdate(
+            function (Blueprint $table) {
             /*
             if (! $this->hasColumn('birthday')) {
                 $table->date('birthday')->nullable();
