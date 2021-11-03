@@ -61,9 +61,6 @@ class CreateCuisineCatMorphTable extends XotBaseMigration {
                 if ($this->hasColumn('related_id')) {
                     $table->renameColumn('related_id', 'cuisine_cat_id');
                 }
-                if ($this->hasColumn('auth_user_id')) {
-                    $table->renameColumn('auth_user_id', 'user_id');
-                }
                 if ($this->hasColumn('auth_user_id') && ! $this->hasColumn('user_id')) {
                     $table->renameColumn('auth_user_id', 'user_id');
                 }
