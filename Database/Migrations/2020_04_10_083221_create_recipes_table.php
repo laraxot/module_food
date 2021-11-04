@@ -24,22 +24,21 @@ class CreateRecipesTable extends XotBaseMigration {
         //-- CREATE --
         $this->tableCreate(
             function (Blueprint $table) {
-                    $table->increments('id'); //->primary();
+                $table->increments('id'); //->primary();
 
-                    $table->string('created_by')->nullable();
-                    $table->string('updated_by')->nullable();
-                    $table->string('deleted_by')->nullable();
+                $table->string('created_by')->nullable();
+                $table->string('updated_by')->nullable();
+                $table->string('deleted_by')->nullable();
 
-                    $table->ipAddress('created_ip')->nullable();
-                    $table->ipAddress('updated_ip')->nullable();
-                    $table->ipAddress('deleted_ip')->nullable();
-                    $table->timestamps();
-                }
-            );
-        }
+                $table->ipAddress('created_ip')->nullable();
+                $table->ipAddress('updated_ip')->nullable();
+                $table->ipAddress('deleted_ip')->nullable();
+                $table->timestamps();
+            }
+        );
 
-         //-- UPDATE --
-         $this->tableUpdate(
+        //-- UPDATE --
+        $this->tableUpdate(
             function (Blueprint $table) {
                 //------- add
                 if (! Schema::hasColumn($this->getTable(), 'created_by')) {
@@ -95,6 +94,4 @@ class CreateRecipesTable extends XotBaseMigration {
             }
         );
     }
-
-
 }
