@@ -7,6 +7,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 //----- models-------
 use Modules\Food\Models\Location as MyModel;
+use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 /**
  * Class CreateLocationsTable.
@@ -39,7 +40,7 @@ class CreateLocationsTable extends XotBaseMigration {
                 $table->string('nearest_street')->nullable();
                 $table->timestamps();
             });
-        }
+        
         //-- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table) {
