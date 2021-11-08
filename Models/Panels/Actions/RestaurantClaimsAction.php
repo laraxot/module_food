@@ -44,12 +44,12 @@ class RestaurantClaimsAction extends XotBasePanelAction {
         //da owner a restaurant (morph ) false
         //da restaurant a owner (morph) true
         $restaurantOwner = RestaurantOwner::query()->create([
-            'auth_user_id' => \Auth::id(),
+            'user_id' => \Auth::id(),
             'email' => $data['restaurantOwner']['email'],
             'phone' => $data['restaurantOwner']['phone'],
         ]);
         $restaurantOwner->save();
-        $restaurantOwner->restaurants()->save($this->panel->getRow(), ['auth_user_id' => \Auth::id(), 'is_reclamed' => 1]);
+        $restaurantOwner->restaurants()->save($this->panel->getRow(), ['user_id' => \Auth::id(), 'is_reclamed' => 1]);
 
         \Session::flash('status', 'Ristorante reclamato');
         $url = $this->panel->url(['act' => 'show']);

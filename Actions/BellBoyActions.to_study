@@ -15,7 +15,7 @@ class BellBoyActions {
 
     public function promote(User $user): void {
         $bell_boy_data = factory(BellBoy::class)->raw();
-        $bell_boy_data['auth_user_id'] = $user->auth_user_id;
+        $bell_boy_data['user_id'] = $user->user_id;
 
         $bell_boy = $this->repository->promote($bell_boy_data);
     }

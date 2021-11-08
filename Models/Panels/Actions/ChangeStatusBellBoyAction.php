@@ -27,14 +27,14 @@ class ChangeStatusBellBoyAction extends XotBasePanelAction {
 
     public string $icon = '<i class="fas fa-motorcycle"></i>';
 
-    public ?int $auth_user_id;
+    public ?int $user_id;
 
     /**
      * @return mixed
      */
     public function handle() {
         /*
-        //return 'preso ['.$this->auth_user_id.']';
+        //return 'preso ['.$this->user_id.']';
         $view = ThemeService::getView().'.'.$this->getName();
         $id = request()->input('id');
         $bellboy = BellBoy::find($id);

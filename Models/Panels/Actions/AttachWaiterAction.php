@@ -56,15 +56,15 @@ class AttachWaiterAction extends XotBasePanelAction {
         /*
         $profile = $user->profile;
         */
-        $profile = Profile::query()->where('auth_user_id', Auth::id())->first();
+        $profile = Profile::query()->where('user_id', Auth::id())->first();
         //dddx($profile);
 
-        $data['auth_user_id'] = $profile->auth_user_id;
+        $data['user_id'] = $profile->user_id;
         $data['phone'] = $profile->phone;
 
         $waiter = $profile->waiter()->updateOrCreate(
-            ['auth_user_id' => $data['auth_user_id']],
-            ['auth_user_id' => $profile->auth_user_id, 'email' => $user->email, 'phone' => $profile->phone]
+            ['user_id' => $data['user_id']],
+            ['user_id' => $profile->user_id, 'email' => $user->email, 'phone' => $profile->phone]
         );
 
         $restaurant = $this->row;
@@ -75,7 +75,7 @@ class AttachWaiterAction extends XotBasePanelAction {
         if (! $restaurant->waiters->contains('id', $waiter->id)) {
             \Session::flash('status', 'Operazione riuscita');
 
-            $restaurant->waiters()->save($waiter, ['auth_user_id' => $waiter->auth_user_id]);
+            $restaurant->waiters()->save($waiter, ['user_id' => $waiter->user_id]);
         } else {
             \Session::flash('status_error', 'Hai già questo cameriere');
         }

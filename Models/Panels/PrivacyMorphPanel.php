@@ -53,7 +53,7 @@ class PrivacyMorphPanel extends XotBasePanel {
             ],
             (object) [
                 'type' => 'Text',
-                'name' => 'auth_user_id',
+                'name' => 'user_id',
                 'comment' => 'not in Doctrine',
             ],
             (object) [

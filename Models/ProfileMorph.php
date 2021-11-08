@@ -18,7 +18,7 @@ class ProfileMorph extends BaseMorphPivot {
      */
     protected $fillable = [
         'id', 'post_id', 'post_type', 'profile_id', 'related_type', //-- testare se toglierli
-        'auth_user_id',
+        'user_id',
         'title', 'value',
     ];
 }

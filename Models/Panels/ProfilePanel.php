@@ -178,7 +178,7 @@ class ProfilePanel extends XotBasePanel {
         $post_data = [
             'title' => $row->user->handle,
             'guid' => Str::slug($row->user->handle),
-            'auth_user_id' => $user->auth_user_id,
+            'user_id' => $user->user_id,
             'lang' => app()->getLocale(),
         ];
 
@@ -210,7 +210,7 @@ class ProfilePanel extends XotBasePanel {
     public function avatar($size = 100) {
         $user = $this->row->user;
         if (! is_object($user)) {
-            if (isset($this->row->auth_user_id) && method_exists($this->row, 'user')) {
+            if (isset($this->row->user_id) && method_exists($this->row, 'user')) {
                 $this->row->user()->create();
             }
             //dddx($this->row);

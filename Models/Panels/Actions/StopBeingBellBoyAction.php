@@ -25,7 +25,7 @@ class StopBeingBellBoyAction extends XotBasePanelAction {
 
     public string $icon = '<i class="fas fa-motorcycle"></i>';
 
-    public ?int $auth_user_id;
+    public ?int $user_id;
 
     /**
      * @return mixed
@@ -45,8 +45,8 @@ class StopBeingBellBoyAction extends XotBasePanelAction {
     public function postHandle(): void {
         echo 'confirmed ['.request()->confirmed.']';
         if (request()->confirmed) {
-            BellBoy::query()->where('auth_user_id', Auth::id())->delete();
-            RestaurantMorph::query()->where('auth_user_id', Auth::id())->delete();
+            BellBoy::query()->where('user_id', Auth::id())->delete();
+            RestaurantMorph::query()->where('user_id', Auth::id())->delete();
         }
     }
 

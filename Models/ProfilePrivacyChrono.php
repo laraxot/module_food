@@ -8,7 +8,7 @@ namespace Modules\Food\Models;
  * Modules\Food\Models\ProfilePrivacyChrono.
  *
  * @property int                             $id
- * @property int|null                        $auth_user_id
+ * @property int|null                        $user_id
  * @property string|null                     $created_by
  * @property string|null                     $updated_by
  * @property string|null                     $created_ip
@@ -41,5 +41,5 @@ class ProfilePrivacyChrono extends BaseModel {
     /**
      * @var string[]
      */
-    protected $fillable = ['auth_user_id', 'checkbox_position', 'checkbox_value', 'checkbox_label'];
+    protected $fillable = ['user_id', 'checkbox_position', 'checkbox_value', 'checkbox_label'];
 }

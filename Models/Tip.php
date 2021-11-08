@@ -11,7 +11,7 @@ use Modules\Xot\Models\XotBaseModel;
  * Modules\Food\Models\Tip.
  *
  * @property int                             $id
- * @property int                             $auth_user_id
+ * @property int                             $user_id
  * @property string|null                     $post_type
  * @property int|null                        $post_id
  * @property string                          $note
@@ -45,7 +45,7 @@ class Tip extends XotBaseModel {
     /**
      * @var string[]
      */
-    protected $fillable = ['id', 'auth_user_id', 'note', 'post_id', 'post_type', 'created_by', 'updated_by'];
+    protected $fillable = ['id', 'user_id', 'note', 'post_id', 'post_type', 'created_by', 'updated_by'];
     /**
      * @var string[]
      */
@@ -80,7 +80,7 @@ class Tip extends XotBaseModel {
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user() {
-        return $this->belongsTo(User::class, 'auth_user_id', 'auth_user_id');
+        return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 
     /**
@@ -89,7 +89,7 @@ class Tip extends XotBaseModel {
     public function profile() {
         $profile_class = config('xra.model.profile');
 
-        return $this->belongsTo($profile_class, 'auth_user_id', 'auth_user_id');
+        return $this->belongsTo($profile_class, 'user_id', 'user_id');
     }
 
     /**

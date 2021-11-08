@@ -62,7 +62,7 @@ class AddItemCartAction extends XotBasePanelAction {
             'pivot_id' => $recipe->pivot->id,
             'price' => $recipe->pivot->price,
             'qty' => $data['qty'],
-            'auth_user_id' => \Auth::id(),
+            'user_id' => \Auth::id(),
         ];
 
         $item_vars = [];
@@ -85,7 +85,7 @@ class AddItemCartAction extends XotBasePanelAction {
                         'pivot_id' => $ingredient->pivot->id,
                         'price' => $ingredient->pivot->price,
                         'qty' => $qty,
-                        'auth_user_id' => \Auth::id(),
+                        'user_id' => \Auth::id(),
                     ];
                     if (-1 == $tmp->qty) {
                         $tmp->price = 0; //se tolgo, il cliente non ha sconti
@@ -100,7 +100,7 @@ class AddItemCartAction extends XotBasePanelAction {
         if (! isset($data['cart_id'])) {
             //return 'cart non creato dal ristoratore';
             $cart = $shop->myCartWithThisRestaurant()
-                ->firstOrCreate(['auth_user_id' => \Auth::id(), 'status' => 1]);
+                ->firstOrCreate(['user_id' => \Auth::id(), 'status' => 1]);
         } else {
             //return 'cart creato dal ristoratore';
             $cart = Cart::find($data['cart_id']);

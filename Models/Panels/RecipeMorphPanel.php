@@ -51,7 +51,7 @@ class RecipeMorphPanel extends XotBasePanel {
             /*
           (object) array(
              'type' => 'Integer',
-             'name' => 'auth_user_id',
+             'name' => 'user_id',
           ),
           */
             (object) [

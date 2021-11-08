@@ -16,7 +16,7 @@ use Modules\Xot\Traits\Updater;
  * @property int|null                        $post_id
  * @property string|null                     $related_type
  * @property int|null                        $ingredient_id
- * @property int|null                        $auth_user_id
+ * @property int|null                        $user_id
  * @property string|null                     $price
  * @property string|null                     $price_currency
  * @property string|null                     $note
@@ -54,7 +54,7 @@ class IngredientMorph extends BaseMorphPivot {
         'id',
         'post_id', 'post_type',
         'ingredient_id', 'related_type',
-        'auth_user_id',
+        'user_id',
         'price', 'price_currency',
     ];
     /*

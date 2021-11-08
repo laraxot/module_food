@@ -65,7 +65,7 @@ class ChangeStatusBellBoys extends Component {
      */
     public function edit($id) {
         $this->updateMode = true;
-        $user = User::query()->where('auth_user_id', $id)->first();
+        $user = User::query()->where('user_id', $id)->first();
 
         $this->user_id = $id;
         $this->first_name = $user->first_name;

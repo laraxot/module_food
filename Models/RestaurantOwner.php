@@ -12,7 +12,7 @@ use Modules\LU\Models\Traits\HasProfileTrait;
  *
  * @property int                                                                      $id
  * @property int|null                                                                 $status
- * @property int|null                                                                 $auth_user_id
+ * @property int|null                                                                 $user_id
  * @property string|null                                                              $created_by
  * @property string|null                                                              $updated_by
  * @property string|null                                                              $deleted_by
@@ -155,7 +155,7 @@ use Modules\LU\Models\Traits\HasProfileTrait;
  * @property int|null                                                                   $restaurants_count
  */
 class RestaurantOwner extends BaseModelLang {
-    //protected $primaryKey = 'auth_user_id';
+    //protected $primaryKey = 'user_id';
     use HasProfileTrait;
     use GeoTrait;
 
@@ -163,21 +163,21 @@ class RestaurantOwner extends BaseModelLang {
      * @var string[]
      */
     protected $fillable = ['id', 'phone', 'email', 'vehicle_type', 'vehicle_model',
-        'auth_user_id',
+        'user_id',
     ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
     public function restaurants() {
-        return $this->morphRelated(Restaurant::class, false); //, 'auth_user_id');
+        return $this->morphRelated(Restaurant::class, false); //, 'user_id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
     public function privacies() {
-        return $this->morphRelated(\Modules\Blog\Models\Privacy::class, false); //, 'auth_user_id');
+        return $this->morphRelated(\Modules\Blog\Models\Privacy::class, false); //, 'user_id');
     }
 
     public function getPostTypeAttribute(?string $value): string {

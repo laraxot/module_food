@@ -21,25 +21,25 @@ class CreateRecipesTable extends XotBaseMigration {
     */
 
     public function up(): void {
-        if (! Schema::hasTable($this->getTable())) {
-            Schema::create(
-                $this->getTable(), function (Blueprint $table) {
-                    $table->increments('id'); //->primary();
+        //-- CREATE --
+        $this->tableCreate(
+            function (Blueprint $table) {
+                $table->increments('id'); //->primary();
 
-                    $table->string('created_by')->nullable();
-                    $table->string('updated_by')->nullable();
-                    $table->string('deleted_by')->nullable();
+                $table->string('created_by')->nullable();
+                $table->string('updated_by')->nullable();
+                $table->string('deleted_by')->nullable();
 
-                    $table->ipAddress('created_ip')->nullable();
-                    $table->ipAddress('updated_ip')->nullable();
-                    $table->ipAddress('deleted_ip')->nullable();
-                    $table->timestamps();
-                }
-            );
-        }
+                $table->ipAddress('created_ip')->nullable();
+                $table->ipAddress('updated_ip')->nullable();
+                $table->ipAddress('deleted_ip')->nullable();
+                $table->timestamps();
+            }
+        );
 
-        Schema::table(
-            $this->getTable(), function (Blueprint $table) {
+        //-- UPDATE --
+        $this->tableUpdate(
+            function (Blueprint $table) {
                 //------- add
                 if (! Schema::hasColumn($this->getTable(), 'created_by')) {
                     $table->string('created_by')->nullable();
@@ -93,9 +93,5 @@ class CreateRecipesTable extends XotBaseMigration {
                 }
             }
         );
-    }
-
-    public function down(): void {
-        Schema::dropIfExists($this->getTable());
     }
 }

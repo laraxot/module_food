@@ -20,7 +20,7 @@ class DetachBellBoyAction extends XotBasePanelAction {
 
     public string $icon = '<i class="fas fa-motorcycle"></i>';
 
-    public ?int $auth_user_id;
+    public ?int $user_id;
 
     /**
      * @var string
@@ -30,10 +30,10 @@ class DetachBellBoyAction extends XotBasePanelAction {
     /**
      * DetachBellBoyAction constructor.
      *
-     * @param int $auth_user_id
+     * @param int $user_id
      */
-    public function __construct($auth_user_id) {
-        $this->auth_user_id = $auth_user_id;
+    public function __construct($user_id) {
+        $this->user_id = $user_id;
     }
 
     /**
@@ -57,7 +57,7 @@ class DetachBellBoyAction extends XotBasePanelAction {
      */
     public function postHandle() {
         $restaurant = $this->panel->getRow();
-        $restaurant->bellBoys()->wherePivot('auth_user_id', $this->auth_user_id)->detach();
+        $restaurant->bellBoys()->wherePivot('user_id', $this->user_id)->detach();
 
         //return ' bell boy scollegato';
 

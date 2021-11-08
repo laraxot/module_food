@@ -23,7 +23,7 @@ use Modules\Blog\Models\PostRelated;
 class CartItem extends BaseModel {
     protected $fillable = [
         'post_id', 'post_type',
-        'auth_user_id', 'sess_id', //se e' loggato e' collegato con auth_user_id, se no con la sessione
+        'user_id', 'sess_id', //se e' loggato e' collegato con user_id, se no con la sessione
         'pivot_id', 'qty', 'parent_id',
     ];
 

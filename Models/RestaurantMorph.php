@@ -19,7 +19,7 @@ use Modules\Blog\Models\Label;
  * @property int|null                        $post_id
  * @property string|null                     $related_type
  * @property int|null                        $restaurant_id
- * @property int|null                        $auth_user_id
+ * @property int|null                        $user_id
  * @property string|null                     $note
  * @property string|null                     $created_by
  * @property string|null                     $updated_by
@@ -61,7 +61,7 @@ class RestaurantMorph extends BaseMorphPivot {
         'id',
         'post_id', 'post_type',
         'related_type',
-        'auth_user_id',
+        'user_id',
         'note',
         'status',
     ];

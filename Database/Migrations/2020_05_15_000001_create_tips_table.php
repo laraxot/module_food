@@ -7,9 +7,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 /**
- * Class CreateWaiterTable.
+ * Class CreateTipsTable.
  */
-class CreateWaiterTable extends XotBaseMigration {
+class CreateTipsTable extends XotBaseMigration {
     /**
      * Run the migrations.
      *
@@ -17,22 +17,21 @@ class CreateWaiterTable extends XotBaseMigration {
      */
     public function up(): void {
         //-- CREATE --
-        if (! $this->tableExists()) {
-            $this->getConn()->create($this->getTable(),
+        //-- CREATE --
+        $this->tableCreate(
             function (Blueprint $table) {
                 $table->increments('id');
-                $table->integer('auth_user_id')->nullable();
-                $table->string('email')->nullable();
-                $table->string('phone', 50)->nullable();
+                $table->integer('user_id');
+                $table->nullableMorphs('post');
+                $table->text('note');
                 $table->string('created_by')->nullable();
                 $table->string('updated_by')->nullable();
                 $table->timestamps();
-            }
-        );
-        }
-        //-- UPDATE --
-        $this->getConn()->table($this->getTable(),
-        function (Blueprint $table) {
+            });
+
+         //-- UPDATE --
+         $this->tableUpdate(
+            function (Blueprint $table) {
             /*
             if (! $this->hasColumn('birthday')) {
                 $table->date('birthday')->nullable();
@@ -42,8 +41,10 @@ class CreateWaiterTable extends XotBaseMigration {
                 $table->string('vehicle_model')->nullable();
             }
             */
-        }
-    );
+            if ($this->hasColumn('auth_user_id')) {
+                $table->renameColumn('auth_user_id', 'user_id');
+            }
+        });
     }
 
     //end up

@@ -23,24 +23,24 @@ class CreateIngredientCatsTable extends XotBaseMigration {
      * Run the migrations.
      */
     public function up(): void {
-        if (! Schema::hasTable($this->getTable())) {
-            Schema::create(
-                $this->getTable(), function (Blueprint $table) {
-                    $table->increments('id'); //->primary();
-                    $table->string('created_by')->nullable();
-                    $table->string('updated_by')->nullable();
-                    $table->string('deleted_by')->nullable();
-                    $table->ipAddress('created_ip')->nullable();
-                    $table->ipAddress('updated_ip')->nullable();
-                    $table->ipAddress('deleted_ip')->nullable(); //$table->ipAddress('visitor');    IP address equivalent column.
-                    $table->timestamps();
-                    $table->softDeletes();
-                }
-            );
+        //-- CREATE --
+        $this->tableCreate(
+        function (Blueprint $table) {
+            $table->increments('id'); //->primary();
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
+            $table->string('deleted_by')->nullable();
+            $table->ipAddress('created_ip')->nullable();
+            $table->ipAddress('updated_ip')->nullable();
+            $table->ipAddress('deleted_ip')->nullable(); //$table->ipAddress('visitor');    IP address equivalent column.
+            $table->timestamps();
+            $table->softDeletes();
         }
+            );
 
-        Schema::table(
-            $this->getTable(), function (Blueprint $table) {
+        //-- UPDATE --
+        $this->tableUpdate(
+            function (Blueprint $table) {
                 if (! Schema::hasColumn($this->getTable(), 'created_by')) {
                     $table->string('created_by')->nullable();
                 }
@@ -82,14 +82,5 @@ class CreateIngredientCatsTable extends XotBaseMigration {
                 }
             }
         );
-    }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void {
-        if (Schema::hasTable($this->getTable())) {
-            Schema::drop($this->getTable());
-        }
     }
 }

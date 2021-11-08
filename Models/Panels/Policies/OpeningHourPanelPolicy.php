@@ -20,7 +20,7 @@ class OpeningHourPanelPolicy extends XotBasePanelPolicy {
     public function edit(UserContract $user, PanelContract $panel): bool {
         /*
         //return true;
-        if ($post->created_by == $user->handle || $post->updated_by == $user->handle || $post->auth_user_id == $user->auth_user_id) {
+        if ($post->created_by == $user->handle || $post->updated_by == $user->handle || $post->user_id == $user->user_id) {
             return true;
         }
 

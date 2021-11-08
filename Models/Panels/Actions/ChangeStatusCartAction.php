@@ -27,7 +27,7 @@ class ChangeStatusCartAction extends XotBasePanelAction {
     public string $icon = '<i class="fas fa-motorcycle"></i>';
 
     public function handle() {
-        //return 'preso ['.$this->auth_user_id.']';
+        //return 'preso ['.$this->user_id.']';
         $view = ThemeService::getView().'.'.$this->getName();
         $params = request()->all();
         extract($params);

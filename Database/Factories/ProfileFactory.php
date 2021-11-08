@@ -30,7 +30,7 @@ class ProfileFactory extends Factory {
         return [
             //'title' => $faker->sentence,
             //'description' => $faker->paragraph,
-            //'auth_user_id' => factory(User::class)->create()->auth_user_id,
+            //'user_id' => factory(User::class)->create()->user_id,
             'user' => [
                 'first_name' => $faker->firstName,
                 'last_name' => $faker->lastName,

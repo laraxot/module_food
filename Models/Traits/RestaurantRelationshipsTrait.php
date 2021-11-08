@@ -57,12 +57,12 @@ trait RestaurantRelationshipsTrait {
     }
 
     /**
-     * @param int $auth_user_id
+     * @param int $user_id
      *
      * @return bool
      */
-    public function isBellBoyAuthID($auth_user_id) {
-        $bell_boy_count = $this->bellBoys()->wherePivot('auth_user_id', $auth_user_id)->count();
+    public function isBellBoyAuthID($user_id) {
+        $bell_boy_count = $this->bellBoys()->wherePivot('user_id', $user_id)->count();
 
         return $bell_boy_count > 0;
     }
@@ -71,7 +71,7 @@ trait RestaurantRelationshipsTrait {
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
     public function bellBoys() {
-        return $this->morphRelated(BellBoy::class, true); //, 'auth_user_id');
+        return $this->morphRelated(BellBoy::class, true); //, 'user_id');
     }
 
     /**
@@ -79,8 +79,8 @@ trait RestaurantRelationshipsTrait {
      */
     public function bellboys_hasmanydeep() {
         //return $this->morphRelated(Profile::class, true);
-        $foreignKeys = ['related_id', 'post_id', 'auth_user_id'];
-        $localKeys = ['post_id', 'post_id', 'auth_user_id'];
+        $foreignKeys = ['related_id', 'post_id', 'user_id'];
+        $localKeys = ['post_id', 'post_id', 'user_id'];
 
         return $this->hasManyDeep(BellBoy::class, [RestaurantMorph::class, Profile::class], $foreignKeys, $localKeys)
             ->withIntermediate(RestaurantMorph::class);
@@ -89,13 +89,13 @@ trait RestaurantRelationshipsTrait {
     public function hasBellBoy(array $params): bool {
         extract($params);
 
-        if (! isset($auth_user_id)) {
-            dddx(['err' => 'missing auth_user_id']);
+        if (! isset($user_id)) {
+            dddx(['err' => 'missing user_id']);
 
             return false;
         }
 
-        $row = $this->bellBoys()->where('bell_boys.auth_user_id', $auth_user_id)->first();
+        $row = $this->bellBoys()->where('bell_boys.user_id', $user_id)->first();
 
         return is_object($row);
     }
@@ -117,7 +117,7 @@ trait RestaurantRelationshipsTrait {
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
     public function cartsByRestaurantOwner() {
-        return $this->carts()->where('auth_user_id', null);
+        return $this->carts()->where('user_id', null);
     }
 
     /**
@@ -135,10 +135,10 @@ trait RestaurantRelationshipsTrait {
      */
     public function myCartWithThisRestaurant() { //sarebbe un mycarts
         //$rows = $this->hasMany(Cart::class, 'post_id', 'post_id')->where('post_type', $this->post_type) //polimorfica
-        //                ->where('auth_user_id', \Auth::id()) //nella parte "pubblica" mostro solo quelli dell'utente
+        //                ->where('user_id', \Auth::id()) //nella parte "pubblica" mostro solo quelli dell'utente
         //                ;
         $rows = $this->morphOne(Cart::class, 'shop')
-            ->where('auth_user_id', Auth::id())
+            ->where('user_id', Auth::id())
             //->where('status',)
         ;
 
@@ -148,7 +148,7 @@ trait RestaurantRelationshipsTrait {
     /*
     public function myTablesWithThisRestaurant() {
         $rows = $this->morphMany(Table::class, 'shop')
-        ->where('auth_user_id', \Auth::id())
+        ->where('user_id', \Auth::id())
         //->where('status',)
         ;
 
@@ -290,14 +290,14 @@ trait RestaurantRelationshipsTrait {
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
     public function restaurantOwners() {
-        return $this->morphRelated(RestaurantOwner::class, true); //, 'auth_user_id');
+        return $this->morphRelated(RestaurantOwner::class, true); //, 'user_id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
     public function waiters() {
-        return $this->morphRelated(Waiter::class, true); //, 'auth_user_id');
+        return $this->morphRelated(Waiter::class, true); //, 'user_id');
     }
 
     /**

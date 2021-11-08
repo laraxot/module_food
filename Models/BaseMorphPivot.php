@@ -46,7 +46,7 @@ abstract class BaseMorphPivot extends MorphPivot {
         'id',
         'post_id', 'post_type',
         'related_type',
-        'auth_user_id',
+        'user_id',
         'note',
     ];
 }
