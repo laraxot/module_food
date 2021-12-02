@@ -15,4 +15,8 @@ class HomePanelPolicy extends XotBasePanelPolicy {
     public function artisan(?UserContract $user, PanelContract $panel): bool {
         return true;
     }
+
+    public function home(UserContract $user, PanelContract $panel): bool {
+        return true;
+    }
 }
