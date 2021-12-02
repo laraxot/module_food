@@ -8,6 +8,7 @@ use Modules\Blog\Models\Home as BaseHomeModel;
 use Modules\Xot\Models\Traits\WidgetTrait;
 use Modules\Xot\Relations\CustomRelation;
 use Modules\Xot\Traits\HasCustomRelations;
+use Sushi\Sushi;
 
 /**
  * Modules\Food\Models\Home.
@@ -65,12 +66,21 @@ use Modules\Xot\Traits\HasCustomRelations;
  */
 class Home extends BaseHomeModel {
     use WidgetTrait;
+    use Sushi;
     //use HasCustomRelations;
 
     /**
      * @var string[]
      */
     protected $fillable = ['id', 'article_type', 'icon_src'];
+
+    protected $rows = [
+        [
+            'id' => 'home',
+            'name' => 'New York',
+            'lang' => 'it', //Constant expression contains invalid operations
+        ],
+    ];
 
     //--- relationships ----
 
