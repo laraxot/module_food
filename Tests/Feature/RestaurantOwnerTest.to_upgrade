@@ -67,7 +67,7 @@ class RestaurantOwnerTest extends TestCase {
         $restaurant = Restaurant::inRandomOrder()->first(); //prendo un ristorante di partenza
         $restaurant_panel = Panel::get($restaurant);
 
-        $url = route('container0.show', ['lang' => 'it', 'container0' => 'restaurant', 'item0' => $restaurant->guid]);
+        $url = route('containers.show', ['lang' => 'it', 'container0' => 'restaurant', 'item0' => $restaurant->guid]);
         //dddx($url);
         $response = $this->actingAs($user)->get($url);
 
