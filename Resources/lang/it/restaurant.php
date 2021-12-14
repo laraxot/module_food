@@ -870,7 +870,7 @@ return [
         'map' => 'Dove Siamo',
         'about' => 'Chi siamo',
         'gallery' => 'Album',
-        'amenities' => 'Servizi',
+
         'reviews' => 'Valutazione',
         'send_message' => 'Invia Messaggio',
     ],

@@ -1,9 +1,0 @@
-<?php
-
-namespace Modules\Food\Models;
-
-use Modules\Blog\Models\Amenity as BaseAmenityModel;
-
-class Amenity extends BaseAmenityModel {
-    
-}//end model
