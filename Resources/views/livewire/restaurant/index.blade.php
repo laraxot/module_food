@@ -26,7 +26,7 @@
 
             @include('pub_theme::layouts.default.index.item',
             --}}
-            @livewire('food::restaurant.index_item',
+            @livewire('food::restaurant.index-item',
             [
             'row'=>$row,
             //'row_panel'=>(Panel::get($row)->setParent($_panel->getParent()))
