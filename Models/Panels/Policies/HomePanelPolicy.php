@@ -22,4 +22,8 @@ class HomePanelPolicy extends XotBasePanelPolicy {
     public function home(?UserContract $user, PanelContract $panel): bool {
         return true;
     }
+
+    public function dashboard(UserContract $user, PanelContract $panel): bool {
+        return true; //da aggiungere pezzi
+    }
 }
