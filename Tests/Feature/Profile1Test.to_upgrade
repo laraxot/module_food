@@ -54,7 +54,7 @@ class Profile1Test extends TestCase {
         if (! $this->init) {
             $this->init();
         }
-        $url = $this->panel->url(['act'=>'show']);
+        $url = $this->panel->url('show');
         $response = $this->get($url);
         echo PHP_EOL.' url: '.$url.' status: '.$response->status().'  str: '.$this->row->title;
         $response->assertSee($this->row->title)
