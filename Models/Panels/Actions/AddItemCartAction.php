@@ -112,7 +112,7 @@ class AddItemCartAction extends XotBasePanelAction {
         if (! isset($data['cart_id'])) {
             $url = Panel::get($shop)
                 ->relatedName('cuisine')
-                ->url(['act' => 'index']);
+                ->url('index');
 
         //return redirect($url);
         } else {

@@ -3,7 +3,7 @@
         <div style="background-image: url({{ $row_panel->imgSrc(['width' => 300, 'height' => 200]) }}); min-height: 200px;"
             class="card-img-top overflow-hidden dark-overlay bg-cover">
             <!--img.img-fluid(src="#{imgBasePath}#{val.image}" alt="#{val.name}")-->
-            <a href="{{ $row_panel->url(['act' => 'show']) }}" class="tile-link"></a>
+            <a href="{{ $row_panel->url('show') }}" class="tile-link"></a>
             <div class="card-img-overlay-bottom z-index-20">
                 <h4 class="text-white text-shadow">
 

@@ -29,7 +29,7 @@
                         @endif
                         <td class="pr-0 text-right border-0">
                             {{ substr($v->open_at, 0, -3) }} - {{ substr($v->close_at, 0, -3) }}
-                            {{ Panel::get($v)->setParent($restaurant_panel)->url(['act' => 'edit']) }}
+                            {{ Panel::get($v)->setParent($restaurant_panel)->url('edit') }}
                             {!! Form::bsBtnCrud(['row' => $v]) !!}
                         </td>
                     @endforeach
