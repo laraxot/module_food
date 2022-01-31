@@ -413,4 +413,15 @@ class Profile extends BaseProfile {
         }
     );
     }
+
+    protected function name(): Attribute {
+        return new Attribute(
+        function ($value) {
+            return 'paperino'; // raw tax
+        },
+        function ($value) {
+            return 'paperino'; // computed tax
+        }
+    );
+    }
 }
