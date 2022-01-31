@@ -402,26 +402,31 @@ class Profile extends BaseProfile {
         );
     }
     */
-
+    /**
+     * Undocumented function.
+     */
     protected function username(): Attribute {
         return new Attribute(
-        function ($value) {
-            return 'paperino'; // raw tax
-        },
-        function ($value) {
-            return 'paperino'; // computed tax
-        }
-    );
+            function ($value) {
+                return 'paperino'; // raw tax
+            },
+            function ($value) {
+                return 'paperino'; // computed tax
+            }
+        );
     }
 
+    /**
+     * Undocumented function.
+     */
     protected function name(): Attribute {
         return new Attribute(
-        function ($value) {
-            return 'paperino'; // raw tax
-        },
-        function ($value) {
-            return 'paperino'; // computed tax
-        }
-    );
+            function ($value) {
+                return 'paperino'; // raw tax
+            },
+            function ($value) {
+                return 'paperino'; // computed tax
+            }
+        );
     }
 }
