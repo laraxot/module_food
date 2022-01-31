@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models;
 
+use Modules\Cart\Models\Cart;
+use Modules\Geo\Models\Place;
 use Modules\Blog\Models\Event;
 use Modules\Blog\Models\Photo;
-use Modules\Blog\Models\Profile as BaseProfile;
-use Modules\Cart\Models\Cart;
-use Modules\Food\Contracts\ShopContract;
-use Modules\Geo\Models\Place;
 use Modules\Rating\Models\Rating;
+use Modules\Food\Contracts\ShopContract;
+use Modules\Blog\Models\Profile as BaseProfile;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 /**
  * Modules\Food\Models\Profile.
@@ -388,4 +389,17 @@ class Profile extends BaseProfile {
             return 'ND';
         }
     }
+
+    /**
+     * Get the order tax.
+     */
+    protected function username(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value) => 'paperino', // accessor
+            set: fn ($value) => 'paperino', // mutator
+        );
+    }
+
+
 }
