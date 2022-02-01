@@ -29,6 +29,7 @@ use Modules\Food\Models\RestaurantMorph;
 use Modules\Food\Models\RestaurantOwner;
 use Modules\Food\Models\RestaurantProvider;
 //use Modules\Food\Models\Table;
+use Modules\Food\Models\Tip;
 use Modules\Food\Models\Waiter; //--- potrebbe essere in un shop qualsiasi..
 
 /**
@@ -304,9 +305,9 @@ trait RestaurantRelationshipsTrait {
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
     public function tips() {
-        $tip_class = config('xra.model.tip');
+        //$tip_class = config('xra.model.tip');
 
-        return $this->morphMany($tip_class, 'post');
+        return $this->morphMany(Tip::class, 'post');
     }
 
     ///------------------------------------
