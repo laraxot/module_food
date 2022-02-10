@@ -13,7 +13,7 @@ namespace Modules\Food\Models;
 //use Modules\Extend\Traits\CrudSimpleTrait as CrudTrait;
 
 use Modules\Extend\Traits\Updater;
-use Modules\Xot\Models\Traits\LinkedTrait;
+use Modules\Lang\Models\Traits\LinkedTrait;
 */
 class Contact extends BaseModel {
     //use Updater;

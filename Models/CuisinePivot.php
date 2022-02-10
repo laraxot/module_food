@@ -10,7 +10,7 @@ namespace Modules\Food\Models;
 //--- services
 //--------- models --------
 //use Modules\Extend\Traits\Updater;
-//use Modules\Xot\Models\Traits\LinkedTrait;
+//use Modules\Lang\Models\Traits\LinkedTrait;
 
 class CuisinePivot extends BaseModel {
     /*

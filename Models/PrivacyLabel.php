@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Blog\Models\Post;
 //------ traits ----
 use Modules\Extend\Traits\Updater;
-use Modules\Xot\Models\Traits\LinkedTrait;
+use Modules\Lang\Models\Traits\LinkedTrait;
 */
 class PrivacyLabel extends BaseModel {
     //use Updater;

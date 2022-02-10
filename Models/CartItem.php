@@ -10,7 +10,7 @@ namespace Modules\Food\Models;
 //--- services
 //use Modules\Extend\Traits\Updater;
 //--- TRAITS ---
-//use Modules\Xot\Models\Traits\LinkedTrait;
+//use Modules\Lang\Models\Traits\LinkedTrait;
 //----- models -----
 use Modules\Blog\Models\PostRelated;
 
