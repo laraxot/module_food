@@ -29,7 +29,7 @@
             @livewire('food::restaurant.index-item',
             [
             'row'=>$row,
-            //'row_panel'=>(Panel::get($row)->setParent($_panel->getParent()))
+            //'row_panel'=>(Panel::make()->get($row)->setParent($_panel->getParent()))
             ],key($row->id)
 
             )

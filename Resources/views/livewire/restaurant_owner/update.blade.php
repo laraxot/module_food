@@ -14,7 +14,7 @@
 
                     {!! $bell_boy->statusHtml !!}
                     @for($i=0;$i<5;$i++)
-                        @can('changeStatus'.$i,Panel::get($bell_boy))
+                        @can('changeStatus'.$i,Panel::make()->get($bell_boy))
                             <button type="button" wire:click.prevent="changeStatus({{ $bell_boy->id }},{{ $i }})" class="btn btn-secondary" data-dismiss="modal">
                                 @lang('food::bell_boy.status.'.$i)
                             </button>

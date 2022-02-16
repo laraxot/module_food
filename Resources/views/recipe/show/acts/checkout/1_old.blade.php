@@ -2,7 +2,7 @@
 //dddx(get_defined_vars());
 $cart=$row;
 $cart_items = $cart->items;
-$cart_panel = Panel::get($cart);
+$cart_panel = Panel::make()->get($cart);
 //dddx($cart_items);
 @endphp
 @extends('pub_theme::layouts.app')
@@ -70,7 +70,7 @@ $cart_panel = Panel::get($cart);
 											--}}
 											<td>{{ $item->subtotal_currency }}</td>
 											@php
-											$item_panel = Panel::get($item)->setParent($cart_panel);
+											$item_panel = Panel::make()->get($item)->setParent($cart_panel);
 											@endphp
 											<td>
 												{{-- DA RIVEDERE, FORSE NON FUNZIONA --}}
@@ -107,7 +107,7 @@ $cart_panel = Panel::get($cart);
 												</td>
 												<td>{{ $var_item->subtotal_currency }}</td>
 												@php
-												$var_item_panel = Panel::get($var_item)->setParent($item_panel);
+												$var_item_panel = Panel::make()->get($var_item)->setParent($item_panel);
 												//dddx($var_item_panel);
 												@endphp
 												<td>
@@ -161,7 +161,7 @@ $cart_panel = Panel::get($cart);
 						<div class="box-footer d-flex justify-content-between flex-column flex-lg-row">
 							<div class="left">
 								@php
-									$restaurant_panel = Panel::get($cart->shop);
+									$restaurant_panel = Panel::make()->get($cart->shop);
 								@endphp
 								{!! $restaurant_panel->relatedName('cuisine')
 									->btnHtml([

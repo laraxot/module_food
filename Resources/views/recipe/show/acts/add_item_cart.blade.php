@@ -4,7 +4,7 @@
     //dddx(get_defined_vars());
     $recipe_panel=$_panel;
     $recipe=$_panel->getRow();
-    //$recipe_panel=Panel::get($row);
+    //$recipe_panel=Panel::make()->get($row);
     $ingredientCats=$recipe->ingredientCats;
     //dddx($ingredientCats);
 
@@ -28,7 +28,7 @@
     {{ Form::bsTextarea('note') }}
         @foreach($ingredientCats as $ingredient_cat)
             @php
-            $ingredient_cat_panel=Panel::get($ingredient_cat);
+            $ingredient_cat_panel=Panel::make()->get($ingredient_cat);
             @endphp
             {!! Theme::include('ingredient_cat.item',[
                     'ingredient_cat'=>$ingredient_cat,

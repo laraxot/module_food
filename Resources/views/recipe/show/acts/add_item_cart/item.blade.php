@@ -11,7 +11,7 @@
 
                         @foreach($ingredient_cat->ingredients as $ingredient)
                         @php
-                            $ingredient_panel=Panel::get($ingredient)
+                            $ingredient_panel=Panel::make()->get($ingredient)
                         @endphp
                         @include($view.'.ingredient_cat.ingredient.item',
                             [

@@ -29,7 +29,7 @@ class BellBoyTest extends TestCase {
         //$restaurant = Restaurant::inRandomOrder()->first(); //ristorante a caso
         $restaurant = Restaurant::where('id', 4)->first();
 
-        $restaurant_panel = Panel::get($restaurant);
+        $restaurant_panel = Panel::make()->get($restaurant);
         $route_params = ['lang' => 'it', 'container0' => 'restaurant', 'item0' => $restaurant->guid];
         $url = route('containers.show', $route_params);
 
@@ -67,7 +67,7 @@ class BellBoyTest extends TestCase {
         $user = User::where('email', 'runner4@gmail.com')->first();
 
         $restaurant = Restaurant::inRandomOrder()->first(); //prendo un ristorante di partenza
-        $restaurant_panel = Panel::get($restaurant);
+        $restaurant_panel = Panel::make()->get($restaurant);
 
         $url = route('containers.show', ['lang' => 'it', 'container0' => 'restaurant', 'item0' => $restaurant->guid]);
 
@@ -116,7 +116,7 @@ class BellBoyTest extends TestCase {
         }
         //$restaurants = $bell_boy->restaurants;
 
-        $bell_boy_panel = Panel::get($bell_boy);
+        $bell_boy_panel = Panel::make()->get($bell_boy);
         $url = $bell_boy_panel->itemAction('stop_being_bell_boy')->url();
 
         $response = $this->actingAs($user)->get($url);

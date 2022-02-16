@@ -6,7 +6,7 @@
     {{ Form::bsHidden('post[title]') }}
     {{-- 1 (for Monday) through 7 (for Sunday) --}}
     @php
-    $restaurant_panel = Panel::get($row);
+    $restaurant_panel = Panel::make()->get($row);
     if ($row->openingHours->count() < 7) {
         for ($i = 1; $i <= 7; $i++) {
             $row->openingHours()->firstOrCreate(['day_of_week' => $i]);
@@ -29,7 +29,7 @@
                         @endif
                         <td class="pr-0 text-right border-0">
                             {{ substr($v->open_at, 0, -3) }} - {{ substr($v->close_at, 0, -3) }}
-                            {{ Panel::get($v)->setParent($restaurant_panel)->url('edit') }}
+                            {{ Panel::make()->get($v)->setParent($restaurant_panel)->url('edit') }}
                             {!! Form::bsBtnCrud(['row' => $v]) !!}
                         </td>
                     @endforeach

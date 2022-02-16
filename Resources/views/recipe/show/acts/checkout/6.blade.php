@@ -2,7 +2,7 @@
 $restaurant = $params['item0'];
 $cart=$row;
 $cart_items = $cart->items;
-$cart_panel = Panel::get($cart);
+$cart_panel = Panel::make()->get($cart);
 @endphp
 @extends('pub_theme::layouts.app')
 @section('content')
@@ -28,7 +28,7 @@ $cart_panel = Panel::get($cart);
 						<div class="content container-fluid text-center m-5">
 							<span class="h4 text-primary">Il ristorante ringrazia</span>
 							<div class="m-5">
-							{!! Panel::get($restaurant)->relatedName('cuisine')
+							{!! Panel::make()->get($restaurant)->relatedName('cuisine')
 								->btnHtml([
 									'act' => 'index', 
 									//'modal' => 'iframe', 

@@ -85,7 +85,7 @@ class AddItemCartAction extends XotBasePanelAction {
         $cart_item = $cart->items()->create(get_object_vars($item));
         $cart_item_vars = $cart_item->variations()->createMany($item_vars);
 
-        $url = Panel::get($shop)
+        $url = Panel::make()->get($shop)
         ->relatedName('cuisine')
         ->url(['act' => 'index']);
         //dddx($url);

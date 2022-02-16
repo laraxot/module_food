@@ -1,7 +1,7 @@
 @php
 //dddx(get_defined_vars());
 $cart=$row;
-$cart_panel = Panel::get($cart);
+$cart_panel = Panel::make()->get($cart);
 @endphp
 @extends('pub_theme::layouts.app')
 @section('content')

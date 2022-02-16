@@ -39,7 +39,7 @@ class Profile1Test extends TestCase {
             $this->row = $profile;
         }
 
-        $this->panel = Panel::get($this->row);
+        $this->panel = Panel::make()->get($this->row);
         $this->post_type = collect(config('xra.model'))->search(MyModel::class);
         $this->langs = array_keys(config('laravellocalization.supportedLocales'));
         $this->table = with(new MyModel())->getTable();

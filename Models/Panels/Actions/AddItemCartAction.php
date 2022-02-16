@@ -110,7 +110,7 @@ class AddItemCartAction extends XotBasePanelAction {
         $cart_item_vars = $cart_item->variations()->createMany($item_vars);
 
         if (! isset($data['cart_id'])) {
-            $url = Panel::get($shop)
+            $url = Panel::make()->get($shop)
                 ->relatedName('cuisine')
                 ->url('index');
 
@@ -135,7 +135,7 @@ class AddItemCartAction extends XotBasePanelAction {
             ]);
             */
 
-            $url = Panel::get($shop)
+            $url = Panel::make()->get($shop)
                 ->itemAction('add_item_cart_by_restaurant_owner')
                 ->url(['cart_id' => $data['cart_id']]);
             //link generato

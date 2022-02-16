@@ -39,7 +39,7 @@ class RestaurantOwnerTest extends TestCase {
             $this->row = $profile;
         }
 
-        $this->panel = Panel::get($this->row);
+        $this->panel = Panel::make()->get($this->row);
         $this->post_type = collect(config('xra.model'))->search(MyModel::class);
         $this->langs = array_keys(config('laravellocalization.supportedLocales'));
         $this->table = with(new MyModel())->getTable();
@@ -65,7 +65,7 @@ class RestaurantOwnerTest extends TestCase {
         $user = User::where('email', 'runner4@gmail.com')->first();
 
         $restaurant = Restaurant::inRandomOrder()->first(); //prendo un ristorante di partenza
-        $restaurant_panel = Panel::get($restaurant);
+        $restaurant_panel = Panel::make()->get($restaurant);
 
         $url = route('containers.show', ['lang' => 'it', 'container0' => 'restaurant', 'item0' => $restaurant->guid]);
         //dddx($url);

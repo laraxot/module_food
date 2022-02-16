@@ -2,7 +2,7 @@
 //dddx(get_defined_vars());
 $cart=$row;
 $cart_items = $cart->items;
-$cart_panel = Panel::get($cart);
+$cart_panel = Panel::make()->get($cart);
 //dddx($cart_items);
 @endphp
 @extends('pub_theme::layouts.app')
@@ -71,7 +71,7 @@ $cart_panel = Panel::get($cart);
 				@endforeach
 				<div class="row form-block flex-column flex-sm-row">
 					<div class="col text-center text-sm-left">
-						{!! Panel::get($cart->shop)->relatedName('cuisine')
+						{!! Panel::make()->get($cart->shop)->relatedName('cuisine')
 							->btnHtml([
 								'act' => 'index',
 								'icon' => '<i class="fa fa-chevron-left"></i>',

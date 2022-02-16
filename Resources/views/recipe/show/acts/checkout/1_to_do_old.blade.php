@@ -2,7 +2,7 @@
 //dddx(get_defined_vars());
 $cart=$row;
 $cart_items = $cart->items;
-$cart_panel = Panel::get($cart);
+$cart_panel = Panel::make()->get($cart);
 //dddx($cart_items);
 
 @endphp
@@ -151,7 +151,7 @@ $cart_panel = Panel::get($cart);
 						<div class="box-footer d-flex justify-content-between flex-column flex-lg-row">
 							<div class="left">
 								@php
-									$restaurant_panel = Panel::get($cart->shop);
+									$restaurant_panel = Panel::make()->get($cart->shop);
 								@endphp
 								{!! $restaurant_panel->relatedName('cuisine')
 									->btnHtml([
