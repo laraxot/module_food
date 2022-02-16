@@ -24,7 +24,7 @@ class IndexSidebar extends Component {
     }
 
     public function getPanelProperty() {
-        return PanelService::getByParams($this->route_params);
+        return  PanelService::make()->getByParams($this->route_params);
     }
 
     public function query() {

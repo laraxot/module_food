@@ -39,7 +39,7 @@ class Index extends Component {
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\Response|mixed|null
      */
     public function getPanelProperty() {
-        return PanelService::getByParams($this->route_params);
+        return  PanelService::make()->getByParams($this->route_params);
     }
 
     /**

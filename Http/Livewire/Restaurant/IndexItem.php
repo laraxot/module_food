@@ -35,7 +35,7 @@ class IndexItem extends Component {
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\Response|mixed|null
      */
     public function getPanelProperty() {
-        return PanelService::getByParams($this->route_params);
+        return  PanelService::make()->getByParams($this->route_params);
     }
 
     /**
@@ -52,7 +52,7 @@ class IndexItem extends Component {
         $view = 'food::livewire.restaurant.index.item';
         $view_params = [
             'view' => $view,
-            'row_panel' => PanelService::get($this->row)->setBrother($this->panel),
+            'row_panel' =>  PanelService::make()->get($this->row)->setBrother($this->panel),
             //'rows' => $this->query()->paginate(20),
             //'_panel' => $this->panel,
         ];
