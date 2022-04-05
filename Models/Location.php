@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Food\Models;
 
 //--------- models --------
-use Modules\Blog\Models\Post;
+use Modules\Lang\Models\Post;
 
 //--- services
 
