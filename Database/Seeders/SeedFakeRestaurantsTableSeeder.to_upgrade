@@ -10,7 +10,7 @@ namespace Modules\Food\Database\Seeders;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 //---- Models ----
-use Modules\Blog\Models\Post;
+use Modules\Lang\Models\Post;
 use Modules\Food\Models\Restaurant;
 
 class SeedFakeRestaurantsTableSeeder extends Seeder {

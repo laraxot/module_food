@@ -4,7 +4,7 @@ namespace Modules\Food\Models\Panels;
 
 use Illuminate\Http\Request;
 //--- Services --
-use Modules\Blog\Models\Post;
+use Modules\Lang\Models\Post;
 //--- Models ---
 use Modules\Food\Models\Restaurant;
 use Modules\Xot\Models\Panels\XotBasePanel;

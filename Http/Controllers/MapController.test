@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 use Modules\Xot\Services\ImportService;
 use Modules\Food\Models\Location;
-use Modules\Blog\Models\Post;
+use Modules\Lang\Models\Post;
 
 class MapController extends Controller {
 

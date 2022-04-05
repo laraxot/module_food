@@ -9,7 +9,7 @@ namespace Modules\Food\Tests\Feature;
 **/
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 //--- MODELS ---
-use Modules\Blog\Models\Post;
+use Modules\Lang\Models\Post;
 use Modules\Food\Models\Profile;
 use Modules\Food\Models\Profile as MyModel;
 use Modules\LU\Models\User;
