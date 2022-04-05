@@ -53,7 +53,7 @@ class CuisineCatPanel extends XotBasePanel {
                         ->toJson();
             */
             //*
-            $rows = \Modules\Blog\Models\Post::select('post_id as id', 'title as label')
+            $rows = \Modules\Lang\Models\Post::select('post_id as id', 'title as label')
                 ->where('title', 'like', '%'.$q.'%')
                 ->where('post_type', 'cuisine_cat')
                 ->where('lang', $lang)

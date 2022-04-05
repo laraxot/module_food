@@ -112,7 +112,7 @@ use Modules\Rating\Models\Rating;
  * @property int|null                                                                    $photos_count
  * @property \Illuminate\Database\Eloquent\Collection|Place[]                            $places
  * @property int|null                                                                    $places_count
- * @property \Modules\Blog\Models\Post|null                                              $post
+ * @property \Modules\Lang\Models\Post|null                                              $post
  * @property int|null                                                                    $privacies_count
  * @property BaseProfile|null                                                            $profile
  * @property \Illuminate\Database\Eloquent\Collection|Rating[]                           $ratings
@@ -402,6 +402,7 @@ class Profile extends BaseProfile {
         );
     }
     */
+
     /**
      * Undocumented function.
      */

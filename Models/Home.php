@@ -39,7 +39,7 @@ use Sushi\Sushi;
  * @property int|null                                                                   $images_count
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Favorite[]   $myFavorites
  * @property int|null                                                                   $my_favorites_count
- * @property \Modules\Blog\Models\Post|null                                             $post
+ * @property \Modules\Lang\Models\Post|null                                             $post
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Restaurant[] $restaurants
  * @property int|null                                                                   $restaurants_count
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Xot\Models\Widget[]      $widgets

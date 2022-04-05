@@ -51,7 +51,7 @@ namespace Modules\Food\Contracts;
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Favorite[] $myFavorites
  * @property int|null                                                                 $my_favorites_count
  * @property \Modules\Food\Models\Place|null                                          $place
- * @property \Modules\Blog\Models\Post|null                                           $post
+ * @property \Modules\Lang\Models\Post|null                                           $post
  * @property \Modules\Blog\Models\Profile|null                                        $profile
  * @property Label|null                                                               $statusLabel
  * @property User|null                                                                $user

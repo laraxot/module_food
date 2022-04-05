@@ -15,3 +15,8 @@ error_log
 .phpintel
 /.idea
 
+*.cache
+*.cache
+*.cache
+.php_cs.cache
+*.cache

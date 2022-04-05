@@ -12,11 +12,11 @@ namespace Modules\Food\Models;
 //--- TRAITS ---
 //use Modules\Lang\Models\Traits\LinkedTrait;
 //----- models -----
-use Modules\Blog\Models\PostRelated;
+use Modules\Lang\Models\PostRelated;
 
 /**
  * { item_description }
- * da fare php artisan scout:import XRA\Blog\Models\Post.
+ * da fare php artisan scout:import XRA\Lang\Models\Post.
  *
  * @mixin \Eloquent
  */

@@ -7,7 +7,7 @@ namespace Modules\Food\Rules;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Str;
 ///--- models ----
-use Modules\Blog\Models\Post;
+use Modules\Lang\Models\Post;
 
 /**
  * Class TitleSlugUnique.

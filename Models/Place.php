@@ -62,7 +62,7 @@ use Modules\Geo\Models\Place as BasePlaceModel;
  * @property \Illuminate\Database\Eloquent\Model|\Eloquent                            $linked
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Favorite[] $myFavorites
  * @property int|null                                                                 $my_favorites_count
- * @property \Modules\Blog\Models\Post|null                                           $post
+ * @property \Modules\Lang\Models\Post|null                                           $post
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Place newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Place newQuery()

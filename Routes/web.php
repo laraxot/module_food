@@ -31,7 +31,7 @@ Route::domain('{guid}.food.local')->group(function () {
                 }
             )->first();
         //} else {
-        //    $post = \Modules\Blog\Models\Post::where('guid', 'like', $guid)
+        //    $post = \Modules\Lang\Models\Post::where('guid', 'like', $guid)
         //    ->where('lang', $lang)->first();
         //    $item = $post->linkable;
         //}

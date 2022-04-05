@@ -6,9 +6,9 @@ namespace Modules\Food\Services;
 
 use Illuminate\Http\Request;
 //------ models ------
-use Modules\Blog\Models\Post;
 use Modules\Food\Http\Requests\StoreProfile;
 use Modules\Food\Models\Profile;
+use Modules\Lang\Models\Post;
 use Modules\LU\Models\PermUser;
 //----- requests ------
 use Modules\LU\Models\User;

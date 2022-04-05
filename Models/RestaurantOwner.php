@@ -85,7 +85,7 @@ use Modules\LU\Models\Traits\HasProfileTrait;
  * @property int|null                                                                 $images_count
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Favorite[] $myFavorites
  * @property int|null                                                                 $my_favorites_count
- * @property \Modules\Blog\Models\Post|null                                           $post
+ * @property \Modules\Lang\Models\Post|null                                           $post
  * @property \Modules\Blog\Models\Profile|null                                        $profile
  * @property \Modules\LU\Models\User|null                                             $user
  *

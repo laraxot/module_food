@@ -7,7 +7,7 @@ namespace Modules\Food\Models;
 /*
 use Illuminate\Database\Eloquent\Model;
 //--------- models --------
-use Modules\Blog\Models\Post;
+use Modules\Lang\Models\Post;
 //------ traits ----
 use Modules\Extend\Traits\Updater;
 use Modules\Lang\Models\Traits\LinkedTrait;

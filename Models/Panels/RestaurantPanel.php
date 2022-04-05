@@ -6,11 +6,13 @@ namespace Modules\Food\Models\Panels;
 
 //--- Services --
 use Illuminate\Support\Facades\Auth;
-//--- Models ---
-use Modules\Blog\Models\Post;
+/*
+ * Customs
+ */
 use Modules\Food\Models\Profile;
 use Modules\Food\Models\Restaurant;
 use Modules\Food\Rules\TitleSlugUnique;
+use Modules\Lang\Models\Post;
 use Modules\Xot\Models\Panels\XotBasePanel;
 
 /**

@@ -14,7 +14,6 @@ use Modules\Blog\Models\Event;
 //-- Cart models
 use Modules\Blog\Models\Photo;
 //--- Food models
-use Modules\Blog\Models\Post;
 use Modules\Cart\Models\Booking;
 use Modules\Cart\Models\BookingItem;
 use Modules\Cart\Models\Cart;
@@ -28,9 +27,10 @@ use Modules\Food\Models\Profile;
 use Modules\Food\Models\RestaurantMorph;
 use Modules\Food\Models\RestaurantOwner;
 use Modules\Food\Models\RestaurantProvider;
-//use Modules\Food\Models\Table;
 use Modules\Food\Models\Tip;
-use Modules\Food\Models\Waiter; //--- potrebbe essere in un shop qualsiasi..
+//use Modules\Food\Models\Table;
+use Modules\Food\Models\Waiter;
+use Modules\Lang\Models\Post; //--- potrebbe essere in un shop qualsiasi..
 
 /**
  * Trait RestaurantRelationshipsTrait.

@@ -44,7 +44,7 @@ namespace Modules\Food\Models;
  * @property int|null                                                                 $images_count
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Favorite[] $myFavorites
  * @property int|null                                                                 $my_favorites_count
- * @property \Modules\Blog\Models\Post|null                                           $post
+ * @property \Modules\Lang\Models\Post|null                                           $post
  *
  * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat newQuery()
