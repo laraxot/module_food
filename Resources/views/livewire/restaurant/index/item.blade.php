@@ -11,11 +11,11 @@
 
                 </h4>
                 {{--  --}}
-                @include('pub_theme::layouts.widgets.rating',['avg'=>$row->ratings_avg])
+                @include('pub_theme::layouts.widgets.rating', ['avg' => $row->ratings_avg])
             </div>
             <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
                 {{-- @livewire('rating::favorite',['model'=>$row]) --}}
-                <livewire:rating::favorite :model=$row />
+                <livewire:favorite :model=$row />
             </div>
         </div>
         <div class="card-body">
