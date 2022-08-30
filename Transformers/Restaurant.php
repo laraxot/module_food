@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Food\Resources;
+namespace Modules\Food\Transformers;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Food\Emails;
+namespace Modules\Food\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;

@@ -6,7 +6,7 @@ return [
     'EUR' => '&euro;',
     'test' => 'prova',
     'Order Delivery & Take-Out' => 'Order Delivery & Take-Out',
-    'Find restaurants, specials, and coupons for free' => 'Investigación restauradores, especialidades y cupones.',
+    'test subtitle' => 'Investigación restauradores, especialidades y cupones.',
     'Search Restaurant' => 'Buscar restaurantes',
     'enter address and search' => 'Ingrese la dirección de entrega y encuentre los restaurantes más cercanos a usted.',
     'accept' => 'Accetto',
