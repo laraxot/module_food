@@ -12,19 +12,18 @@ use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 */
-//---------- traits
-////use Laravel\Scout\Searchable;
+// ---------- traits
+// //use Laravel\Scout\Searchable;
 use Modules\Xot\Traits\Updater;
 use Spatie\Image\Manipulations as ImageManipulations;
 
 /**
  * Class BaseModel.
  */
-abstract class BaseModel extends Model /*implements HasMedia*/
-{
+abstract class BaseModel extends Model { /* implements HasMedia */
     use Updater;
-    //use Cachable;
-    //use Searchable;
+    // use Cachable;
+    // use Searchable;
     use HasFactory;
     /*
     use HasMediaTrait; //spatie
@@ -50,13 +49,13 @@ abstract class BaseModel extends Model /*implements HasMedia*/
      * @var array
      */
     protected $casts = [
-        //'published_at' => 'datetime:Y-m-d', // da verificare
+        // 'published_at' => 'datetime:Y-m-d', // da verificare
     ];
     /**
      * @var array
      */
     protected $hidden = [
-        //'password'
+        // 'password'
     ];
     /**
      * @var bool

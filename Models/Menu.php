@@ -16,11 +16,11 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Extend\Traits\Updater;
 use Modules\Lang\Models\Traits\LinkedTrait;
 */
-//menu inteso come listino pietanze/prezzi ovver menu del ristorante
+// menu inteso come listino pietanze/prezzi ovver menu del ristorante
 class Menu extends BaseModel {
-    //use Updater;
-    //use Searchable;
-    //use LinkedTrait;
+    // use Updater;
+    // use Searchable;
+    // use LinkedTrait;
 
     protected $primaryKey = 'id';
     public $incrementing = true;
@@ -30,6 +30,6 @@ class Menu extends BaseModel {
         'created_at',
         'updated_at',
         'deleted_at',
-        //'open_at','close_at',
+        // 'open_at','close_at',
     ];
 }

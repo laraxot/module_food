@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels\Actions;
 
-//-------- services --------
+// -------- services --------
 
 use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
-//-------- bases -----------
+// -------- bases -----------
 
 /**
  * Class NoClaimsRestaurantAction.
@@ -17,7 +17,7 @@ use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 class NoClaimsRestaurantAction extends XotBasePanelAction {
     public bool $onContainer = false;
 
-    public bool $onItem = true; //onlyContainer
+    public bool $onItem = true; // onlyContainer
 
     public string $icon = '<i class="fas fa-gavel"></i>';
     /**

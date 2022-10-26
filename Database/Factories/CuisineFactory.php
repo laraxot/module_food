@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  * https://laraveldaily.com/laravel-two-ways-seed-data-relationships/.
  *
  **/
-//---- models ----
+// ---- models ----
 use Modules\Food\Models\Cuisine as Model;
 
 /**

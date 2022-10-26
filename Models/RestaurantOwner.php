@@ -91,7 +91,7 @@ use Modules\LU\Models\Traits\HasProfileTrait;
  *
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantOwner newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantOwner newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)
+ * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang   ofItem($guid)
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantOwner query()
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantOwner whereAdministrativeAreaLevel1($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantOwner whereAdministrativeAreaLevel1Short($value)
@@ -146,7 +146,8 @@ use Modules\LU\Models\Traits\HasProfileTrait;
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantOwner whereUpdatedIp($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantOwner whereWebsite($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantOwner withDistance($lat, $lng)
- * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
+ * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang   withPost($guid)
+ *
  * @mixin \Eloquent
  *
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Blog\Models\Privacy[]    $privacies
@@ -155,7 +156,7 @@ use Modules\LU\Models\Traits\HasProfileTrait;
  * @property int|null                                                                   $restaurants_count
  */
 class RestaurantOwner extends BaseModelLang {
-    //protected $primaryKey = 'user_id';
+    // protected $primaryKey = 'user_id';
     use HasProfileTrait;
     use GeoTrait;
 
@@ -170,14 +171,14 @@ class RestaurantOwner extends BaseModelLang {
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
     public function restaurants() {
-        return $this->morphRelated(Restaurant::class, false); //, 'user_id');
+        return $this->morphRelated(Restaurant::class, false); // , 'user_id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
     public function privacies() {
-        return $this->morphRelated(\Modules\Blog\Models\Privacy::class, false); //, 'user_id');
+        return $this->morphRelated(\Modules\Blog\Models\Privacy::class, false); // , 'user_id');
     }
 
     public function getPostTypeAttribute(?string $value): string {

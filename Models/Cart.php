@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models;
 
-//use Illuminate\Database\Eloquent\Model;
-////use Laravel\Scout\Searchable;
+// use Illuminate\Database\Eloquent\Model;
+// //use Laravel\Scout\Searchable;
 
-//--- services
-//use Modules\Extend\Traits\Updater;
-//--- TRAITS ---
-//use Modules\Lang\Models\Traits\LinkedTrait;
-//----- models -----
+// --- services
+// use Modules\Extend\Traits\Updater;
+// --- TRAITS ---
+// use Modules\Lang\Models\Traits\LinkedTrait;
+// ----- models -----
 
 /**
  * { item_description }
@@ -25,7 +25,7 @@ class Cart extends BaseModel {
         'post_id', 'post_type',   // identidicativo ristorante
         'status_id',             // stato carrello
     ];
-    //----- relationship -----
+    // ----- relationship -----
 
-    //----- mutators -----
+    // ----- mutators -----
 }

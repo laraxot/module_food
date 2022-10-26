@@ -68,7 +68,7 @@ class StoreRestaurantOwnerNotification extends Notification {
             ->subject(Lang::getFromJson('Verify Email Address'))
             ->greeting('Hello!')
             ->view('food::mail.restaurant_owner.store', ['verification_url' => $verification_url])
-            ;
+        ;
         /*
         ->markdown('food::notifications.email', ['subcopy' => 'subcopy']) //, ['user' => $this->user]
         ->line(Lang::getFromJson('Please click the button below to verify your email address.'))

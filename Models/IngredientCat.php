@@ -55,6 +55,7 @@ namespace Modules\Food\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|IngredientCat whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|IngredientCat whereUpdatedIp($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
+ *
  * @mixin \Eloquent
  *
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Ingredient[] $changes
@@ -63,7 +64,7 @@ namespace Modules\Food\Models;
  * @property int|null                                                                   $ingredients_count
  */
 class IngredientCat extends BaseModelLang {
-    //---- relationship -----
+    // ---- relationship -----
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
@@ -79,5 +80,5 @@ class IngredientCat extends BaseModelLang {
         return $this->ingredients();
     }
 
-    //-------- mutators ----------
+    // -------- mutators ----------
 }

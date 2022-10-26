@@ -24,8 +24,8 @@ class ValidationRule implements Rule {
      * @return bool
      */
     public function passes($attribute, $value) {
-        //26     Method Modules\Food\Rules\ValidationRule::passes() should return bool but return statement is missing.
-        //metto true tanto per tenerlo contento, sperando che non faccia danni collaterali
+        // 26     Method Modules\Food\Rules\ValidationRule::passes() should return bool but return statement is missing.
+        // metto true tanto per tenerlo contento, sperando che non faccia danni collaterali
         return true;
     }
 

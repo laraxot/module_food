@@ -6,15 +6,15 @@ namespace Modules\Food\Models;
 
 use Carbon\Carbon;
 
-////use Laravel\Scout\Searchable;
+// //use Laravel\Scout\Searchable;
 /*
 use Illuminate\Database\Eloquent\Model;
 //--- traits
 use Modules\Extend\Traits\Updater;
 use Modules\Lang\Models\Traits\LinkedTrait;
 */
-//--- services
-//--- models ---
+// --- services
+// --- models ---
 
 /**
  * { item_description }
@@ -23,9 +23,9 @@ use Modules\Lang\Models\Traits\LinkedTrait;
  * @mixin \Eloquent
  */
 class Article extends BaseModel {
-    //use Searchable; //se non si crea prima indice da un sacco di errori
-    //use Updater;
-    //use LinkedTrait;
+    // use Searchable; //se non si crea prima indice da un sacco di errori
+    // use Updater;
+    // use LinkedTrait;
     protected $table = 'blog_post_articles';
     /**
      * The attributes that are mass assignable.
@@ -33,11 +33,11 @@ class Article extends BaseModel {
      * @var array
      */
     protected $fillable = ['post_id', 'article_type', 'published_at'];
-    //protected $appends=['category_id'];
+    // protected $appends=['category_id'];
     protected $casts = [
         'category_id' => 'integer',
     ];
-    protected $dates = ['published_at'/* 'created_at', 'updated_at'*/];
+    protected $dates = ['published_at'/* 'created_at', 'updated_at' */];
     protected $primaryKey = 'post_id';
     public $incrementing = true;
 
@@ -48,9 +48,9 @@ class Article extends BaseModel {
         return $row;
     }
 
-    //end filter
+    // end filter
 
-    //--------- relationship ---------------
+    // --------- relationship ---------------
     /*
     public function post()
     {
@@ -77,7 +77,7 @@ class Article extends BaseModel {
     }
     */
 
-    //---------- mututars -----------
+    // ---------- mututars -----------
     /*
     public function getPublishedAtAttribute($value){
         return Carbon::parse($value)->formatLocalized('%d/%m/%Y %I:%M %p');
@@ -85,11 +85,11 @@ class Article extends BaseModel {
     }
     //*/
     public function setPublishedAtAttribute($value) {
-        //-- with datetimelocal
+        // -- with datetimelocal
         if (\is_string($value)) {
             $value = Carbon::parse($value);
         }
-        $this->attributes['published_at'] = $value; //->toDateString();
+        $this->attributes['published_at'] = $value; // ->toDateString();
     }
 
     /*
@@ -99,12 +99,12 @@ class Article extends BaseModel {
     */
 
     public function setArticleTypeAttribute($value) {
-        //dd();
+        // dd();
         $this->setCategoryIdAttribute(\Request::input('category_id'));
         $this->attributes['article_type'] = $value;
     }
 
-    //*
+    // *
     public function getCategoryIdAttribute($value) {
         if (null == $this->relatedType('category')) {
             return null;
@@ -117,9 +117,9 @@ class Article extends BaseModel {
         return $row->post_id;
     }
 
-    //*/
+    // */
 
-    //--------- functions -----------
+    // --------- functions -----------
 
     public function formFields() {
         $roots = Post::getRoots();
@@ -134,11 +134,11 @@ class Article extends BaseModel {
      * @param  \DateTime|int  $value
      * @return string
      */
-    //public function fromDateTime($value){
-        //dd($value);//19/09/2017 12:06 AM
-        //print_r($value);
-        //$ris=Carbon::createFromFormat('d/m/Y H:i a',$value);
-        //dd($ris);
-        //return $ris;
-    //}
-}//end model
+    // public function fromDateTime($value){
+        // dd($value);//19/09/2017 12:06 AM
+        // print_r($value);
+        // $ris=Carbon::createFromFormat('d/m/Y H:i a',$value);
+        // dd($ris);
+        // return $ris;
+    // }
+}// end model

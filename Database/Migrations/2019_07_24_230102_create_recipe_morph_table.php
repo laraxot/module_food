@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-//----- models -----
+// ----- models -----
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-//--
+// --
 /* 2019_11_23_080004_
 https://phppot.com/php/php-star-rating-system-with-javascript/
 https://www.phpzag.com/star-rating-system-with-ajax-php-and-mysql/
@@ -21,7 +21,7 @@ class CreateRecipeMorphTable extends XotBaseMigration {
      * db up.
      */
     public function up(): void {
-        //-- CREATE --
+        // -- CREATE --
         $this->tableCreate(
             function (Blueprint $table) {
                 $table->increments('id');
@@ -41,7 +41,7 @@ class CreateRecipeMorphTable extends XotBaseMigration {
             }
         );
 
-        //-- UPDATE --
+        // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table) {
                 /*

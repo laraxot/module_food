@@ -46,6 +46,7 @@ use Modules\Blog\Models\Label;
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantMorph whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantMorph whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantMorph whereUpdatedBy($value)
+ *
  * @mixin \Eloquent
  */
 class RestaurantMorph extends BaseMorphPivot {

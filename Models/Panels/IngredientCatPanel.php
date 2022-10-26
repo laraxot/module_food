@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels;
 
-//--- Services --
+// --- Services --
 use Modules\Xot\Models\Panels\XotBasePanel;
 
-//------- bases -----
+// ------- bases -----
 
 /**
  * Class IngredientCatPanel.
@@ -45,8 +45,6 @@ class IngredientCatPanel extends XotBasePanel {
 
     /**
      * Get the tabs available.
-     *
-     * @return array
      */
     public function tabs(): array {
         $tabs_name = ['ingredient'];

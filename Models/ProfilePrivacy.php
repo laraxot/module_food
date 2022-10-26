@@ -33,6 +33,7 @@ namespace Modules\Food\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|ProfilePrivacy whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfilePrivacy whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfilePrivacy whereUpdatedIp($value)
+ *
  * @mixin \Eloquent
  */
 class ProfilePrivacy extends BaseModel {

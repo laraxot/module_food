@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels\Actions;
 
-//-------- services --------
+// -------- services --------
 
 use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
-//-------- bases -----------
+// -------- bases -----------
 
 /**
  * Class ToggleReservationTableAction.
@@ -17,7 +17,7 @@ use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 class ToggleReservationTableAction extends XotBasePanelAction {
     public bool $onContainer = false;
 
-    public bool $onItem = true; //onlyContainer
+    public bool $onItem = true; // onlyContainer
 
     public string $icon = '<i class="fas fa-chair"></i>';
     /**
@@ -33,7 +33,7 @@ class ToggleReservationTableAction extends XotBasePanelAction {
     public function handle() {
         $view = ThemeService::getView().'.'.$this->getName();
 
-        //return $view;
+        // return $view;
 
         return ThemeService::view($view)
             ->with('row', $this->row);
@@ -49,9 +49,9 @@ class ToggleReservationTableAction extends XotBasePanelAction {
         $this->row->save();
 
         $view = ThemeService::getView().'.'.$this->getName().'_confirm';
-        //$view = 'pub_theme::restaurant_owner.restaurant.show.'.$this->getName().'_confirm';
+        // $view = 'pub_theme::restaurant_owner.restaurant.show.'.$this->getName().'_confirm';
         \Session::flash('status', 'Operazione eseguita');
-        //dddx($view);
+        // dddx($view);
 
         return ThemeService::view($view)
             ->with('row', $this->row);

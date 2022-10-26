@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-//---- models ---
-//use Modules\Food\Models\Recipe as MyModel;
+// ---- models ---
+// use Modules\Food\Models\Recipe as MyModel;
 
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
@@ -21,10 +21,10 @@ class CreateRecipesTable extends XotBaseMigration {
     */
 
     public function up(): void {
-        //-- CREATE --
+        // -- CREATE --
         $this->tableCreate(
             function (Blueprint $table) {
-                $table->increments('id'); //->primary();
+                $table->increments('id'); // ->primary();
 
                 $table->string('created_by')->nullable();
                 $table->string('updated_by')->nullable();
@@ -37,10 +37,10 @@ class CreateRecipesTable extends XotBaseMigration {
             }
         );
 
-        //-- UPDATE --
+        // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table) {
-                //------- add
+                // ------- add
                 if (! Schema::hasColumn($this->getTable(), 'created_by')) {
                     $table->string('created_by')->nullable();
                 }
@@ -50,7 +50,7 @@ class CreateRecipesTable extends XotBaseMigration {
                 if (! Schema::hasColumn($this->getTable(), 'deleted_by')) {
                     $table->string('deleted_by')->nullable();
                 }
-                //---------- delete
+                // ---------- delete
                 if (Schema::hasColumn($this->getTable(), 'day_name')) {
                     $table->dropColumn(['day_name']);
                 }
@@ -63,7 +63,7 @@ class CreateRecipesTable extends XotBaseMigration {
                 if (Schema::hasColumn($this->getTable(), 'close_at')) {
                     $table->dropColumn(['close_at']);
                 }
-                //-------- CHANGE INDEX----------------
+                // -------- CHANGE INDEX----------------
                 $schema_builder = Schema::getConnection()
                     ->getDoctrineSchemaManager()
                     ->listTableDetails($table->getTable());
@@ -73,15 +73,15 @@ class CreateRecipesTable extends XotBaseMigration {
                 }
                 */
 
-                //-------- CHANGE ----------------
+                // -------- CHANGE ----------------
 
                 $table->string('created_by')->nullable()->change();
                 $table->string('updated_by')->nullable()->change();
-                //$table->string('deleted_by')->nullable()->change();
-                //$table->string('deleted_by')->nullable()->change();
-                //$table->string('created_ip')->nullable()->change();
-                //$table->string('updated_ip')->nullable()->change();
-                //$table->string('deleted_ip')->nullable()->change();
+                // $table->string('deleted_by')->nullable()->change();
+                // $table->string('deleted_by')->nullable()->change();
+                // $table->string('created_ip')->nullable()->change();
+                // $table->string('updated_ip')->nullable()->change();
+                // $table->string('deleted_ip')->nullable()->change();
                 if (Schema::hasColumn($this->getTable(), 'post_id')) {
                     $table->renameColumn('post_id', 'id');
                 }

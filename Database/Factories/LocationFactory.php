@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Food\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-//---- models ----
+// ---- models ----
 use Modules\Food\Models\Location as Model;
 
 /**
@@ -28,9 +28,9 @@ class LocationFactory extends Factory {
         $faker = $this->faker;
 
         return [
-            //'title' => $faker->sentence,
-            //'description' => $faker->paragraph,
-            //'user_id' => factory(User::class)->create()->user_id,
+            // 'title' => $faker->sentence,
+            // 'description' => $faker->paragraph,
+            // 'user_id' => factory(User::class)->create()->user_id,
             'latitude' => $faker->latitude,
             'longitude' => $faker->longitude,
             'route' => $faker->streetName,

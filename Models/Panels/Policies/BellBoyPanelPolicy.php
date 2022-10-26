@@ -29,7 +29,7 @@ class BellBoyPanelPolicy extends XotBasePanelPolicy {
 
         return true;
         */
-        //da rifare
+        // da rifare
         return false;
     }
 

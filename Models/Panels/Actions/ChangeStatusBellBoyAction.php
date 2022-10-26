@@ -4,26 +4,26 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels\Actions;
 
-//use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use Modules\Food\Models\BellBoy;
 use Modules\Food\Models\Restaurant;
 use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
-//-------- bases -----------
+// -------- bases -----------
 
 /**
  * Class ChangeStatusBellBoyAction.
  */
 class ChangeStatusBellBoyAction extends XotBasePanelAction {
-    public bool $onItem = true; //onlyContainer
+    public bool $onItem = true; // onlyContainer
 
-    public bool $onContainer = false; //onlyContainer
+    public bool $onContainer = false; // onlyContainer
     /**
      * @var string
      */
     public ?string $related = 'bell_boy';
-    //mettere freccette su e giù
+    // mettere freccette su e giù
 
     public string $icon = '<i class="fas fa-motorcycle"></i>';
 
@@ -51,9 +51,9 @@ class ChangeStatusBellBoyAction extends XotBasePanelAction {
      */
     public function postHandle() {
         $data = request()->all();
-        //dddx($data);
+        // dddx($data);
 
-        //$bellboy = BellBoy::find($data['id']);
+        // $bellboy = BellBoy::find($data['id']);
         $bell_boy_id = $data['id'];
         $pivot_data = $data['pivot'];
         $restaurant = Restaurant::query()->find($data['parent_id']);
@@ -64,5 +64,5 @@ class ChangeStatusBellBoyAction extends XotBasePanelAction {
         return $this->handle();
     }
 
-    //end handle
-}//end EditBellboyAction
+    // end handle
+}// end EditBellboyAction

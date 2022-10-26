@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use Illuminate\Database\Schema\Blueprint;
-//----- bases ----
+// ----- bases ----
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 /**
@@ -12,12 +12,10 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 class CreateTipsTable extends XotBaseMigration {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up(): void {
-        //-- CREATE --
-        //-- CREATE --
+        // -- CREATE --
+        // -- CREATE --
         $this->tableCreate(
             function (Blueprint $table) {
                 $table->increments('id');
@@ -29,23 +27,23 @@ class CreateTipsTable extends XotBaseMigration {
                 $table->timestamps();
             });
 
-         //-- UPDATE --
-         $this->tableUpdate(
+        // -- UPDATE --
+        $this->tableUpdate(
             function (Blueprint $table) {
-            /*
-            if (! $this->hasColumn('birthday')) {
-                $table->date('birthday')->nullable();
-                $table->string('email')->nullable();
-                $table->string('phone', 50)->nullable();
-                $table->string('vehicle_type')->nullable();
-                $table->string('vehicle_model')->nullable();
-            }
-            */
-            if ($this->hasColumn('auth_user_id')) {
-                $table->renameColumn('auth_user_id', 'user_id');
-            }
-        });
+                /*
+                if (! $this->hasColumn('birthday')) {
+                    $table->date('birthday')->nullable();
+                    $table->string('email')->nullable();
+                    $table->string('phone', 50)->nullable();
+                    $table->string('vehicle_type')->nullable();
+                    $table->string('vehicle_model')->nullable();
+                }
+                */
+                if ($this->hasColumn('auth_user_id')) {
+                    $table->renameColumn('auth_user_id', 'user_id');
+                }
+            });
     }
 
-    //end up
-}//end class
+    // end up
+}// end class

@@ -41,6 +41,7 @@ use Modules\Xot\Traits\Updater;
  * @method static \Illuminate\Database\Eloquent\Builder|CuisineMorph whereRelatedType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|CuisineMorph whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|CuisineMorph whereUpdatedBy($value)
+ *
  * @mixin \Eloquent
  */
 class CuisineMorph extends BaseMorphPivot {

@@ -13,6 +13,6 @@ use Modules\Xot\Models\Panels\Policies\XotBasePanelPolicy;
  */
 class EventPanelPolicy extends XotBasePanelPolicy {
     public function create(UserContract $user, PanelContract $panel): bool {
-        return true;  //se e' loggato puo' creare ristorante non proprietario ristorante
+        return true;  // se e' loggato puo' creare ristorante non proprietario ristorante
     }
 }

@@ -12,7 +12,7 @@ use Illuminate\Queue\SerializesModels;
 class StoreProfileEvent {
     use SerializesModels;
 
-    //public $msg;
+    // public $msg;
 
     public \Modules\LU\Models\User $user;
 

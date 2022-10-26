@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-//------- models ----------
-//use Modules\Food\Models\Cuisine as MyModel;
+// ------- models ----------
+// use Modules\Food\Models\Cuisine as MyModel;
 
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
@@ -20,21 +20,21 @@ class CreateCuisinesTable extends XotBaseMigration {
     }
     */
     public function up(): void {
-        //-- CREATE --
+        // -- CREATE --
         $this->tableCreate(
             function (Blueprint $table) {
-                $table->increments('id'); //->primary();
+                $table->increments('id'); // ->primary();
                 $table->string('created_by')->nullable();
                 $table->string('updated_by')->nullable();
                 $table->timestamps();
             }
-            );
+        );
 
-        //-- UPDATE --
+        // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table) {
-                //$table->increments('post_id')->change();
-                //->autoIncrement()
+                // $table->increments('post_id')->change();
+                // ->autoIncrement()
 
                 if ($this->hasColumn('post_id')) {
                     $table->renameColumn('post_id', 'id');
@@ -43,7 +43,7 @@ class CreateCuisinesTable extends XotBaseMigration {
                     $table->increments('id')->change();
                 }
 
-                //------ ADD
+                // ------ ADD
                 if (! $this->hasColumn('created_by')) {
                     $table->string('created_by')->nullable();
                 }
@@ -53,7 +53,7 @@ class CreateCuisinesTable extends XotBaseMigration {
                 if (! $this->hasColumn('updated_at') && ! $this->hasColumn('created_at')) {
                     $table->timestamps();
                 }
-                //------ CHANGE
+                // ------ CHANGE
                 $schema_builder = Schema::getConnection()
                     ->getDoctrineSchemaManager()
                     ->listTableDetails($table->getTable());

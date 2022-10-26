@@ -73,7 +73,7 @@ class StoreProfileNotification extends Notification {
             ->subject(Lang::getFromJson('Verify Email Address'))
             ->greeting('Hello!')
             ->view('food::mail.profile.store', ['verification_url' => $verification_url])
-            ;
+        ;
         /*
         ->subject(Lang::getFromJson('Verify Email Address'))
         ->markdown('food::notifications.email', ['subcopy' => 'subcopy']) //, ['user' => $this->user]

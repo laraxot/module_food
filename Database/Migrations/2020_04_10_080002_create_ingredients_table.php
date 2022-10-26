@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-//---- models ---
+// ---- models ---
 
 /**
  * Class CreateIngredientsTable.
@@ -15,7 +15,7 @@ class CreateIngredientsTable extends XotBaseMigration {
      * Run the migrations.
      */
     public function up(): void {
-        //-- CREATE --
+        // -- CREATE --
         $this->tableCreate(
             function (Blueprint $table) {
                 $table->increments('id');
@@ -24,13 +24,13 @@ class CreateIngredientsTable extends XotBaseMigration {
                 $table->string('deleted_by');
                 $table->ipAddress('created_ip');
                 $table->ipAddress('updated_ip');
-                $table->ipAddress('deleted_ip'); //$table->ipAddress('visitor');	IP address equivalent column.
+                $table->ipAddress('deleted_ip'); // $table->ipAddress('visitor');	IP address equivalent column.
                 $table->timestamps();
                 $table->softDeletes();
             }
         );
 
-        //-- UPDATE --
+        // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table) {
                 if (! Schema::hasColumn($this->getTable(), 'status')) {

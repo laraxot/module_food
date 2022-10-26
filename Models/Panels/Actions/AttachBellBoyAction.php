@@ -4,25 +4,24 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels\Actions;
 
-//------- models ---
-use Illuminate\Support\Facades\Auth;
-//-------- services --------
+// ------- models ---
+// -------- services --------
 use Modules\Food\Models\Profile;
 use Modules\LU\Models\User;
 use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
-//-------- bases -----------
+// -------- bases -----------
 
 /**
  * Class AttachBellBoyAction.
  */
 class AttachBellBoyAction extends XotBasePanelAction {
-    //public $onContainer = false;
+    // public $onContainer = false;
 
     public bool $onItem = true;
-    //onlyContainer
-    //mettere freccette su e giù
+    // onlyContainer
+    // mettere freccette su e giù
 
     public string $icon = '<i class="fas fa-motorcycle"></i>';
 
@@ -55,7 +54,7 @@ class AttachBellBoyAction extends XotBasePanelAction {
 
     public function postHandle() {
         $data = request()->all();
-        //dddx($data);
+        // dddx($data);
         if (null == $this->user_id) {
             $this->user_id = request()->input('user_id', \Auth::id());
         }
@@ -89,11 +88,11 @@ class AttachBellBoyAction extends XotBasePanelAction {
             ]
         );
 
-        //$restaurant->bellBoys()->attach($bell_boy->id, ['user_id' => $this->user_id, 'post_id' => $bell_boy->id]);
+        // $restaurant->bellBoys()->attach($bell_boy->id, ['user_id' => $this->user_id, 'post_id' => $bell_boy->id]);
 
-        //$restaurant->bellBoys()->updateExistingPivot($bell_boy->id, ['user_id' => $this->user_id, 'post_id' => $bell_boy->id]);
+        // $restaurant->bellBoys()->updateExistingPivot($bell_boy->id, ['user_id' => $this->user_id, 'post_id' => $bell_boy->id]);
 
-        //$restaurant->bellBoys()->syncWithoutDetaching($bell_boy->id, ['user_id' => $this->user_id, 'post_id' => $bell_boy->id]);
+        // $restaurant->bellBoys()->syncWithoutDetaching($bell_boy->id, ['user_id' => $this->user_id, 'post_id' => $bell_boy->id]);
 
         \Session::flash('status', 'Operazione eseguita');
 

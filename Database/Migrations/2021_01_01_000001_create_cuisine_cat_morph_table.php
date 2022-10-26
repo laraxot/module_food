@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-//----- models -----
+// ----- models -----
 
-//--
+// --
 /* 2019_11_23_080004_
 https://phppot.com/php/php-star-rating-system-with-javascript/
 https://www.phpzag.com/star-rating-system-with-ajax-php-and-mysql/
@@ -21,7 +21,7 @@ class CreateCuisineCatMorphTable extends XotBaseMigration {
      * db up.
      */
     public function up(): void {
-        //-- CREATE --
+        // -- CREATE --
         $this->tableCreate(
             function (Blueprint $table) {
                 $table->increments('id');
@@ -37,7 +37,7 @@ class CreateCuisineCatMorphTable extends XotBaseMigration {
                 $table->timestamps();
             }
         );
-        //-- UPDATE --
+        // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table) {
                 /*

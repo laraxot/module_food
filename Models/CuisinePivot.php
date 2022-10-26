@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models;
 
-//use Illuminate\Database\Eloquent\Model;
-//------ traits ----
-//use Laravel\Scout\Searchable;
-//--- services
-//--------- models --------
-//use Modules\Extend\Traits\Updater;
-//use Modules\Lang\Models\Traits\LinkedTrait;
+// use Illuminate\Database\Eloquent\Model;
+// ------ traits ----
+// use Laravel\Scout\Searchable;
+// --- services
+// --------- models --------
+// use Modules\Extend\Traits\Updater;
+// use Modules\Lang\Models\Traits\LinkedTrait;
 
 class CuisinePivot extends BaseModel {
     /*

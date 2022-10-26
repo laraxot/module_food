@@ -37,6 +37,7 @@ namespace Modules\Food\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|PrivacyMorph whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PrivacyMorph whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PrivacyMorph whereValue($value)
+ *
  * @mixin \Eloquent
  */
 class PrivacyMorph extends BaseMorphPivot {

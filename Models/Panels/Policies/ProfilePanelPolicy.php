@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels\Policies;
 
-//use Modules\LU\Models\User;
+// use Modules\LU\Models\User;
 use Modules\Xot\Contracts\PanelContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Models\Panels\Policies\XotBasePanelPolicy;
@@ -46,7 +46,7 @@ class ProfilePanelPolicy extends XotBasePanelPolicy {
     }
 
     public function personalInfo(UserContract $user, PanelContract $panel): bool {
-        //volevo riutilizzare edit invece di copiare tutto lo snippet
+        // volevo riutilizzare edit invece di copiare tutto lo snippet
 
         $post = $panel->getRow();
         if ($post->created_by == $user->handle || $post->updated_by == $user->handle || $post->user_id == $user->user_id) {
@@ -57,8 +57,8 @@ class ProfilePanelPolicy extends XotBasePanelPolicy {
     }
 
     public function userSecurity(UserContract $user, PanelContract $panel): bool {
-        //return true;
-        //volevo riutilizzare edit invece di copiare tutto lo snippet
+        // return true;
+        // volevo riutilizzare edit invece di copiare tutto lo snippet
         $post = $panel->getRow();
         if ($post->created_by == $user->handle || $post->updated_by == $user->handle || $post->user_id == $user->user_id) {
             return true;

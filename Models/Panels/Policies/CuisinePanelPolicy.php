@@ -15,7 +15,7 @@ class CuisinePanelPolicy extends BaseRestaurantPanelPolicy {
         return true;
     }
 
-    //forse non serve perchè usiamo quello di recipepolicy
+    // forse non serve perchè usiamo quello di recipepolicy
 
     public function addItemCart(UserContract $user, PanelContract $panel): bool {
         return true;

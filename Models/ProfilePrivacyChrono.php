@@ -35,6 +35,7 @@ namespace Modules\Food\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|ProfilePrivacyChrono whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfilePrivacyChrono whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProfilePrivacyChrono whereUpdatedIp($value)
+ *
  * @mixin \Eloquent
  */
 class ProfilePrivacyChrono extends BaseModel {

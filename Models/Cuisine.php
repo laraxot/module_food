@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models;
 
-//--------- models --------
-//--- services
+// --------- models --------
+// --- services
 
-//------ traits
+// ------ traits
 
 /**
  * Modules\Food\Models\Cuisine.
@@ -39,17 +39,18 @@ namespace Modules\Food\Models;
  * @property int|null                                                                 $my_favorites_count
  * @property \Modules\Lang\Models\Post|null                                           $post
  *
- * @method static \Illuminate\Database\Eloquent\Builder|Cuisine newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Cuisine newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Cuisine       newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Cuisine       newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)
- * @method static \Illuminate\Database\Eloquent\Builder|Cuisine query()
- * @method static \Illuminate\Database\Eloquent\Builder|Cuisine whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Cuisine whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Cuisine whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Cuisine whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Cuisine whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Cuisine whereUpdatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Cuisine       query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Cuisine       whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Cuisine       whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Cuisine       whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Cuisine       whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Cuisine       whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Cuisine       whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
+ *
  * @mixin \Eloquent
  *
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\IngredientCat[] $changeCats
@@ -62,7 +63,7 @@ namespace Modules\Food\Models;
  * @property int|null                                                                      $recipes_count
  */
 class Cuisine extends BaseModelLang {
-    //-------- relationship ------
+    // -------- relationship ------
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
@@ -95,6 +96,6 @@ class Cuisine extends BaseModelLang {
     }
 
     /**da fare */
-    //public function cuisineCats() {
-    //}
+    // public function cuisineCats() {
+    // }
 }

@@ -15,18 +15,18 @@ class CreateFoodProfilesTable extends XotBaseMigration {
      * db up.
      */
     public function up(): void {
-        //-- CREATE --
+        // -- CREATE --
         $this->tableCreate(
-        function (Blueprint $table) {
-            $table->increments('id'); //->primary();
-            //$table->string('article_type',50)->nullable();
-            //$table->datetime('published_at')->nullable();
-            $table->text('bio')->nullable();
-            $table->timestamps();
-        }
+            function (Blueprint $table) {
+                $table->increments('id'); // ->primary();
+                // $table->string('article_type',50)->nullable();
+                // $table->datetime('published_at')->nullable();
+                $table->text('bio')->nullable();
+                $table->timestamps();
+            }
         );
 
-        //-- UPDATE --
+        // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table) {
                 if (! Schema::hasColumn($this->getTable(), 'created_by')) {
@@ -66,8 +66,8 @@ class CreateFoodProfilesTable extends XotBaseMigration {
                         $table->string($el.'_short')->nullable();
                     }
                 }
-                //$table->increments('post_id')->change();
-                //->autoIncrement()
+                // $table->increments('post_id')->change();
+                // ->autoIncrement()
 
                 if (! Schema::hasColumn($this->getTable(), 'status')) {
                     $table->integer('status')->nullable();

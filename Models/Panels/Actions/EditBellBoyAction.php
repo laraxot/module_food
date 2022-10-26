@@ -7,16 +7,16 @@ namespace Modules\Food\Models\Panels\Actions;
 use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
-//-------- bases -----------
+// -------- bases -----------
 
 /**
  * Class EditBellBoyAction.
  */
 class EditBellBoyAction extends XotBasePanelAction {
-    public bool $onItem = true; //onlyContainer
+    public bool $onItem = true; // onlyContainer
 
-    public bool $onContainer = false; //onlyContainer
-    //mettere freccette su e giù
+    public bool $onContainer = false; // onlyContainer
+    // mettere freccette su e giù
 
     public string $icon = '<i class="fa fa-edit"></i>';
 
@@ -30,14 +30,14 @@ class EditBellBoyAction extends XotBasePanelAction {
             ->with('row', $this->row);
     }
 
-    //end handle
+    // end handle
 
     /**
      * @return mixed
      */
     public function postHandle() {
         $data = request()->all();
-        //dddx($data);
+        // dddx($data);
         $bellboy = $this->row;
 
         [$containers, $items] = params2ContainerItem();
@@ -47,9 +47,9 @@ class EditBellBoyAction extends XotBasePanelAction {
         \Session::flash('status', 'Operazione eseguita');
 
         $view = 'pub_theme::restaurant.modal.'.$this->getName().'_thanks';
-        //dddx($view);
+        // dddx($view);
 
         return ThemeService::view($view)
             ->with('row', $this->row);
     }
-}//end EditBellboyAction
+}// end EditBellboyAction

@@ -34,7 +34,7 @@ class RestaurantOwnerBellBoys extends Component {
             function ($item) {
                 return (object) $item;
             }
-        ); //->all();
+        ); // ->all();
     }
 
     /**
@@ -56,7 +56,7 @@ class RestaurantOwnerBellBoys extends Component {
             ];
             array_push($this->bell_boys, $item);
         }
-        //dddx($this->bell_boys);
+        // dddx($this->bell_boys);
     }
 
     /**
@@ -162,7 +162,7 @@ class RestaurantOwnerBellBoys extends Component {
 
         $place = Place::query()->create($validatedData);
 
-        //\Auth::user()->profile->places()->save($place);
+        // \Auth::user()->profile->places()->save($place);
         $profile = Profile::query()->where('user_id', Auth::id())->first();
         $profile->places()->save($place);
 

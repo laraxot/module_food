@@ -43,10 +43,11 @@ use Modules\Xot\Traits\Updater;
  * @method static \Illuminate\Database\Eloquent\Builder|IngredientMorph whereRelatedType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|IngredientMorph whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|IngredientMorph whereUpdatedBy($value)
+ *
  * @mixin \Eloquent
  */
 class IngredientMorph extends BaseMorphPivot {
-    //use Updater;
+    // use Updater;
     /**
      * mettere funziona getFillable ed aggiungere solo i 2 campi mancanti.
      */

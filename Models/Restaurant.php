@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models;
 
-//------ traits ----
-//--- services
+// ------ traits ----
+// --- services
 
-//------- blog models
-//------ food models
-//-------- services
+// ------- blog models
+// ------ food models
+// -------- services
 use Modules\Food\Contracts\RestaurantContract;
-//---------- traits
+// ---------- traits
 use Modules\Geo\Models\Traits\GeoTrait;
 use Modules\Rating\Models\Traits\RatingTrait;
 
@@ -43,32 +43,32 @@ class Restaurant extends BaseModelLang implements RestaurantContract {
         'formatted_address',
         'city', 'zip_code', 'country', 'state', 'phone', 'email', 'website',
         'display_phone', 'price', 'is_closed', 'review_count',
-        //'yelp_url', 'foodora_url', 'foodracers_url', 'justeat_url',  // spostati in restaurant provider
-        //'rating',
+        // 'yelp_url', 'foodora_url', 'foodracers_url', 'justeat_url',  // spostati in restaurant provider
+        // 'rating',
         'delivery_cost', 'delivery_options', 'order_action', 'checkout_enable', 'is_reclamed', 'table_enable',
-        //'my_rating',
+        // 'my_rating',
     ];
     /**
      * @var array
      */
     protected $casts = [
-        //'my_rating' => 'array'
+        // 'my_rating' => 'array'
     ];
     /**
      * @var array
      */
     protected $appends = [
-        //'my_rating'
-        //'post', //4 livewire
+        // 'my_rating'
+        // 'post', //4 livewire
     ];
     /**
      * @var string[]
      */
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
-    //-------- relationship -----------
+    // -------- relationship -----------
 
-    //-------- mutators -----------
+    // -------- mutators -----------
     /*
     public function getPostAttribute($value) { //4 livewire
         $obj = $this->post()->first();
@@ -79,5 +79,5 @@ class Restaurant extends BaseModelLang implements RestaurantContract {
         return $obj->toArray();
     }
     */
-    //--------------Scope ----------------
+    // --------------Scope ----------------
 }

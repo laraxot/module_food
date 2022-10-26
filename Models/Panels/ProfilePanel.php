@@ -5,18 +5,18 @@ declare(strict_types=1);
 namespace Modules\Food\Models\Panels;
 
 use Illuminate\Support\Str;
-//--- Services --
+// --- Services --
 use Modules\Food\Events\StoreProfileEvent;
 /*
 *	tutto cio' che inizia con XotBase e' un abstract Class
 *    XotBasePanel e' un abstract
 *	 XotPanel elemento riflesso
 **/
-//---- models ---
+// ---- models ---
 use Modules\LU\Models\User;
 use Modules\Xot\Models\Panels\XotBasePanel;
 
-//------------ Events  --------------
+// ------------ Events  --------------
 
 /**
  * Class ProfilePanel.
@@ -43,8 +43,8 @@ class ProfilePanel extends XotBasePanel {
     public function search(): array {
         return [
             'post_id',
-            //'post.title',
-            //'post.guid',
+            // 'post.title',
+            // 'post.guid',
         ];
     }
 
@@ -71,7 +71,7 @@ class ProfilePanel extends XotBasePanel {
                 'name' => 'user.first_name',
                 'col_bs_size' => 6,
                 'sortable' => 1,
-                //'rules' => 'required',
+                // 'rules' => 'required',
                 // 'rules_messages' => ['it' => ['required' => 'Nome Obbligatorio']],
             ],
             (object) [
@@ -102,10 +102,10 @@ class ProfilePanel extends XotBasePanel {
             (object) [
                 'type' => 'Text',
                 'name' => 'user.handle',
-                //'rules' => 'required',
+                // 'rules' => 'required',
                 'col_bs_size' => 6,
                 'rules' => 'required|unique:liveuser_general.liveuser_users,handle',
-                'except' => ['edit', 'update'], /*questo deve influire anche sulla rules si sputtanano gli url se si lascia modificare*/
+                'except' => ['edit', 'update'], /* questo deve influire anche sulla rules si sputtanano gli url se si lascia modificare */
             ],
             (object) [
                 'type' => 'Password',
@@ -113,7 +113,7 @@ class ProfilePanel extends XotBasePanel {
                 'name' => 'user.passwd',
                 'rules' => 'required|confirmed|min:6',
                 'col_bs_size' => 12,
-                'except' => ['index', 'edit'], //meglio fare una "cambia password a parte"
+                'except' => ['index', 'edit'], // meglio fare una "cambia password a parte"
             ], /*
             (object) [
                 'type' => 'Password',
@@ -124,7 +124,7 @@ class ProfilePanel extends XotBasePanel {
                 'type' => 'Image',
                 'name' => 'post.image_src',
                 'col_bs_size' => 12,
-                //'except' => ['index'],
+                // 'except' => ['index'],
             ],
 
             (object) [
@@ -134,7 +134,7 @@ class ProfilePanel extends XotBasePanel {
                 'except' => ['index'],
             ],
             (object) [
-                'type' => 'PivotFields', //-- da aggiornare
+                'type' => 'PivotFields', // -- da aggiornare
                 'name' => Str::plural('privacy'),
                 'col_bs_size' => 12,
                 'rules' => 'pivot_rules',
@@ -189,16 +189,16 @@ class ProfilePanel extends XotBasePanel {
         }
 
         $res = event(new StoreProfileEvent($user));
-        //$this->generateUUIDVerificationToken($user);
+        // $this->generateUUIDVerificationToken($user);
         \Auth::guard()->login($user, true);
-        //$this->guard()->login($user); ???
+        // $this->guard()->login($user); ???
         \Session::flash('swal', [
             'type' => 'success',
             'title' => trans('food::profile.store_success.title'),
             'text' => trans('food::profile.store_success.text'),
             'footer' => trans('food::profile.store_success.footer'),
         ]);
-        //ddd($user);ddd($row);
+        // ddd($user);ddd($row);
         return $row;
     }
 
@@ -213,7 +213,7 @@ class ProfilePanel extends XotBasePanel {
             if (isset($this->row->user_id) && method_exists($this->row, 'user')) {
                 $this->row->user()->create();
             }
-            //dddx($this->row);
+            // dddx($this->row);
             return null;
         }
 
@@ -225,7 +225,7 @@ class ProfilePanel extends XotBasePanel {
 
     public function isSuperAdmin(): bool {
         $user = $this->row->user;
-        if (is_object($user->perm) && $user->perm->perm_type >= 4) {  //superadmin
+        if (is_object($user->perm) && $user->perm->perm_type >= 4) {  // superadmin
             return true;
         }
 

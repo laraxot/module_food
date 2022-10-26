@@ -17,9 +17,9 @@ use Modules\Extend\Traits\Updater;
 use Modules\Lang\Models\Traits\LinkedTrait;
 */
 class News extends BaseModel {
-    //use Updater;
-    //use Searchable;
-    //use LinkedTrait;
+    // use Updater;
+    // use Searchable;
+    // use LinkedTrait;
     /*
     protected $primaryKey = 'id';
     public $incrementing = true;

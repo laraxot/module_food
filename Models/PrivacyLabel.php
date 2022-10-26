@@ -13,6 +13,6 @@ use Modules\Extend\Traits\Updater;
 use Modules\Lang\Models\Traits\LinkedTrait;
 */
 class PrivacyLabel extends BaseModel {
-    //use Updater;
+    // use Updater;
     protected $fillable = ['checkbox_label'];
 }

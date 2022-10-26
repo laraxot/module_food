@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  * https://laraveldaily.com/laravel-two-ways-seed-data-relationships/.
  *
  **/
-//---- models ----
+// ---- models ----
 use Modules\Food\Models\Restaurant as Model;
 
 /**
@@ -38,7 +38,7 @@ class RestaurantFactory extends Factory {
                 'image_src' => $faker->imageUrl(400, 400),
                 'txt' => $faker->text,
             ],
-            //'cuisineCats'
+            // 'cuisineCats'
             'website' => $faker->url,
             'email' => $faker->email,
             'phone' => $faker->phoneNumber,

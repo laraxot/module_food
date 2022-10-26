@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Modules\Food\Services;
 
 use Illuminate\Http\Request;
-//------ models ------
+// ------ models ------
 use Modules\Food\Http\Requests\StoreProfile;
 use Modules\Food\Models\Profile;
 use Modules\Lang\Models\Post;
 use Modules\LU\Models\PermUser;
-//----- requests ------
+// ----- requests ------
 use Modules\LU\Models\User;
 
 class ProfileService {
@@ -28,7 +28,7 @@ class ProfileService {
         return $row;
     }
 
-    //StoreProfile o Request ?
+    // StoreProfile o Request ?
     public static function store(Request $request): object {
         $data = $request->all();
         $lang = \App::getLocale();
@@ -38,7 +38,7 @@ class ProfileService {
             $data['guid'] = $data['handle'];
         }
         $user = User::create($data);
-        $perm = PermUser::firstOrCreate(['user_id' => $user->user_id]); //creo permesso, next creare tipologia utente
+        $perm = PermUser::firstOrCreate(['user_id' => $user->user_id]); // creo permesso, next creare tipologia utente
         $data['type'] = 'profile';
         $data['lang'] = $lang;
         $data['author_id'] = $user->user_id;
@@ -61,12 +61,12 @@ class ProfileService {
 
     public static function activate(Request $request): void {
         $data = $request->all();
-        //$lang = \App::getLocale();
+        // $lang = \App::getLocale();
 
         $user = User::firstOrFail('token_check', '=', $data['verifyToken']);
 
         if (1 == $user->is_verified) {
-            //Utente già attivo
+            // Utente già attivo
         } else {
             $user->is_verified = 1;
             $user->save();

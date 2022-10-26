@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels;
 
-//--- Services --
+// --- Services --
 use Modules\Blog\Models\Label;
 use Modules\Xot\Models\Panels\XotBasePanel;
 
@@ -65,7 +65,7 @@ class BellBoyPanel extends XotBasePanel {
             ],
 
             (object) [
-                //'type' => 'Select',
+                // 'type' => 'Select',
                 'type' => 'Textarea',
                 'name' => 'vehicle_type',
                 'col_bs_size' => 6,
@@ -85,8 +85,6 @@ class BellBoyPanel extends XotBasePanel {
 
     /**
      * Get the tabs available.
-     *
-     * @return array
      */
     public function tabs(): array {
         $tabs_name = ['restaurant', 'cart'];
@@ -103,8 +101,6 @@ class BellBoyPanel extends XotBasePanel {
 
     /**
      * Get the actions available for the resource.
-     *
-     * @return array
      */
     public function actions(): array {
         return [

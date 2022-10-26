@@ -37,13 +37,13 @@ class RestaurantCustomerRegistration extends Mailable {
      */
     public function build() {
         $view = 'food::email.RestaurantCustomerRegistrationView';
-        //$html = view()->make($view);
+        // $html = view()->make($view);
 
         return
             $this->from('info@yourservername.com')
                  ->subject('Conferma Account')
-                 //->html($html)
+                 // ->html($html)
                  ->view($view)
-                 ;
+        ;
     }
 }

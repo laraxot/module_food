@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels;
 
-//--- Services --
+// --- Services --
 use Modules\Xot\Models\Panels\XotBasePanel;
 
-//------- bases -----
+// ------- bases -----
 
 /**
  * Class IngredientPanel.
@@ -28,12 +28,12 @@ class IngredientPanel extends XotBasePanel {
      */
     public function fields(): array {
         return [
-            //*
+            // *
             (object) [
                 'type' => 'Id',
                 'name' => 'id',
             ],
-            //*/
+            // */
 
             /*
           (object) array(

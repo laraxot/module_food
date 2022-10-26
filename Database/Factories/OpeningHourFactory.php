@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Food\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-//---- models ----
+// ---- models ----
 use Modules\Food\Models\OpeningHour as Model;
 
 /**

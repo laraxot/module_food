@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models;
 
-//--------- models --------
+// --------- models --------
 use Modules\Lang\Models\Post;
 
-//--- services
+// --- services
 
 /**
  * Modules\Food\Models\Location.
@@ -68,43 +68,44 @@ use Modules\Lang\Models\Post;
  * @property int|null                                                                           $restaurant_providers_count
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Restaurant[]         $restaurants
  *
- * @method static \Illuminate\Database\Eloquent\Builder|Location newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Location newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)
- * @method static \Illuminate\Database\Eloquent\Builder|Location query()
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereAdministrativeAreaLevel1($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereAdministrativeAreaLevel1Short($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereAdministrativeAreaLevel2($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereAdministrativeAreaLevel2Short($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereAdministrativeAreaLevel3($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereCampground($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereCountry($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereCountryShort($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereFormattedAddress($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereGoogleplaceUrl($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereLatitude($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereLocality($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereLocalityShort($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereLongitude($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereNearestStreet($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location wherePointOfInterest($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location wherePolitical($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location wherePosition($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location wherePostalCode($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location wherePostalTown($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location wherePremise($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereRadius($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereRestaurantsCount($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereRoute($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereStreetNumber($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereTerm($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Location whereUpdatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereAdministrativeAreaLevel1($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereAdministrativeAreaLevel1Short($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereAdministrativeAreaLevel2($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereAdministrativeAreaLevel2Short($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereAdministrativeAreaLevel3($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereCampground($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereCountry($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereCountryShort($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereFormattedAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereGoogleplaceUrl($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereLatitude($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereLocality($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereLocalityShort($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereLongitude($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereNearestStreet($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      wherePointOfInterest($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      wherePolitical($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      wherePosition($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      wherePostalCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      wherePostalTown($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      wherePremise($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereRadius($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereRestaurantsCount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereRoute($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereStreetNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereTerm($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location      whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
+ *
  * @mixin \Eloquent
  */
 class Location extends BaseModelLang {
@@ -138,7 +139,7 @@ class Location extends BaseModelLang {
         'point_of_interest', 'political', 'campground',
     ];
 
-    //---------- RELATIONSHIPS -----------
+    // ---------- RELATIONSHIPS -----------
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
@@ -175,14 +176,14 @@ class Location extends BaseModelLang {
         $post_table = 'post';
 
         return $this->hasManyDeepFromRelations($this->restaurants(), (new Restaurant())->cuisineCats())
-            //->distinct()  // Call to private method distinct() of parent class Illuminate\Database\Eloquent\Relations\HasManyThrough<Illuminate\Database\Eloquent\Model>.
+            // ->distinct()  // Call to private method distinct() of parent class Illuminate\Database\Eloquent\Relations\HasManyThrough<Illuminate\Database\Eloquent\Model>.
             /*->selectRaw($post_table.'.*,'.$related_table.'.*') //bug su hasManyDeepFromRelations
             ->with(['post'])
             */
-            ;
+        ;
     }
 
-    //-------- mutators ------
+    // -------- mutators ------
 
     /**
      * @param mixed $value

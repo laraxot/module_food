@@ -13,16 +13,16 @@ class CreateCuisineCatsTable extends XotBaseMigration {
      * Run the migrations.
      */
     public function up(): void {
-        //-- CREATE --
-        //-- CREATE --
+        // -- CREATE --
+        // -- CREATE --
         $this->tableCreate(
             function (Blueprint $table) {
-                $table->increments('id'); //->primary();
+                $table->increments('id'); // ->primary();
                 $table->string('day_name');
                 $table->integer('day_of_week');
-                $table->time('open_at'); //time or timeTz ??
+                $table->time('open_at'); // time or timeTz ??
                 $table->time('close_at');
-                $table->boolean('is_closed')->nullable();  //field from closed to is_closed is more readable
+                $table->boolean('is_closed')->nullable();  // field from closed to is_closed is more readable
                 $table->text('note')->nullable();
                 $table->string('created_by')->nullable();
                 $table->string('updated_by')->nullable();
@@ -30,9 +30,9 @@ class CreateCuisineCatsTable extends XotBaseMigration {
                 $table->timestamps();
                 // $table->softDeletes();
             }
-            );
+        );
 
-        //-- UPDATE --
+        // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table) {
                 /* if ($this->hasColumn('post_id')) {

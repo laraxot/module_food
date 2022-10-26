@@ -6,17 +6,17 @@ namespace Modules\Food\Models\Panels;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-//--- Services --
+// --- Services --
 use Illuminate\Support\Facades\Session;
-//-- bases --
+// -- bases --
 use Illuminate\Support\Str;
-//---- models ---
+// ---- models ---
 use Modules\Food\Events\StoreRestaurantOwnerEvent;
 use Modules\LU\Models\PermUser;
 use Modules\LU\Models\User;
 use Modules\Xot\Models\Panels\XotBasePanel;
 
-//------------ Events  --------------
+// ------------ Events  --------------
 
 /**
  * Class RestaurantOwnerPanel.
@@ -78,7 +78,7 @@ class RestaurantOwnerPanel extends XotBasePanel {
                 'name' => 'first_name',
                 'col_bs_size' => 6,
                 'sortable' => 1,
-                //'rules' => 'required|min:3|max:30',
+                // 'rules' => 'required|min:3|max:30',
                 'rules_messages' => [
                     'it' => ['required' => 'Nome Obbligatorio',
                         'min' => 'Inserire min 3 caratteri',
@@ -98,7 +98,7 @@ class RestaurantOwnerPanel extends XotBasePanel {
                 'type' => 'Text',
                 'name' => 'last_name',
                 'col_bs_size' => 6,
-                //'rules' => 'required|min:3|max:30',
+                // 'rules' => 'required|min:3|max:30',
                 // 'rules_messages' => [
                 // 	'it'=>['required'=>'Nome Obbligatorio',
                 // 				'min' => 'Inserire min 3 caratteri',
@@ -217,7 +217,7 @@ class RestaurantOwnerPanel extends XotBasePanel {
         	],
         	*/
             (object) [
-                'type' => 'PivotFields', //-- da aggiornare
+                'type' => 'PivotFields', // -- da aggiornare
                 'name' => Str::plural('privacy'),
                 'col_bs_size' => 12,
                 'rules' => 'pivot_rules',
@@ -228,8 +228,6 @@ class RestaurantOwnerPanel extends XotBasePanel {
 
     /**
      * Get the tabs available.
-     *
-     * @return array
      */
     public function tabs(): array {
         $tabs_name = [];
@@ -248,8 +246,6 @@ class RestaurantOwnerPanel extends XotBasePanel {
 
     /**
      * Get the filters available for the resource.
-     *
-     * @return array
      */
     public function filters(Request $request = null): array {
         return [];
@@ -266,8 +262,6 @@ class RestaurantOwnerPanel extends XotBasePanel {
 
     /**
      * Get the actions available for the resource.
-     *
-     * @return array
      */
     public function actions(): array {
         return [
@@ -320,21 +314,21 @@ class RestaurantOwnerPanel extends XotBasePanel {
             'user_id' => $user->user_id,
         ]);
         $res = event(new StoreRestaurantOwnerEvent($user));
-        //$this->generateUUIDVerificationToken($user);
+        // $this->generateUUIDVerificationToken($user);
         Auth::login($user, true);
-        //$this->guard()->login($user); ???
+        // $this->guard()->login($user); ???
         Session::flash('swal', [
             'type' => 'success',
             'title' => trans('food::restaurant_owner.store_success.title'),
             'text' => trans('food::restaurant_owner.store_success.text'),
             'footer' => trans('food::restaurant_owner.store_success.footer'),
         ]);
-        //ddd($user);ddd($row);
+        // ddd($user);ddd($row);
         return $row;
     }
 
     public function indexEditSubs(): array {
-        //return ['cartsInProgress', 'bellBoys'];
+        // return ['cartsInProgress', 'bellBoys'];
         return ['carts', 'bellBoys'];
     }
 }

@@ -44,26 +44,27 @@ use Modules\LU\Models\User;
  * @property \Modules\Blog\Models\Profile|null                                        $profile
  * @property User|null                                                                $user
  *
- * @method static \Illuminate\Database\Eloquent\Builder|Waiter newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Waiter newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Waiter        newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Waiter        newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)
- * @method static \Illuminate\Database\Eloquent\Builder|Waiter query()
- * @method static \Illuminate\Database\Eloquent\Builder|Waiter whereAuthUserId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Waiter whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Waiter whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Waiter whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Waiter whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Waiter wherePhone($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Waiter whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Waiter whereUpdatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Waiter        query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Waiter        whereAuthUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Waiter        whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Waiter        whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Waiter        whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Waiter        whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Waiter        wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Waiter        whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Waiter        whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
+ *
  * @mixin \Eloquent
  *
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Restaurant[] $restaurants
  * @property int|null                                                                   $restaurants_count
  */
 class Waiter extends BaseModelLang {
-    //protected $primaryKey = 'user_id';
+    // protected $primaryKey = 'user_id';
 
     use HasProfileTrait;
 
@@ -76,7 +77,7 @@ class Waiter extends BaseModelLang {
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
     public function restaurants() {
-        return $this->morphRelated(Restaurant::class, false); //, 'user_id');
+        return $this->morphRelated(Restaurant::class, false); // , 'user_id');
     }
 
     /* //inserito dentro HasProfileTrait

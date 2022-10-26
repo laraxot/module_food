@@ -35,6 +35,7 @@ use Modules\Xot\Models\XotBaseModel;
  * @method static \Illuminate\Database\Eloquent\Builder|Tip wherePostType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Tip whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Tip whereUpdatedBy($value)
+ *
  * @mixin \Eloquent
  */
 class Tip extends XotBaseModel {
@@ -61,20 +62,20 @@ class Tip extends XotBaseModel {
      * @var array
      */
     protected $casts = [
-        //'published_at' => 'datetime:Y-m-d', // da verificare
+        // 'published_at' => 'datetime:Y-m-d', // da verificare
     ];
     /**
      * @var array
      */
     protected $hidden = [
-        //'password'
+        // 'password'
     ];
     /**
      * @var bool
      */
     public $timestamps = true;
 
-    //------- relationships ------------
+    // ------- relationships ------------
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -102,4 +103,4 @@ class Tip extends XotBaseModel {
 
         return $user->first_name.' '.$user->last_name;
     }
-}//end class
+}// end class

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels;
 
-//--- Services --
+// --- Services --
 
 use Modules\Xot\Models\Panels\XotBasePanel;
 
@@ -28,13 +28,13 @@ class RestaurantProviderPanel extends XotBasePanel {
     public function fields(): array {
         return [
             (object) [
-                //'type' => 'Id',
+                // 'type' => 'Id',
                 'type' => 'Hidden',
                 'name' => 'id',
-                'comment' => null, //la sua chiave
+                'comment' => null, // la sua chiave
             ],
             (object) [
-                //'type' => 'Integer',
+                // 'type' => 'Integer',
                 'type' => 'Hidden',
                 'name' => 'restaurant_id',
                 'comment' => null, // la chiave esterna al ristorante

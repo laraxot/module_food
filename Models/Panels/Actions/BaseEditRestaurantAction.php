@@ -4,20 +4,20 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels\Actions;
 
-//-------- services --------
+// -------- services --------
 use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
-//-------- bases -----------
+// -------- bases -----------
 
 /**
  * Class BaseEditRestaurantAction.
  */
 abstract class BaseEditRestaurantAction extends XotBasePanelAction {
-    //public $onContainer = false;
+    // public $onContainer = false;
 
-    public bool $onItem = true; //onlyContainer
-    //mettere freccette su e giù
+    public bool $onItem = true; // onlyContainer
+    // mettere freccette su e giù
 
     public string $icon = '<i class="fa fa-edit"></i>';
 
@@ -43,7 +43,7 @@ abstract class BaseEditRestaurantAction extends XotBasePanelAction {
      * @return mixed
      */
     public function postHandle() {
-        //dddx(get_defined_vars());
+        // dddx(get_defined_vars());
         /*
         $up = $this->updateRow();
         $this->setRow($up->row);

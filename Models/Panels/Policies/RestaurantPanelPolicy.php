@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels\Policies;
 
-use Illuminate\Support\Facades\Auth;
 use Modules\Xot\Contracts\PanelContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Models\Panels\Policies\XotBasePanelPolicy;
@@ -18,7 +17,7 @@ class RestaurantPanelPolicy extends XotBasePanelPolicy {
     }
 
     public function rate(?UserContract $user, PanelContract $panel): bool {
-        return true; //chiunque puo' votare
+        return true; // chiunque puo' votare
     }
 
     public function indexEdit(UserContract $user, PanelContract $panel): bool {
@@ -29,22 +28,22 @@ class RestaurantPanelPolicy extends XotBasePanelPolicy {
         $post = $panel->getRow();
         $my = $post->restaurantOwners->where('user_id', $user->user_id);
         if ($my->count() > 0) {
-            return true;  //e' un mio ristorante
+            return true;  // e' un mio ristorante
         }
         $claimed = $post->restaurantOwners->count() > 0;
         if ($claimed) {
-            return false; //il ristorante ha proprietari e non sono tra quelli
+            return false; // il ristorante ha proprietari e non sono tra quelli
         }
-        if ($post->created_by == $user->handle /*|| $post->updated_by == $user->handle*/ || $post->user_id == $user->user_id) {
-            //dddx([$post->created_by, $post->updated_by, $user->handle, $post->user_id, $user->user_id]);
+        if ($post->created_by == $user->handle /* || $post->updated_by == $user->handle */ || $post->user_id == $user->user_id) {
+            // dddx([$post->created_by, $post->updated_by, $user->handle, $post->user_id, $user->user_id]);
 
-            return true; //sono quello che lo ha suggerito
+            return true; // sono quello che lo ha suggerito
         }
 
         return false;
     }
 
-    //end store
+    // end store
 
     public function editRestaurantBasic(UserContract $user, PanelContract $panel): bool {
         return $this->edit($user, $panel);

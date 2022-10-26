@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels\Actions;
 
-//-------- services --------
+// -------- services --------
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
-//-------- bases -----------
+// -------- bases -----------
 
 /**
  * Class CheckOutAction.
  */
 class CheckOutAction extends XotBasePanelAction {
-    //public $onContainer = false;
+    // public $onContainer = false;
 
-    public bool $onItem = true; //onlyContainer
-    //mettere freccette su e giù
+    public bool $onItem = true; // onlyContainer
+    // mettere freccette su e giù
 
     public string $icon = '';
 
@@ -26,7 +26,7 @@ class CheckOutAction extends XotBasePanelAction {
      * @return mixed
      */
     public function handle() {
-        //dddx($this->panel->view());
+        // dddx($this->panel->view());
 
         return $this->panel->view();
     }

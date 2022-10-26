@@ -6,10 +6,10 @@ namespace Modules\Food\Models\Panels;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-//--- Services --
+// --- Services --
 use Modules\Xot\Models\Panels\XotBasePanel;
 
-//------- bases -----
+// ------- bases -----
 
 /**
  * Class LocationPanel.
@@ -81,8 +81,6 @@ class LocationPanel extends XotBasePanel {
 
     /**
      * Get the tabs available.
-     *
-     * @return array
      */
     public function tabs(): array {
         $tabs_name = ['cuisine_cats', 'restaurants'];
@@ -92,8 +90,6 @@ class LocationPanel extends XotBasePanel {
 
     /**
      * Get the actions available for the resource.
-     *
-     * @return array
      */
     public function actions(): array {
         return [

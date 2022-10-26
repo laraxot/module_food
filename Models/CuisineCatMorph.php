@@ -39,6 +39,7 @@ use Modules\Xot\Traits\Updater;
  * @method static \Illuminate\Database\Eloquent\Builder|CuisineCatMorph whereRelatedType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|CuisineCatMorph whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|CuisineCatMorph whereUpdatedBy($value)
+ *
  * @mixin \Eloquent
  */
 class CuisineCatMorph extends BaseMorphPivot {

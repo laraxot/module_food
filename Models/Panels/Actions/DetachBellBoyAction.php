@@ -7,16 +7,16 @@ namespace Modules\Food\Models\Panels\Actions;
 use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
-//-------- bases -----------
+// -------- bases -----------
 
 /**
  * Class DetachBellBoyAction.
  */
 class DetachBellBoyAction extends XotBasePanelAction {
-    public bool $onItem = true; //onlyContainer
+    public bool $onItem = true; // onlyContainer
 
-    public bool $onContainer = false; //onlyContainer
-    //mettere freccette su e giù
+    public bool $onContainer = false; // onlyContainer
+    // mettere freccette su e giù
 
     public string $icon = '<i class="fas fa-motorcycle"></i>';
 
@@ -59,9 +59,9 @@ class DetachBellBoyAction extends XotBasePanelAction {
         $restaurant = $this->panel->getRow();
         $restaurant->bellBoys()->wherePivot('user_id', $this->user_id)->detach();
 
-        //return ' bell boy scollegato';
+        // return ' bell boy scollegato';
 
-        //return redirect()->back();
+        // return redirect()->back();
 
         \Session::flash('status', 'Operazione eseguita');
 
@@ -79,5 +79,5 @@ class DetachBellBoyAction extends XotBasePanelAction {
         */
     }
 
-    //end handle
-}//end EditBellboyAction
+    // end handle
+}// end EditBellboyAction

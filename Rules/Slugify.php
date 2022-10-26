@@ -29,6 +29,6 @@ class Slugify implements Rule {
      */
     public function message() {
         return 'The :attribute must be slugify.';
-        //return trans('validation.uppercase');
+        // return trans('validation.uppercase');
     }
 }

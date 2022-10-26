@@ -41,24 +41,25 @@ namespace Modules\Food\Models;
  * @property int|null                                                                 $my_favorites_count
  * @property \Modules\Lang\Models\Post|null                                           $post
  *
- * @method static \Illuminate\Database\Eloquent\Builder|Recipe newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Recipe newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Recipe        newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Recipe        newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)
- * @method static \Illuminate\Database\Eloquent\Builder|Recipe query()
- * @method static \Illuminate\Database\Eloquent\Builder|Recipe whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Recipe whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Recipe whereCreatedIp($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Recipe whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Recipe whereDeletedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Recipe whereDeletedIp($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Recipe whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Recipe whereIsClosed($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Recipe whereNote($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Recipe whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Recipe whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Recipe whereUpdatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Recipe whereUpdatedIp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recipe        query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Recipe        whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recipe        whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recipe        whereCreatedIp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recipe        whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recipe        whereDeletedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recipe        whereDeletedIp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recipe        whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recipe        whereIsClosed($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recipe        whereNote($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recipe        whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recipe        whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recipe        whereUpdatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Recipe        whereUpdatedIp($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
+ *
  * @mixin \Eloquent
  *
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Cuisine[] $cuisines
@@ -67,21 +68,21 @@ namespace Modules\Food\Models;
 class Recipe extends BaseModelLang {
     use \Staudenmeir\EloquentHasManyDeep\HasRelationships;
 
-    //--- relationship --
+    // --- relationship --
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
-    public function cuisines() { //piu' di una o una sola ?
+    public function cuisines() { // piu' di una o una sola ?
         $related = Cuisine::class;
 
-        return $this->morphRelated($related, true); //mi posso giostrare i ruoli
+        return $this->morphRelated($related, true); // mi posso giostrare i ruoli
     }
 
     /**
      * @return \Staudenmeir\EloquentHasManyDeep\HasManyDeep
      */
-    public function ingredientCats() {  //categoria variazioni
+    public function ingredientCats() {  // categoria variazioni
         /*
         $params = optional(\Route::current())->parameters();
         $cuisine_curr = collect($params)->where('type', 'cuisine')->last();
@@ -91,10 +92,10 @@ class Recipe extends BaseModelLang {
         return $this->hasManyDeep(IngredientCat::class,[Recipe::class],$foreignKeys,$localKeys);
         */
         return $this->hasManyDeepFromRelations($this->cuisines(), (new Cuisine())->ingredientCats())
-            //->distinct() ??????????????????????????????????? da testare !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            //->selectRaw($post_table.'.*,'.$related_table.'.*') //bug su hasManyDeepFromRelations
-            //->with(['post']) //Call to private method with() of parent class Illuminate\Database\Eloquent\Relations\HasManyThrough<Illuminate\Database\Eloquent\Model>.
-            ;
+            // ->distinct() ??????????????????????????????????? da testare !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            // ->selectRaw($post_table.'.*,'.$related_table.'.*') //bug su hasManyDeepFromRelations
+            // ->with(['post']) //Call to private method with() of parent class Illuminate\Database\Eloquent\Relations\HasManyThrough<Illuminate\Database\Eloquent\Model>.
+        ;
     }
 
     /*
@@ -104,4 +105,4 @@ class Recipe extends BaseModelLang {
         return $this->morphRelated($related)
     }
     */
-}//end class
+}// end class

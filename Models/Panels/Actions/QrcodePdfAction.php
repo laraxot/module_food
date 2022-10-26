@@ -6,16 +6,16 @@ namespace Modules\Food\Models\Panels\Actions;
 
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
-//-------- bases -----------
+// -------- bases -----------
 
 /**
  * Class QrcodePdfAction.
  */
 class QrcodePdfAction extends XotBasePanelAction {
-    public bool $onItem = true; //onlyContainer
+    public bool $onItem = true; // onlyContainer
 
-    public bool $onContainer = false; //onlyContainer
-    //mettere freccette su e giù
+    public bool $onContainer = false; // onlyContainer
+    // mettere freccette su e giù
 
     public string $icon = '<i class="fa fa-edit"></i>';
 

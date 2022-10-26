@@ -7,15 +7,15 @@ namespace Modules\Food\Models\Panels\Actions;
 use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
-//-------- bases -----------
+// -------- bases -----------
 
 /**
  * Class WhereIAmAction.
  */
 class WhereIAmAction extends XotBasePanelAction {
-    public bool $onItem = true; //onlyContainer
+    public bool $onItem = true; // onlyContainer
 
-    public bool $onContainer = false; //onlyContainer
+    public bool $onContainer = false; // onlyContainer
 
     public string $icon = '<i class="fas fa-map-marker-alt"></i>';
 
@@ -29,16 +29,16 @@ class WhereIAmAction extends XotBasePanelAction {
             ->with('row', $this->row);
     }
 
-    //end handle
+    // end handle
 
     /**
      * @return mixed
      */
     public function postHandle() {
-        //$up = $this->updateRow();
-        //$this->setRow($up->row);
+        // $up = $this->updateRow();
+        // $this->setRow($up->row);
         $this->panel->update(request()->all());
 
         return $this->handle();
     }
-}//end EditBellboyAction
+}// end EditBellboyAction

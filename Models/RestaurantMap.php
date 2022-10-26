@@ -134,6 +134,7 @@ namespace Modules\Food\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantMap whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantMap whereWebsite($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
+ *
  * @mixin \Eloquent
  *
  * @property string|null                     $address1
@@ -180,6 +181,6 @@ class RestaurantMap extends BaseModelLang {
      */
     protected $table = 'restaurants'; /* da risolvere */
 
-    //protected $dates = ['created_at', 'updated_at', 'deleted_at'];
-    //------------ mutators ------
+    // protected $dates = ['created_at', 'updated_at', 'deleted_at'];
+    // ------------ mutators ------
 }

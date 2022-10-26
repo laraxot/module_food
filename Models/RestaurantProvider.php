@@ -27,6 +27,7 @@ namespace Modules\Food\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantProvider whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantProvider whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RestaurantProvider whereUrl($value)
+ *
  * @mixin \Eloquent
  */
 class RestaurantProvider extends BaseModel {
@@ -40,7 +41,7 @@ class RestaurantProvider extends BaseModel {
      */
     protected $fillable = ['provider', 'post_id', 'url'];
 
-    //----- mutator ---
+    // ----- mutator ---
     /*
     public function getPostTypeAttribute(?string $value)
 {

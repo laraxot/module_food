@@ -7,16 +7,16 @@ namespace Modules\Food\Models\Panels\Actions;
 use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
-//-------- bases -----------
+// -------- bases -----------
 
 /**
  * Class CreateBookTableAction.
  */
 class CreateBookTableAction extends XotBasePanelAction {
-    public bool $onItem = true; //onlyContainer
+    public bool $onItem = true; // onlyContainer
 
-    public bool $onContainer = false; //onlyContainer
-    //mettere freccette su e giù
+    public bool $onContainer = false; // onlyContainer
+    // mettere freccette su e giù
 
     public string $icon = '<i class="fa fa-plus"></i>';
 
@@ -25,7 +25,7 @@ class CreateBookTableAction extends XotBasePanelAction {
      */
     public function handle() {
         $view = 'pub_theme::booking.modal.'.$this->getName();
-        //dddx($view);
+        // dddx($view);
 
         return ThemeService::view($view)
             ->with('row', $this->row);
@@ -45,7 +45,7 @@ class CreateBookTableAction extends XotBasePanelAction {
 
         $booking = $shop->bookings()->create($data);
 
-        //in booking_items che ci metto??????
+        // in booking_items che ci metto??????
 
         /*
         $bookings = $shop->myBookingsWithThisRestaurant()

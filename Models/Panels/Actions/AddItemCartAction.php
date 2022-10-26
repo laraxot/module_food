@@ -9,16 +9,16 @@ use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 use Modules\Xot\Services\PanelService as Panel;
 
-//-------- bases -----------
+// -------- bases -----------
 
 /**
  * Class AddItemCartAction.
  */
 class AddItemCartAction extends XotBasePanelAction {
-    public bool $onItem = true; //onlyContainer
+    public bool $onItem = true; // onlyContainer
 
-    public bool $onContainer = false; //onlyContainer
-    //mettere freccette su e giù
+    public bool $onContainer = false; // onlyContainer
+    // mettere freccette su e giù
 
     public string $icon = '<i class="fa fa-plus"></i>';
 
@@ -40,8 +40,8 @@ class AddItemCartAction extends XotBasePanelAction {
      */
     public function postHandle() {
         $data = request()->all();
-        //dddx($data);
-        //dddx(get_defined_vars());
+        // dddx($data);
+        // dddx(get_defined_vars());
         [$containers,$items] = params2ContainerItem();
         $shop = collect($items)->firstWhere('post_type', 'restaurant');
         $recipe = $this->row;
@@ -72,7 +72,7 @@ class AddItemCartAction extends XotBasePanelAction {
                 $ingredients = $ingredient_cat->ingredients;
                 foreach ($cat as $item_id => $qty) {
                     $ingredient = $ingredients->firstWhere('id', $item_id);
-                    //echo '<br/>'.$ingredient->title.'   '.$ingredient->pivot->price.'  '.$qty;
+                    // echo '<br/>'.$ingredient->title.'   '.$ingredient->pivot->price.'  '.$qty;
                     $tmp = (object) [
                         'var_cat_id' => $cat_id,
                         'var_cat_type' => $ingredient_cat->post_type,
@@ -88,7 +88,7 @@ class AddItemCartAction extends XotBasePanelAction {
                         'user_id' => \Auth::id(),
                     ];
                     if (-1 == $tmp->qty) {
-                        $tmp->price = 0; //se tolgo, il cliente non ha sconti
+                        $tmp->price = 0; // se tolgo, il cliente non ha sconti
                     }
                     if (0 != $tmp->qty) {
                         $item_vars[] = get_object_vars($tmp);
@@ -98,11 +98,11 @@ class AddItemCartAction extends XotBasePanelAction {
         }
 
         if (! isset($data['cart_id'])) {
-            //return 'cart non creato dal ristoratore';
+            // return 'cart non creato dal ristoratore';
             $cart = $shop->myCartWithThisRestaurant()
                 ->firstOrCreate(['user_id' => \Auth::id(), 'status' => 1]);
         } else {
-            //return 'cart creato dal ristoratore';
+            // return 'cart creato dal ristoratore';
             $cart = Cart::find($data['cart_id']);
         }
 
@@ -114,10 +114,10 @@ class AddItemCartAction extends XotBasePanelAction {
                 ->relatedName('cuisine')
                 ->url('index');
 
-        //return redirect($url);
+        // return redirect($url);
         } else {
-            //return 'deve tornare indietro';
-            //dddx($items);
+            // return 'deve tornare indietro';
+            // dddx($items);
             /*
             $url = route('container0.container1.show',
             [
@@ -138,15 +138,15 @@ class AddItemCartAction extends XotBasePanelAction {
             $url = Panel::make()->get($shop)
                 ->itemAction('add_item_cart_by_restaurant_owner')
                 ->url(['cart_id' => $data['cart_id']]);
-            //link generato
-            //https://food.local/it/restaurant_owner/restaurant-owner-4/restaurant/test-ristorante
+            // link generato
+            // https://food.local/it/restaurant_owner/restaurant-owner-4/restaurant/test-ristorante
             //      ?container2=cuisine&item2=primi-piatti&container3=recipe&item3=pasta-col-sugo-della-nonna&cart_id=40&format=iframe&_act=add_item_cart_by_restaurant_owner
 
-            //dddx($url);
-            //dddx(get_defined_vars());
-            //return redirect($url);
+            // dddx($url);
+            // dddx(get_defined_vars());
+            // return redirect($url);
 
-            //link dove deve ritornare
+            // link dove deve ritornare
             // https://food.local/it/restaurant_owner/restaurant-owner-4/restaurant/test-ristorante
             //      ?container1=restaurant&cart_id=36&_act=add_item_cart_by_restaurant_owner
         }

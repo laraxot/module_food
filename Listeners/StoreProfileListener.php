@@ -19,8 +19,8 @@ class StoreProfileListener {
      * @return mixed
      */
     public function handle(StoreProfileEvent $event) {
-        //app('log')->info($event->msg);
-        //\Mail::to($event->user)->send(new StoreProfileMail($event->user));
+        // app('log')->info($event->msg);
+        // \Mail::to($event->user)->send(new StoreProfileMail($event->user));
         try {
             $event->user->notify(new StoreProfileNotification());
         } catch (\Exception $e) {
@@ -34,7 +34,7 @@ class StoreProfileListener {
     }
 }
 
-//https://pineco.de/keep-the-code-clean-with-laravel-events/
+// https://pineco.de/keep-the-code-clean-with-laravel-events/
 /*
 public function handle(Created $event)
     {

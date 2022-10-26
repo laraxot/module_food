@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models;
 
-//use Illuminate\Database\Eloquent\Relations\MorphPivot;
-//use Modules\Xot\Traits\Updater;
+// use Illuminate\Database\Eloquent\Relations\MorphPivot;
+// use Modules\Xot\Traits\Updater;
 
 /**
  * Modules\Food\Models\RecipeMorph.
@@ -46,15 +46,16 @@ namespace Modules\Food\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|RecipeMorph whereRelatedType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RecipeMorph whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RecipeMorph whereUpdatedBy($value)
+ *
  * @mixin \Eloquent
  */
 class RecipeMorph extends BaseMorphPivot {
-    //use Updater;
+    // use Updater;
     /**
      * @var string[]
      */
     protected $fillable = [
-        'id', 'post_id', 'post_type', 'recipe_id', 'related_type', //-- testare se toglierli
+        'id', 'post_id', 'post_type', 'recipe_id', 'related_type', // -- testare se toglierli
         'user_id',
         'price', 'price_currency', 'launch_available', 'dinner_available', 'note',
     ];

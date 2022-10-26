@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace Modules\Food\Models\Traits;
 
 use Illuminate\Support\Facades\Auth;
-//---- Blog Models -----
+// ---- Blog Models -----
 use Illuminate\Support\Str;
 use Modules\Blog\Models\Article;
 use Modules\Blog\Models\Comment;
 use Modules\Blog\Models\Contact;
 use Modules\Blog\Models\Event;
-//-- Cart models
+// -- Cart models
 use Modules\Blog\Models\Photo;
-//--- Food models
+// --- Food models
 use Modules\Cart\Models\Booking;
 use Modules\Cart\Models\BookingItem;
 use Modules\Cart\Models\Cart;
@@ -28,9 +28,9 @@ use Modules\Food\Models\RestaurantMorph;
 use Modules\Food\Models\RestaurantOwner;
 use Modules\Food\Models\RestaurantProvider;
 use Modules\Food\Models\Tip;
-//use Modules\Food\Models\Table;
+// use Modules\Food\Models\Table;
 use Modules\Food\Models\Waiter;
-use Modules\Lang\Models\Post; //--- potrebbe essere in un shop qualsiasi..
+use Modules\Lang\Models\Post; // --- potrebbe essere in un shop qualsiasi..
 
 /**
  * Trait RestaurantRelationshipsTrait.
@@ -54,7 +54,7 @@ trait RestaurantRelationshipsTrait {
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
     public function profiles() {
-        return $this->morphRelated(Profile::class, true); //true alla fine e' per dire inverse
+        return $this->morphRelated(Profile::class, true); // true alla fine e' per dire inverse
     }
 
     /**
@@ -72,14 +72,14 @@ trait RestaurantRelationshipsTrait {
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
     public function bellBoys() {
-        return $this->morphRelated(BellBoy::class, true); //, 'user_id');
+        return $this->morphRelated(BellBoy::class, true); // , 'user_id');
     }
 
     /**
      * @return \Staudenmeir\EloquentHasManyDeep\HasManyDeep
      */
     public function bellboys_hasmanydeep() {
-        //return $this->morphRelated(Profile::class, true);
+        // return $this->morphRelated(Profile::class, true);
         $foreignKeys = ['related_id', 'post_id', 'user_id'];
         $localKeys = ['post_id', 'post_id', 'user_id'];
 
@@ -126,21 +126,21 @@ trait RestaurantRelationshipsTrait {
      */
     public function cartsInProgress() {
         return $this->carts()
-            ->where('status', '!=', 6)  //non visualizzo quelli conclusi
-            ->where('status', '!=', 3) //non visualizzo quelli rifiutati
+            ->where('status', '!=', 6)  // non visualizzo quelli conclusi
+            ->where('status', '!=', 3) // non visualizzo quelli rifiutati
             ->orderby('status');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphOne
      */
-    public function myCartWithThisRestaurant() { //sarebbe un mycarts
-        //$rows = $this->hasMany(Cart::class, 'post_id', 'post_id')->where('post_type', $this->post_type) //polimorfica
+    public function myCartWithThisRestaurant() { // sarebbe un mycarts
+        // $rows = $this->hasMany(Cart::class, 'post_id', 'post_id')->where('post_type', $this->post_type) //polimorfica
         //                ->where('user_id', \Auth::id()) //nella parte "pubblica" mostro solo quelli dell'utente
         //                ;
         $rows = $this->morphOne(Cart::class, 'shop')
             ->where('user_id', Auth::id())
-            //->where('status',)
+            // ->where('status',)
         ;
 
         return $rows;
@@ -160,7 +160,7 @@ trait RestaurantRelationshipsTrait {
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function locations() { //da prototipo vuole il plurale
+    public function locations() { // da prototipo vuole il plurale
         $table = with(new Location())->getTable();
         $post_table = with(new Post())->getTable();
         $with = ['post'];
@@ -203,7 +203,7 @@ trait RestaurantRelationshipsTrait {
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function maps() { //--- da valutare --
+    public function maps() { // --- da valutare --
         return $this->hasOne(Location::class, 'locality', 'locality')->withDefault();
     }
 
@@ -211,7 +211,7 @@ trait RestaurantRelationshipsTrait {
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
     public function contacts() {
-        return $this->morphMany(Contact::class, 'post'); //, 'post_id', 'id');
+        return $this->morphMany(Contact::class, 'post'); // , 'post_id', 'id');
     }
 
     /**
@@ -232,9 +232,9 @@ trait RestaurantRelationshipsTrait {
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
     public function photos() {
-        //$photo_class = config('xra.model.photo');
+        // $photo_class = config('xra.model.photo');
 
-        //return $this->morphRelated($photo_class);
+        // return $this->morphRelated($photo_class);
         return $this->morphRelated(Photo::class);
     }
 
@@ -291,26 +291,26 @@ trait RestaurantRelationshipsTrait {
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
     public function restaurantOwners() {
-        return $this->morphRelated(RestaurantOwner::class, true); //, 'user_id');
+        return $this->morphRelated(RestaurantOwner::class, true); // , 'user_id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
     public function waiters() {
-        return $this->morphRelated(Waiter::class, true); //, 'user_id');
+        return $this->morphRelated(Waiter::class, true); // , 'user_id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
     public function tips() {
-        //$tip_class = config('xra.model.tip');
+        // $tip_class = config('xra.model.tip');
 
         return $this->morphMany(Tip::class, 'post');
     }
 
-    ///------------------------------------
+    // /------------------------------------
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
@@ -332,7 +332,7 @@ trait RestaurantRelationshipsTrait {
     public function myBookingsWithThisRestaurant() {
         $rows = $this->morphMany(Booking::class, 'shop')
         ->where('customer_id', Auth::id())
-        //->where('status',)
+        // ->where('status',)
         ;
 
         return $rows;

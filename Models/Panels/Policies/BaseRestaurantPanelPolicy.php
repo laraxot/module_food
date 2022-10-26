@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels\Policies;
 
-//use Modules\LU\Models\User as User;
-//use Modules\Food\Models\BellBoy as Post;
+// use Modules\LU\Models\User as User;
+// use Modules\Food\Models\BellBoy as Post;
 
-//use Modules\Xot\Models\Policies\XotBasePolicy;
+// use Modules\Xot\Models\Policies\XotBasePolicy;
 
-//use Modules\LU\Models\User;
-//use Modules\LU\Models\User;
+// use Modules\LU\Models\User;
+// use Modules\LU\Models\User;
 use Illuminate\Support\Facades\Gate;
 use Modules\Xot\Contracts\PanelContract;
 use Modules\Xot\Contracts\UserContract;

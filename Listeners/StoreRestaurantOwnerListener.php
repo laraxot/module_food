@@ -8,7 +8,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Modules\Food\Events\StoreRestaurantOwnerEvent;
 use Modules\Food\Notifications\StoreRestaurantOwnerNotification;
 
-//use Modules\Food\Mail\StoreRestaurantOwnerMail;
+// use Modules\Food\Mail\StoreRestaurantOwnerMail;
 
 /**
  * Class StoreRestaurantOwnerListener.
@@ -20,11 +20,11 @@ class StoreRestaurantOwnerListener {
      * @return mixed
      */
     public function handle(StoreRestaurantOwnerEvent $event) {
-        //echo 'echo?';
-        //app('log')->info($event->msg);
-        //\Mail::to($event->user)->send(new StoreRestaurantOwnerMail($event->user));
+        // echo 'echo?';
+        // app('log')->info($event->msg);
+        // \Mail::to($event->user)->send(new StoreRestaurantOwnerMail($event->user));
 
-        //ddd($res);
+        // ddd($res);
         try {
             $event->user->notify(new StoreRestaurantOwnerNotification());
         } catch (\Exception $e) {
@@ -39,7 +39,7 @@ class StoreRestaurantOwnerListener {
     }
 }
 
-//https://pineco.de/keep-the-code-clean-with-laravel-events/
+// https://pineco.de/keep-the-code-clean-with-laravel-events/
 /*
 public function handle(Created $event)
     {

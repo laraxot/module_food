@@ -9,7 +9,7 @@ use Illuminate\Database\Schema\Blueprint;
 *
 **/
 
-//--- models --
+// --- models --
 use Modules\Food\Models\Location;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
@@ -21,44 +21,44 @@ class CreateRestaurantsTable extends XotBaseMigration {
      * Run the migrations.
      */
     public function up(): void {
-        //-- CREATE --
+        // -- CREATE --
         $this->tableCreate(
-        function (Blueprint $table) {
-            $table->increments('id'); //->primary();
-            $table->decimal('min_order', 10, 2)->nullable();
-            $table->decimal('latitude', 16, 13)->index()->nullable();
-            $table->decimal('longitude', 16, 13)->index()->nullable();
-            $table->boolean('is_closed')->nullable();
-            $table->string('price')->nullable();
-            $table->integer('review_count')->nullable();
-            $table->string('rating')->nullable();
-            $table->string('phone', 50)->nullable();
-            $table->string('display_phone', 50)->nullable();
-            //--- fields managed by updater.php
-            $table->string('created_by')->nullable();
-            $table->string('updated_by')->nullable();
-            //$table->string('deleted_by')->nullable();
-            //$table->string('deleted_ip')->nullable();
-            //$table->string('created_ip')->nullable();
-            //$table->string('updated_ip')->nullable();
-            $table->timestamps();
-            //$table->softDeletes();
-        }
-            );
+            function (Blueprint $table) {
+                $table->increments('id'); // ->primary();
+                $table->decimal('min_order', 10, 2)->nullable();
+                $table->decimal('latitude', 16, 13)->index()->nullable();
+                $table->decimal('longitude', 16, 13)->index()->nullable();
+                $table->boolean('is_closed')->nullable();
+                $table->string('price')->nullable();
+                $table->integer('review_count')->nullable();
+                $table->string('rating')->nullable();
+                $table->string('phone', 50)->nullable();
+                $table->string('display_phone', 50)->nullable();
+                // --- fields managed by updater.php
+                $table->string('created_by')->nullable();
+                $table->string('updated_by')->nullable();
+                // $table->string('deleted_by')->nullable();
+                // $table->string('deleted_ip')->nullable();
+                // $table->string('created_ip')->nullable();
+                // $table->string('updated_ip')->nullable();
+                $table->timestamps();
+                // $table->softDeletes();
+            }
+        );
 
         // mi da la lista dei fields ma mi interessa anche se son stringa o text
-        //dddx($this->getConn()->getColumnListing($this->getTable()));
-        //$columns = $this->getConn()->getDoctrineSchemaManager()->listTableColumns($this->getTable());
-        //Call to undefined method Illuminate\Database\Schema\MySqlBuilder::getDoctrineSchemaManager()
+        // dddx($this->getConn()->getColumnListing($this->getTable()));
+        // $columns = $this->getConn()->getDoctrineSchemaManager()->listTableColumns($this->getTable());
+        // Call to undefined method Illuminate\Database\Schema\MySqlBuilder::getDoctrineSchemaManager()
         /*
         $columns = Schema::getConnection()
                     ->getDoctrineSchemaManager()
                     ->listTableDetails($this->getTable());
         */
-        //dddx($columns);
+        // dddx($columns);
 
-        //-- UPDATE --
-        //-- UPDATE --
+        // -- UPDATE --
+        // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table) {
                 $address_components = Location::$address_components;
@@ -86,11 +86,11 @@ class CreateRestaurantsTable extends XotBaseMigration {
                     $table->string('formatted_address')->nullable();
                 }
 
-                if (! $this->hasColumn('min_order')) { //ordine minimo (minimum order  troppo lungo)
+                if (! $this->hasColumn('min_order')) { // ordine minimo (minimum order  troppo lungo)
                     $table->decimal('min_order', 10, 2)->nullable();
                 }
 
-                if (! $this->hasColumn('delivery_cost')) { //ordine minimo (minimum order  troppo lungo)
+                if (! $this->hasColumn('delivery_cost')) { // ordine minimo (minimum order  troppo lungo)
                     $table->decimal('delivery_cost', 10, 2)->nullable();
                 }
 

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use Illuminate\Database\Schema\Blueprint;
-//----models----
+// ----models----
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 class CartStatusTable extends XotBaseMigration {
@@ -11,17 +11,17 @@ class CartStatusTable extends XotBaseMigration {
      * Run the migrations.
      */
     public function up(): void {
-        //-- CREATE --
+        // -- CREATE --
         $this->tableCreate(
-        function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('color');
-            $table->timestamps();
-        }
+            function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('name');
+                $table->string('color');
+                $table->timestamps();
+            }
         );
 
-        //-- UPDATE --
+        // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table) {
             }

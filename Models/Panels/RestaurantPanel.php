@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels;
 
-//--- Services --
+// --- Services --
 use Illuminate\Support\Facades\Auth;
 /*
  * Customs
@@ -75,18 +75,18 @@ class RestaurantPanel extends XotBasePanel {
      * Get the fields displayed by the resource.
      */
     public function fields(): array {
-        //$user_id = \Auth::check() ? \Auth::user()->user_id : '';
-        $user_id = \Auth::id(); //da valutare
+        // $user_id = \Auth::check() ? \Auth::user()->user_id : '';
+        $user_id = \Auth::id(); // da valutare
         $post_table = with(new Post())->getTable();
         $restaurant_table = with(new Restaurant())->getTable();
-        //$ignore_id=null;
-        //$ignore_id = $this->row->post_id;
+        // $ignore_id=null;
+        // $ignore_id = $this->row->post_id;
 
         return [
             (object) [
                 'type' => 'Text',
                 'name' => 'post.title',
-                //'rules' => 'required|min:3|max:50|unique:'.$post_table.',title',
+                // 'rules' => 'required|min:3|max:50|unique:'.$post_table.',title',
                 //  -> esempio con un id da escludere al controllo 'email' => ['email', Rule::unique('users', 'email')->ignore(1)]
                 'rules' => ['required', 'min:3', 'max:50', new TitleSlugUnique('restaurant')],
                 'except' => ['rate', 'index_edit'],
@@ -99,11 +99,11 @@ class RestaurantPanel extends XotBasePanel {
             (object) [
                 'type' => 'Textarea',
                 'name' => 'post.subtitle',
-                //'rules' => 'max:90', //siamo noi a tagliare
+                // 'rules' => 'max:90', //siamo noi a tagliare
                 'except' => ['index_edit'],
             ],
             (object) [
-                //'type' => 'UnisharpImg', //'Html5UploadImg',
+                // 'type' => 'UnisharpImg', //'Html5UploadImg',
                 'type' => 'Image',
                 'name' => 'post.image_src',
                 'col_bs_size' => 12,
@@ -118,7 +118,7 @@ class RestaurantPanel extends XotBasePanel {
                 'type' => 'Text',
                 'name' => 'email',
                 'col_bs_size' => 6,
-                //'rules' => 'required|email|unique:'.$restaurant_table.',email',
+                // 'rules' => 'required|email|unique:'.$restaurant_table.',email',
             ],
             (object) [
                 'type' => 'Text',
@@ -137,10 +137,10 @@ class RestaurantPanel extends XotBasePanel {
                 'sub_type' => 'Google',
                 'name' => 'address',
                 'except' => ['index_edit'],
-                //'rules' => 'required',
+                // 'rules' => 'required',
             ],
             (object) [
-                //'type' => 'PrvCheckbox',
+                // 'type' => 'PrvCheckbox',
                 'type' => 'Accept',
                 'name' => 'restaurant_accept_rules',
                 'except' => ['index', 'edit', 'index_edit'],
@@ -198,8 +198,6 @@ class RestaurantPanel extends XotBasePanel {
 
     /**
      * Get the tabs available.
-     *
-     * @return array
      */
     public function tabs(): array {
         if (in_admin()) {
@@ -221,8 +219,6 @@ class RestaurantPanel extends XotBasePanel {
 
     /**
      * Get the actions available for the resource.
-     *
-     * @return array
      */
     public function actions(): array {
         return [
@@ -246,7 +242,7 @@ class RestaurantPanel extends XotBasePanel {
 
             new Actions\CheckOutAction(),
 
-            //----------------------------------------------------
+            // ----------------------------------------------------
             new Actions\AttachBellBoyAction(Auth::id()),
             new Actions\DetachBellBoyAction(Auth::id()),
             new Actions\AttachWaiterAction(),

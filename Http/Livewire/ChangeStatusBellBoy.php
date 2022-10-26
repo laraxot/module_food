@@ -13,14 +13,14 @@ use Modules\Food\Models\BellBoy;
  */
 class ChangeStatusBellBoy extends Component {
     public int $bellboy_id;
-    //public $status;
+    // public $status;
 
     public string $message = 'Hello World!';
 
     public function mount(int $bellboy_id): void {
-        //$this->row = $row;
+        // $this->row = $row;
         $this->bellboy_id = $bellboy_id;
-        //$this->status = $row->status;
+        // $this->status = $row->status;
     }
 
     public function render(): Renderable {

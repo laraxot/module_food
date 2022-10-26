@@ -39,22 +39,23 @@ namespace Modules\Food\Models;
  * @property int|null                                                                 $my_favorites_count
  * @property \Modules\Lang\Models\Post|null                                           $post
  *
- * @method static \Illuminate\Database\Eloquent\Builder|Ingredient newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Ingredient newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Ingredient    newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Ingredient    newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)
- * @method static \Illuminate\Database\Eloquent\Builder|Ingredient query()
- * @method static \Illuminate\Database\Eloquent\Builder|Ingredient whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Ingredient whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Ingredient whereCreatedIp($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Ingredient whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Ingredient whereDeletedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Ingredient whereDeletedIp($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Ingredient whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Ingredient whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Ingredient whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Ingredient whereUpdatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Ingredient whereUpdatedIp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ingredient    query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Ingredient    whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ingredient    whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ingredient    whereCreatedIp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ingredient    whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ingredient    whereDeletedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ingredient    whereDeletedIp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ingredient    whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ingredient    whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ingredient    whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ingredient    whereUpdatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Ingredient    whereUpdatedIp($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
+ *
  * @mixin \Eloquent
  */
 class Ingredient extends BaseModelLang {

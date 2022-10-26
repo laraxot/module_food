@@ -7,7 +7,7 @@ namespace Modules\Food\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-//------- services -----
+// ------- services -----
 use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Contracts\UserContract;
 
@@ -38,7 +38,7 @@ class StoreRestaurantOwnerMail extends Mailable {
      * @return $this
      */
     public function build() {
-        //$view=ThemeService::getView();//'food::email.RestaurantOwnerRegisteredMailView'
+        // $view=ThemeService::getView();//'food::email.RestaurantOwnerRegisteredMailView'
         $view = 'food::mail.restaurant_owner.store';
         \Log::info('StoreRestaurantOwnerMail');
         \Log::info($view);

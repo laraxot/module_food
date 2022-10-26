@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models;
 
-//use Illuminate\Database\Eloquent\Model;
-////use Laravel\Scout\Searchable;
+// use Illuminate\Database\Eloquent\Model;
+// //use Laravel\Scout\Searchable;
 
-//--- services
-//use Modules\Extend\Traits\Updater;
-//--- TRAITS ---
-//use Modules\Lang\Models\Traits\LinkedTrait;
-//----- models -----
+// --- services
+// use Modules\Extend\Traits\Updater;
+// --- TRAITS ---
+// use Modules\Lang\Models\Traits\LinkedTrait;
+// ----- models -----
 use Modules\Lang\Models\PostRelated;
 
 /**
@@ -23,11 +23,11 @@ use Modules\Lang\Models\PostRelated;
 class CartItem extends BaseModel {
     protected $fillable = [
         'post_id', 'post_type',
-        'user_id', 'sess_id', //se e' loggato e' collegato con user_id, se no con la sessione
+        'user_id', 'sess_id', // se e' loggato e' collegato con user_id, se no con la sessione
         'pivot_id', 'qty', 'parent_id',
     ];
 
-    //----- relationship -----
+    // ----- relationship -----
     public function pivot() {
         return $this->hasOne(PostRelated::class, 'id', 'pivot_id');
     }
@@ -36,13 +36,13 @@ class CartItem extends BaseModel {
         return $this->hasMany(CartItem::class, 'parent_id', 'id');
     }
 
-    //----- mutators -----
+    // ----- mutators -----
     public function getStoreUrlAttribute($value) {
         $routename = \Request::route()->getName();
         $routename = 'container0.container1.container2.container3.store';
         $params = optional(\Route::current())->parameters();
         $params['container3'] = 'cart_item';
-        //return '/#'.$routename;
+        // return '/#'.$routename;
         return route($routename, $params);
     }
 
@@ -53,7 +53,7 @@ class CartItem extends BaseModel {
     */
     public function getSubtotAttribute($value) {
         $subtot = 0;
-        $subtot += $this->pivot->price; //fare mutator ??
+        $subtot += $this->pivot->price; // fare mutator ??
         foreach ($this->sons as $son) {
             $subtot += $son->pivot->price;
         }

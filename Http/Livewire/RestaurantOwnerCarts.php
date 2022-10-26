@@ -6,9 +6,9 @@ namespace Modules\Food\Http\Livewire;
 
 use Auth;
 use Livewire\Component;
-use Modules\Geo\Models\Place;
 use Modules\Food\Models\Profile;
 use Modules\Food\Models\Restaurant;
+use Modules\Geo\Models\Place;
 
 /**
  * Class RestaurantOwnerCarts.
@@ -129,7 +129,7 @@ class RestaurantOwnerCarts extends Component {
 
         $place = Place::query()->create($validatedData);
 
-        //\Auth::user()->profile->places()->save($place);
+        // \Auth::user()->profile->places()->save($place);
         $profile = Profile::query()->where('user_id', Auth::id())->first();
         $profile->places()->save($place);
 

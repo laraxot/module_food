@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models;
 
-//use Intervention\Image\ImageManagerStatic as Image;
+// use Intervention\Image\ImageManagerStatic as Image;
 
-//------ traits ----
-//use Modules\Blog\Models\Traits\PostTrait;
+// ------ traits ----
+// use Modules\Blog\Models\Traits\PostTrait;
 /*
 //use Laravel\Scout\Searchable;
 //use Modules\Extend\Traits\CrudSimpleTrait as CrudTrait;
@@ -16,9 +16,9 @@ use Modules\Extend\Traits\Updater;
 use Modules\Lang\Models\Traits\LinkedTrait;
 */
 class Contact extends BaseModel {
-    //use Updater;
-    //use Searchable;
-    //use LinkedTrait;
+    // use Updater;
+    // use Searchable;
+    // use LinkedTrait;
 
     protected $primaryKey = 'id';
     public $incrementing = true;
@@ -28,6 +28,6 @@ class Contact extends BaseModel {
         'created_at',
         'updated_at',
         'deleted_at',
-        //'open_at','close_at',
+        // 'open_at','close_at',
     ];
 }

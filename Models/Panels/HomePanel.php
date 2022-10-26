@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Food\Models\Panels;
 
 use Illuminate\Http\Request;
-//--- Services --
+// --- Services --
 
 use Modules\Xot\Models\Panels\XotBasePanel;
 
@@ -66,8 +66,6 @@ class HomePanel extends XotBasePanel {
 
     /**
      * Get the tabs available.
-     *
-     * @return array
      */
     public function tabs(): array {
         $tabs_name = ['widgets'];
@@ -77,8 +75,6 @@ class HomePanel extends XotBasePanel {
 
     /**
      * Get the actions available for the resource.
-     *
-     * @return array
      */
     public function actions(Request $request = null): array {
         $cmd = (string) request()->input('cmd');

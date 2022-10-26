@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels\Actions;
 
-//-------- services --------
+// -------- services --------
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
-//-------- bases -----------
+// -------- bases -----------
 
 /**
  * Class ToggleCheckoutAction.
@@ -15,7 +15,7 @@ use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 class ToggleCheckoutAction extends XotBasePanelAction {
     public bool $onContainer = false;
 
-    public bool $onItem = true; //onlyContainer
+    public bool $onItem = true; // onlyContainer
 
     public string $icon = '<i class="fas fa-cart-plus"></i>';
 

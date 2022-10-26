@@ -22,8 +22,8 @@ $ris = [
         (object) [
             'id' => '2',
             'nome' => 'Settings',
-            //'visibility' => '1',
-            //'active' => 0,
+            // 'visibility' => '1',
+            // 'active' => 0,
             'url' => '#',
             'icon' => '',
         ],
@@ -33,9 +33,9 @@ $ris = [
         (object) [
             'id' => '11',
             'nome' => 'Cuisines',
-            //'visibility' => '1',
-            //'active' => 0,
-            //'routename' => '',
+            // 'visibility' => '1',
+            // 'active' => 0,
+            // 'routename' => '',
             'container' => 'cuisine',
             'url' => route('admin.container0.index',
                 array_merge($route_params, ['container0' => 'cuisine', 'lang' => 'it']), false
@@ -117,7 +117,7 @@ $ris = [
             'id' => '122',
             'nome' => 'Galleries',
             'url' => route('admin.container0.index',
-                array_merge($route_params, ['container0' => 'photo', 'lang' => 'it']), false //photo o gallery?
+                array_merge($route_params, ['container0' => 'photo', 'lang' => 'it']), false // photo o gallery?
             ),
             'icon' => '<i class="nav-icon fa fa-image"></i>',
         ],

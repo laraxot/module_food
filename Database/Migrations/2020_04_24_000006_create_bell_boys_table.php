@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use Illuminate\Database\Schema\Blueprint;
-//----- bases ----
+// ----- bases ----
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 /**
@@ -14,8 +14,8 @@ class CreateBellBoysTable extends XotBaseMigration {
      * Run the migrations.
      */
     public function up(): void {
-        //-- CREATE --
-        //-- CREATE --
+        // -- CREATE --
+        // -- CREATE --
         $this->tableCreate(
             function (Blueprint $table) {
                 $table->increments('id');
@@ -26,7 +26,7 @@ class CreateBellBoysTable extends XotBaseMigration {
             }
         );
 
-        //-- UPDATE --
+        // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table) {
                 if (! $this->hasColumn('birthday')) {
@@ -47,8 +47,8 @@ class CreateBellBoysTable extends XotBaseMigration {
                     $table->renameColumn('auth_user_id', 'user_id');
                 }
             }
-    );
+        );
     }
 
-    //end up
-}//end class
+    // end up
+}// end class

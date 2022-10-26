@@ -5,11 +5,10 @@ declare(strict_types=1);
 namespace Modules\Food\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-//use Illuminate\Database\Eloquent\Relations\HasOne;
+// use Illuminate\Database\Eloquent\Relations\HasOne;
 use Modules\LU\Models\User;
 
-class FoodProfile extends BaseModel
-{
+class FoodProfile extends BaseModel {
     /**
      * @var string[]
      */
@@ -18,8 +17,7 @@ class FoodProfile extends BaseModel
     /**
      * Undocumented function.
      */
-    public function user(): BelongsTo
-    {
+    public function user(): BelongsTo {
         return $this->belongsTo(User::class);
     }
 }

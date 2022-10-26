@@ -32,14 +32,14 @@ class Index extends Component {
     public function mount() {
         $this->route_params = request()->route()->parameters();
         $this->data = request()->all();
-        //$this->rows = $this->panel->rows($this->data)->limit(100)->get();
+        // $this->rows = $this->panel->rows($this->data)->limit(100)->get();
     }
 
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\Response|mixed|null
      */
     public function getPanelProperty() {
-        return  PanelService::make()->getByParams($this->route_params);
+        return PanelService::make()->getByParams($this->route_params);
     }
 
     /**
@@ -59,7 +59,7 @@ class Index extends Component {
     public function render() {
         $view = 'food::livewire.restaurant.index';
         $query_params = ['q' => $this->searchTerm];
-        //$query_params = [];
+        // $query_params = [];
         $rows = $this->query($query_params)->paginate(20);
         /*
         $rows = $this->rows->whereHas('post', function ($query) {
@@ -72,7 +72,7 @@ class Index extends Component {
         $items = $collection->forPage(1, $perPage);
         $paginator = new LengthAwarePaginator($items, $collection->count(), $perPage, 1);
         */
-        //$rows = $this->rows;
+        // $rows = $this->rows;
         $view_params = [
             'view' => $view,
             'rows' => $rows,

@@ -4,24 +4,24 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels\Actions;
 
-//------- models ---
-//-------- services --------
+// ------- models ---
+// -------- services --------
 use Illuminate\Support\Facades\Auth;
 use Modules\Food\Models\BellBoy;
 use Modules\Food\Models\RestaurantMorph;
 use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
-//-------- bases -----------
+// -------- bases -----------
 
 /**
  * Class StopBeingBellBoyAction.
  */
 class StopBeingBellBoyAction extends XotBasePanelAction {
-    //public $onContainer = false;
+    // public $onContainer = false;
 
-    public bool $onItem = true; //onlyContainer
-    //mettere freccette su e giù
+    public bool $onItem = true; // onlyContainer
+    // mettere freccette su e giù
 
     public string $icon = '<i class="fas fa-motorcycle"></i>';
 
@@ -33,15 +33,15 @@ class StopBeingBellBoyAction extends XotBasePanelAction {
     public function handle() {
         $view = 'pub_theme::bell_boy.modal.'.$this->getName();
 
-        //dddx($view);
+        // dddx($view);
 
-        //se e' una azione e non esiste la view si deve incazzare come una ape
+        // se e' una azione e non esiste la view si deve incazzare come una ape
 
         return ThemeService::view($view)
             ->with('row', $this->row);
     }
 
-    //-- Perform the action on the given models.
+    // -- Perform the action on the given models.
     public function postHandle(): void {
         echo 'confirmed ['.request()->confirmed.']';
         if (request()->confirmed) {

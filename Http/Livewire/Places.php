@@ -37,7 +37,7 @@ class Places extends Component {
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function render() {
-        //\Auth::user()->profile->places;
+        // \Auth::user()->profile->places;
         $profile = Profile::query()->where('user_id', Auth::id())->first();
         $this->places = $profile->places;
 
@@ -123,7 +123,7 @@ class Places extends Component {
         $place = Place::query()->create($validatedData);
         $profile = Profile::query()->where('user_id', Auth::id())->first();
         $profile->places()->save($place);
-        //\Auth::user()->profile->places()->save($place);
+        // \Auth::user()->profile->places()->save($place);
 
         session()->flash('message', 'Place Created Successfully.');
 

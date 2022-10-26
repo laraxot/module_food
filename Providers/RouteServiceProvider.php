@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Food\Providers;
 
-//--- bases ---
+// --- bases ---
 use Modules\Xot\Providers\XotBaseRouteServiceProvider;
 
 /**

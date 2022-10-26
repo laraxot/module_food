@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use Illuminate\Database\Schema\Blueprint;
-//----- models-------
+// ----- models-------
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 /**
@@ -14,7 +14,7 @@ class CreateRestaurantProvidersTable extends XotBaseMigration {
      * db up.
      */
     public function up(): void {
-        //-- CREATE --
+        // -- CREATE --
         $this->tableCreate(
             function (Blueprint $table) {
                 $table->increments('id');
@@ -25,7 +25,7 @@ class CreateRestaurantProvidersTable extends XotBaseMigration {
             }
         );
 
-        //-- UPDATE --
+        // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table) {
                 if (! $this->hasColumn('created_by')) {

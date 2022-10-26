@@ -18,7 +18,7 @@ class RestaurantCollection extends ResourceCollection {
      * @return array
      */
     public function toArray($request) {
-        //return parent::toArray($request);
+        // return parent::toArray($request);
         return [
             'data' => $this->collection, // non si puo' cambiare il nome della var data
             'links' => [

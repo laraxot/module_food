@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels;
 
-//--- Services --
+// --- Services --
 
 use Modules\Xot\Models\Panels\XotBasePanel;
 
@@ -37,29 +37,29 @@ class PhotoPanel extends XotBasePanel {
                 'type' => 'Text',
                 'name' => 'post.title',
                 'col_bs_size' => 12,
-                //'except' => ['index'],
+                // 'except' => ['index'],
             ],
 
             (object) [
                 'type' => 'Text',
                 'name' => 'post.image_title',
                 'col_bs_size' => 12,
-                //'except' => ['index'],
+                // 'except' => ['index'],
             ],
 
             (object) [
                 'type' => 'Text',
                 'name' => 'post.image_alt',
                 'col_bs_size' => 12,
-                //'except' => ['index'],
+                // 'except' => ['index'],
             ],
 
             (object) [
-                //'type' => 'UnisharpImg', //'Html5UploadImg',
+                // 'type' => 'UnisharpImg', //'Html5UploadImg',
                 'type' => 'Image',
                 'name' => 'post.image_src',
                 'col_bs_size' => 12,
-                //'except' => ['index'],
+                // 'except' => ['index'],
             ],
         ];
     }

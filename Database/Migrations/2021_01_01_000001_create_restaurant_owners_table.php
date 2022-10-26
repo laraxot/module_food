@@ -9,7 +9,7 @@ use Illuminate\Database\Schema\Blueprint;
 *
 **/
 
-//--- models --
+// --- models --
 use Modules\Food\Models\Location;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
@@ -21,22 +21,22 @@ class CreateRestaurantOwnersTable extends XotBaseMigration {
      * Run the migrations.
      */
     public function up(): void {
-        //-- CREATE --
+        // -- CREATE --
         $this->tableCreate(
-        function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('created_by')->nullable();
-            $table->string('updated_by')->nullable();
-            $table->string('deleted_by')->nullable();
-            $table->string('deleted_ip')->nullable();
-            $table->string('created_ip')->nullable();
-            $table->string('updated_ip')->nullable();
-            $table->timestamps();
-            $table->softDeletes();
-        }
-            );
+            function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('created_by')->nullable();
+                $table->string('updated_by')->nullable();
+                $table->string('deleted_by')->nullable();
+                $table->string('deleted_ip')->nullable();
+                $table->string('created_ip')->nullable();
+                $table->string('updated_ip')->nullable();
+                $table->timestamps();
+                $table->softDeletes();
+            }
+        );
 
-        //-- UPDATE --
+        // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table) {
                 $address_components = Location::$address_components;
@@ -64,11 +64,11 @@ class CreateRestaurantOwnersTable extends XotBaseMigration {
                     $table->string('formatted_address')->nullable();
                 }
 
-                if (! $this->hasColumn('min_order')) { //ordine minimo (minimum order  troppo lungo)
+                if (! $this->hasColumn('min_order')) { // ordine minimo (minimum order  troppo lungo)
                     $table->decimal('min_order', 10, 2)->nullable();
                 }
 
-                if (! $this->hasColumn('delivery_cost')) { //ordine minimo (minimum order  troppo lungo)
+                if (! $this->hasColumn('delivery_cost')) { // ordine minimo (minimum order  troppo lungo)
                     $table->decimal('delivery_cost', 10, 2)->nullable();
                 }
 

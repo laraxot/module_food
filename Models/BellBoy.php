@@ -11,11 +11,11 @@ use Modules\Cart\Models\Cart;
 use Modules\Food\Contracts\BellBoyContract;
 use Modules\Geo\Models\Traits\GeoTrait;
 use Modules\LU\Models\Traits\HasProfileTrait;
-//--- contracts
+// --- contracts
 use Modules\LU\Models\User;
 
-//----- traits ----
-//use Modules\Rating\Models\Traits\RatingTrait;
+// ----- traits ----
+// use Modules\Rating\Models\Traits\RatingTrait;
 
 /**
  * Modules\Food\Models\BellBoy.
@@ -70,45 +70,46 @@ use Modules\LU\Models\User;
  * @property User|null                                                                $user
  * @property Label|null                                                               $vehicleTypeLabel
  *
- * @method static \Illuminate\Database\Eloquent\Builder|BellBoy newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|BellBoy newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|BellBoy       newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|BellBoy       newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)
- * @method static \Illuminate\Database\Eloquent\Builder|BellBoy query()
- * @method static \Illuminate\Database\Eloquent\Builder|BellBoy whereAuthUserId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BellBoy whereBirthday($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BellBoy whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BellBoy whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BellBoy whereDrivingLicense($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BellBoy whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BellBoy whereHasBicycle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BellBoy whereHasCar($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BellBoy whereHasMotorcycle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BellBoy whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BellBoy wherePhone($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BellBoy whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BellBoy whereUpdatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BellBoy whereVehicleModel($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BellBoy whereVehicleType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BellBoy withDistance($lat, $lng)
+ * @method static \Illuminate\Database\Eloquent\Builder|BellBoy       query()
+ * @method static \Illuminate\Database\Eloquent\Builder|BellBoy       whereAuthUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BellBoy       whereBirthday($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BellBoy       whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BellBoy       whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BellBoy       whereDrivingLicense($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BellBoy       whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BellBoy       whereHasBicycle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BellBoy       whereHasCar($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BellBoy       whereHasMotorcycle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BellBoy       whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BellBoy       wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BellBoy       whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BellBoy       whereUpdatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BellBoy       whereVehicleModel($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BellBoy       whereVehicleType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BellBoy       withDistance($lat, $lng)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
+ *
  * @mixin \Eloquent
  *
  * @property Collection|Restaurant[] $restaurants
  * @property int|null                $restaurants_count
  */
 class BellBoy extends BaseModelLang implements BellBoyContract {
-    //use RatingTrait;
+    // use RatingTrait;
     use GeoTrait;
     use HasProfileTrait;
     public const Candidate = 0;
 
-    public const Refused = 1; //rifiutato (da un determinato ristorante)
+    public const Refused = 1; // rifiutato (da un determinato ristorante)
 
     public const Free = 2;
 
-    public const Busy = 3; //occupato
-    //protected $table = 'profiles';
-    //protected $primaryKey = 'user_id';
+    public const Busy = 3; // occupato
+    // protected $table = 'profiles';
+    // protected $primaryKey = 'user_id';
 
     /**
      * @var string[]
@@ -117,7 +118,7 @@ class BellBoy extends BaseModelLang implements BellBoyContract {
         'user_id', 'has_car', 'has_motorcycle', 'has_bicycle',
     ];
 
-    ///--- relations ---
+    // /--- relations ---
     /* //inserito dentro HasProfileTrait
     public function user() {
     return $this->hasOne(User::class, 'user_id', 'user_id');
@@ -176,7 +177,7 @@ class BellBoy extends BaseModelLang implements BellBoyContract {
         return $this->morphOne(Place::class, 'post');
     }
 
-    ///----- mutators ---
+    // /----- mutators ---
 
     /**
      * @param mixed $value
@@ -207,22 +208,22 @@ class BellBoy extends BaseModelLang implements BellBoyContract {
         switch ($status) {
             case 0:
                 $value = '<span class="badge badge-pillp-2 badge-warning-light">Candidate</span>';
-            break;
+                break;
             case 1:
                 $value = '<span class="badge badge-pillp-2 badge-dark-light">Refused</span>';
-            break;
+                break;
             case 2:
                 $value = '<span class="badge badge-pillp-2 badge-success-light">Free</span>';
-            break;
+                break;
             case 3:
                 $value = '<span class="badge badge-pillp-2 badge-danger-light">Busy</span>';
-            break;
+                break;
 
-            /*
-            default:
-            code to be executed if n is different from all labels;
-            */
-            }
+                /*
+                default:
+                code to be executed if n is different from all labels;
+                */
+        }
 
         return $value;
     }
@@ -241,4 +242,4 @@ class BellBoy extends BaseModelLang implements BellBoyContract {
         return $value;
     }
     */
-}//end class
+}// end class

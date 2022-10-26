@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels;
 
-//--- Services --
+// --- Services --
 use Modules\Xot\Models\Panels\XotBasePanel;
 
 /**
@@ -31,7 +31,7 @@ class RecipeMorphPanel extends XotBasePanel {
                 'name' => 'id',
             ],
             (object) [
-                //'type' => 'BigInt',
+                // 'type' => 'BigInt',
                 'type' => 'Integer',
                 'name' => 'post_id',
             ],
@@ -40,7 +40,7 @@ class RecipeMorphPanel extends XotBasePanel {
                 'name' => 'post_type',
             ],
             (object) [
-                //'type' => 'BigInt',
+                // 'type' => 'BigInt',
                 'type' => 'Integer',
                 'name' => 'recipe_id',
             ],
@@ -63,12 +63,12 @@ class RecipeMorphPanel extends XotBasePanel {
                 'name' => 'price_currency',
             ],
             (object) [
-                //'type' => 'Boolean',
+                // 'type' => 'Boolean',
                 'type' => 'Integer',
                 'name' => 'launch_available',
             ],
             (object) [
-                //'type' => 'Boolean',
+                // 'type' => 'Boolean',
                 'type' => 'Integer',
                 'name' => 'dinner_available',
             ],

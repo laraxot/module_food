@@ -29,6 +29,6 @@ class Uppercase implements Rule {
      */
     public function message() {
         return 'The :attribute must be uppercase.';
-        //return trans('validation.uppercase');
+        // return trans('validation.uppercase');
     }
 }

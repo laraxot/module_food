@@ -9,5 +9,5 @@ class CartStatus extends BaseModel {
         'name', 'color',
     ];
 
-    //----- relationship -----
+    // ----- relationship -----
 }

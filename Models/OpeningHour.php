@@ -7,9 +7,9 @@ namespace Modules\Food\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-//------- traits ---
+// ------- traits ---
 
-//------- services ----
+// ------- services ----
 
 /**
  * Modules\Food\Models\OpeningHour.
@@ -55,6 +55,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|OpeningHour whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|OpeningHour whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|OpeningHour whereUpdatedIp($value)
+ *
  * @mixin \Eloquent
  */
 class OpeningHour extends BaseModel {
@@ -67,7 +68,7 @@ class OpeningHour extends BaseModel {
      */
     protected array $times = ['open_at', 'close_at'];
 
-    //------------ relationship -----
+    // ------------ relationship -----
 
     /**
      * Parent o linkable ??
@@ -79,7 +80,7 @@ class OpeningHour extends BaseModel {
         return $this->morphTo('post');
     }
 
-    //------------ mutators ---------
+    // ------------ mutators ---------
 
     /**
      * @param mixed $value

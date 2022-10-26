@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-////////////////////////////////////////////////
+// //////////////////////////////////////////////
 //
 //	QUESTO E' IL GENERICO, per food va usato quello dentro XRA\Food\Models\Traits;
 //
-/////////////////////////////////////////////////
+// ///////////////////////////////////////////////
 
 namespace Modules\Food\Models\Traits;
 
-////use Laravel\Scout\Searchable;
+// //use Laravel\Scout\Searchable;
 
-//----- models------
+// ----- models------
 use Modules\Food\Models\ProfilePrivacyChrono;
 use Modules\Install\Helpers\DatabaseManager;
 
-//------ traits ---
+// ------ traits ---
 
 trait PrivacyMutatorsTrait {
     public function privacy() {

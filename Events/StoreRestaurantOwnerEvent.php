@@ -12,7 +12,7 @@ use Illuminate\Queue\SerializesModels;
 class StoreRestaurantOwnerEvent {
     use SerializesModels;
 
-    //public $msg;
+    // public $msg;
 
     public \Modules\LU\Models\User $user;
 
@@ -23,6 +23,6 @@ class StoreRestaurantOwnerEvent {
      */
     public function __construct($user) {
         $this->user = $user;
-        //ddd('qui');//ok
+        // ddd('qui');//ok
     }
 }

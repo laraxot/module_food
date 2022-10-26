@@ -4,30 +4,30 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels\Actions;
 
-//use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use Modules\Cart\Models\Cart;
 use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
-//-------- bases -----------
+// -------- bases -----------
 
 /**
  * Class ChangeStatusCartAction.
  */
 class ChangeStatusCartAction extends XotBasePanelAction {
-    public bool $onItem = true; //onlyContainer
+    public bool $onItem = true; // onlyContainer
 
-    public bool $onContainer = false; //onlyContainer
+    public bool $onContainer = false; // onlyContainer
     /**
      * @var string
      */
     public ?string $related = 'cart';
-    //mettere freccette su e giù
+    // mettere freccette su e giù
 
     public string $icon = '<i class="fas fa-motorcycle"></i>';
 
     public function handle() {
-        //return 'preso ['.$this->user_id.']';
+        // return 'preso ['.$this->user_id.']';
         $view = ThemeService::getView().'.'.$this->getName();
         $params = request()->all();
         extract($params);
@@ -37,7 +37,7 @@ class ChangeStatusCartAction extends XotBasePanelAction {
             return;
         }
         $cart = Cart::query()->find($cart_id);
-        //dddx(get_defined_vars());
+        // dddx(get_defined_vars());
 
         return ThemeService::view($view)
             ->with('row', $cart);
@@ -45,8 +45,8 @@ class ChangeStatusCartAction extends XotBasePanelAction {
 
     public function postHandle(): void {
         $data = request()->all();
-        //dddx($data);
+        // dddx($data);
     }
 
-    //end handle
-}//end EditBellboyAction
+    // end handle
+}// end EditBellboyAction

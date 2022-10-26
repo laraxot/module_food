@@ -12,11 +12,11 @@ use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\Image\Manipulations as ImageManipulations;
 use Spatie\MediaLibrary\File;
 */
-//---------- traits
-////use Laravel\Scout\Searchable;
+// ---------- traits
+// //use Laravel\Scout\Searchable;
 
-use Modules\Xot\Models\Traits\HasPriceTrait;
 use Modules\Lang\Models\Traits\LinkedTrait;
+use Modules\Xot\Models\Traits\HasPriceTrait;
 use Modules\Xot\Traits\Updater;
 
 /**
@@ -29,10 +29,10 @@ use Modules\Xot\Traits\Updater;
  */
 abstract class BaseModelLang extends Model {
     use Updater;
-    //use Searchable;
+    // use Searchable;
     use LinkedTrait;
     use HasPriceTrait;
-    //use Cachable;
+    // use Cachable;
     /*
     use HasMediaTrait; //spatie
     //use ImageManipulations; //spatie per usare sepia ed altri
@@ -62,11 +62,11 @@ abstract class BaseModelLang extends Model {
      * @var array
      */
     protected $casts = [
-        //'published_at' => 'datetime:Y-m-d', // da verificare
+        // 'published_at' => 'datetime:Y-m-d', // da verificare
     ];
 
     protected $hidden = [
-        //'password'
+        // 'password'
     ];
 
     public $timestamps = true;

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels;
 
-//--- Services --
+// --- Services --
 use Modules\Xot\Models\Panels\XotBasePanel;
 
-//------- bases -----
+// ------- bases -----
 
 /**
  * Class OpeningHourPanel.
@@ -29,12 +29,12 @@ class OpeningHourPanel extends XotBasePanel {
     public function fields(): array {
         return [
             (object) [
-                //'type' => 'Id',
+                // 'type' => 'Id',
                 'type' => 'Hidden',
                 'name' => 'id',
             ],
             (object) [
-                //'type' => 'String',
+                // 'type' => 'String',
                 'type' => 'Hidden',
                 'name' => 'post_type',
             ],
@@ -87,8 +87,6 @@ class OpeningHourPanel extends XotBasePanel {
 
     /**
      * Get the actions available for the resource.
-     *
-     * @return array
      */
     public function actions(): array {
         return [

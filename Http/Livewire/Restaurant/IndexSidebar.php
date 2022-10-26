@@ -13,8 +13,8 @@ use Modules\Xot\Services\PanelService;
  * @property \Modules\Xot\Models\Panels\XotBasePanel $panel
  */
 class IndexSidebar extends Component {
-    //public $route_params = [];
-    //public $data = [];
+    // public $route_params = [];
+    // public $data = [];
 
     // public $searchTerm;
     /*
@@ -39,8 +39,8 @@ class IndexSidebar extends Component {
         $view = 'food::livewire.restaurant.index.sidebar';
         $view_params = [
             'view' => $view,
-            //'rows' => $this->query()->paginate(20),
-            //'_panel' => $this->panel,
+            // 'rows' => $this->query()->paginate(20),
+            // '_panel' => $this->panel,
         ];
 
         return view($view, $view_params);

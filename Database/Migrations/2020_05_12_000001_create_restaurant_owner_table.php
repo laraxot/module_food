@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use Illuminate\Database\Schema\Blueprint;
-//----- bases ----
+// ----- bases ----
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 /**
@@ -12,13 +12,11 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 class CreateRestaurantOwnerTable extends XotBaseMigration {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up(): void {
-       //-- CREATE --
-       $this->tableCreate(
-        function (Blueprint $table) {
+        // -- CREATE --
+        $this->tableCreate(
+            function (Blueprint $table) {
                 $table->increments('id');
                 $table->integer('user_id')->nullable();
                 $table->string('email')->nullable();
@@ -28,22 +26,22 @@ class CreateRestaurantOwnerTable extends XotBaseMigration {
                 $table->timestamps();
             });
 
-        //-- UPDATE --
+        // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table) {
-            /*
-            if (! $this->hasColumn('birthday')) {
-                $table->date('birthday')->nullable();
-                $table->string('vehicle_type')->nullable();
-                $table->string('vehicle_model')->nullable();
-            }
-            */
+                /*
+                if (! $this->hasColumn('birthday')) {
+                    $table->date('birthday')->nullable();
+                    $table->string('vehicle_type')->nullable();
+                    $table->string('vehicle_model')->nullable();
+                }
+                */
 
-            if (Schema::hasColumn($this->getTable(), 'post_id')) {
-                $table->renameColumn('post_id', 'id');
-            }
-        });
+                if (Schema::hasColumn($this->getTable(), 'post_id')) {
+                    $table->renameColumn('post_id', 'id');
+                }
+            });
     }
 
-    //end up
-}//end class
+    // end up
+}// end class

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-//----- models-------
+// ----- models-------
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 /**
@@ -15,7 +15,7 @@ class CreateProfilePrivacyChronosTable extends XotBaseMigration {
      * db up.
      */
     public function up(): void {
-        //-- CREATE --
+        // -- CREATE --
         $this->tableCreate(
             function (Blueprint $table) {
                 $table->increments('id');
@@ -24,13 +24,13 @@ class CreateProfilePrivacyChronosTable extends XotBaseMigration {
                 $table->string('updated_by')->nullable();
                 $table->string('created_ip')->nullable();
                 $table->string('updated_ip')->nullable();
-                //$table->string('deleted_by')->nullable();
-                //$table->string('deleted_ip')->nullable();
+                // $table->string('deleted_by')->nullable();
+                // $table->string('deleted_ip')->nullable();
                 $table->timestamps();
             }
         );
 
-        //-- UPDATE --
+        // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table) {
                 if (! Schema::hasColumn($this->getTable(), 'checkbox_position')) {
@@ -51,4 +51,4 @@ class CreateProfilePrivacyChronosTable extends XotBaseMigration {
             }
         );
     }
-}//end
+}// end

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels;
 
-//--- Services --
+// --- Services --
 use Modules\Xot\Models\Panels\XotBasePanel;
 
 /**
@@ -25,12 +25,12 @@ class CuisineCatMorphPanel extends XotBasePanel {
      * @return object[]
      */
     public function fields(): array {
-        //'type' => 'BigInt',
+        // 'type' => 'BigInt',
         return [
             (object) [
                 'type' => 'Id',
                 'name' => 'id',
-            ], //diventa la chiave
+            ], // diventa la chiave
             (object) [
                 'type' => 'Integer',
                 'name' => 'post_id',
@@ -47,9 +47,9 @@ class CuisineCatMorphPanel extends XotBasePanel {
                     'data-url' => url('/admin/food/it/cuisine_cat?query=%QUERY%'),
                 ],
             ],
-            //(object) ['type' => 'String',	    		'name' => 'related_type',   ], //diventa inutile perche' sempre settato a "cuisine_cat"
+            // (object) ['type' => 'String',	    		'name' => 'related_type',   ], //diventa inutile perche' sempre settato a "cuisine_cat"
             (object) ['type' => 'Text',    				'name' => 'pivot.note',
-                'rules' => 'required', ], //test di salvataggio
+                'rules' => 'required', ], // test di salvataggio
         ];
     }
 }

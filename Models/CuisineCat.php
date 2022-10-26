@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models;
 
-//------ traits ----
-//--- services
+// ------ traits ----
+// --- services
 
-//--------- models --------
+// --------- models --------
 
 /**
  * Modules\Food\Models\CuisineCat.
@@ -46,24 +46,25 @@ namespace Modules\Food\Models;
  * @property int|null                                                                 $my_favorites_count
  * @property \Modules\Lang\Models\Post|null                                           $post
  *
- * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat    newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat    newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)
- * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat query()
- * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat whereCreatedIp($value)
- * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat whereDeletedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat whereDeletedIp($value)
- * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat whereIsClosed($value)
- * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat whereNote($value)
- * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat whereUpdatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat whereUpdatedIp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat    query()
+ * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat    whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat    whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat    whereCreatedIp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat    whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat    whereDeletedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat    whereDeletedIp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat    whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat    whereIsClosed($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat    whereNote($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat    whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat    whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat    whereUpdatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CuisineCat    whereUpdatedIp($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
+ *
  * @mixin \Eloquent
  *
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Restaurant[] $restaurants

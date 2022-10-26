@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels\Policies;
 
-//use Modules\LU\Models\User;
+// use Modules\LU\Models\User;
 use Modules\Xot\Contracts\PanelContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Models\Panels\Policies\XotBasePanelPolicy;
@@ -27,9 +27,9 @@ class OpeningHourPanelPolicy extends XotBasePanelPolicy {
         return false;
         */
 
-        //$restaurant_owners = $post->parent->restaurantOwners;
-        //dddx($restaurant_owners);
-        //dddx($user);
+        // $restaurant_owners = $post->parent->restaurantOwners;
+        // dddx($restaurant_owners);
+        // dddx($user);
         return true;
     }
 

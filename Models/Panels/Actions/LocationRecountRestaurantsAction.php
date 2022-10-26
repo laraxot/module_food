@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels\Actions;
 
-//--------- models ---------
+// --------- models ---------
 use Modules\Food\Models\Location;
-//-------- services --------
+// -------- services --------
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
-//-------- bases -----------
+// -------- bases -----------
 
 /**
  * Class LocationRecountRestaurantsAction.
@@ -17,7 +17,7 @@ use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 class LocationRecountRestaurantsAction extends XotBasePanelAction {
     public bool $onContainer = true;
 
-    public bool $onItem = false; //onlyContainer
+    public bool $onItem = false; // onlyContainer
 
     public string $icon = '<i class="fas fa-sync"></i>';
 

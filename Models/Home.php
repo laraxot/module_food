@@ -45,18 +45,19 @@ use Sushi\Sushi;
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Xot\Models\Widget[]      $widgets
  * @property int|null                                                                   $widgets_count
  *
- * @method static \Illuminate\Database\Eloquent\Builder|Home newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Home newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Home          newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Home          newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang ofItem($guid)
- * @method static \Illuminate\Database\Eloquent\Builder|Home ofLayoutPosition($layout_position)
- * @method static \Illuminate\Database\Eloquent\Builder|Home query()
- * @method static \Illuminate\Database\Eloquent\Builder|Home whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Home whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Home whereIconSrc($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Home whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Home whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Home whereUpdatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Home          ofLayoutPosition($layout_position)
+ * @method static \Illuminate\Database\Eloquent\Builder|Home          query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Home          whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Home          whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Home          whereIconSrc($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Home          whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Home          whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Home          whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BaseModelLang withPost($guid)
+ *
  * @mixin \Eloquent
  *
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Food\Models\Location[]   $citiesPopular
@@ -67,7 +68,7 @@ use Sushi\Sushi;
 class Home extends BaseHomeModel {
     use WidgetTrait;
     use Sushi;
-    //use HasCustomRelations;
+    // use HasCustomRelations;
 
     /**
      * @var string[]
@@ -78,11 +79,11 @@ class Home extends BaseHomeModel {
         [
             'id' => 'home',
             'name' => 'New York',
-            'lang' => 'it', //Constant expression contains invalid operations
+            'lang' => 'it', // Constant expression contains invalid operations
         ],
     ];
 
-    //--- relationships ----
+    // --- relationships ----
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -136,4 +137,4 @@ class Home extends BaseHomeModel {
     public function homes() {
         return $this->hasMany(Home::class, 'id', 'id');
     }
-}//end model
+}// end model

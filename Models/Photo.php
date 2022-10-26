@@ -13,8 +13,8 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Extend\Traits\Updater;
 use Modules\Lang\Models\Traits\LinkedTrait;
 */
-//--- services
-//--- models ---
+// --- services
+// --- models ---
 
 /**
  * { item_description }
@@ -23,9 +23,9 @@ use Modules\Lang\Models\Traits\LinkedTrait;
  * @mixin \Eloquent
  */
 class Photo extends BaseModel {
-    //use Searchable; //se non si crea prima indice da un sacco di errori
-    //use Updater;
-    //use LinkedTrait;
+    // use Searchable; //se non si crea prima indice da un sacco di errori
+    // use Updater;
+    // use LinkedTrait;
     protected $table = 'blog_post_photos';
     /**
      * The attributes that are mass assignable.
@@ -33,9 +33,9 @@ class Photo extends BaseModel {
      * @var array
      */
     protected $fillable = ['post_id'];
-    //protected $appends=['category_id'];
-    //protected $casts = [ 'category_id' => 'integer', ];
-    protected $dates = ['published_at'/* 'created_at', 'updated_at'*/];
+    // protected $appends=['category_id'];
+    // protected $casts = [ 'category_id' => 'integer', ];
+    protected $dates = ['published_at'/* 'created_at', 'updated_at' */];
     protected $primaryKey = 'post_id';
     public $incrementing = true;
 

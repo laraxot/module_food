@@ -9,7 +9,7 @@ namespace Modules\Food\Transformers;
 * https://jsonapi.org/
 **/
 
-//use Illuminate\Http\Resources\Json\Resource;
+// use Illuminate\Http\Resources\Json\Resource;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Http\Resources\Json\JsonResource as Resource;
 use JsonSerializable;

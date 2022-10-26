@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels;
 
-//--- Services --
+// --- Services --
 use Modules\Xot\Models\Panels\XotBasePanel;
 
-//------- bases -----
+// ------- bases -----
 
 /**
  * Class RecipePanel.
@@ -44,7 +44,7 @@ class RecipePanel extends XotBasePanel {
                 'col_bs_size' => 12,
             ],
             (object) [
-                //'type' => 'Text', //sarebbe meglio "Price" ?
+                // 'type' => 'Text', //sarebbe meglio "Price" ?
                 'type' => 'Price',
                 'name' => 'pivot.price',
                 'col_bs_size' => 12,
@@ -54,8 +54,6 @@ class RecipePanel extends XotBasePanel {
 
     /**
      * Get the actions available for the resource.
-     *
-     * @return array
      */
     public function actions(): array {
         return [

@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-//----- models-------
+// ----- models-------
 use Modules\Food\Models\Location as MyModel;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
@@ -13,20 +12,16 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
  * Class CreateLocationsTable.
  */
 class CreateLocationsTable extends XotBaseMigration {
-
-
     /**
      * db up.
-     *
-     * @return void
      */
     public function up(): void {
-       //-- CREATE --
-       $this->tableCreate(
-        function (Blueprint $table) {
-                $table->increments('id'); //->primary();
+        // -- CREATE --
+        $this->tableCreate(
+            function (Blueprint $table) {
+                $table->increments('id'); // ->primary();
                 $table->string('term')->nullable();
-                //$table->string('location')->nullable(); // location sostituito da locality per copia da google api
+                // $table->string('location')->nullable(); // location sostituito da locality per copia da google api
                 $address_components = MyModel::$address_components;
                 foreach ($address_components as $el) {
                     if (! Schema::hasColumn($this->getTable(), $el)) {
@@ -40,35 +35,33 @@ class CreateLocationsTable extends XotBaseMigration {
                 $table->string('nearest_street')->nullable();
                 $table->timestamps();
             });
-        
-        //-- UPDATE --
+
+        // -- UPDATE --
         $this->tableUpdate(
             function (Blueprint $table) {
-            //$table->increments('post_id')->change();
-            //->autoIncrement()
-            if (! Schema::hasColumn($this->getTable(), 'created_by')) {
-                $table->string('created_by')->index()->nullable(); // item collegati all'utente
-                $table->string('updated_by')->index()->nullable(); // item collegati all'utente
-            }
-            $address_components = MyModel::$address_components;
-            foreach ($address_components as $el) {
-                if (! Schema::hasColumn($this->getTable(), $el)) {
-                    $table->string($el)->nullable();
+                // $table->increments('post_id')->change();
+                // ->autoIncrement()
+                if (! Schema::hasColumn($this->getTable(), 'created_by')) {
+                    $table->string('created_by')->index()->nullable(); // item collegati all'utente
+                    $table->string('updated_by')->index()->nullable(); // item collegati all'utente
                 }
-            }
+                $address_components = MyModel::$address_components;
+                foreach ($address_components as $el) {
+                    if (! Schema::hasColumn($this->getTable(), $el)) {
+                        $table->string($el)->nullable();
+                    }
+                }
 
-            if (! Schema::hasColumn($this->getTable(), 'restaurants_count')) {
-                $table->integer('restaurants_count')->index()->nullable();
-            }
+                if (! Schema::hasColumn($this->getTable(), 'restaurants_count')) {
+                    $table->integer('restaurants_count')->index()->nullable();
+                }
 
-            if (! Schema::hasColumn($this->getTable(), 'status')) {
-                $table->integer('status')->nullable();
-            }
-            if (Schema::hasColumn($this->getTable(), 'post_id')) {
-                $table->renameColumn('post_id', 'id');
-            }
-        });
+                if (! Schema::hasColumn($this->getTable(), 'status')) {
+                    $table->integer('status')->nullable();
+                }
+                if (Schema::hasColumn($this->getTable(), 'post_id')) {
+                    $table->renameColumn('post_id', 'id');
+                }
+            });
     }
-
-
-}//end CreateBlogPostLocationsTable
+}// end CreateBlogPostLocationsTable

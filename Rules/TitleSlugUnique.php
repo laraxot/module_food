@@ -6,7 +6,7 @@ namespace Modules\Food\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Str;
-///--- models ----
+// /--- models ----
 use Modules\Lang\Models\Post;
 
 /**
@@ -29,7 +29,7 @@ class TitleSlugUnique implements Rule {
      * @return bool
      */
     public function passes($attribute, $value) {
-        //ddd(\Request::getMethod());//PUT
+        // ddd(\Request::getMethod());//PUT
         $lang = app()->getLocale();
         $guid = Str::slug($value);
         $q = Post::query()
@@ -37,7 +37,7 @@ class TitleSlugUnique implements Rule {
             ->where('guid', $guid)
             ->where('lang', $lang)
             ->count();
-        if (in_array(\Request::getMethod(), ['PUT']) && $q <= 1) { //edit
+        if (in_array(\Request::getMethod(), ['PUT']) && $q <= 1) { // edit
             return true;
         }
         if (0 == $q) {
@@ -53,4 +53,4 @@ class TitleSlugUnique implements Rule {
     public function message() {
         return trans('pub_theme::txt.The :attribute just exists.');
     }
-}//end class
+}// end class

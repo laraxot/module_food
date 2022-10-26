@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels\Policies;
 
-//use Modules\LU\Models\User as User;
-//use Modules\Food\Models\BellBoy as Post;
+// use Modules\LU\Models\User as User;
+// use Modules\Food\Models\BellBoy as Post;
 use Modules\Xot\Contracts\PanelContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Contracts\UserContract as User;

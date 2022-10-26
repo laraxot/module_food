@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Modules\Food\Models\Panels;
 
 use Illuminate\Http\Request;
-//--- Services --
+// --- Services --
 use Modules\Xot\Models\Panels\XotBasePanel;
 
-//---- bases --
+// ---- bases --
 
 /**
  * Class CuisineCatPanel.
@@ -52,7 +52,7 @@ class CuisineCatPanel extends XotBasePanel {
                         ->get()
                         ->toJson();
             */
-            //*
+            // *
             $rows = \Modules\Lang\Models\Post::select('post_id as id', 'title as label')
                 ->where('title', 'like', '%'.$q.'%')
                 ->where('post_type', 'cuisine_cat')
@@ -60,7 +60,7 @@ class CuisineCatPanel extends XotBasePanel {
                 ->limit(10)
                 ->get()
                 ->toJson();
-            //*/
+            // */
 
             exit($rows);
         }

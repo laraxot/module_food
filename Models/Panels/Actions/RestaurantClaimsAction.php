@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Food\Models\Panels\Actions;
 
-//-------- services --------
+// -------- services --------
 use Modules\Food\Models\RestaurantOwner;
 use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
-//-------- bases -----------
+// -------- bases -----------
 
 /**
  * Class RestaurantClaimsAction.
@@ -17,8 +17,8 @@ use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 class RestaurantClaimsAction extends XotBasePanelAction {
     public bool $onContainer = false;
 
-    public bool $onItem = true; //onlyContainer
-    //mettere freccette su e giù
+    public bool $onItem = true; // onlyContainer
+    // mettere freccette su e giù
 
     public string $icon = '<i class="fas fa-gavel"></i>';
 
@@ -29,11 +29,11 @@ class RestaurantClaimsAction extends XotBasePanelAction {
      */
     public function handle() {
         $view = 'pub_theme::restaurant.modal.'.$this->getName();
-        //dddx($this->row);
+        // dddx($this->row);
 
         return ThemeService::view($view)
             ->with('row', $this->row);
-        //ddd($this->row);
+        // ddd($this->row);
     }
 
     /**
@@ -41,8 +41,8 @@ class RestaurantClaimsAction extends XotBasePanelAction {
      */
     public function postHandle() {
         $data = request()->all();
-        //da owner a restaurant (morph ) false
-        //da restaurant a owner (morph) true
+        // da owner a restaurant (morph ) false
+        // da restaurant a owner (morph) true
         $restaurantOwner = RestaurantOwner::query()->create([
             'user_id' => \Auth::id(),
             'email' => $data['restaurantOwner']['email'],
